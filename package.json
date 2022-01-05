@@ -7,11 +7,9 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch",
-    "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch"
   },
   "dependencies": {
-    "codegen": "^0.1.0",
     "contentful": "^9.1.5",
     "next": "12.0.7",
     "react": "17.0.2",
