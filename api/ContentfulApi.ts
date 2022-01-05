@@ -1,4 +1,6 @@
 const callContentful = async (query) => {
+    console.log(process.env.CONTENTFUL_SPACE_ID);
+
     const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`;
     const fetchOptions = {
         method: 'POST',
