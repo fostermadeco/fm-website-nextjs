@@ -7,9 +7,11 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch"
+    "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch",
+    "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "codegen": "^0.1.0",
     "contentful": "^9.1.5",
     "next": "12.0.7",
     "react": "17.0.2",
@@ -24,6 +26,9 @@
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "autoprefixer": "^10.4.1",
+    "contentful-management": "^7.48.0",
+    "contentful-typescript-codegen": "^3.2.3",
+    "dotenv": "^10.0.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^16.1.0",
