@@ -18,7 +18,7 @@ export async function getStaticProps() {
 const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
-    return <div>Welcome to Next.js!</div>;
+    return <div>Welcome to {page.fields.title}</div>;
 };
 
 export default CompanyPage;
