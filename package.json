@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch"
   },
   "dependencies": {
     "contentful": "^9.1.5",
