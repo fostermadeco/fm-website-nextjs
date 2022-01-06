@@ -11,5 +11,6 @@ export type {
     TypeComponentBlockPageSection,
     TypeComponentBlockPageSectionFields,
 } from './TypeComponentBlockPageSection';
+export type { TypeComponentPageIntro, TypeComponentPageIntroFields } from './TypeComponentPageIntro';
 
 export type { TypePage } from './TypePage';
