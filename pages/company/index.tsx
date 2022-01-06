@@ -18,7 +18,12 @@ export async function getStaticProps() {
 const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
-    return <div>Welcome to {page.fields.title}</div>;
+    return (
+        <>
+            <div>Welcome to {page.fields.title}</div>
+            <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        </>
+    );
 };
 
 export default CompanyPage;
