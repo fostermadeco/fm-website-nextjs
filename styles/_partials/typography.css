@@ -1,0 +1,8 @@
+@layer components {
+    .h1 {
+        @apply text-7xl font-headline;
+    }
+    .overline {
+        @apply text-xs uppercase font-headline tracking-widest mb-4;
+    }
+}

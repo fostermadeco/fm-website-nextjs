@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import React from 'react';
+import styled from 'styled-components';
 import getPage from '../../api/api';
 import { TypePage } from '../../lib/types';
 
@@ -15,14 +17,38 @@ export async function getStaticProps() {
     };
 }
 
+const TextWrapperStyled = styled.div`
+    grid-column: 3 / span 2;
+    grid-row: third-line / 4;
+`;
+
 const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     return (
-        <>
-            <div>Welcome to {page.fields.title}</div>
-            <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        </>
+        <div className="mx-auto">
+            <div className="" style={{ position: 'relative' }}>
+                <div style={{ position: 'relative', width: '100%', height: '620px' }}>
+                    <Image
+                        className="z-0"
+                        height={420}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                        src={`https:${page.fields.content.fields.pageIntro.fields.image.fields.media.fields.file.url}`}
+                        alt=""
+                    />
+                    <div className="z-10 relative grid grid-rows-3 grid-cols-3" style={{ height: '620px' }}>
+                        <div className="md:col-span-2 md:col-start-2 md:row-start-2">
+                            <h1 className="overline text-white z-10">
+                                /{page.fields.content.fields.pageIntro.fields.overline}
+                            </h1>
+                            <p className="h1 text-white">{page.fields.content.fields.pageIntro.fields.headerText}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Formular";
+    src: url("/fonts/formular/formular-medium.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Formular";
+    src: url("/fonts/formular/formular-bold.otf");
+    font-style: medium;
+    font-weight: 800;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Sailec";
+    src: url("/fonts/sailec/sailec-medium.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+/* @font-face {
+    font-family: "Sailec";
+    src: url("/fonts/sailec/sailec-bold.otf");
+    font-style: medium;
+    font-weight: 800;
+    font-display: swap;
+} */
