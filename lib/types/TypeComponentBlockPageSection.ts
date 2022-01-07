@@ -7,7 +7,7 @@ import { TypePageFields } from './TypePage';
 
 export interface TypeComponentBlockPageSectionFields {
     image: Contentful.Entry<TypeComponentImageWrapperFields>;
-    header: Contentful.Entry<TypeComponentBlockHeaderFields>;
+    headerBlock: Contentful.Entry<TypeComponentBlockHeaderFields>;
     paragraph: Contentful.EntryFields.Symbol;
     linkText: Contentful.EntryFields.Symbol;
     link: Contentful.Entry<TypePageFields>;

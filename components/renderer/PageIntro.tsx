@@ -19,7 +19,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     alt=""
                 />
                 <div className="container mx-auto">
-                    <div className="mx-4">
+                    <div className="mx-6">
                         <div
                             className="z-10 relative grid grid-cols-1 gap-0 md:grid-cols-14 md:grid-rows-3 md:gap-8"
                             style={{ height: '620px' }}

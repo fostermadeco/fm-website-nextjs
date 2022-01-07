@@ -7,6 +7,7 @@ import get from 'lodash.get';
 import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
 import ImageWithPartialOverlay from './ImageWithPartialOverlay';
+import PageSection from './PageSection';
 
 type BlockRendererProps = {
     block: any;
@@ -17,6 +18,7 @@ const ContentTypeMap = {
     blockNumberedBlocks: NumberedBlocks,
     blockImageOverlayIntro: PageIntro,
     blockImageWithPartialOverlay: ImageWithPartialOverlay,
+    blockPageSection: PageSection,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {
