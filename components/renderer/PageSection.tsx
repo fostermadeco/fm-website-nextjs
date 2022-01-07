@@ -62,15 +62,15 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className="mt-6 md:mt-0">
                             <div className="grid grid-cols-7">
                                 {imagePlacement === 'Left' && (
-                                    <div className="col-span-6">
+                                    <div className="col-start-2 col-span-5 md:col-start-1 md:col-span-6">
                                         <PageSectionContent fields={fields} />
                                     </div>
                                 )}
                                 {imagePlacement === 'Right' && (
-                                    <div className="col-span-7">
+                                    <div className="col-span-5 col-start-2 md:col-start-1 md:col-span-7">
                                         <PageSectionImage url={image.fields.media.fields.file.url} />
                                     </div>
                                 )}
