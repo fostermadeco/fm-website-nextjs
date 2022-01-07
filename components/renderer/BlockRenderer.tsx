@@ -5,6 +5,7 @@
 import React from 'react';
 import get from 'lodash.get';
 import NumberedBlocks from '../NumberedBlocks';
+import PageIntro from '../PageIntro';
 
 type BlockRendererProps = {
     block: any;
@@ -12,6 +13,7 @@ type BlockRendererProps = {
 
 const ContentTypeMap = {
     blockNumberedBlocks: NumberedBlocks,
+    blockImageOverlayIntro: PageIntro,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {
@@ -27,7 +29,7 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
 
     const contentTypeId = get(block, 'sys.contentType.sys.id');
     const Component = ContentTypeMap[contentTypeId];
-    console.log(Component);
+    console.log(contentTypeId);
 
     if (!Component) {
         console.warn(`${contentTypeId} is not handled by the renderer`);

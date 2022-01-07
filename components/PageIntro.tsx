@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeComponentPageIntro } from '../lib/types';
+import { TypeComponentPageIntroFields } from '../lib/types';
 
 // technically this is a landing page intro I think
-const PageIntro = ({ pageIntro }: { pageIntro: TypeComponentPageIntro }) => {
-    console.log({ pageIntro });
+const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
+    if (!fields) return null;
 
     return (
         <div style={{ position: 'relative' }}>
@@ -15,7 +15,7 @@ const PageIntro = ({ pageIntro }: { pageIntro: TypeComponentPageIntro }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
-                    src={`https:${pageIntro.fields.image.fields.media.fields.file.url}`}
+                    src={`https:${fields.image.fields.media.fields.file.url}`}
                     alt=""
                 />
                 <div className="container mx-auto">
@@ -25,8 +25,8 @@ const PageIntro = ({ pageIntro }: { pageIntro: TypeComponentPageIntro }) => {
                             style={{ height: '620px' }}
                         >
                             <div className="col-span-1 md:col-span-9 md:col-start-5 row-start-2">
-                                <h1 className="h5 text-white z-10">{pageIntro.fields.overline}</h1>
-                                <p className="h1 text-white">{pageIntro.fields.headerText}</p>
+                                <h1 className="h5 text-white z-10">{fields.overline}</h1>
+                                <p className="h1 text-white">{fields.headerText}</p>
                             </div>
                         </div>
                     </div>
