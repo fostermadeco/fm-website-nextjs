@@ -1,6 +1,6 @@
 @layer components {
     .h1 {
-        @apply text-7xl font-headline text-black;
+        @apply text-4xl md:text-6xl lg:text-7xl font-headline text-black;
     }
     .h2 {
 

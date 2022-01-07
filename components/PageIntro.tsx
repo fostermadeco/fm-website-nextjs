@@ -18,10 +18,17 @@ const PageIntro = ({ pageIntro }: { pageIntro: TypeComponentPageIntro }) => {
                     src={`https:${pageIntro.fields.image.fields.media.fields.file.url}`}
                     alt=""
                 />
-                <div className="z-10 relative grid grid-rows-3 grid-cols-3" style={{ height: '620px' }}>
-                    <div className="md:col-span-2 md:col-start-2 md:row-start-2">
-                        <h1 className="h5 text-white z-10">{pageIntro.fields.overline}</h1>
-                        <p className="h1 text-white">{pageIntro.fields.headerText}</p>
+                <div className="container mx-auto">
+                    <div className="mx-4">
+                        <div
+                            className="z-10 relative grid grid-cols-1 gap-0 md:grid-cols-14 md:grid-rows-3 md:gap-8"
+                            style={{ height: '620px' }}
+                        >
+                            <div className="col-span-1 md:col-span-9 md:col-start-5 row-start-2">
+                                <h1 className="h5 text-white z-10">{pageIntro.fields.overline}</h1>
+                                <p className="h1 text-white">{pageIntro.fields.headerText}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
