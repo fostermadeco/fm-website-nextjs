@@ -8,6 +8,7 @@ import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
 import ImageWithPartialOverlay from './ImageWithPartialOverlay';
 import PageSection from './PageSection';
+import Slideshow from './Slideshow';
 
 type BlockRendererProps = {
     block: any;
@@ -19,6 +20,7 @@ const ContentTypeMap = {
     blockImageOverlayIntro: PageIntro,
     blockImageWithPartialOverlay: ImageWithPartialOverlay,
     blockPageSection: PageSection,
+    slideshows: Slideshow,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {

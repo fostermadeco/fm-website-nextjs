@@ -27,7 +27,7 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
                                 <div className="col-start-2 col-span-5">
-                                    <h1 className="h5 z-10">{fields.header.fields.overline}</h1>
+                                    <h2 className="h5 z-10">{fields.header.fields.overline}</h2>
                                     <p className="h3">{fields.header.fields.header}</p>
                                 </div>
                             </div>

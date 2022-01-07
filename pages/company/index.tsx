@@ -21,12 +21,13 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageLanding;
-    const { sections = [], pageIntro = {} } = content.fields;
+    const { sections = [], pageIntro = {}, slideshow } = content.fields;
 
     return (
         <div className="mx-auto">
             <BlockRenderer block={pageIntro} />
             <BlockRenderer block={sections} />
+            <BlockRenderer block={slideshow} />
         </div>
     );
 };

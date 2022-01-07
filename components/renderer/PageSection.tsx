@@ -6,9 +6,6 @@ import { TypeComponentBlockPageSectionFields } from '../../lib/types';
 type PageSectionImageProps = {
     url: string;
 };
-type PageSectionContentProps = {
-    headerBlock: string;
-};
 
 const PageSectionImage = (props: PageSectionImageProps) => {
     const { url } = props;
@@ -31,7 +28,7 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
     const { headerBlock, paragraph, linkText } = fields;
     return (
         <div>
-            <h1 className="h5 z-10">{headerBlock.fields.overline}</h1>
+            <h2 className="h5 z-10">{headerBlock.fields.overline}</h2>
             <p className="h3">{headerBlock.fields.header}</p>
             <p className="p-lg mt-6">{paragraph}</p>
             {linkText && (

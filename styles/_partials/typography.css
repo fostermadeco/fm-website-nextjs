@@ -20,4 +20,11 @@
     .p-xl {
         @apply text-xl leading-8;
     }
+
+    .btn-circle {
+        @apply flex items-center border border-black rounded-full w-32 h-32 text-center text-xs uppercase font-headline tracking-widest text-black;
+    }
+    .btn-circle:hover {
+        @apply bg-black text-white;
+    }
 }
