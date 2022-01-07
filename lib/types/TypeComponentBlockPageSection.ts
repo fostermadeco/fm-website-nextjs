@@ -6,6 +6,7 @@ import { TypeComponentImageWrapperFields } from './TypeComponentImageWrapper';
 import { TypePageFields } from './TypePage';
 
 export interface TypeComponentBlockPageSectionFields {
+    imagePlacement: Contentful.EntryFields.Symbol;
     image: Contentful.Entry<TypeComponentImageWrapperFields>;
     headerBlock: Contentful.Entry<TypeComponentBlockHeaderFields>;
     paragraph: Contentful.EntryFields.Symbol;
