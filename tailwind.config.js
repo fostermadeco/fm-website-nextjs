@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 module.exports = {
-    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    // mode: 'jit',
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
         fontFamily: {
             headline: [
@@ -22,6 +23,10 @@ module.exports = {
             ],
             text: ['Sailec', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
         },
+        colors: {
+            black: '#232628',
+            white: '#ffffff',
+        },
         // container: {
         //     maxWidth: {
         //         DEFAULT: '100%',
@@ -34,6 +39,9 @@ module.exports = {
         extend: {
             letterSpacing: {
                 widest: '.15em',
+            },
+            gridTemplateColumns: {
+                14: 'repeat(14, minmax(0, 1fr))',
             },
         },
     },

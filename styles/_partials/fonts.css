@@ -14,6 +14,13 @@
 }
 @font-face {
     font-family: "Sailec";
+    src: url("/fonts/sailec/sailec-light.otf");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Sailec";
     src: url("/fonts/sailec/sailec-medium.otf");
     font-style: normal;
     font-weight: 400;

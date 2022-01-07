@@ -4,7 +4,7 @@ import { TypeComponentFactFields } from './TypeComponentFact';
 
 export interface TypeComponentBlockNumberedBlocksFields {
     internalTitle: Contentful.EntryFields.Symbol;
-    fact: Contentful.Entry<TypeComponentFactFields>;
+    fact: Contentful.Entry<TypeComponentFactFields>[];
     // title: Contentful.EntryFields.Symbol;
     // text?: CFRichTextTypes.Block | CFRichTextTypes.Inline;
     // ctaText: Contentful.EntryFields.Symbol;

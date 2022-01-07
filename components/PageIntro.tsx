@@ -20,7 +20,7 @@ const PageIntro = ({ pageIntro }: { pageIntro: TypeComponentPageIntro }) => {
                 />
                 <div className="z-10 relative grid grid-rows-3 grid-cols-3" style={{ height: '620px' }}>
                     <div className="md:col-span-2 md:col-start-2 md:row-start-2">
-                        <h1 className="h5 text-white z-10">/{pageIntro.fields.overline}</h1>
+                        <h1 className="h5 text-white z-10">{pageIntro.fields.overline}</h1>
                         <p className="h1 text-white">{pageIntro.fields.headerText}</p>
                     </div>
                 </div>

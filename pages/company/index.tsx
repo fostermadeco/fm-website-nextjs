@@ -1,8 +1,9 @@
-import Image from 'next/image';
 import React from 'react';
 import getPage from '../../api/api';
-import PageIntro from '../../components/pageIntro';
+import PageIntro from '../../components/PageIntro';
+import BlockRenderer from '../../components/renderer/BlockRenderer';
 import { TypePage } from '../../lib/types';
+import { TypePageLanding } from '../../lib/types/TypePageLanding';
 
 export async function getStaticProps() {
     const page = await getPage({
@@ -20,9 +21,13 @@ export async function getStaticProps() {
 const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
+    const content = page.fields.content as TypePageLanding;
+    const { sections = [] } = content.fields;
+
     return (
         <div className="mx-auto">
             <PageIntro pageIntro={page.fields.content.fields.pageIntro} />
+            <BlockRenderer block={sections} />
         </div>
     );
 };
