@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+// ^ necessary because block needs to be any
 import React from 'react';
 import get from 'lodash.get';
 import NumberedBlocks from './NumberedBlocks';
@@ -32,8 +32,9 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
         );
     }
 
-    const contentTypeId = get(block, 'sys.contentType.sys.id');
-    const Component = ContentTypeMap[contentTypeId];
+    const contentTypeId = get(block, 'sys.contentType.sys.id') as string;
+    // https://stackoverflow.com/questions/57086672/element-implicitly-has-an-any-type-because-expression-of-type-string-cant-b
+    const Component = ContentTypeMap[contentTypeId as keyof typeof ContentTypeMap];
     console.log(contentTypeId);
 
     if (!Component) {
