@@ -1,5 +1,5 @@
 import React from 'react';
-import { TypeComponentBlockNumberedBlocksFields, TypeComponentFact } from '../lib/types';
+import { TypeComponentBlockNumberedBlocksFields, TypeComponentFact } from '../../lib/types';
 
 const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFields }) => {
     console.log({ fields });

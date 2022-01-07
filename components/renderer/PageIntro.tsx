@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeComponentPageIntroFields } from '../lib/types';
+import { TypeComponentPageIntroFields } from '../../lib/types';
 
 // technically this is a landing page intro I think
 const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {

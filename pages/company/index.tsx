@@ -1,6 +1,5 @@
 import React from 'react';
 import getPage from '../../api/api';
-import PageIntro from '../../components/PageIntro';
 import BlockRenderer from '../../components/renderer/BlockRenderer';
 import { TypePage } from '../../lib/types';
 import { TypePageLanding } from '../../lib/types/TypePageLanding';

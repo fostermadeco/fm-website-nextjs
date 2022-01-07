@@ -6,7 +6,7 @@
 
     }
     .h3 {
-
+        @apply text-4xl md:text-6xl font-headline mb-3 text-black leading-tighter;
     }
     .h4 {
         @apply text-3xl font-headline mb-3 text-black leading-10;

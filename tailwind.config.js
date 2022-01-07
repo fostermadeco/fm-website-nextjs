@@ -43,6 +43,9 @@ module.exports = {
             gridTemplateColumns: {
                 14: 'repeat(14, minmax(0, 1fr))',
             },
+            lineHeight: {
+                tighter: '1.06',
+            },
         },
     },
     plugins: [],

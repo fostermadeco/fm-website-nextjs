@@ -4,16 +4,19 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import React from 'react';
 import get from 'lodash.get';
-import NumberedBlocks from '../NumberedBlocks';
-import PageIntro from '../PageIntro';
+import NumberedBlocks from './NumberedBlocks';
+import PageIntro from './PageIntro';
+import ImageWithPartialOverlay from './ImageWithPartialOverlay';
 
 type BlockRendererProps = {
     block: any;
 };
 
+// Map Contentful content type ids from content models to components
 const ContentTypeMap = {
     blockNumberedBlocks: NumberedBlocks,
     blockImageOverlayIntro: PageIntro,
+    blockImageWithPartialOverlay: ImageWithPartialOverlay,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {
