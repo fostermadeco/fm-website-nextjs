@@ -1,5 +1,6 @@
 import React from 'react';
 import getPage from '../../api/api';
+import { PageHead } from '../../components/PageHead';
 import BlockRenderer from '../../components/renderer/BlockRenderer';
 import { TypePage } from '../../lib/types';
 import { TypePageLanding } from '../../lib/types/TypePageLanding';
@@ -25,6 +26,7 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
 
     return (
         <div className="mx-auto">
+            <PageHead page={page} />
             <BlockRenderer block={pageIntro} />
             <BlockRenderer block={sections} />
             <BlockRenderer block={slideshow} />

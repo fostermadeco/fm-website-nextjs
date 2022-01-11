@@ -7,7 +7,7 @@ export interface TypePageFields {
     name: Contentful.EntryFields.Symbol;
     slug: Contentful.EntryFields.Symbol;
     content: Contentful.Entry<TypePageLandingFields>;
-    seo?: Contentful.Entry<TypeSeoFields>;
+    seo: Contentful.Entry<TypeSeoFields>;
 }
 
 export type TypePage = Contentful.Entry<TypePageFields>;
