@@ -3,7 +3,7 @@ import * as Contentful from 'contentful';
 
 export interface TypeComponentIconFields {
     title: Contentful.EntryFields.Symbol;
-    media: Contentful.Asset;
+    iconImage: Contentful.Asset;
 }
 
 export type TypeComponentIconWrapper = Contentful.Entry<TypeComponentIconFields>;

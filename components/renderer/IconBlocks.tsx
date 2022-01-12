@@ -5,6 +5,7 @@ import { TypeComponentBlockIconBlocksFields } from '../../lib/types';
 
 const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) => {
     console.log('icons', { fields });
+    if (!fields) return null;
 
     return (
         <div style={{ position: 'relative' }}>
