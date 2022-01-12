@@ -4,7 +4,7 @@ import { TypeComponentCtaButtonFields } from './TypeComponentCtaButton';
 
 export interface TypeComponentBlockSlideshowFields {
     overline: Contentful.EntryFields.Symbol;
-    header: Contentful.EntryFields.Symbol;
+    headerText: Contentful.EntryFields.Symbol;
     button: Contentful.Entry<TypeComponentCtaButtonFields>;
     // image: Contentful.Asset;
     // title: Contentful.EntryFields.Symbol;

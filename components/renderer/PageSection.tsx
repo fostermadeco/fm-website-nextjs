@@ -25,11 +25,11 @@ const PageSectionImage = (props: PageSectionImageProps) => {
 };
 
 const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
-    const { headerBlock, paragraph, linkText } = fields;
+    const { overline, headerText, paragraph, linkText } = fields;
     return (
         <div>
-            <h2 className="h5 z-10">{headerBlock.fields.overline}</h2>
-            <p className="h3">{headerBlock.fields.header}</p>
+            <h2 className="h5 z-10">{overline}</h2>
+            <p className="h3">{headerText}</p>
             <p className="p-lg mt-6">{paragraph}</p>
             {linkText && (
                 <Link href="#">

@@ -19,20 +19,17 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                 />
             </div>
             <div className="mx-auto">
-                <div className="mx-6 my-14">
-                    <div
-                        className="z-10 -mt-48 relative grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8"
-                        style={{ height: '620px' }}
-                    >
+                <div className="mb-14">
+                    <div className="z-10 -mt-36 relative grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8">
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
                                 <div className="col-start-2 col-span-5">
-                                    <h2 className="h5 z-10">{fields.header.fields.overline}</h2>
-                                    <p className="h3">{fields.header.fields.header}</p>
+                                    <h2 className="h5 z-10">{fields.overline}</h2>
+                                    <p className="h3">{fields.headerText}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-0 md:mt-48">
+                        <div className="mx-6 mt-0 md:mx-0 md:mt-48">
                             <p className="p-xl">{fields.paragraphText}</p>
                         </div>
                     </div>

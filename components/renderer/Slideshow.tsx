@@ -16,7 +16,7 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
                             <div className="flex items-center">
                                 <div>
                                     <h2 className="h5 z-10">{fields.overline}</h2>
-                                    <p className="h3">{fields.header}</p>
+                                    <p className="h3">{fields.headerText}</p>
                                 </div>
                                 <div>
                                     <Link href="#">

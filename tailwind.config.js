@@ -26,6 +26,7 @@ module.exports = {
         colors: {
             black: '#232628',
             white: '#ffffff',
+            lime: '#DADA50',
         },
         // container: {
         //     maxWidth: {

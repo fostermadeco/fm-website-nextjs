@@ -7,8 +7,8 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
 
     return (
         <div className="container mx-auto my-14">
-            <div className="mx-6">
-                <div className="grid grid-cols-1 gap-0 md:grid-cols-14 md:gap-8">
+            <div className="mx-6 md:mx-0">
+                <div className="grid grid-cols-1 gap-0 md:grid-cols-14 md:gap-6">
                     {fields.fact.map((f: TypeComponentFact, index) => {
                         // eslint-disable-next-line no-nested-ternary
                         const padding = index === 1 ? `md:mt-20` : index === 2 ? `md:mt-40` : '';
@@ -18,7 +18,7 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
                                 className={`pt-0 mb-8 col-span-4 ${padding} ${index === 0 ? 'col-start-2' : ''}`}
                             >
                                 <h5 className="h5">0{index + 1}</h5>
-                                <h4 className="h4">{f.fields.header}</h4>
+                                <h4 className="h4">{f.fields.headerText}</h4>
                                 <p className="p-xl font-light">{f.fields.fact}</p>
                             </div>
                         );

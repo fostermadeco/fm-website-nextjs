@@ -19,9 +19,9 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     alt=""
                 />
                 <div className="container mx-auto">
-                    <div className="mx-6">
+                    <div className="mx-6 md:mx-0">
                         <div
-                            className="z-10 relative grid grid-cols-1 gap-0 md:grid-cols-14 md:grid-rows-3 md:gap-8"
+                            className="z-10 relative grid grid-cols-1 gap-0 md:grid-cols-14 md:grid-rows-3 md:gap-4"
                             style={{ height: '620px' }}
                         >
                             <div className="col-span-1 md:col-span-9 md:col-start-5 row-start-2">
@@ -29,6 +29,13 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                                 <p className="h1 text-white">{fields.headerText}</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container mx-auto relative mt-14 ">
+                <div className="-mt-40 grid grid-cols-1 gap-0 md:grid-cols-14 md:gap-6 ">
+                    <div className="col-start-1 md:col-start-2 bg-white col-span-3 -mr-6 py-8">
+                        <h4 className="h4 pl-14">Explore</h4>
                     </div>
                 </div>
             </div>

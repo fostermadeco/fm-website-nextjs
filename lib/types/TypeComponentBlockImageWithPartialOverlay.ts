@@ -4,7 +4,9 @@ import { TypeComponentBlockHeaderFields } from './TypeComponentBlockHeader';
 import { TypeComponentImageWrapperFields } from './TypeComponentImageWrapper';
 
 export interface TypeComponentBlockImageWithPartialOverlayFields {
-    header: Contentful.Entry<TypeComponentBlockHeaderFields>;
+    // header: Contentful.Entry<TypeComponentBlockHeaderFields>;
+    overline: Contentful.EntryFields.Symbol;
+    headerText: Contentful.EntryFields.Symbol;
     image: Contentful.Entry<TypeComponentImageWrapperFields>;
     paragraphText: Contentful.EntryFields.Symbol;
 

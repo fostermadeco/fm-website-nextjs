@@ -17,6 +17,13 @@ const Home: NextPage = () => (
 
             <ul className="mt-8">
                 <li>
+                    <Link href="/expertise">
+                        <a className="h4">
+                            <h2>Expertise &rarr;</h2>
+                        </a>
+                    </Link>
+                </li>
+                <li>
                     <Link href="/company">
                         <a className="h4">
                             <h2>Company &rarr;</h2>
