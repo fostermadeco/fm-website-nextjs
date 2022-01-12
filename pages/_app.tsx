@@ -5,8 +5,6 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 
 function FosterMadeWebsiteApp({ Component, pageProps }: AppProps) {
-    console.log({ pageProps });
-
     return (
         <div className="flex flex-col bg-white">
             <Head>

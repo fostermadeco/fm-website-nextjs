@@ -1,6 +1,5 @@
 // import * as CFRichTextTypes from '@contentful/rich-text-types';
 import * as Contentful from 'contentful';
-import { TypeComponentBlockHeaderFields } from './TypeComponentBlockHeader';
 import { TypeComponentImageWrapperFields } from './TypeComponentImageWrapper';
 // eslint-disable-next-line import/no-cycle
 import { TypePageFields } from './TypePage';
@@ -8,7 +7,6 @@ import { TypePageFields } from './TypePage';
 export interface TypeComponentBlockPageSectionFields {
     imagePlacement: Contentful.EntryFields.Symbol;
     image: Contentful.Entry<TypeComponentImageWrapperFields>;
-    // headerBlock: Contentful.Entry<TypeComponentBlockHeaderFields>;
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
     paragraph: Contentful.EntryFields.Symbol;
