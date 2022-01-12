@@ -10,6 +10,7 @@ import ImageWithPartialOverlay from './ImageWithPartialOverlay';
 import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
+import IndustryBlocks from './IndustryBlocks';
 
 type BlockRendererProps = {
     block: any;
@@ -22,6 +23,7 @@ const ContentTypeMap = {
     blockImageWithPartialOverlay: ImageWithPartialOverlay,
     blockPageSection: PageSection,
     blockIconBlocks: IconBlocks,
+    blockIndustryBlocks: IndustryBlocks,
     slideshows: Slideshow,
 };
 

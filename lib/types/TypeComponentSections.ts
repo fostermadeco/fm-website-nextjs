@@ -2,6 +2,7 @@ import * as Contentful from 'contentful';
 import { TypeComponentBlockHeaderFields } from './TypeComponentBlockHeader';
 import { TypeComponentBlockIconBlocksFields } from './TypeComponentBlockIconBlocks';
 import { TypeComponentBlockImageWithPartialOverlayFields } from './TypeComponentBlockImageWithPartialOverlay';
+import { TypeComponentBlockIndustryBlocksFields } from './TypeComponentBlockIndustryBlocks';
 import { TypeComponentBlockNumberedBlocksFields } from './TypeComponentBlockNumberedBlocks';
 import { TypeComponentBlockPageSectionFields } from './TypeComponentBlockPageSection';
 
@@ -11,4 +12,5 @@ export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockNumberedBlocksFields
     | TypeComponentBlockPageSectionFields
     | TypeComponentBlockIconBlocksFields
+    | TypeComponentBlockIndustryBlocksFields
 >[];

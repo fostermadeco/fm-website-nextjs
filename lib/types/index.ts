@@ -15,6 +15,10 @@ export type { TypeComponentFact, TypeComponentFactFields } from './TypeComponent
 export type { TypeComponentImageWrapper, TypeComponentImageWrapperFields } from './TypeComponentImageWrapper';
 export type { TypeComponentPageIntro, TypeComponentPageIntroFields } from './TypeComponentPageIntro';
 export type { TypeComponentBlockIconBlocks, TypeComponentBlockIconBlocksFields } from './TypeComponentBlockIconBlocks';
+export type {
+    TypeComponentBlockIndustryBlocks,
+    TypeComponentBlockIndustryBlocksFields,
+} from './TypeComponentBlockIndustryBlocks';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';

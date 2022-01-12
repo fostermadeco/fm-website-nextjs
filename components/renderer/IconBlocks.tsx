@@ -10,7 +10,7 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
     return (
         <div style={{ position: 'relative' }}>
             <div className="container mx-auto">
-                <div className="my-14">
+                <div className="my-14 mx-6 md:mx-0">
                     <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
                         <div>
                             <h2 className="h5 overline">{fields.overline}</h2>
@@ -19,7 +19,7 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
                     </div>
                     <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6 my-10">
                         {fields.iconBlocks.map((b) => (
-                            <div>
+                            <div key={`icon-block-${b.sys.id}`}>
                                 <Image
                                     src={`https:${b.fields.icon.fields.iconImage.fields.file.url}`}
                                     width={30}
