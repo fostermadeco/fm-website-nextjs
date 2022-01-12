@@ -26,10 +26,9 @@ const IndustryBlock = (props: IndustryBlockProps) => {
                 objectFit="cover"
             />
             <div className="z-10 relative">
-                <h4 className="h4 text-center text-white">{block.fields.industry.fields.title}</h4>
                 {block.fields.link && (
-                    <Link href={block.fields.link.fields.slug}>
-                        <a className="h5 mt-4 inline-block">&mdash; Read More</a>
+                    <Link href={`/expertise/industry/${block.fields.link.fields.slug}`}>
+                        <a className="h4 text-center text-white">{block.fields.industry.fields.title}</a>
                     </Link>
                 )}
             </div>
