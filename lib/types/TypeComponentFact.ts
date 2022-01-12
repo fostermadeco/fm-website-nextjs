@@ -2,7 +2,7 @@
 import * as Contentful from 'contentful';
 
 export interface TypeComponentFactFields {
-    header: Contentful.EntryFields.Symbol;
+    headerText: Contentful.EntryFields.Symbol;
     fact: Contentful.EntryFields.Symbol;
 }
 
