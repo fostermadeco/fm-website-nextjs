@@ -12,13 +12,17 @@
         @apply text-3xl font-headline mb-3 text-black leading-10;
     }
     .h5 {
-        @apply text-xs uppercase font-headline tracking-widest mb-4 no-underline before:content-['/'] text-black;
+        @apply text-xs uppercase font-headline tracking-widest mb-4 no-underline text-black;
     }
     p {
         @apply font-text text-black font-normal;
     }
     .p-xl {
         @apply text-xl leading-8;
+    }
+    .overline {
+        text-decoration-line: none !important;
+        @apply before:content-['/'];
     }
 
     .btn-circle {

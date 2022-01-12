@@ -11,7 +11,6 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
             <div style={{ position: 'relative', width: '100%', height: '620px' }}>
                 <Image
                     className="z-0"
-                    height={420}
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
@@ -25,7 +24,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                             style={{ height: '620px' }}
                         >
                             <div className="col-span-1 md:col-span-9 md:col-start-5 row-start-2">
-                                <h1 className="h5 text-white z-10">{fields.overline}</h1>
+                                <h1 className="h5 overline text-white z-10">{fields.overline}</h1>
                                 <p className="h1 text-white">{fields.headerText}</p>
                             </div>
                         </div>

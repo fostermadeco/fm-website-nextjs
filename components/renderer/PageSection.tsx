@@ -28,7 +28,7 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
     const { overline, headerText, paragraph, linkText } = fields;
     return (
         <div>
-            <h2 className="h5 z-10">{overline}</h2>
+            <h2 className="h5 overline">{overline}</h2>
             <p className="h3">{headerText}</p>
             <p className="p-lg mt-6">{paragraph}</p>
             {linkText && (

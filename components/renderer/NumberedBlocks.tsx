@@ -17,7 +17,7 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
                                 key={f.sys.id}
                                 className={`pt-0 mb-8 col-span-4 ${padding} ${index === 0 ? 'col-start-2' : ''}`}
                             >
-                                <h5 className="h5">0{index + 1}</h5>
+                                <h5 className="h5 overline">0{index + 1}</h5>
                                 <h4 className="h4">{f.fields.headerText}</h4>
                                 <p className="p-xl font-light">{f.fields.fact}</p>
                             </div>
