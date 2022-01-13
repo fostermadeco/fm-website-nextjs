@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import React from 'react';
 import getPage from '../../../api/api';
 import { PageHead } from '../../../components/PageHead';
@@ -6,7 +7,8 @@ import BlockRenderer from '../../../components/renderer/BlockRenderer';
 import { TypePage } from '../../../lib/types';
 import { TypePageIndustry } from '../../../lib/types/TypePageIndustry';
 
-export async function getServerSideProps({ params }) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { params = {} } = context;
     const slug = String(params.slug);
     const page = await getPage({
         pageContentType: 'pageIndustry',
@@ -18,7 +20,7 @@ export async function getServerSideProps({ params }) {
             page,
         },
     };
-}
+};
 
 // export const getServerSideProps = withLocale(async (locale, { params, query }) => {
 //     const slug = String(params.slug);
