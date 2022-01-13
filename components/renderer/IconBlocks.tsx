@@ -27,7 +27,7 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
                                 />
                                 <h4 className="h4 mt-4">{b.fields.headerText}</h4>
                                 <p className="p-xl">{b.fields.paragraph}</p>
-                                <Link href={b.fields.link.fields.slug}>
+                                <Link href={`/${b.fields.link.fields.slug}`}>
                                     <a className="h5 mt-4 inline-block">&mdash; Read More</a>
                                 </Link>
                             </div>

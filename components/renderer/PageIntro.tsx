@@ -33,7 +33,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
             </div>
             <div className="container mx-auto relative mt-14 ">
                 <div className="-mt-40 grid grid-cols-1 gap-0 md:grid-cols-14 md:gap-6 ">
-                    <div className="col-start-1 md:col-start-2 bg-white col-span-3 -mr-6 py-8">
+                    <div className="mr-0 py-8 col-start-1 bg-white col-span-3 md:-mr-6  md:col-start-2">
                         <h4 className="h4 pl-14">Explore</h4>
                     </div>
                 </div>

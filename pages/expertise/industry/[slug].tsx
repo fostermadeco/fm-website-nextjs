@@ -8,6 +8,8 @@ import { TypePage } from '../../../lib/types';
 import { TypePageIndustry } from '../../../lib/types/TypePageIndustry';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    console.log({ context });
+
     const { params = {} } = context;
     const slug = String(params.slug);
     const page = await getPage({

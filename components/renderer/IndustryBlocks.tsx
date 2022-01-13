@@ -12,27 +12,27 @@ const IndustryBlock = (props: IndustryBlockProps) => {
     const { block } = props;
     console.log({ block });
 
+    if (!block.fields.link) return null;
+
     return (
-        <div
-            key={`industry-block-${block.sys.id}`}
-            className="relative w-full flex items-center justify-center"
-            style={{ height: '500px' }}
-        >
-            <Image
-                className="z-0"
-                src={`https:${block.fields.industry.fields.listImage.fields.media.fields.file.url}`}
-                height={500}
-                layout="fill"
-                objectFit="cover"
-            />
-            <div className="z-10 relative">
-                {block.fields.link && (
-                    <Link href={`/expertise/industry/${block.fields.link.fields.slug}`}>
-                        <a className="h4 text-center text-white">{block.fields.industry.fields.title}</a>
-                    </Link>
-                )}
-            </div>
-        </div>
+        <Link href={`/expertise/industry/${block.fields.link.fields.slug}`}>
+            <a className="h4 text-center text-white group">
+                <div
+                    key={`industry-block-${block.sys.id}`}
+                    className="relative w-full flex items-center justify-center"
+                    style={{ height: '500px' }}
+                >
+                    <Image
+                        className="z-0 transition opacity-25 group-hover:opacity-50"
+                        src={`https:${block.fields.industry.fields.listImage.fields.media.fields.file.url}`}
+                        height={500}
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                    <div className="z-10 relative border-b-2 border-white">{block.fields.industry.fields.title}</div>
+                </div>
+            </a>
+        </Link>
     );
 };
 
@@ -41,16 +41,16 @@ const IndustryBlocks = ({ fields }: { fields: TypeComponentBlockIndustryBlocksFi
     if (!fields) return null;
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div className="bg-black">
             <div className="container mx-auto">
-                <div className="my-14 mx-6 md:mx-0">
-                    <div className="text-center">
-                        <h2 className="h5 overline">{fields.overline}</h2>
-                        <h3 className="h3">{fields.headerText}</h3>
-                        <p className="p-xl">{fields.paragraph}</p>
+                <div className="py-14 mx-6 md:mx-0">
+                    <div className="mx-auto text-center max-w-2xl">
+                        <h2 className="h5 overline text-white">{fields.overline}</h2>
+                        <h3 className="h2 text-white">{fields.headerText}</h3>
+                        <p className="p-xl text-white px-8">{fields.paragraph}</p>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-6 my-10">
+                    <div className="mt-20 grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-6 my-10">
                         {fields.industryBlocks.map((b) => (
                             <IndustryBlock key={`industry-block-${b.sys.id}`} block={b} />
                         ))}
