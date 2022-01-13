@@ -11,6 +11,8 @@ import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
 import IndustryBlocks from './IndustryBlocks';
+import TechnologyPage from '../../pages/expertise/technology/[slug]';
+import TechnologyBlocks from './TechnologyBlocks';
 
 type BlockRendererProps = {
     block: any;
@@ -24,6 +26,7 @@ const ContentTypeMap = {
     blockPageSection: PageSection,
     blockIconBlocks: IconBlocks,
     blockIndustryBlocks: IndustryBlocks,
+    blockTechnologyBlocks: TechnologyBlocks,
     slideshows: Slideshow,
 };
 

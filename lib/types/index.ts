@@ -19,6 +19,13 @@ export type {
     TypeComponentBlockIndustryBlocks,
     TypeComponentBlockIndustryBlocksFields,
 } from './TypeComponentBlockIndustryBlocks';
+export type {
+    TypeComponentBlockTechnologyBlocks,
+    TypeComponentBlockTechnologyBlocksFields,
+} from './TypeComponentBlockTechnologyBlocks';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';
+export type { TypePageLanding } from './TypePageLanding';
+export type { TypePageIndustry } from './TypePageIndustry';
+export type { TypePageTechnology } from './TypePageTechnology';

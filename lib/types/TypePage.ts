@@ -2,12 +2,13 @@ import * as Contentful from 'contentful';
 import { TypeSeoFields } from './TypeSeo';
 import { TypePageLandingFields } from './TypePageLanding';
 import { TypePageIndustryFields } from './TypePageIndustry';
+import { TypePageTechnologyFields } from './TypePageTechnology';
 
 export interface TypePageFields {
     title: Contentful.EntryFields.Symbol;
     name: Contentful.EntryFields.Symbol;
     slug: Contentful.EntryFields.Symbol;
-    content: Contentful.Entry<TypePageLandingFields | TypePageIndustryFields>;
+    content: Contentful.Entry<TypePageLandingFields | TypePageIndustryFields | TypePageTechnologyFields>;
     seo: Contentful.Entry<TypeSeoFields>;
 }
 

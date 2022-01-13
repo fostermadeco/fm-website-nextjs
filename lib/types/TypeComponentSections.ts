@@ -5,6 +5,7 @@ import { TypeComponentBlockImageWithPartialOverlayFields } from './TypeComponent
 import { TypeComponentBlockIndustryBlocksFields } from './TypeComponentBlockIndustryBlocks';
 import { TypeComponentBlockNumberedBlocksFields } from './TypeComponentBlockNumberedBlocks';
 import { TypeComponentBlockPageSectionFields } from './TypeComponentBlockPageSection';
+import { TypeComponentBlockTechnologyBlocksFields } from './TypeComponentBlockTechnologyBlocks';
 import { TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
 
 export type TypeComponentSections = Contentful.Entry<
@@ -15,4 +16,5 @@ export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockIconBlocksFields
     | TypeComponentBlockIndustryBlocksFields
     | TypeComponentBlockWideImageFields
+    | TypeComponentBlockTechnologyBlocksFields
 >[];

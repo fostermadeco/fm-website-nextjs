@@ -2,9 +2,9 @@
 import * as Contentful from 'contentful';
 import { TypeComponentImageWrapperFields } from '.';
 
-export interface TypeComponentIndustryFields {
+export interface TypeComponentTechnologyFields {
     title: Contentful.EntryFields.Symbol;
-    listImage: Contentful.Entry<TypeComponentImageWrapperFields>;
+    logo: Contentful.Entry<TypeComponentImageWrapperFields>;
 }
 
-export type TypeComponentIndustry = Contentful.Entry<TypeComponentIndustryFields>;
+export type TypeComponentTechnology = Contentful.Entry<TypeComponentTechnologyFields>;
