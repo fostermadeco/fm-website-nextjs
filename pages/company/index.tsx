@@ -30,6 +30,11 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
             <BlockRenderer block={pageIntro} />
             <BlockRenderer block={sections} />
             <BlockRenderer block={slideshow} />
+            <h1 className="h1">Eight core values guide everything that we do. </h1>
+            <h2 className="h2">Eight core values guide everything that we do. </h2>
+            <h3 className="h3">Eight core values guide everything that we do. </h3>
+            <h4 className="h4">Eight core values guide everything that we do. </h4>
+            <h5 className="h5">Eight core values guide everything that we do. </h5>
         </div>
     );
 };

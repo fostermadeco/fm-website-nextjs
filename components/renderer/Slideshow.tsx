@@ -11,7 +11,7 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
         <div style={{ position: 'relative' }}>
             <div className="mx-auto">
                 <div className="my-14">
-                    <div className="grid grid-cols-14">
+                    <div className="mx-6 block md:mx-0 md:grid md:grid-cols-14">
                         <div className="col-start-2 col-span-12">
                             <div className="flex items-center">
                                 <div>

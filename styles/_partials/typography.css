@@ -1,10 +1,16 @@
+@layer base {
+    body {
+        @apply font-text font-normal text-base text-black leading-relaxed;
+    }
+}
+
 @layer components {
     .h1 {
         @apply text-4xl md:text-6xl lg:text-7xl font-headline text-black;
     }
     .h2 {
         line-height: 80px;
-        @apply text-7xl font-headline text-black mb-8;
+        @apply text-5xl md:text-7xl font-headline text-black mb-8;
     }
     .h3 {
         @apply text-4xl md:text-6xl font-headline mb-3 text-black leading-tighter;

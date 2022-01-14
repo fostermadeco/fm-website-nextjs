@@ -51,9 +51,9 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
         <div style={{ position: 'relative' }}>
             <div className="mx-auto">
                 <div className="my-14">
-                    <div className="grid grid-cols-1 gap-0 items-center md:grid-cols-2 md:gap-8">
+                    <div className="mx-6 block grid-cols-1 gap-0 items-center md:mx-0 md:grid md:grid-cols-2 md:gap-8">
                         <div>
-                            <div className="grid grid-cols-7">
+                            <div className="block md:grid grid-cols-7">
                                 <div className="col-start-2 col-span-5">
                                     {imagePlacement === 'Left' && (
                                         <PageSectionImage url={image.fields.media.fields.file.url} />
@@ -63,7 +63,7 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
                             </div>
                         </div>
                         <div className="mt-6 md:mt-0">
-                            <div className="grid grid-cols-7">
+                            <div className="block md:grid grid-cols-7">
                                 {imagePlacement === 'Left' && (
                                     <div className="col-start-2 col-span-5 md:col-start-1 md:col-span-6">
                                         <PageSectionContent fields={fields} />
