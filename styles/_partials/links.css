@@ -23,4 +23,22 @@
         width: 100%;
         left: 0;
     }
+
+    .emdash-in {
+        @apply relative pl-8;
+    }
+    .emdash-in::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        left: 0;
+        top: 51%;
+        transition: all ease-in-out .15s;
+        @apply bg-black;
+    }
+    .emdash-in:hover::before {
+        width: 0;
+        left: 0;
+    }
 }

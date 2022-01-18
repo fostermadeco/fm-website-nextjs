@@ -22,10 +22,10 @@
         @apply text-xs uppercase font-headline tracking-widest mb-4 no-underline text-black;
     }
     p {
-        @apply font-text text-black font-normal;
+        @apply font-text text-black font-normal leading-relaxed;
     }
     .p-xl {
-        @apply text-xl;
+        @apply text-xl leading-relaxed;
     }
     .overline {
         text-decoration-line: none !important;
