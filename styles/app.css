@@ -2,6 +2,7 @@
 @import "tailwindcss/base";
 @import '_partials/fonts.css';
 @import '_partials/typography.css';
+@import "_partials/links.css";
 
 @import "tailwindcss/components";
 

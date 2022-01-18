@@ -1,6 +1,6 @@
 @layer base {
     body {
-        @apply font-text font-normal text-base text-black leading-relaxed;
+        @apply font-text font-normal text-base text-black leading-loose;
     }
 }
 
@@ -13,10 +13,10 @@
         @apply text-5xl md:text-7xl font-headline text-black mb-8;
     }
     .h3 {
-        @apply text-4xl md:text-6xl font-headline mb-3 text-black leading-tighter;
+        @apply text-4xl md:text-6xl font-headline mb-3 text-black;
     }
     .h4 {
-        @apply text-3xl font-headline mb-3 text-black leading-10;
+        @apply text-3xl font-headline mb-3 text-black;
     }
     .h5 {
         @apply text-xs uppercase font-headline tracking-widest mb-4 no-underline text-black;
@@ -25,17 +25,10 @@
         @apply font-text text-black font-normal;
     }
     .p-xl {
-        @apply text-xl leading-8;
+        @apply text-xl;
     }
     .overline {
         text-decoration-line: none !important;
-        @apply before:content-['/'];
-    }
-
-    .btn-circle {
-        @apply flex items-center border border-black rounded-full w-32 h-32 text-center text-xs uppercase font-headline tracking-widest text-black;
-    }
-    .btn-circle:hover {
-        @apply bg-black text-white;
+        @apply before:pr-1 before:content-['/'];
     }
 }

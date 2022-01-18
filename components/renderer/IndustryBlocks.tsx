@@ -29,7 +29,7 @@ const IndustryBlock = (props: IndustryBlockProps) => {
                         layout="fill"
                         objectFit="cover"
                     />
-                    <div className="z-10 relative border-b-2 border-white">{block.fields.industry.fields.title}</div>
+                    <div className="z-10 relative border-b-in after:bg-white">{block.fields.industry.fields.title}</div>
                 </div>
             </a>
         </Link>

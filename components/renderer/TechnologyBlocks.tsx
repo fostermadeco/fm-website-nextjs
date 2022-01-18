@@ -16,10 +16,10 @@ const TechnologyBlock = (props: TechnologyBlockProps) => {
 
     return (
         <Link href={`/expertise/technology/${block.fields.link.fields.slug}`}>
-            <a className="h4 text-center group">
+            <a className="h4 text-center group hover:bg-black rounded-full px-8 py-20">
                 <div
                     key={`technology-block-${block.sys.id}`}
-                    className="relative w-full flex items-center justify-center"
+                    className="relative w-full flex items-center justify-center "
                     style={{ width: 'auto', height: '40px' }}
                 >
                     <Image
@@ -29,6 +29,7 @@ const TechnologyBlock = (props: TechnologyBlockProps) => {
                         layout="fill"
                     />
                 </div>
+                <p className="h5 invisible text-white group-hover:visible pt-3">- Read More</p>
             </a>
         </Link>
     );
