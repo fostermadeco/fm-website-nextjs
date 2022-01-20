@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { TypeComponentPageIntroFields } from '../../lib/types';
+import Arrow from '../Arrow';
 
 // technically this is a landing page intro I think
 // Right now there is only one option: blockImageOverlayIntro
@@ -8,8 +9,8 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
     if (!fields) return null;
 
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ position: 'relative', width: '100%', height: '620px' }}>
+        <div className="relative">
+            <div className="relative w-full" style={{ height: '620px' }}>
                 <Image
                     className="z-0"
                     layout="fill"
@@ -33,10 +34,15 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     </div>
                 </div>
             </div>
-            <div className="container relative mx-auto mt-14 ">
+            <div className="relative mx-auto mt-14 ">
                 <div className="grid grid-cols-1 gap-0 -mt-40 md:grid-cols-14 md:gap-6 ">
-                    <div className="col-span-3 col-start-1 py-8 mr-0 bg-white md:-mr-6 md:col-start-2">
-                        <h4 className="h4 pl-14">Explore</h4>
+                    <div className="col-span-3 col-start-1 px-6 py-8 mr-0 bg-white md:-mr-6">
+                        <div className="flex items-center justify-start md:justify-center">
+                            <div>
+                                <Arrow direction="down" />
+                            </div>
+                            <h4 className="mt-2 ml-4 h4">Explore</h4>
+                        </div>
                     </div>
                 </div>
             </div>

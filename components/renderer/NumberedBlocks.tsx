@@ -6,7 +6,7 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
     if (!fields) return null;
 
     return (
-        <div className="container mx-auto my-14">
+        <div className="container mx-auto my-4 md:my-14">
             <div className="mx-6 md:mx-0">
                 <div className="grid grid-cols-1 gap-0 md:grid-cols-14 md:gap-6">
                     {fields.fact.map((f: TypeComponentFact, index) => {
@@ -19,7 +19,7 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
                             >
                                 <h5 className="h5 overline">0{index + 1}</h5>
                                 <h4 className="h4">{f.fields.headerText}</h4>
-                                <p className="p-xl font-light">{f.fields.fact}</p>
+                                <p className="font-light p-xl">{f.fields.fact}</p>
                             </div>
                         );
                     })}

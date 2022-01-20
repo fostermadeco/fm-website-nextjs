@@ -52,6 +52,9 @@ module.exports = {
             lineHeight: {
                 tighter: '1.06',
             },
+            height: {
+                'page-section-image-height-desktop': '39rem',
+            },
         },
     },
     plugins: [

@@ -6,8 +6,8 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
     if (!fields) return null;
 
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ position: 'relative', width: '100%', height: '620px' }}>
+        <div className="relative">
+            <div className="relative w-full" style={{ height: '620px' }}>
                 <Image
                     className="z-0"
                     layout="fill"
@@ -22,7 +22,7 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                     <div className="relative z-10 grid grid-cols-1 gap-0 -mt-36 md:grid-cols-2 md:gap-8">
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
-                                <div className="col-span-7 col-start-1 md:col-start-2 md:col-span-5">
+                                <div className="col-span-7 col-start-1 mx-6 md:mx-0 md:col-start-2 md:col-span-5">
                                     <h2 className="h5 overline">{fields.overline}</h2>
                                     <p className="h3">{fields.headerText}</p>
                                 </div>

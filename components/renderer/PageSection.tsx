@@ -10,7 +10,7 @@ type PageSectionImageProps = {
 const PageSectionImage = (props: PageSectionImageProps) => {
     const { url } = props;
     return (
-        <div className="relative w-full" style={{ height: '620px' }}>
+        <div className="relative w-full h-72 md:h-page-section-image-height-desktop">
             <Image
                 className="z-0"
                 height={620}
@@ -48,7 +48,7 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
     const { imagePlacement, image } = fields;
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div className="relative">
             <div className="mx-auto">
                 <div className="my-14">
                     <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-2 md:gap-8">
