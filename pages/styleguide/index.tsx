@@ -34,17 +34,24 @@ const StyleGuidePage = () => (
 
         <hr className="my-8" />
         <h2 className="h5 overline">Links</h2>
-        <a href="#" className="border-b-in">
-            Arts &amp; Culture
-        </a>
-        <br />
-        <a href="#" className="border-b-in h4">
-            Arts &amp; Culture
-        </a>
-        <br />
-        <a href="#" className="test emdash-in h5">
-            Read More
-        </a>
+        <div className="mb-6">
+            <a href="#" className="border-b-in">
+                Arts &amp; Culture
+            </a>
+        </div>
+        <div className="mb-6">
+            <a href="#" className="border-b-in h4">
+                Arts &amp; Culture
+            </a>
+        </div>
+        <div className="mb-6">
+            <a href="#" className="test emdash-in h5">
+                Read More
+            </a>
+        </div>
+
+        <hr className="my-8" />
+        <h2 className="h5 overline">Arrows</h2>
         <div>
             <Arrow />
             <Arrow direction="down" />
