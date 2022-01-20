@@ -41,7 +41,7 @@ const StyleGuidePage = () => (
             Arts &amp; Culture
         </a>
         <br />
-        <a href="#" className="emdash-in h5">
+        <a href="#" className="test emdash-in h5">
             Read More
         </a>
     </div>

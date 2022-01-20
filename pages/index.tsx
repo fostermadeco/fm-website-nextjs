@@ -29,6 +29,13 @@ const Home: NextPage = () => (
                         </a>
                     </Link>
                 </li>
+                <li>
+                    <Link href="/styleguide">
+                        <a className="h4">
+                            <h2>Styleguide &rarr;</h2>
+                        </a>
+                    </Link>
+                </li>
             </ul>
         </main>
     </div>

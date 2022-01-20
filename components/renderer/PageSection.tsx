@@ -10,10 +10,10 @@ type PageSectionImageProps = {
 const PageSectionImage = (props: PageSectionImageProps) => {
     const { url } = props;
     return (
-        <div style={{ position: 'relative', width: '100%', height: '620px' }}>
+        <div className="relative w-full" style={{ height: '620px' }}>
             <Image
                 className="z-0"
-                height={420}
+                height={620}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
@@ -30,10 +30,10 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
         <div>
             <h2 className="h5 overline">{overline}</h2>
             <p className="h3">{headerText}</p>
-            <p className="p-lg mt-6">{paragraph}</p>
+            <p className="mt-6 p-lg">{paragraph}</p>
             {linkText && (
                 <Link href="#">
-                    <a className="inline-block mt-4 text-black font-headline text-2xl underline">{linkText}</a>
+                    <a className="inline-block mt-4 text-2xl text-black font-headline border-b-in">{linkText}</a>
                 </Link>
             )}
         </div>
@@ -51,10 +51,10 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
         <div style={{ position: 'relative' }}>
             <div className="mx-auto">
                 <div className="my-14">
-                    <div className="mx-6 block grid-cols-1 gap-0 items-center md:mx-0 md:grid md:grid-cols-2 md:gap-8">
+                    <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-2 md:gap-8">
                         <div>
-                            <div className="block md:grid grid-cols-7">
-                                <div className="col-start-2 col-span-5">
+                            <div className="block grid-cols-7 md:grid">
+                                <div className="col-span-5 col-start-2">
                                     {imagePlacement === 'Left' && (
                                         <PageSectionImage url={image.fields.media.fields.file.url} />
                                     )}
@@ -63,9 +63,9 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
                             </div>
                         </div>
                         <div className="mt-6 md:mt-0">
-                            <div className="block md:grid grid-cols-7">
+                            <div className="block grid-cols-7 md:grid">
                                 {imagePlacement === 'Left' && (
-                                    <div className="col-start-2 col-span-5 md:col-start-1 md:col-span-6">
+                                    <div className="col-span-5 col-start-2 md:col-start-1 md:col-span-6">
                                         <PageSectionContent fields={fields} />
                                     </div>
                                 )}

@@ -1,9 +1,9 @@
 @layer components {
     .btn-circle {
-        @apply flex items-center border border-black rounded-full w-32 h-32 text-center text-xs uppercase font-headline tracking-widest text-black;
+        @apply flex items-center w-32 h-32 text-xs tracking-widest text-center text-black uppercase border border-black rounded-full font-headline;
     }
     .btn-circle:hover {
-        @apply bg-black text-white;
+        @apply text-white bg-black;
     }
 
     .border-b-in {
@@ -19,9 +19,23 @@
         transition: all ease-in-out .2s;
         @apply bg-black;
     }
-    .border-b-in:hover::after {
+    .group:hover .border-b-in::after, .border-b-in:hover::after {
         width: 100%;
         left: 0;
+    }
+
+    .emdash {
+        @apply relative pl-8;
+    }
+
+    .emdash::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        left: 0;
+        top: 51%;
+        @apply bg-black;
     }
 
     .emdash-in {
@@ -35,9 +49,9 @@
         left: 0;
         top: 51%;
         transition: all ease-in-out .15s;
-        @apply bg-black;
+        @apply bg-lime;
     }
-    .emdash-in:hover::before {
+    .group:hover .emdash-in::before, .emdash-in:hover::before {
         width: 0;
         left: 0;
     }
