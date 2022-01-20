@@ -57,6 +57,9 @@ module.exports = {
             height: {
                 'page-section-image-height-desktop': '39rem',
             },
+            padding: {
+                18: '4.5rem',
+            },
         },
     },
     plugins: [

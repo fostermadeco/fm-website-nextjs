@@ -26,7 +26,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                             className="relative z-10 grid grid-cols-1 gap-0 md:grid-cols-14 md:grid-rows-3 md:gap-4"
                             style={{ height: '620px' }}
                         >
-                            <div className="col-span-1 row-start-2 md:col-span-9 md:col-start-5">
+                            <div className="col-span-1 row-start-2 md:col-span-9 md:col-start-6">
                                 <h1 className="z-10 text-white h5 overline">{fields.overline}</h1>
                                 <p className="text-white h1">{fields.headerText}</p>
                             </div>
@@ -34,14 +34,21 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     </div>
                 </div>
             </div>
-            <div className="relative mx-auto mt-14 ">
-                <div className="grid grid-cols-1 gap-0 -mt-40 md:grid-cols-14 md:gap-6 ">
-                    <div className="col-start-1 px-6 py-8 mr-0 bg-white md:px-8 md:col-span-4 lg:col-span-3 lg:-mr-6">
-                        <div className="flex items-center justify-start md:justify-end">
-                            <div>
-                                <Arrow direction="down" />
+            <div className="relative mx-auto md:mt-14">
+                <div className="hidden grid-cols-1 gap-0 md:grid md:-mt-52 md:grid-cols-14 md:gap-6">
+                    <div className="col-start-1 px-6 py-10 mr-0 bg-white md:py-18 md:px-12 md:col-span-5 lg:col-span-4 lg:-mr-6">
+                        &nbsp;
+                    </div>
+                </div>
+                <div className="container mx-auto mb-2 md:mb-20 md:-mt-44">
+                    <div className="grid grid-cols-14">
+                        <div className="col-span-3 py-16 bg-white xl:col-start-2">
+                            <div className="flex items-center ml-2 md:-ml-2">
+                                <div>
+                                    <Arrow direction="down" />
+                                </div>
+                                <h4 className="mt-2 ml-4 h4">Explore</h4>
                             </div>
-                            <h4 className="mt-2 ml-4 h4">Explore</h4>
                         </div>
                     </div>
                 </div>
