@@ -36,8 +36,8 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
             </div>
             <div className="relative mx-auto mt-14 ">
                 <div className="grid grid-cols-1 gap-0 -mt-40 md:grid-cols-14 md:gap-6 ">
-                    <div className="col-span-3 col-start-1 px-6 py-8 mr-0 bg-white md:-mr-6">
-                        <div className="flex items-center justify-start md:justify-center">
+                    <div className="col-start-1 px-6 py-8 mr-0 bg-white md:px-8 md:col-span-4 lg:col-span-3 lg:-mr-6">
+                        <div className="flex items-center justify-start md:justify-end">
                             <div>
                                 <Arrow direction="down" />
                             </div>
