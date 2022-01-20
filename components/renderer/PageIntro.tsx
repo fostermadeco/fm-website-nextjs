@@ -41,13 +41,13 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     </div>
                 </div>
                 <div className="container mx-auto mb-2 md:mb-20 md:-mt-44">
-                    <div className="grid grid-cols-14">
-                        <div className="col-span-3 py-16 bg-white xl:col-start-2">
+                    <div className="grid mx-0 md:mx-6 grid-cols-14">
+                        <div className="col-span-3 bg-white py-14 xl:col-start-2">
                             <div className="flex items-center ml-2 md:-ml-2">
                                 <div>
                                     <Arrow direction="down" />
                                 </div>
-                                <h4 className="mt-2 ml-4 h4">Explore</h4>
+                                <h4 className="mt-2 ml-8 h4">Explore</h4>
                             </div>
                         </div>
                     </div>

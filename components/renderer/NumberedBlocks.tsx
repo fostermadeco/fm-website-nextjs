@@ -8,7 +8,7 @@ const NumberedBlocks = ({ fields }: { fields: TypeComponentBlockNumberedBlocksFi
     return (
         <div className="container mx-auto my-4 md:my-14">
             <div className="mx-6 md:mx-0">
-                <div className="grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-8 xl:grid-cols-14">
+                <div className="grid grid-cols-1 gap-0 md:mx-6 md:grid-cols-3 md:gap-8 xl:grid-cols-14">
                     {fields.fact.map((f: TypeComponentFact, index) => {
                         // eslint-disable-next-line no-nested-ternary
                         const padding = index === 1 ? `md:mt-20` : index === 2 ? `md:mt-40` : '';
