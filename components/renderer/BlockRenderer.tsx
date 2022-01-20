@@ -13,6 +13,8 @@ import IconBlocks from './IconBlocks';
 import IndustryBlocks from './IndustryBlocks';
 import TechnologyPage from '../../pages/expertise/technology/[slug]';
 import TechnologyBlocks from './TechnologyBlocks';
+import CtaBottom from './CtaFullSimple';
+import CtaFullSimple from './CtaFullSimple';
 
 type BlockRendererProps = {
     block: any;
@@ -28,6 +30,7 @@ const ContentTypeMap = {
     blockIndustryBlocks: IndustryBlocks,
     blockTechnologyBlocks: TechnologyBlocks,
     slideshows: Slideshow,
+    blockCtaFullSimple: CtaFullSimple,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {

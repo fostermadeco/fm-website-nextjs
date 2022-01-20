@@ -32,6 +32,8 @@ module.exports = {
             black: '#232628',
             white: '#ffffff',
             lime: '#DADA50',
+            ivory: '#F1F1E8',
+            steel: '#9EA8AD',
         },
         // container: {
         //     maxWidth: {

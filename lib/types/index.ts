@@ -23,6 +23,10 @@ export type {
     TypeComponentBlockTechnologyBlocks,
     TypeComponentBlockTechnologyBlocksFields,
 } from './TypeComponentBlockTechnologyBlocks';
+export type {
+    TypeComponentBlockCtaFullSimple,
+    TypeComponentBlockCtaFullSimpleFields,
+} from './TypeCompontentBlockCtaFullSimple';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';
