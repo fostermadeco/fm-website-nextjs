@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import Arrow from '../../components/Arrow';
 
@@ -35,19 +36,19 @@ const StyleGuidePage = () => (
         <hr className="my-8" />
         <h2 className="h5 overline">Links</h2>
         <div className="mb-6">
-            <a href="#" className="border-b-in">
-                Arts &amp; Culture
-            </a>
+            <Link href="#">
+                <a className="border-b-in">Arts &amp; Culture</a>
+            </Link>
         </div>
         <div className="mb-6">
-            <a href="#" className="border-b-in h4">
-                Arts &amp; Culture
-            </a>
+            <Link href="#">
+                <a className="border-b-in h4">Arts &amp; Culture</a>
+            </Link>
         </div>
         <div className="mb-6">
-            <a href="#" className="test emdash-in h5">
-                Read More
-            </a>
+            <Link href="#">
+                <a className="test emdash-in h5">Read More</a>
+            </Link>
         </div>
 
         <hr className="my-8" />
