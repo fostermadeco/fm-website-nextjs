@@ -6,6 +6,7 @@
     "rules": {
         "import/no-cycle": "off",
         "no-unsafe-any": "off",
+        "no-irregular-whitespace": "off",
         "restrict-template-expressions": "off",
         "no-console": 0,
         "prettier/prettier": [
