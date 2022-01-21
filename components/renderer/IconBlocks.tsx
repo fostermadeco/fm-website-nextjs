@@ -10,28 +10,32 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
     return (
         <div style={{ position: 'relative' }}>
             <div className="container mx-auto">
-                <div className="mx-6 my-14 md:mx-0 lg:mx-6">
-                    <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
-                        <div>
-                            <h2 className="h5 overline">{fields.overline}</h2>
-                            <p className="h3">{fields.headerText}</p>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 gap-0 my-10 md:grid-cols-2 md:gap-6">
-                        {fields.iconBlocks.map((b) => (
-                            <div key={`icon-block-${b.sys.id}`}>
-                                <Image
-                                    src={`https:${b.fields.icon.fields.iconImage.fields.file.url}`}
-                                    width={30}
-                                    height={30}
-                                />
-                                <h4 className="mt-4 h4">{b.fields.headerText}</h4>
-                                <p className="p-xl">{b.fields.paragraph}</p>
-                                <Link href={`/${b.fields.link.fields.slug}`}>
-                                    <a className="inline-block mt-4 h5 emdash-in">Read More</a>
-                                </Link>
+                <div className="grid grid-cols-14">
+                    <div className="col-span-12 col-start-2">
+                        <div className="my-14 md:mx-0">
+                            <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
+                                <div>
+                                    <h2 className="h5 overline">{fields.overline}</h2>
+                                    <p className="h3">{fields.headerText}</p>
+                                </div>
                             </div>
-                        ))}
+                            <div className="grid grid-cols-1 gap-0 my-10 md:grid-cols-2 md:gap-6">
+                                {fields.iconBlocks.map((b) => (
+                                    <div className="mb-8 md:mb-0" key={`icon-block-${b.sys.id}`}>
+                                        <Image
+                                            src={`https:${b.fields.icon.fields.iconImage.fields.file.url}`}
+                                            width={30}
+                                            height={30}
+                                        />
+                                        <h4 className="mt-4 h4">{b.fields.headerText}</h4>
+                                        <p className="p-xl">{b.fields.paragraph}</p>
+                                        <Link href={`/${b.fields.link.fields.slug}`}>
+                                            <a className="inline-block mt-4 h5 emdash-in">Read More</a>
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

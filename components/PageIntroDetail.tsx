@@ -14,7 +14,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
     const { overline, headerText, headerParagraph, button } = block.fields;
 
     return (
-        <div className="relative mx-auto">
+        <div className="container relative mx-auto">
             <div className="mb-24 mt-14 md:my-14">
                 <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
                     <div className="my-8 md:my-0 md:col-span-3 md:col-start-2">
