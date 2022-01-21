@@ -11,12 +11,13 @@ const getRotation = (direction: 'down' | 'up' | 'left' | 'right') => {
     return 'rotate-180';
 };
 
+// width="49px" height="36px"
 const Arrow = (props: ArrowPropTypes) => {
     const { direction = 'right' } = props;
 
     return (
-        <div className={`${getRotation(direction)} inline-block`}>
-            <svg width="49px" height="36px" viewBox="0 0 49 36" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <div className={`${getRotation(direction)} inline-block w-6 md:w-8 lg:w-10`}>
+            <svg viewBox="0 0 49 36" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Designs" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                     <g id="Industry" transform="translate(-128.000000, -273.000000)" stroke="#000000" strokeWidth="2">
                         <g
