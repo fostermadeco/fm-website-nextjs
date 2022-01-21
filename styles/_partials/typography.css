@@ -1,28 +1,28 @@
 @layer base {
     body {
-        @apply font-text font-normal text-base text-black leading-loose;
+        @apply text-base font-normal leading-loose text-black font-text;
     }
 }
 
 @layer components {
     .h1 {
-        @apply text-4xl md:text-6xl lg:text-7xl font-headline text-black;
+        @apply text-4xl text-black md:text-6xl lg:text-7xl font-headline;
     }
     .h2 {
         line-height: 80px;
-        @apply text-5xl md:text-7xl font-headline text-black mb-8;
+        @apply mb-8 text-5xl text-black md:text-7xl font-headline;
     }
     .h3 {
-        @apply text-4xl md:text-6xl font-headline mb-3 text-black;
+        @apply mb-4 text-4xl text-black lg:text-6xl font-headline;
     }
     .h4 {
-        @apply text-3xl font-headline mb-3 text-black;
+        @apply mb-3 text-3xl text-black font-headline;
     }
     .h5 {
-        @apply text-xs uppercase font-headline tracking-widest mb-4 no-underline text-black;
+        @apply mb-4 text-xs tracking-widest text-black no-underline uppercase font-headline;
     }
     p {
-        @apply font-text text-black font-normal leading-relaxed;
+        @apply font-normal leading-relaxed text-black font-text;
     }
     .p-xl {
         @apply text-xl leading-relaxed;
