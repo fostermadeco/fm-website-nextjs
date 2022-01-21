@@ -22,7 +22,7 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageLanding;
-    const { sections = [], pageIntro = {}, slideshow, cta = {} } = content.fields;
+    const { sections = [], pageIntro = {}, slideshow } = content.fields;
 
     return (
         <div className="mx-auto">
