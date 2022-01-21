@@ -11,10 +11,9 @@ import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
 import IndustryBlocks from './IndustryBlocks';
-import TechnologyPage from '../../pages/expertise/technology/[slug]';
 import TechnologyBlocks from './TechnologyBlocks';
-import CtaBottom from './CtaFullSimple';
 import CtaFullSimple from './CtaFullSimple';
+import WideImage from './WideImage';
 
 type BlockRendererProps = {
     block: any;
@@ -31,6 +30,7 @@ const ContentTypeMap = {
     blockTechnologyBlocks: TechnologyBlocks,
     slideshows: Slideshow,
     blockCtaFullSimple: CtaFullSimple,
+    blockWideImage: WideImage,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {

@@ -26,7 +26,8 @@ export type {
 export type {
     TypeComponentBlockCtaFullSimple,
     TypeComponentBlockCtaFullSimpleFields,
-} from './TypeCompontentBlockCtaFullSimple';
+} from './TypeComponentBlockCtaFullSimple';
+export type { TypeComponentBlockWideImage, TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';

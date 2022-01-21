@@ -60,6 +60,9 @@ module.exports = {
             padding: {
                 18: '4.5rem',
             },
+            spacing: {
+                34: '8.5rem',
+            },
         },
     },
     plugins: [

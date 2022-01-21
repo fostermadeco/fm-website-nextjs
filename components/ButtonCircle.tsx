@@ -1,12 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
+import { TypeComponentCtaButtonFields } from '../lib/types/TypeComponentCtaButton';
 
-type ButtonCircleProps = {
-    buttonText: string;
-};
-
-const ButtonCircle = (props: ButtonCircleProps) => {
-    const { buttonText } = props;
+const ButtonCircle = ({ button }: { button: TypeComponentCtaButtonFields }) => {
+    const { buttonText } = button;
     return (
         <Link href="#">
             <a className="btn-circle">

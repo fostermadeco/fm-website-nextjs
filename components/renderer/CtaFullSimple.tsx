@@ -26,7 +26,7 @@ const CtaFullSimple = ({ fields }: { fields: TypeComponentBlockCtaFullSimpleFiel
                                         <p className="text-center h3">{headerText}</p>
                                     </div>
                                     <div className="flex items-center justify-center py-8">
-                                        <ButtonCircle buttonText={fields.button.fields.buttonText} />
+                                        <ButtonCircle button={fields.button.fields} />
                                     </div>
                                 </div>
                             </div>
