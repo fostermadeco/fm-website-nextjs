@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 import { TypeComponentBlockCtaFullSimpleFields } from '../../lib/types';
 import ButtonCircle from '../ButtonCircle';

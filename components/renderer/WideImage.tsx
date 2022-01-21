@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React from 'react';
 import useDimensions from 'react-cool-dimensions';
 
 import { TypeComponentBlockWideImageFields } from '../../lib/types';

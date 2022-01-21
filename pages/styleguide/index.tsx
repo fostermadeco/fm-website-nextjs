@@ -7,15 +7,15 @@ const StyleGuidePage = () => (
         <h2 className="text-center h5 overline">Typography</h2>
         <hr className="my-8" />
         <h2 className="mt-8 h5 overline">h1</h2>
-        <h1 className="h1">We’re glad to be here, working with you.</h1>
+        <h1 className="h1">We're glad to be here, working with you.</h1>
         <h2 className="mt-8 h5 overline">h2</h2>
-        <h2 className="h2">We’re glad to be here, working with you.</h2>
+        <h2 className="h2">We're glad to be here, working with you.</h2>
         <h2 className="mt-8 h5 overline">h3</h2>
-        <h3 className="h3">We’re glad to be here, working with you.</h3>
+        <h3 className="h3">We're glad to be here, working with you.</h3>
         <h2 className="mt-8 h5 overline">h4</h2>
-        <h4 className="h4">We’re glad to be here, working with you.</h4>
+        <h4 className="h4">We're glad to be here, working with you.</h4>
         <h2 className="mt-8 h5 overline">h5</h2>
-        <h5 className="h5">We’re glad to be here, working with you.</h5>
+        <h5 className="h5">We're glad to be here, working with you.</h5>
 
         <h5 className="mt-8 h5 overline">Overline</h5>
         <h5 className="h5 overline">Solutions</h5>
