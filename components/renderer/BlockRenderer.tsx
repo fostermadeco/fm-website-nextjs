@@ -29,7 +29,7 @@ const ContentTypeMap = {
     blockIconBlocks: IconBlocks,
     blockIndustryBlocks: IndustryBlocks,
     blockTechnologyBlocks: TechnologyBlocks,
-    slideshows: Slideshow,
+    blockSlideshow: Slideshow,
     blockCtaFullSimple: CtaFullSimple,
     blockWideImage: WideImage,
     blockClientTestimonial: ClientTestimonial,

@@ -15,8 +15,8 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
                         <div className="col-span-6 col-start-2">
                             <div className="flex items-center">
                                 <div>
-                                    <h3 className="overline h5">{fields.overline}</h3>
-                                    <p className="h3">{fields.headerText}</p>
+                                    <h3 className="overline h5">{fields.slideshow.fields.overline}</h3>
+                                    <p className="h3">{fields.slideshow.fields.headerText}</p>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
                             <div className="flex items-center justify-end">
                                 <Link href="#">
                                     <a className="btn-circle">
-                                        <span>{fields.button.fields.buttonText}</span>
+                                        <span>{fields.slideshow.fields.button.fields.buttonText}</span>
                                     </a>
                                 </Link>
                             </div>
