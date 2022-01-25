@@ -48,7 +48,7 @@ const IndustryPage = ({ page }: { page: TypePage }) => {
     return (
         <>
             <MainNav />
-            <div>
+            <div className="pt-40">
                 <PageHead page={page} />
                 <PageIntroDetail block={content} />
                 <BlockRenderer block={sections} />

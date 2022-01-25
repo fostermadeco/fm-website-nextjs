@@ -30,7 +30,7 @@ const TechnologyPage = ({ page }: { page: TypePage }) => {
     return (
         <>
             <MainNav />
-            <div>
+            <div className="pt-40">
                 <PageHead page={page} />
                 <BlockRenderer block={sections} />
             </div>
