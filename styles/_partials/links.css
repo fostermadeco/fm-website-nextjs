@@ -11,7 +11,7 @@
     }
     .border-b-in:after {
         content: '';
-        height: 2px;
+        height: 1.5px;
         bottom: -1px;
         transition: all ease-in-out .2s;
         @apply absolute left-0 w-full bg-black md:w-0;

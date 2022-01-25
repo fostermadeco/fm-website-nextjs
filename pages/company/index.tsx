@@ -1,5 +1,6 @@
 import React from 'react';
 import getPage from '../../api/api';
+import MainNav from '../../components/MainNav';
 import { PageHead } from '../../components/PageHead';
 import BlockRenderer from '../../components/renderer/BlockRenderer';
 import { TypePage } from '../../lib/types';
@@ -25,12 +26,15 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
     const { sections = [], pageIntro = {}, slideshow } = content.fields;
 
     return (
-        <div className="mx-auto">
-            <PageHead page={page} />
-            <BlockRenderer block={pageIntro} />
-            <BlockRenderer block={sections} />
-            <BlockRenderer block={slideshow} />
-        </div>
+        <>
+            <MainNav mode="light" />
+            <div>
+                <PageHead page={page} />
+                <BlockRenderer block={pageIntro} />
+                <BlockRenderer block={sections} />
+                <BlockRenderer block={slideshow} />
+            </div>
+        </>
     );
 };
 

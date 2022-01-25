@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
 import getPage from '../../../api/api';
+import MainNav from '../../../components/MainNav';
 import { PageHead } from '../../../components/PageHead';
 import PageIntroDetail from '../../../components/PageIntroDetail';
 import BlockRenderer from '../../../components/renderer/BlockRenderer';
@@ -45,11 +46,14 @@ const IndustryPage = ({ page }: { page: TypePage }) => {
     const { sections = [] } = content.fields;
 
     return (
-        <div className="mx-auto">
-            <PageHead page={page} />
-            <PageIntroDetail block={content} />
-            <BlockRenderer block={sections} />
-        </div>
+        <>
+            <MainNav />
+            <div>
+                <PageHead page={page} />
+                <PageIntroDetail block={content} />
+                <BlockRenderer block={sections} />
+            </div>
+        </>
     );
 };
 

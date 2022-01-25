@@ -73,6 +73,9 @@ module.exports = {
             spacing: {
                 34: '8.5rem',
             },
+            transitionProperty: {
+                fill: 'fill',
+            },
         },
     },
     plugins: [

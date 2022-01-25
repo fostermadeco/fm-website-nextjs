@@ -29,9 +29,11 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
                         <h2 className="h5 overline">{overline}</h2>
                         <h3 className="h3">{headerText}</h3>
                         <p className="p-xl">{headerParagraph}</p>
-                        <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-34">
-                            <ButtonCircle button={button.fields} />
-                        </div>
+                        {button && (
+                            <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-34">
+                                <ButtonCircle button={button.fields} />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
