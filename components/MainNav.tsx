@@ -16,8 +16,8 @@ const MainNav = (props: MainNavPropTypes) => {
     const borderColor = mode === 'light' ? 'after:bg-white' : 'after:bg-black';
 
     return (
-        <header className="absolute top-0 z-50 w-full">
-            <div className="">
+        <header className="container relative">
+            <div className="absolute top-0 z-50 w-full">
                 <div className="py-8 ">
                     <div className="grid grid-cols-14">
                         <div className="col-span-3 col-start-2">
