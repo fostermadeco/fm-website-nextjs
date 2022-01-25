@@ -14,6 +14,7 @@ import IndustryBlocks from './IndustryBlocks';
 import TechnologyBlocks from './TechnologyBlocks';
 import CtaFullSimple from './CtaFullSimple';
 import WideImage from './WideImage';
+import ClientTestimonial from './ClientTestimonial';
 
 type BlockRendererProps = {
     block: any;
@@ -31,6 +32,7 @@ const ContentTypeMap = {
     slideshows: Slideshow,
     blockCtaFullSimple: CtaFullSimple,
     blockWideImage: WideImage,
+    blockClientTestimonial: ClientTestimonial,
 };
 
 const BlockRenderer = ({ block }: BlockRendererProps) => {

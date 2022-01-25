@@ -15,7 +15,7 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
                         <div className="my-14 md:mx-0">
                             <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
                                 <div>
-                                    <h2 className="h5 overline">{fields.overline}</h2>
+                                    <h5 className="h5 overline">{fields.overline}</h5>
                                     <p className="h3">{fields.headerText}</p>
                                 </div>
                             </div>

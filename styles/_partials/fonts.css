@@ -13,6 +13,13 @@
     font-display: swap;
 }
 @font-face {
+    font-family: "Formular";
+    src: url("/fonts/formular/formular-bolditalic.otf");
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+}
+@font-face {
     font-family: "Sailec";
     src: url("/fonts/sailec/sailec-regular.otf");
     font-style: normal;

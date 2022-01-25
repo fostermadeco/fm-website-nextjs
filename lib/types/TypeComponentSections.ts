@@ -8,6 +8,8 @@ import { TypeComponentBlockPageSectionFields } from './TypeComponentBlockPageSec
 import { TypeComponentBlockTechnologyBlocksFields } from './TypeComponentBlockTechnologyBlocks';
 import { TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
 import { TypeComponentBlockCtaFullSimpleFields } from './TypeComponentBlockCtaFullSimple';
+import { TypeComponentBlockClientTestimonialFields } from './TypeComponentBlockClientTestimonial';
+import { TypeComponentBlockSlideshowFields } from './TypeComponentBlockSlideshow';
 
 export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockHeaderFields
@@ -19,4 +21,6 @@ export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockWideImageFields
     | TypeComponentBlockTechnologyBlocksFields
     | TypeComponentBlockCtaFullSimpleFields
+    | TypeComponentBlockClientTestimonialFields
+    | TypeComponentBlockSlideshowFields
 >[];

@@ -28,6 +28,10 @@ export type {
     TypeComponentBlockCtaFullSimpleFields,
 } from './TypeComponentBlockCtaFullSimple';
 export type { TypeComponentBlockWideImage, TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
+export type {
+    TypeComponentBlockClientTestimonial,
+    TypeComponentBlockClientTestimonialFields,
+} from './TypeComponentBlockClientTestimonial';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';
