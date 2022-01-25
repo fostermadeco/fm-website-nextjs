@@ -13,7 +13,7 @@ const WideImage = ({ fields }: { fields: TypeComponentBlockWideImageFields }) =>
 
     return (
         <div className="container relative mx-auto">
-            <div className="grid grid-cols-14">
+            <div className="block mx-6 md:grid md:grid-cols-14">
                 <div className="col-span-12 col-start-2 bg-lime">
                     <div className="image-container-responsive" ref={observe}>
                         <Image

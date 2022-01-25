@@ -12,19 +12,21 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
             <div className="mx-auto">
                 <div className="my-14">
                     <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
-                        <div className="col-span-12 col-start-2">
+                        <div className="col-span-6 col-start-2">
                             <div className="flex items-center">
                                 <div>
-                                    <h2 className="z-10 h5">{fields.overline}</h2>
+                                    <h3 className="overline h5">{fields.overline}</h3>
                                     <p className="h3">{fields.headerText}</p>
                                 </div>
-                                <div>
-                                    <Link href="#">
-                                        <a className="btn-circle">
-                                            <span>{fields.button.fields.buttonText}</span>
-                                        </a>
-                                    </Link>
-                                </div>
+                            </div>
+                        </div>
+                        <div className="col-span-5 ">
+                            <div className="flex items-center justify-end">
+                                <Link href="#">
+                                    <a className="btn-circle">
+                                        <span>{fields.button.fields.buttonText}</span>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
