@@ -45,15 +45,6 @@ module.exports = {
                 '2xl': '1536px',
             },
         },
-        // container: {
-        //     maxWidth: {
-        //         DEFAULT: '100%',
-        //         sm: '2rem',
-        //         lg: '4rem',
-        //         xl: '5rem',
-        //         '2xl': '6rem',
-        //     },
-        // },
         extend: {
             letterSpacing: {
                 widest: '.15em',
@@ -78,36 +69,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/typography'),
-
-        // plugin(({ addComponents }) => {
-        //     addComponents({
-        //         '.emdash-in': { '@apply relative pl-8': true },
-        //         '.emdash-in::before': {
-        //             content: "''",
-        //             position: 'absolute',
-        //             width: '24px',
-        //             height: '2px',
-        //             left: '0',
-        //             top: '51%',
-        //             transition: 'all ease-in-out .15s',
-        //             '@apply bg-black': true,
-        //         },
-        //         '.emdash-in:hover::before': { width: '0', left: '0' },
-        //         '.border-b-in': { '@apply relative': true },
-        //         '.border-b-in:after': {
-        //             content: "''",
-        //             position: 'absolute',
-        //             width: '0px',
-        //             height: '2px',
-        //             left: '0%',
-        //             bottom: '-1px',
-        //             transition: 'all ease-in-out .2s',
-        //             '@apply bg-black': true,
-        //         },
-        //         '.border-b-in:hover::after': { width: '100%', left: '0' },
-        //     });
-        // }),
-    ],
+    plugins: [require('@tailwindcss/typography')],
 };
