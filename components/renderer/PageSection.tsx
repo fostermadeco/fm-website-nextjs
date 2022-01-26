@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { TypeComponentBlockPageSectionFields } from '../../lib/types';
+import TextMarkdown from '../TextMarkdown';
 
 type PageSectionImageProps = {
     url: string;
@@ -30,7 +31,9 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
         <div>
             <h2 className="h5 overline">{overline}</h2>
             <p className="h3">{headerText}</p>
-            <p className="mt-6 p-lg">{paragraph}</p>
+            <div className="mt-6">
+                <TextMarkdown text={paragraph} />
+            </div>
             {linkText && (
                 <Link href="#">
                     <a className="inline-block mt-4 text-2xl text-black font-headline border-b-in">{linkText}</a>
