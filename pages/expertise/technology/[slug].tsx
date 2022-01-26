@@ -3,6 +3,7 @@ import React from 'react';
 import getPage from '../../../api/api';
 import MainNav from '../../../components/MainNav';
 import { PageHead } from '../../../components/PageHead';
+import PageIntroDetail from '../../../components/PageIntroDetail';
 import BlockRenderer from '../../../components/renderer/BlockRenderer';
 import { TypePage, TypePageTechnology } from '../../../lib/types';
 
@@ -32,6 +33,7 @@ const TechnologyPage = ({ page }: { page: TypePage }) => {
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
+                <PageIntroDetail block={content} />
                 <BlockRenderer block={sections} />
             </div>
         </>

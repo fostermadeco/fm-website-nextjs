@@ -13,15 +13,17 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
                 <div className="grid grid-cols-14">
                     <div className="col-span-12 col-start-2">
                         <div className="my-14 md:mx-0">
-                            <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
-                                <div>
-                                    <h5 className="h5 overline">{fields.overline}</h5>
-                                    <p className="h3">{fields.headerText}</p>
+                            {fields.overline && (
+                                <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-6">
+                                    <div>
+                                        <h5 className="h5 overline">{fields.overline}</h5>
+                                        <p className="h3">{fields.headerText}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                             <div className="grid grid-cols-1 gap-0 my-10 md:grid-cols-2 md:gap-6">
                                 {fields.iconBlocks.map((b) => (
-                                    <div className="mb-8 md:mb-0" key={`icon-block-${b.sys.id}`}>
+                                    <div className="mb-8" key={`icon-block-${b.sys.id}`}>
                                         <Image
                                             src={`https:${b.fields.icon.fields.iconImage.fields.file.url}`}
                                             width={30}
@@ -29,9 +31,11 @@ const IconBlocks = ({ fields }: { fields: TypeComponentBlockIconBlocksFields }) 
                                         />
                                         <h4 className="mt-4 h4">{b.fields.headerText}</h4>
                                         <p className="p-xl">{b.fields.paragraph}</p>
-                                        <Link href={`/${b.fields.link.fields.slug}`}>
-                                            <a className="inline-block mt-4 h5 emdash-in">Read More</a>
-                                        </Link>
+                                        {b.fields.link && (
+                                            <Link href={`/${b.fields.link.fields.slug}`}>
+                                                <a className="inline-block mt-4 h5 emdash-in">Read More</a>
+                                            </Link>
+                                        )}
                                     </div>
                                 ))}
                             </div>

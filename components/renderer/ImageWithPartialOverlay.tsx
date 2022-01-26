@@ -24,7 +24,7 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                 />
             </div>
             <div className="container mx-auto">
-                <div className="mb-14">
+                <div className="mb-14 md:mb-20">
                     <div className="relative z-10 grid grid-cols-1 gap-0 -mt-36 md:grid-cols-2 md:gap-8">
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
