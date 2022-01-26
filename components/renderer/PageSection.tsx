@@ -60,33 +60,33 @@ const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }
 
     return (
         <div className="relative">
-            <div className="mx-auto">
+            <div className="container mx-auto">
                 <div className="my-14">
-                    <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <div className="block grid-cols-7 md:grid">
-                                <div className="col-span-5 col-start-2">
-                                    {imagePlacement === 'Left' && (
-                                        <PageSectionImage url={image.fields.media.fields.file.url} />
-                                    )}
-                                    {imagePlacement === 'Right' && <PageSectionContent fields={fields} />}
+                    <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
+                        {imagePlacement === 'Left' && (
+                            <div className="col-span-5 col-start-2">
+                                <PageSectionImage url={image.fields.media.fields.file.url} />
+                            </div>
+                        )}
+                        {imagePlacement === 'Right' && (
+                            <div className="col-span-6 col-start-2">
+                                <PageSectionContent fields={fields} />
+                            </div>
+                        )}
+                        {imagePlacement === 'Left' && (
+                            <div className="col-span-6 col-start-8">
+                                <div className="mt-6 md:mt-0">
+                                    <PageSectionContent fields={fields} />
                                 </div>
                             </div>
-                        </div>
-                        <div className="mt-6 md:mt-0">
-                            <div className="block grid-cols-7 md:grid">
-                                {imagePlacement === 'Left' && (
-                                    <div className="col-span-5 col-start-2 md:col-start-1 md:col-span-6">
-                                        <PageSectionContent fields={fields} />
-                                    </div>
-                                )}
-                                {imagePlacement === 'Right' && (
-                                    <div className="col-span-5 col-start-2 md:col-start-1 md:col-span-7">
-                                        <PageSectionImage url={image.fields.media.fields.file.url} />
-                                    </div>
-                                )}
+                        )}
+                        {imagePlacement === 'Right' && (
+                            <div className="col-span-7 col-start-9">
+                                <div className="mt-6 md:mt-0">
+                                    <PageSectionImage url={image.fields.media.fields.file.url} />
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
