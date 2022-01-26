@@ -1,10 +1,16 @@
 import Image from 'next/image';
 import React from 'react';
 import { TypeComponentBlockImageWithPartialOverlayFields } from '../../lib/types';
+import TextMarkdown from '../TextMarkdown';
 
 const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWithPartialOverlayFields }) => {
     if (!fields) return null;
+    const { paragraphText } = fields;
+    console.log({ fields });
 
+    // console.log({ is: isRichText(paragraphText) });
+
+    // const textComp = isRichText(paragraphText) ? renderRichText(paragraphText) : paragraphText;
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }}>
@@ -31,7 +37,7 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                         <div className="mx-6 mt-0 md:mx-0 md:mt-48">
                             <div className="grid grid-cols-7">
                                 <div className="col-span-6">
-                                    <p className="p-xl">{fields.paragraphText}</p>
+                                    <TextMarkdown text={paragraphText} />
                                 </div>
                             </div>
                         </div>

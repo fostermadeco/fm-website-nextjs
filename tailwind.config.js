@@ -79,6 +79,8 @@ module.exports = {
         },
     },
     plugins: [
+        require('@tailwindcss/typography'),
+
         // plugin(({ addComponents }) => {
         //     addComponents({
         //         '.emdash-in': { '@apply relative pl-8': true },
