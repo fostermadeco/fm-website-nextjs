@@ -9,7 +9,7 @@ export interface TypePageIndustryFields {
     name: Contentful.EntryFields.Symbol;
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
-    headerParagraph: Contentful.EntryFields.Symbol;
+    paragraph: Contentful.EntryFields.Symbol;
     button: Contentful.Entry<TypeComponentCtaButtonFields>;
     sections: TypeComponentSections;
     slideshow: Contentful.Entry<TypeComponentBlockSlideshowFields>;
