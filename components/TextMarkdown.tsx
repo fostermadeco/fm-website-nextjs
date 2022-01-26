@@ -8,7 +8,7 @@ type TextMarkdownPropTypes = {
 const TextMarkdown = (props: TextMarkdownPropTypes) => {
     const { text } = props;
     return (
-        <div className="prose">
+        <div className="prose prose-lg md:prose-xl">
             <ReactMarkdown>{text}</ReactMarkdown>
         </div>
     );

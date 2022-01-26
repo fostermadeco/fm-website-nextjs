@@ -26,7 +26,7 @@ const PageSectionImage = (props: PageSectionImageProps) => {
 };
 
 const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
-    const { overline, headerText, paragraph, linkText } = fields;
+    const { overline, headerText, paragraph, links } = fields;
     return (
         <div>
             <h2 className="h5 overline">{overline}</h2>
@@ -34,10 +34,18 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
             <div className="mt-6">
                 <TextMarkdown text={paragraph} />
             </div>
-            {linkText && (
-                <Link href="#">
-                    <a className="inline-block mt-4 text-2xl text-black font-headline border-b-in">{linkText}</a>
-                </Link>
+            {links && (
+                <ul className="mt-4">
+                    {links.map((link) => (
+                        <li>
+                            <Link href="#">
+                                <a className="inline-block mb-3 text-xl text-black md:text-2xl font-headline border-b-in">
+                                    {link.fields.linkText}
+                                </a>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     );

@@ -11,10 +11,9 @@
     }
     .border-b-in:after {
         content: '';
-        height: 1.5px;
-        bottom: -1px;
+        height: 2px;
         transition: all ease-in-out .2s;
-        @apply absolute left-0 w-full bg-black md:w-0;
+        @apply bottom-0 md:bottom-[-1px] absolute left-0 w-full bg-black md:w-0;
     }
     .group:hover .border-b-in::after, .border-b-in:hover::after {
         @apply  w-full;
