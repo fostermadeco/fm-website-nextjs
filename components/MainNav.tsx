@@ -9,7 +9,6 @@ type MainNavPropTypes = {
 const MainNav = (props: MainNavPropTypes) => {
     const { mode = 'dark' } = props;
     const router = useRouter();
-    console.log({ router });
 
     const logoFill = mode === 'light' ? 'fill-white' : 'fill-black';
     const textColor = mode === 'light' ? 'text-white' : 'text-black';
