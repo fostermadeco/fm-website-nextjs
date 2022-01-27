@@ -124,8 +124,9 @@ const Footer = () => {
                     <div className="col-span-12 col-start-2 border-t border-white">
                         <div className="md:flex md:justify-between">
                             <div>
-                                <p className="py-6 text-xs text-white">
-                                    &copy;Copyright {year}. All Rights Reserved. Made with &#9825; in Richmond, VA.
+                                <p className="flex items-center py-6 text-xs text-white">
+                                    <span className="mt-1 mr-1 text-lg">&copy;</span> Copyright {year}. All Rights
+                                    Reserved. Made with &#9825; in Richmond, VA.
                                 </p>
                             </div>
                             <div>
