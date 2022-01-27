@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Footer from '../components/Footer';
 
 class AppDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -14,6 +15,7 @@ class AppDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+                    <Footer />
                 </body>
             </Html>
         );

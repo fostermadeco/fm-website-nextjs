@@ -29,6 +29,6 @@
     }
     .overline {
         text-decoration-line: none !important;
-        @apply before:pr-1 before:content-['/'];
+        @apply before:pr-[6px] before:content-['/'];
     }
 }
