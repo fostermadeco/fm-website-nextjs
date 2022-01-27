@@ -9,10 +9,12 @@ const Footer = () => {
     return (
         <div className="bg-black ">
             <div className="pt-20 pb-10">
-                <div className="grid grid-cols-14">
-                    <div className="col-span-6 col-start-2">
-                        <Logo mode="light" />
-                        <ul className="mt-8 leading-relaxed text-white">
+                <div className="block grid-cols-1 grid-rows-2 gap-0 mx-6 md:grid md:gap-8 md:mx-0 md:grid-rows-1 md:grid-cols-14">
+                    <div className="col-span-1 md:col-span-5 md:col-start-2 lg:col-start-2 lg:col-span-6 ">
+                        <div className="w-60">
+                            <Logo mode="light" />
+                        </div>
+                        <ul className="mt-8 mb-8 leading-relaxed text-white md:mb-0">
                             <li>
                                 <li>404 E Grace St</li>
                                 <li>Richmond, VA 22319</li>
@@ -22,9 +24,9 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-span-2 text-white">
+                    <div className="mt-2 mb-10 text-white md:col-span-2 md:mb-0">
                         <h5 className="mb-3 text-white overline h5">Services</h5>
-                        <ul className="text-base leading-relaxed">
+                        <ul className="space-y-2 text-sm leading-tight lg:text-base">
                             <li>
                                 <Link href="#">
                                     <a>Strategy</a>
@@ -47,9 +49,9 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-span-2 text-white">
+                    <div className="col-start-2 mt-2 mb-10 text-white md:col-span-2 md:mb-0">
                         <h5 className="text-white overline h5">Solutions</h5>
-                        <ul className="text-base leading-relaxed">
+                        <ul className="space-y-2 text-sm leading-tight lg:text-base">
                             <li>
                                 <Link href="#">
                                     <a>Websites</a>
@@ -77,9 +79,9 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-span-3 text-white">
+                    <div className="mt-2 text-white md:col-span-3 lg:col-span-3 xl:col-span-2">
                         <h5 className="text-white overline h5">Foster Made</h5>
-                        <ul className="text-base leading-relaxed">
+                        <ul className="space-y-2 text-sm leading-tight lg:text-base">
                             <li>
                                 <Link href="#">
                                     <a>Why Foster Made?</a>
@@ -120,24 +122,30 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-14">
                     <div className="col-span-12 col-start-2 border-t border-white">
-                        <div className="flex justify-between">
+                        <div className="md:flex md:justify-between">
                             <div>
                                 <p className="py-6 text-xs text-white">
                                     &copy;Copyright {year}. All Rights Reserved. Made with &#9825; in Richmond, VA.
                                 </p>
                             </div>
                             <div>
-                                <p className="py-6 text-xs text-white">
-                                    <Link href="#">
-                                        <a className="pl-4">Accessibility Statement</a>
-                                    </Link>
-                                    <Link href="#">
-                                        <a className="pl-4">Privacy Policy</a>
-                                    </Link>
-                                    <Link href="#">
-                                        <a className="pl-4">Terms & Conditions</a>
-                                    </Link>
-                                </p>
+                                <ul className="py-2 text-xs text-right text-white md:py-6">
+                                    <li className="inline">
+                                        <Link href="#">
+                                            <a className="block pb-1 lg:inline md:mb-0">Accessibility Statement</a>
+                                        </Link>
+                                    </li>
+                                    <li className="inline">
+                                        <Link href="#">
+                                            <a className="block pb-1 lg:inline lg:pl-4 md:mb-0">Privacy Policy</a>
+                                        </Link>
+                                    </li>
+                                    <li className="inline">
+                                        <Link href="#">
+                                            <a className="block pb-1 lg:inline lg:pl-4 md:mb-0">Terms & Conditions</a>
+                                        </Link>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
