@@ -10,6 +10,7 @@ import { TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage
 import { TypeComponentBlockCtaFullSimpleFields } from './TypeComponentBlockCtaFullSimple';
 import { TypeComponentBlockClientTestimonialFields } from './TypeComponentBlockClientTestimonial';
 import { TypeComponentBlockSlideshowFields } from './TypeComponentBlockSlideshow';
+import { TypeComponentBlockDarkCircleBackgroundFields } from './TypeComponentBlockDarkCircleBackground';
 
 export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockHeaderFields
@@ -23,4 +24,5 @@ export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockCtaFullSimpleFields
     | TypeComponentBlockClientTestimonialFields
     | TypeComponentBlockSlideshowFields
+    | TypeComponentBlockDarkCircleBackgroundFields
 >[];

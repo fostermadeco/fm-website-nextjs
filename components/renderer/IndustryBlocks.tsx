@@ -40,20 +40,18 @@ const IndustryBlocks = ({ fields }: { fields: TypeComponentBlockIndustryBlocksFi
     if (!fields) return null;
 
     return (
-        <div className="bg-black">
-            <div className="container mx-auto">
-                <div className="mx-6 py-14 md:mx-0">
-                    <div className="max-w-2xl mx-auto text-center">
-                        <h2 className="text-white h5 overline">{fields.overline}</h2>
-                        <h3 className="text-white h2">{fields.headerText}</h3>
-                        <p className="px-8 text-white p-xl">{fields.paragraph}</p>
-                    </div>
+        <div className="">
+            <div className="mx-6 py-14 md:mx-0">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-white h5 overline">{fields.overline}</h2>
+                    <h3 className="text-white h2">{fields.headerText}</h3>
+                    <p className="px-8 text-white p-xl">{fields.paragraph}</p>
+                </div>
 
-                    <div className="grid grid-cols-1 gap-6 my-10 mt-20 md:grid-cols-3 md:gap-6">
-                        {fields.industryBlocks.map((b) => (
-                            <IndustryBlock key={`industry-block-${b.sys.id}`} block={b} />
-                        ))}
-                    </div>
+                <div className="grid grid-cols-1 gap-6 my-10 mt-20 md:grid-cols-3 md:gap-6">
+                    {fields.industryBlocks.map((b) => (
+                        <IndustryBlock key={`industry-block-${b.sys.id}`} block={b} />
+                    ))}
                 </div>
             </div>
         </div>

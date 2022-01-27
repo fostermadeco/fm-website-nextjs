@@ -15,9 +15,11 @@ import TechnologyBlocks from './TechnologyBlocks';
 import CtaFullSimple from './CtaFullSimple';
 import WideImage from './WideImage';
 import ClientTestimonial from './ClientTestimonial';
+import DarkCircleBackground from './DarkCircleBackground';
 
 type BlockRendererProps = {
     block: any;
+    mode?: 'dark' | 'light';
 };
 
 // Map Contentful content type ids from content models to components
@@ -33,14 +35,16 @@ const ContentTypeMap = {
     blockCtaFullSimple: CtaFullSimple,
     blockWideImage: WideImage,
     blockClientTestimonial: ClientTestimonial,
+    blockDarkCircleBackground: DarkCircleBackground,
 };
 
-const BlockRenderer = ({ block }: BlockRendererProps) => {
+const BlockRenderer = (props: BlockRendererProps) => {
+    const { block, mode = 'light' } = props;
     if (Array.isArray(block)) {
         return (
             <>
                 {block.map((b) => (
-                    <BlockRenderer key={`block-${b.sys.id}`} block={b} />
+                    <BlockRenderer key={`block-${b.sys.id}`} block={b} mode={mode} />
                 ))}
             </>
         );
@@ -64,7 +68,7 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
 
     console.log({ componentProps });
 
-    return <Component key={`${contentTypeId}-${id}`} {...componentProps} />;
+    return <Component key={`${contentTypeId}-${id}`} mode={mode} {...componentProps} />;
 };
 
 export default BlockRenderer;

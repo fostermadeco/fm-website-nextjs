@@ -15,7 +15,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
 
     return (
         <div className="container relative mx-auto">
-            <div className="mb-24 mt-14 md:my-14">
+            <div className="mb-24 mt-14 md:mb-24 ">
                 <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
                     <div className="my-8 md:my-0 md:col-span-3 md:col-start-2">
                         <Link href="/expertise">
@@ -30,7 +30,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
                         <h3 className="h3">{headerText}</h3>
                         <p className="h4">{paragraph}</p>
                         {button && (
-                            <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-34">
+                            <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">
                                 <ButtonCircle button={button.fields} />
                             </div>
                         )}

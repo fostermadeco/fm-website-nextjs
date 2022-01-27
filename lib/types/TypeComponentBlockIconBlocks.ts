@@ -5,6 +5,7 @@ import { TypeComponentBlockIconBlockFields } from './TypeComponentIconBlock';
 export interface TypeComponentBlockIconBlocksFields {
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
+    paragraph: Contentful.EntryFields.Symbol;
     iconBlocks: Contentful.Entry<TypeComponentBlockIconBlockFields>[];
 }
 
