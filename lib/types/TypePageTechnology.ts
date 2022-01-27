@@ -10,7 +10,7 @@ export interface TypePageTechnologyFields {
     technology: Contentful.Entry<TypeComponentTechnologyFields>;
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
-    paragraph: Contentful.EntryFields.Symbol;
+    headerParagraph: Contentful.EntryFields.Symbol;
     button: Contentful.Entry<TypeComponentCtaButtonFields>;
     sections: TypeComponentSections;
     slideshow: Contentful.Entry<TypeComponentBlockSlideshowFields>;

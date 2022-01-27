@@ -40,3 +40,4 @@ export type { TypePage } from './TypePage';
 export type { TypePageLanding } from './TypePageLanding';
 export type { TypePageIndustry } from './TypePageIndustry';
 export type { TypePageTechnology } from './TypePageTechnology';
+export type { TypePageService } from './TypePageService';

@@ -11,7 +11,7 @@ type PageIntroDetailProps = {
 const PageIntroDetail = (props: PageIntroDetailProps) => {
     console.log({ props });
     const { block } = props;
-    const { overline, headerText, paragraph, button } = block.fields;
+    const { overline, headerText, headerParagraph, button } = block.fields;
 
     return (
         <div className="container relative mx-auto">
@@ -28,7 +28,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
                     <div className="col-span-7">
                         <h2 className="h5 overline">{overline}</h2>
                         <h3 className="h3">{headerText}</h3>
-                        <p className="h4">{paragraph}</p>
+                        <p className="h4">{headerParagraph}</p>
                         {button && (
                             <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">
                                 <ButtonCircle button={button.fields} />

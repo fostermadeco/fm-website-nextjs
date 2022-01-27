@@ -1,11 +1,11 @@
-// import * as CFRichTextTypes from '@contentful/rich-text-types';
 import * as Contentful from 'contentful';
 // eslint-disable-next-line import/no-cycle
 import { TypeComponentSections } from './TypeComponentSections';
 import { TypeComponentCtaButtonFields } from './TypeComponentCtaButton';
 
-export interface TypePageIndustryFields {
+export interface TypePageServiceFields {
     name: Contentful.EntryFields.Symbol;
+    // service: Contentful.Entry<TypeComponentServiceFields>;
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
     headerParagraph: Contentful.EntryFields.Symbol;
@@ -13,4 +13,4 @@ export interface TypePageIndustryFields {
     sections: TypeComponentSections;
 }
 
-export type TypePageIndustry = Contentful.Entry<TypePageIndustryFields>;
+export type TypePageService = Contentful.Entry<TypePageServiceFields>;
