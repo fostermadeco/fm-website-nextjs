@@ -23,7 +23,7 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageLanding;
-    const { sections = [], pageIntro = {}, slideshow } = content.fields;
+    const { sections = [], pageIntro = {} } = content.fields;
 
     return (
         <>
@@ -32,7 +32,6 @@ const CompanyPage = ({ page }: { page: TypePage }) => {
                 <PageHead page={page} />
                 <BlockRenderer block={pageIntro} />
                 <BlockRenderer block={sections} />
-                <BlockRenderer block={slideshow} />
             </div>
         </>
     );
