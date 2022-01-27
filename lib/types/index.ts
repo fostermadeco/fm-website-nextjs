@@ -32,6 +32,8 @@ export type {
     TypeComponentBlockClientTestimonial,
     TypeComponentBlockClientTestimonialFields,
 } from './TypeComponentBlockClientTestimonial';
+export type { TypeComponentImageRichText, TypeComponentImageRichTextFields } from './TypeComponentImageRichText';
+export type { TypeComponentVideo, TypeComponentVideoFields } from './TypeComponentVideo';
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage } from './TypePage';
