@@ -5,8 +5,7 @@ import MainNav from '../../../components/MainNav';
 import { PageHead } from '../../../components/PageHead';
 import PageIntroDetail from '../../../components/renderer/PageIntroDetail';
 import BlockRenderer from '../../../components/renderer/BlockRenderer';
-import { TypePage } from '../../../lib/types';
-import { TypePageIndustry } from '../../../lib/types/TypePageIndustry';
+import { TypePage, TypePageIndustry } from '../../../lib/types';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     console.log({ context });
@@ -43,14 +42,14 @@ const IndustryPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageIndustry;
-    const { sections = [], pageIntroDetail } = content.fields;
+    const { sections = [], pageIntroDetail, parentPage } = content.fields;
 
     return (
         <>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
-                <PageIntroDetail block={pageIntroDetail.fields} />
+                <PageIntroDetail block={pageIntroDetail} parent={parentPage} />
                 <BlockRenderer block={sections} />
             </div>
         </>

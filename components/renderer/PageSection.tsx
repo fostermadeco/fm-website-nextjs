@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { TypeComponentBlockPageSectionFields } from '../../lib/types';
+import LinkWrapper from '../LinkWrapper';
 import TextMarkdown from '../TextMarkdown';
 
 type PageSectionImageProps = {
@@ -25,6 +26,8 @@ const PageSectionImage = (props: PageSectionImageProps) => {
     );
 };
 
+const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
 const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
     const { overline, headerText, paragraph, links } = fields;
     return (
@@ -37,12 +40,12 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
             {links && (
                 <ul className="mt-4">
                     {links.map((link) => (
-                        <li>
-                            <Link href="#">
+                        <li key={`link-${getRandomInt(100)}`}>
+                            <LinkWrapper link={link.fields.linkPage}>
                                 <a className="inline-block mb-3 text-xl text-black md:text-2xl font-headline border-b-in">
                                     {link.fields.linkText}
                                 </a>
-                            </Link>
+                            </LinkWrapper>
                         </li>
                     ))}
                 </ul>

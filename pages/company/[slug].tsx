@@ -1,19 +1,19 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import getPage from '../../../api/api';
-import MainNav from '../../../components/MainNav';
-import { PageHead } from '../../../components/PageHead';
-import PageIntroDetail from '../../../components/renderer/PageIntroDetail';
-import BlockRenderer from '../../../components/renderer/BlockRenderer';
-import { TypePage, TypePageService } from '../../../lib/types';
+import getPage from '../../api/api';
+import MainNav from '../../components/MainNav';
+import { PageHead } from '../../components/PageHead';
+import PageIntroDetail from '../../components/renderer/PageIntroDetail';
+import BlockRenderer from '../../components/renderer/BlockRenderer';
+import { TypePage, TypePageCompany } from '../../lib/types';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    console.log({ context });
+
     const { params = {} } = context;
     const slug = String(params.slug);
-    console.log({ slug });
-
     const page = await getPage({
-        pageContentType: 'pageService',
+        pageContentType: 'pageCompany',
         slug,
     });
 
@@ -24,10 +24,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 };
 
-const ServicePage = ({ page }: { page: TypePage }) => {
+const CompanyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
-    const content = page.fields.content as TypePageService;
+    const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail, parentPage } = content.fields;
 
     return (
@@ -42,4 +42,4 @@ const ServicePage = ({ page }: { page: TypePage }) => {
     );
 };
 
-export default ServicePage;
+export default CompanyPage;

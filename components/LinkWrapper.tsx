@@ -2,17 +2,11 @@ import Link from 'next/link';
 import React from 'react';
 import * as Contentful from 'contentful';
 import { TypePageFields } from '../lib/types';
+import { getUrlByPageType, pageMap } from '../lib/constants';
 
 type LinkWrapperPropTypes = {
     link: Contentful.Entry<TypePageFields>;
     children: JSX.Element;
-};
-
-const pageMap = {
-    pageLanding: '/',
-    pageService: '/expertise/service/',
-    pageIndustry: '/expertise/industry/',
-    pageTechnology: '/expertise/technology/',
 };
 
 const LinkWrapper = (props: LinkWrapperPropTypes) => {
@@ -23,8 +17,9 @@ const LinkWrapper = (props: LinkWrapperPropTypes) => {
     if (!link) return null;
 
     const { slug } = link.fields;
+    return null;
     const pageType = link.fields.content.sys.contentType.sys.id;
-    const prefix = pageMap[pageType as keyof typeof pageMap];
+    const prefix = getUrlByPageType({ pageType, slug });
 
     return <Link href={`${prefix}${slug}`}>{children}</Link>;
 };

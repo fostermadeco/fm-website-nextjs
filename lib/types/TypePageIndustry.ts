@@ -3,11 +3,13 @@ import * as Contentful from 'contentful';
 // eslint-disable-next-line import/no-cycle
 import { TypeComponentSections } from './TypeComponentSections';
 import { TypeComponentPageIntroDetailFields } from './TypeComponentBlockPageIntroDetail';
+import { TypePageFields } from './TypePage';
 
 export interface TypePageIndustryFields {
     name: Contentful.EntryFields.Symbol;
     pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
     sections: TypeComponentSections;
+    parentPage: Contentful.Entry<TypePageFields>;
 }
 
 export type TypePageIndustry = Contentful.Entry<TypePageIndustryFields>;
