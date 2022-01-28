@@ -18,5 +18,22 @@
                 "tabWidth": 4
             }
         ]
+    },
+    "settings": {
+        // "import/extensions": allExtensions,
+        // "import/parsers": {
+        //     "@typescript-eslint/parser": tsExtensions,
+        // },
+        "import/resolver": {
+            "typescript": {},
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
     }
 }
