@@ -2,9 +2,9 @@
 import * as Contentful from 'contentful';
 import { TypeComponentCtaButtonFields } from './TypeComponentCtaButton';
 
-export interface TypeComponentBlockCtaFullSimpleFields {
+export interface TypeComponentCtaSimpleFields {
     headerText: Contentful.EntryFields.Symbol;
     button: Contentful.Entry<TypeComponentCtaButtonFields>;
 }
 
-export type TypeComponentBlockCtaFullSimple = Contentful.Entry<TypeComponentBlockCtaFullSimpleFields>;
+export type TypeComponentCtaSimple = Contentful.Entry<TypeComponentCtaSimpleFields>;

@@ -23,10 +23,8 @@ export type {
     TypeComponentBlockTechnologyBlocks,
     TypeComponentBlockTechnologyBlocksFields,
 } from './TypeComponentBlockTechnologyBlocks';
-export type {
-    TypeComponentBlockCtaFullSimple,
-    TypeComponentBlockCtaFullSimpleFields,
-} from './TypeComponentBlockCtaFullSimple';
+export type { TypeComponentBlockCtaBottom, TypeComponentBlockCtaBottomFields } from './TypeComponentBlockCtaBottom';
+export type { TypeComponentCtaSimple, TypeComponentCtaSimpleFields } from './TypeComponentCtaSimple';
 export type { TypeComponentBlockWideImage, TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
 export type {
     TypeComponentBlockClientTestimonial,

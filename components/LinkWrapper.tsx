@@ -17,7 +17,6 @@ const LinkWrapper = (props: LinkWrapperPropTypes) => {
     if (!link) return null;
 
     const { slug } = link.fields;
-    return null;
     const pageType = link.fields.content.sys.contentType.sys.id;
     const prefix = getUrlByPageType({ pageType, slug });
 

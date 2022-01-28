@@ -1,8 +1,8 @@
 import React from 'react';
-import { TypeComponentBlockCtaFullSimpleFields } from '../../lib/types';
+import { TypeComponentCtaSimpleFields } from '../../lib/types';
 import ButtonCircle from '../ButtonCircle';
 
-const CtaFullSimple = ({ fields }: { fields: TypeComponentBlockCtaFullSimpleFields }) => {
+const CtaFullSimple = ({ fields }: { fields: TypeComponentCtaSimpleFields }) => {
     // if (!fields) return null;
 
     const { headerText } = fields;
