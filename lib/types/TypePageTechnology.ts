@@ -2,16 +2,13 @@ import * as Contentful from 'contentful';
 // eslint-disable-next-line import/no-cycle
 import { TypeComponentSections } from './TypeComponentSections';
 import { TypeComponentBlockSlideshowFields } from './TypeComponentBlockSlideshow';
-import { TypeComponentCtaButtonFields } from './TypeComponentCtaButton';
 import { TypeComponentTechnologyFields } from './TypeComponentTechnology';
+import { TypeComponentPageIntroDetailFields } from './TypeComponentBlockPageIntroDetail';
 
 export interface TypePageTechnologyFields {
     name: Contentful.EntryFields.Symbol;
     technology: Contentful.Entry<TypeComponentTechnologyFields>;
-    overline: Contentful.EntryFields.Symbol;
-    headerText: Contentful.EntryFields.Symbol;
-    headerParagraph: Contentful.EntryFields.Symbol;
-    button: Contentful.Entry<TypeComponentCtaButtonFields>;
+    pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
     sections: TypeComponentSections;
     slideshow: Contentful.Entry<TypeComponentBlockSlideshowFields>;
 }

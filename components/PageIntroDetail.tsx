@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import React from 'react';
-import { TypePageIndustry } from '../lib/types/TypePageIndustry';
+import { TypeComponentPageIntroDetailFields } from '../lib/types/TypeComponentBlockPageIntroDetail';
 import Arrow from './Arrow';
 import ButtonCircle from './ButtonCircle';
 
 type PageIntroDetailProps = {
-    block: TypePageIndustry;
+    block: TypeComponentPageIntroDetailFields;
 };
 
 const PageIntroDetail = (props: PageIntroDetailProps) => {
     console.log({ props });
     const { block } = props;
-    const { overline, headerText, headerParagraph, button } = block.fields;
+    const { overline, headerText, headerParagraph, button } = block;
 
     return (
         <div className="container relative mx-auto">

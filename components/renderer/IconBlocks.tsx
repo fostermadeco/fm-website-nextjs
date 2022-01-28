@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import classNames from 'classnames';
 import { TypeComponentBlockIconBlocksFields } from '../../lib/types';
+import LinkWrapper from '../LinkWrapper';
 
 type IconBlocksPropTypes = {
     fields: TypeComponentBlockIconBlocksFields;
@@ -52,7 +53,7 @@ const IconBlocks = (props: IconBlocksPropTypes) => {
                                             {b.fields.paragraph}
                                         </p>
                                         {b.fields.link && (
-                                            <Link href={`/${b.fields.link.fields.slug}`}>
+                                            <LinkWrapper link={b.fields.link}>
                                                 <a
                                                     className={classNames(`inline-block mt-4 h5 emdash-in`, {
                                                         'text-white': isDark,
@@ -60,7 +61,7 @@ const IconBlocks = (props: IconBlocksPropTypes) => {
                                                 >
                                                     Read More
                                                 </a>
-                                            </Link>
+                                            </LinkWrapper>
                                         )}
                                     </div>
                                 ))}

@@ -36,7 +36,7 @@ export type { TypeComponentImageRichText, TypeComponentImageRichTextFields } fro
 export type { TypeComponentVideo, TypeComponentVideoFields } from './TypeComponentVideo';
 export type { TypeComponentSections } from './TypeComponentSections';
 
-export type { TypePage } from './TypePage';
+export type { TypePage, TypePageFields } from './TypePage';
 export type { TypePageLanding } from './TypePageLanding';
 export type { TypePageIndustry } from './TypePageIndustry';
 export type { TypePageTechnology } from './TypePageTechnology';

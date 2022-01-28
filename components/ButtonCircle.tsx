@@ -1,15 +1,15 @@
-import Link from 'next/link';
 import React from 'react';
 import { TypeComponentCtaButtonFields } from '../lib/types/TypeComponentCtaButton';
+import LinkWrapper from './LinkWrapper';
 
 const ButtonCircle = ({ button }: { button: TypeComponentCtaButtonFields }) => {
     const { buttonText } = button;
     return (
-        <Link href="#">
+        <LinkWrapper link={button.link}>
             <a className="btn-circle">
                 <span>{buttonText}</span>
             </a>
-        </Link>
+        </LinkWrapper>
     );
 };
 
