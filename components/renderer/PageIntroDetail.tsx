@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import { TypeComponentPageIntroDetailFields } from '../lib/types/TypeComponentBlockPageIntroDetail';
-import Arrow from './Arrow';
-import ButtonCircle from './ButtonCircle';
+import { TypeComponentPageIntroDetailFields } from '../../lib/types/TypeComponentBlockPageIntroDetail';
+import Arrow from '../Arrow';
+import ButtonCircle from '../ButtonCircle';
 
 type PageIntroDetailProps = {
     block: TypeComponentPageIntroDetailFields;

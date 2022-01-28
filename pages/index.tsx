@@ -30,6 +30,13 @@ const Home: NextPage = () => (
                     </Link>
                 </li>
                 <li>
+                    <Link href="/expertise/service/research-and-discovery">
+                        <a className="h4">
+                            <h2>Service - Research & Discovery &rarr;</h2>
+                        </a>
+                    </Link>
+                </li>
+                <li>
                     <Link href="/expertise/industry/arts-culture">
                         <a className="h4">
                             <h2>Industry - Arts & Culture &rarr;</h2>
