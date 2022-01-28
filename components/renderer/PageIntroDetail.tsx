@@ -53,8 +53,8 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
                         <BackLink page={parent} />
                     </div>
                     <div className="col-span-7">
-                        <h2 className="h5 overline">{overline}</h2>
-                        <h3 className="h3">{headerText}</h3>
+                        <h1 className="h5 overline">{overline}</h1>
+                        <h2 className="h1">{headerText}</h2>
                         <p className="h4">{headerParagraph}</p>
                         {button && (
                             <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">

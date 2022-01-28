@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import getPage from '../../../api/api';
+import { getPage } from '../../../api/api';
 import MainNav from '../../../components/MainNav';
 import { PageHead } from '../../../components/PageHead';
 import PageIntroDetail from '../../../components/renderer/PageIntroDetail';

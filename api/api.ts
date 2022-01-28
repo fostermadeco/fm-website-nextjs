@@ -11,7 +11,7 @@ type GetPageParams = {
     // locale?: string;
 };
 
-const getPage = async (params: GetPageParams) => {
+export const getPage = async (params: GetPageParams) => {
     const query = {
         limit: 1,
         include: 10,
@@ -26,4 +26,18 @@ const getPage = async (params: GetPageParams) => {
     return page || null;
 };
 
-export default getPage;
+type GetPagesParams = {
+    pageContentType: string;
+};
+
+export const getPages = async (params: GetPagesParams) => {
+    const query = {
+        limit: 100,
+        include: 10,
+        locale: 'en-US',
+        content_type: 'page',
+        'fields.content.sys.contentType.sys.id': params.pageContentType,
+    };
+    const { items } = await client.getEntries(query);
+    return items || null;
+};

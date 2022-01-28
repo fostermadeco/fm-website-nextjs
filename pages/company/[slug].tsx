@@ -1,11 +1,12 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import getPage from '../../api/api';
+import { getPage, getPages } from '../../api/api';
 import MainNav from '../../components/MainNav';
 import { PageHead } from '../../components/PageHead';
 import PageIntroDetail from '../../components/renderer/PageIntroDetail';
 import BlockRenderer from '../../components/renderer/BlockRenderer';
 import { TypePage, TypePageCompany } from '../../lib/types';
+import { TypePageJob } from '../../lib/types/TypePageJob';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     console.log({ context });
@@ -17,15 +18,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         slug,
     });
 
+    let jobs;
+    if (slug === 'careers') {
+        jobs = await getPages({ pageContentType: 'pageJob' });
+    }
+
     return {
         props: {
             page,
+            jobs,
         },
     };
 };
 
-const CompanyPage = ({ page }: { page: TypePage }) => {
-    console.log({ page });
+const CompanyPage = ({ page, jobs }: { page: TypePage; jobs: TypePageJob[] }) => {
+    console.log({ page, jobs });
 
     const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail, parentPage } = content.fields;
