@@ -9,24 +9,9 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
         fontFamily: {
-            headline: [
-                'Formular',
-                'ui-sans-serif',
-                'system-ui',
-                '-apple-system',
-                'BlinkMacSystemFont',
-                'Segoe UI',
-                'Roboto',
-                'Helvetica Neue',
-                'Arial',
-                'Noto Sans',
-                'sans-serif',
-                'Apple Color Emoji',
-                'Segoe UI Emoji',
-                'Segoe UI Symbol',
-                'Noto Color Emoji',
-            ],
-            text: ['Sailec', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+            headline:
+                'Formular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji',
+            text: 'Sailec, ui-serif, Georgia, Cambria, Times New Roman, Times, serif',
         },
         colors: {
             black: '#232628',
@@ -67,6 +52,42 @@ module.exports = {
             transitionProperty: {
                 fill: 'fill',
             },
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme('colors.black'),
+                        h5: {
+                            marginBottom: '1rem',
+                            fontFamily: theme('fontFamily.headline'),
+                            fontSize: '0.75rem',
+                            lineHeight: '1rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '.15em',
+                            color: theme('colors.black'),
+                            // TODO: not working
+                            '&::before': {
+                                'padding-right': '6px',
+                                content: '/',
+                            },
+                        },
+                        ul: {
+                            'list-style-type': 'square',
+                        },
+                    },
+                },
+                xl: {
+                    css: {
+                        ul: {
+                            paddingLeft: '1em',
+                        },
+                        li: {
+                            marginTop: '0',
+                            marginBottom: '.1em',
+                            fontSize: '1rem',
+                        },
+                    },
+                },
+            }),
         },
     },
     plugins: [require('@tailwindcss/typography')],
