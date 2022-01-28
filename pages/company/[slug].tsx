@@ -1,12 +1,11 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import { getPage, getPages } from '../../api/api';
+import { TypePage, TypePageCompany, TypePageJob } from '../../lib/types';
 import MainNav from '../../components/MainNav';
 import { PageHead } from '../../components/PageHead';
 import PageIntroDetail from '../../components/renderer/PageIntroDetail';
 import BlockRenderer from '../../components/renderer/BlockRenderer';
-import { TypePage, TypePageCompany } from '../../lib/types';
-import { TypePageJob } from '../../lib/types/TypePageJob';
+import { getPage, getPages } from '../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     console.log({ context });
