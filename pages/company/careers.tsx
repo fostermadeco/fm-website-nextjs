@@ -5,41 +5,41 @@ import { PageHead } from '@components/PageHead';
 import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
+import CareersProvider from 'context/CareersContext';
 import { getPage, getPages } from '../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    console.log({ context });
-
-    const { params = {} } = context;
-    const slug = String(params.slug);
     const page = await getPage({
         pageContentType: 'pageCompany',
-        slug,
+        slug: 'careers',
     });
+
+    const jobs = await getPages({ pageContentType: 'pageJob' });
 
     return {
         props: {
             page,
+            jobs,
         },
     };
 };
 
-const CompanyPage = ({ page }: { page: TypePage }) => {
-    console.log({ page });
+const CareersPage = ({ page, jobs = [] }: { page: TypePage; jobs: TypePageJob[] }) => {
+    console.log({ page, jobs });
 
     const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail, parentPage } = content.fields;
 
     return (
-        <>
+        <CareersProvider careers={jobs}>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
                 <PageIntroDetail block={pageIntroDetail} parent={parentPage} />
                 <BlockRenderer block={sections} />
             </div>
-        </>
+        </CareersProvider>
     );
 };
 
-export default CompanyPage;
+export default CareersPage;

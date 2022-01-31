@@ -30,6 +30,8 @@ export type {
     TypeComponentBlockClientTestimonial,
     TypeComponentBlockClientTestimonialFields,
 } from './TypeComponentBlockClientTestimonial';
+export type { TypeComponentBlockCareerList, TypeComponentBlockCareerListFields } from './TypeComponentBlockCareerList';
+
 export type { TypeComponentImageRichText, TypeComponentImageRichTextFields } from './TypeComponentImageRichText';
 export type { TypeComponentVideo, TypeComponentVideoFields } from './TypeComponentVideo';
 export type { TypeComponentSections } from './TypeComponentSections';

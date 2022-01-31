@@ -4,6 +4,7 @@
 // ^ necessary because block needs to be any
 import React from 'react';
 import get from 'lodash.get';
+import CareerList from '@components/renderer/CareerList';
 import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
 import ImageWithPartialOverlay from './ImageWithPartialOverlay';
@@ -38,6 +39,7 @@ const ContentTypeMap = {
     blockWideImage: WideImage,
     blockClientTestimonial: ClientTestimonial,
     blockDarkCircleBackground: DarkCircleBackground,
+    blockCareerList: CareerList,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {
