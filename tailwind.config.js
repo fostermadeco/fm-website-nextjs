@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -100,6 +101,12 @@ module.exports = {
                         },
                         ul: {
                             'list-style-type': 'square',
+                        },
+                        li: {
+                            // not working without important
+                            '&::marker': {
+                                color: `${theme('colors.black')} !important`,
+                            },
                         },
                     },
                 },
