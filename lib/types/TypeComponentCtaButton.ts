@@ -6,6 +6,9 @@ import { TypePageFields } from './TypePage';
 export interface TypeComponentCtaButtonFields {
     buttonText: Contentful.EntryFields.Symbol;
     link: Contentful.Entry<TypePageFields>;
+    anchorLink: Contentful.EntryFields.Symbol;
+    slugQueryParam: Contentful.EntryFields.Symbol;
+    referrerPage: Contentful.Entry<TypePageFields>;
 }
 
 export type TypeComponentCtaButton = Contentful.Entry<TypeComponentCtaButtonFields>;

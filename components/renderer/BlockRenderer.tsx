@@ -18,6 +18,7 @@ import WideImage from './WideImage';
 import ClientTestimonial from './ClientTestimonial';
 import DarkCircleBackground from './DarkCircleBackground';
 import CtaBottom from './CtaBottom';
+import ResponsiveFullImage from './ResponsiveFullImage';
 
 type BlockRendererProps = {
     block: any;
@@ -37,6 +38,7 @@ const ContentTypeMap = {
     blockCtaBottom: CtaBottom,
     ctaSimple: CtaFullSimple,
     blockWideImage: WideImage,
+    blockResponsiveFullImage: ResponsiveFullImage,
     blockClientTestimonial: ClientTestimonial,
     blockDarkCircleBackground: DarkCircleBackground,
     blockCareerList: CareerList,

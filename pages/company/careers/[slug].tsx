@@ -1,19 +1,17 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import { TypePage, TypePageCompany } from '@types';
+import { TypePage, TypePageCareer } from '@types';
 import { PageHead } from '@components/PageHead';
 import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
-import { getPage, getPages } from '../../api/api';
+import { getPage } from '../../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    console.log({ context });
-
     const { params = {} } = context;
     const slug = String(params.slug);
     const page = await getPage({
-        pageContentType: 'pageCompany',
+        pageContentType: 'pageCareer',
         slug,
     });
 
@@ -24,20 +22,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 };
 
-const CompanyPage = ({ page }: { page: TypePage }) => {
-    const content = page.fields.content as TypePageCompany;
-    const { sections = [], pageIntroDetail, parentPage } = content.fields;
+const CareerPage = ({ page }: { page: TypePage }) => {
+    const content = page.fields.content as TypePageCareer;
+    const { heroImage, pageIntroDetail } = content.fields;
 
     return (
         <>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
-                <PageIntroDetail block={pageIntroDetail} parent={parentPage} />
-                <BlockRenderer block={sections} />
+                <PageIntroDetail block={pageIntroDetail} />
+                <BlockRenderer block={heroImage} />
             </div>
         </>
     );
 };
 
-export default CompanyPage;
+export default CareerPage;

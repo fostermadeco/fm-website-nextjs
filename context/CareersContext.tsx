@@ -1,8 +1,8 @@
-import { TypePageJob } from '@types';
+import { TypePageCareer } from '@types';
 import React, { createContext, useMemo } from 'react';
 
 type CareersProviderPropTypes = {
-    careers: TypePageJob[] | null;
+    careers: TypePageCareer[] | null;
     children?: JSX.Element | JSX.Element[] | null;
 };
 

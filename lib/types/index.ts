@@ -15,6 +15,7 @@ export type { TypeComponentFact, TypeComponentFactFields } from './TypeComponent
 export type { TypeComponentImageWrapper, TypeComponentImageWrapperFields } from './TypeComponentImageWrapper';
 export type { TypeComponentPageIntro, TypeComponentPageIntroFields } from './TypeComponentPageIntro';
 export type { TypeComponentBlockIconBlocks, TypeComponentBlockIconBlocksFields } from './TypeComponentBlockIconBlocks';
+export type { TypeComponentCtaButton, TypeComponentCtaButtonFields } from './TypeComponentCtaButton';
 export type {
     TypeComponentBlockIndustryBlocks,
     TypeComponentBlockIndustryBlocksFields,
@@ -26,6 +27,10 @@ export type {
 export type { TypeComponentBlockCtaBottom, TypeComponentBlockCtaBottomFields } from './TypeComponentBlockCtaBottom';
 export type { TypeComponentCtaSimple, TypeComponentCtaSimpleFields } from './TypeComponentCtaSimple';
 export type { TypeComponentBlockWideImage, TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
+export type {
+    TypeComponentBlockResponsiveFullImage,
+    TypeComponentBlockResponsiveFullImageFields,
+} from './TypeComponentBlockResponsiveFullImage';
 export type {
     TypeComponentBlockClientTestimonial,
     TypeComponentBlockClientTestimonialFields,
@@ -42,4 +47,4 @@ export type { TypePageIndustry } from './TypePageIndustry';
 export type { TypePageTechnology } from './TypePageTechnology';
 export type { TypePageService } from './TypePageService';
 export type { TypePageCompany } from './TypePageCompany';
-export type { TypePageJob } from './TypePageJob';
+export type { TypePageCareer } from './TypePageCareer';

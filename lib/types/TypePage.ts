@@ -4,7 +4,7 @@ import { TypePageLandingFields } from './TypePageLanding';
 import { TypePageIndustryFields } from './TypePageIndustry';
 import { TypePageTechnologyFields } from './TypePageTechnology';
 import { TypePageCompanyFields } from './TypePageCompany';
-import { TypePageJobFields } from './TypePageJob';
+import { TypePageCareerFields } from './TypePageCareer';
 
 export interface TypePageFields {
     title: Contentful.EntryFields.Symbol;
@@ -15,7 +15,7 @@ export interface TypePageFields {
         | TypePageIndustryFields
         | TypePageTechnologyFields
         | TypePageCompanyFields
-        | TypePageJobFields
+        | TypePageCareerFields
     >;
     seo: Contentful.Entry<TypeSeoFields>;
 }

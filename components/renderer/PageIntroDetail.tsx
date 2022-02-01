@@ -37,7 +37,7 @@ const BackLink = (props: BackLinkPropTypes) => {
 
 type PageIntroDetailProps = {
     block: TypeComponentPageIntroDetail;
-    parent: Contentful.Entry<TypePageFields>;
+    parent?: Contentful.Entry<TypePageFields>;
 };
 
 const PageIntroDetail = (props: PageIntroDetailProps) => {

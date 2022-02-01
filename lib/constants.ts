@@ -3,6 +3,7 @@ export const pageMap = {
     pageIndustry: '/expertise/industry/',
     pageTechnology: '/expertise/technology/',
     pageCompany: '/company/',
+    pageCareer: '/company/careers/',
 };
 
 type UrlByPageTypeTypeProps = {
