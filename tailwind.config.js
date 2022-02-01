@@ -109,9 +109,8 @@ module.exports = {
                             paddingLeft: '1em',
                         },
                         li: {
-                            marginTop: '0',
-                            marginBottom: '.1em',
-                            fontSize: '1rem',
+                            marginBottom: '1em',
+                            fontSize: theme('fontSize.xl')[0],
                         },
                     },
                 },
