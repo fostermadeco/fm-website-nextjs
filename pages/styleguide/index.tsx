@@ -34,6 +34,15 @@ const StyleGuidePage = () => (
         </p>
 
         <hr className="my-8" />
+        <h2 className="h5 overline">Prose</h2>
+        <div className="prose prose-lg md:prose-xl">
+            <h2 className="h2">h2 We're glad to be here, working with you.</h2>
+            <h3 className="h3">h3 We're glad to be here, working with you.</h3>
+            <h4 className="h4">h4 We're glad to be here, working with you.</h4>
+            <h5 className="h5">h5 We're glad to be here, working with you.</h5>
+        </div>
+
+        <hr className="my-8" />
         <h2 className="h5 overline">Links</h2>
         <div className="mb-6">
             <Link href="#">

@@ -7,6 +7,7 @@ export interface TypePageCareerFields {
     name: Contentful.EntryFields.Symbol;
     pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
     heroImage: Contentful.Entry<TypeComponentBlockResponsiveFullImageFields>;
+    description: Contentful.EntryFields.Symbol;
 }
 
 export type TypePageCareer = Contentful.Entry<TypePageCareerFields>;

@@ -9,8 +9,7 @@
         @apply text-4xl text-black md:text-6xl lg:text-7xl font-headline;
     }
     .h2 {
-        line-height: 80px;
-        @apply mb-8 text-5xl text-black md:text-7xl font-headline;
+        @apply mb-8 text-black text-3xl md:text-5xl lg:text-6.5xl font-headline;
     }
     .h3 {
         @apply mb-4 text-4xl text-black lg:text-5xl xl:text-6xl font-headline;
