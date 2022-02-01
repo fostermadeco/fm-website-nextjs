@@ -6,6 +6,14 @@
         @apply bg-lime border-lime ;
     }
 
+    .btn-circle-white {
+        @apply bg-white;
+    }
+    .btn-circle-ivory {
+        @apply bg-ivory;
+    }
+   
+
     .border-b-in {
         @apply relative;
     }

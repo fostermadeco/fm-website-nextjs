@@ -18,14 +18,14 @@ const CtaFullSimple = ({ fields }: { fields: TypeComponentCtaSimpleFields }) => 
             <div className="relative pb-20 mx-auto pt-60">
                 <div className="my-14">
                     <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
-                        <div className="col-span-12 col-start-2">
+                        <div className="col-span-12 col-start-2 md:col-span-8 md:col-start-4">
                             <div className="flex items-center">
                                 <div>
                                     <div className="py-8">
-                                        <p className="text-center h3">{headerText}</p>
+                                        <p className="text-center h2">{headerText}</p>
                                     </div>
                                     <div className="flex items-center justify-center py-8">
-                                        <ButtonCircle button={fields.button.fields} />
+                                        <ButtonCircle button={fields.button.fields} bgColor="ivory" />
                                     </div>
                                 </div>
                             </div>

@@ -5,8 +5,8 @@ import { PageHead } from '@components/PageHead';
 import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
-import TextMarkdown from '@components/TextMarkdown';
 import TextMarkdownCentered from '@components/TextMarkdownCentered';
+import CtaFullSimple from '@components/renderer/CtaFullSimple';
 import { getPage } from '../../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -25,8 +25,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const CareerPage = ({ page }: { page: TypePage }) => {
+    console.log({ TypePageCareer: page });
+
     const content = page.fields.content as TypePageCareer;
-    const { heroImage, pageIntroDetail, description } = content.fields;
+    const { heroImage, pageIntroDetail, description, ctaBottom } = content.fields;
 
     return (
         <>
@@ -36,6 +38,7 @@ const CareerPage = ({ page }: { page: TypePage }) => {
                 <PageIntroDetail block={pageIntroDetail} />
                 <BlockRenderer block={heroImage} />
                 <TextMarkdownCentered textBlock={description} />
+                {ctaBottom && <CtaFullSimple fields={ctaBottom.fields} />}
             </div>
         </>
     );

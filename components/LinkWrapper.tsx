@@ -61,7 +61,6 @@ const LinkWrapper: FC<LinkWrapperPropTypes> = ({
     passHref,
     ...rest
 }) => {
-    console.log('LinkWrapper');
     // console.log({ props });
     // const { link, children } = props;
 

@@ -14,8 +14,6 @@ type BackLinkPropTypes = {
 
 const BackLink = (props: BackLinkPropTypes) => {
     const { page } = props;
-    console.log('BACKLINK');
-    console.log({ page });
 
     if (!page) return null;
 
