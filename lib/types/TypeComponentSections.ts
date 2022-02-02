@@ -7,7 +7,7 @@ import { TypeComponentBlockNumberedBlocksFields } from './TypeComponentBlockNumb
 import { TypeComponentBlockPageSectionFields } from './TypeComponentBlockPageSection';
 import { TypeComponentBlockTechnologyBlocksFields } from './TypeComponentBlockTechnologyBlocks';
 import { TypeComponentBlockWideImageFields } from './TypeComponentBlockWideImage';
-import { TypeComponentBlockCtaFullSimpleFields } from './TypeComponentBlockCtaFullSimple';
+import { TypeComponentBlockCtaBottomFields } from './TypeComponentBlockCtaBottom';
 import { TypeComponentBlockClientTestimonialFields } from './TypeComponentBlockClientTestimonial';
 import { TypeComponentBlockSlideshowFields } from './TypeComponentBlockSlideshow';
 import { TypeComponentBlockDarkCircleBackgroundFields } from './TypeComponentBlockDarkCircleBackground';
@@ -21,7 +21,7 @@ export type TypeComponentSections = Contentful.Entry<
     | TypeComponentBlockIndustryBlocksFields
     | TypeComponentBlockWideImageFields
     | TypeComponentBlockTechnologyBlocksFields
-    | TypeComponentBlockCtaFullSimpleFields
+    | TypeComponentBlockCtaBottomFields
     | TypeComponentBlockClientTestimonialFields
     | TypeComponentBlockSlideshowFields
     | TypeComponentBlockDarkCircleBackgroundFields
