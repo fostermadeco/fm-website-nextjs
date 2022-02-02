@@ -47,9 +47,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
         <div className="container relative mx-auto">
             <div className="mb-24 mt-14 md:mb-24 ">
                 <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
-                    <div className="my-8 md:my-0 md:col-span-3 md:col-start-2">
-                        <BackLink page={parent} />
-                    </div>
+                    <div className="my-8 md:my-0 md:col-span-3 md:col-start-2">{/* <BackLink page={parent} /> */}</div>
                     <div className="col-span-7">
                         <h1 className="h5 overline">{overline}</h1>
                         <h2 className="h1">{headerText}</h2>
