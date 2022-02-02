@@ -41,7 +41,7 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
                 <ul className="mt-4">
                     {links.map((link) => (
                         <li key={`link-${getRandomInt(100)}`}>
-                            <LinkWrapper link={link.fields.linkPage}>
+                            <LinkWrapper page={link.fields.linkPage}>
                                 <a className="inline-block mb-3 text-xl text-black md:text-2xl font-headline border-b-in">
                                     {link.fields.linkText}
                                 </a>

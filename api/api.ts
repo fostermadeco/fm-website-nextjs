@@ -1,4 +1,7 @@
 import { createClient } from 'contentful';
+import { PageContentType } from '@constants';
+import { TypePage } from '@types';
+import { parsePage } from 'lib/pageParsers';
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID || '',
@@ -26,18 +29,20 @@ export const getPage = async (params: GetPageParams) => {
     return page || null;
 };
 
-type GetPagesParams = {
+type GetPagesOfTypeParams = {
     pageContentType: string;
+    preview?: boolean;
 };
 
-export const getPages = async (params: GetPagesParams) => {
-    const query = {
+// TODO: add preview
+export const getPagesOfType = async (params: GetPagesOfTypeParams) => {
+    const { pageContentType } = params;
+
+    const { items: pages } = await client.getEntries({
         limit: 100,
-        include: 10,
-        locale: 'en-US',
-        content_type: 'page',
-        'fields.content.sys.contentType.sys.id': params.pageContentType,
-    };
-    const { items } = await client.getEntries(query);
-    return items || null;
+        content_type: PageContentType as string,
+        'fields.content.sys.contentType.sys.id': pageContentType,
+    });
+
+    return pages ? pages.map((page) => parsePage(page)) : [];
 };

@@ -1,14 +1,17 @@
 import LinkWrapper from '@components/LinkWrapper';
-import { TypeComponentBlockCareerListFields, TypePageCareer } from '@types';
+import { TypeComponentBlockCareerListFields, TypePage } from '@types';
 import { CareersContext } from 'context/CareersContext';
 import React, { useContext } from 'react';
 
-const CareerItem = (props: { career: TypePageCareer }) => {
+const CareerItem = (props: { career: TypePage }) => {
+    // const career = props.career as TypePage;
     const { career } = props;
+    console.log({ career });
+
     return (
         <div className="py-5 border-t-2">
             <h5 className="text-3xl font-headline ">
-                <LinkWrapper link={career}>
+                <LinkWrapper page={career}>
                     <a>{career.fields.name}</a>
                 </LinkWrapper>
             </h5>
@@ -33,7 +36,7 @@ const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) 
                     </div>
                     <div className="col-span-8 col-start-6">
                         <ul>
-                            {careers.map((career: TypePageCareer) => (
+                            {careers.map((career: TypePage) => (
                                 <li key={`career-list-item-${career.sys.id}}`}>
                                     <CareerItem career={career} />
                                 </li>

@@ -53,7 +53,7 @@ const IconBlocks = (props: IconBlocksPropTypes) => {
                                             {b.fields.paragraph}
                                         </p>
                                         {b.fields.link && (
-                                            <LinkWrapper link={b.fields.link}>
+                                            <LinkWrapper page={b.fields.link}>
                                                 <a
                                                     className={classNames(`inline-block mt-4 h5 emdash-in`, {
                                                         'text-white': isDark,

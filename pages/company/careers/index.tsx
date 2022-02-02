@@ -6,30 +6,34 @@ import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import CareersProvider from 'context/CareersContext';
-import { getPage, getPages } from '../../../api/api';
+import { PageContentTypes } from '@constants';
+import { getPage, getPagesOfType } from '../../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const page = await getPage({
-        pageContentType: 'pageCompany',
-        slug: 'careers',
-    });
-
-    const jobs = await getPages({ pageContentType: 'pageCareer' });
+    const [page, careers] = await Promise.all([
+        await getPage({
+            pageContentType: PageContentTypes.Company,
+            slug: 'careers',
+        }),
+        await getPagesOfType({ pageContentType: PageContentTypes.Career }),
+    ]);
 
     return {
         props: {
             page,
-            jobs,
+            careers,
         },
     };
 };
 
-const CareersPage = ({ page, jobs = [] }: { page: TypePage; jobs: TypePageCareer[] }) => {
+// use TypePage instead of TypePageCareer for careers so it can be used in links
+const CareersPage = ({ page, careers = [] }: { page: TypePage; careers: TypePage[] }) => {
     const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail, parentPage } = content.fields;
+    console.log({ careers });
 
     return (
-        <CareersProvider careers={jobs}>
+        <CareersProvider careers={careers}>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />

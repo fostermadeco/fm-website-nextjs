@@ -2,8 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import * as Contentful from 'contentful';
 
+import { TypePageFields } from '@types';
 import { getUrlByPageType } from '../../lib/constants';
-import { TypePageFields } from '../../lib/types';
 import { TypeComponentPageIntroDetail } from '../../lib/types/TypeComponentBlockPageIntroDetail';
 import Arrow from '../Arrow';
 import ButtonCircle from '../ButtonCircle';

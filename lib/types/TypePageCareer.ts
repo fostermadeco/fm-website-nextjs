@@ -2,7 +2,7 @@
 import * as Contentful from 'contentful';
 import { TypeComponentPageIntroDetailFields } from './TypeComponentBlockPageIntroDetail';
 import { TypeComponentBlockResponsiveFullImageFields } from './TypeComponentBlockResponsiveFullImage';
-import { TypeComponentCtaSimple, TypeComponentCtaSimpleFields } from './TypeComponentCtaSimple';
+import { TypeComponentCtaSimpleFields } from './TypeComponentCtaSimple';
 
 export interface TypePageCareerFields {
     name: Contentful.EntryFields.Symbol;

@@ -1,3 +1,14 @@
+export const PageContentType = 'page';
+
+export const PageContentTypes = {
+    Career: 'pageCareer',
+    Landing: 'pageLanding',
+    Company: 'pageCompany',
+    Industry: 'pageIndustry',
+    Technology: 'pageTechnology',
+    Service: 'pageService',
+};
+
 export const pageMap = {
     pageService: '/expertise/service/',
     pageIndustry: '/expertise/industry/',

@@ -29,6 +29,9 @@
             "@types": [
                 "lib/types/index.ts"
             ],
+            "@constants": [
+                "lib/constants.ts"
+            ],
         },
     },
     "include": [

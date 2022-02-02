@@ -5,7 +5,7 @@ import { PageHead } from '@components/PageHead';
 import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
-import { getPage, getPages } from '../../api/api';
+import { getPage } from '../../api/api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     console.log({ context });

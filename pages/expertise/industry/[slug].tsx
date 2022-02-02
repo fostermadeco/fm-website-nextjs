@@ -24,20 +24,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 };
 
-// export const getServerSideProps = withLocale(async (locale, { params, query }) => {
-//     const slug = String(params.slug);
-//     const preview = isPreviewEnabled(query);
-//     const pageContentType = PageContentTypes.HelpDeskArticle;
-//     const [page, otherPages] = await Promise.all([
-//       getPage({ slug, preview, locale, pageContentType }),
-//       getPagesOfType({ preview, locale, pageContentType }),
-//     ]);
-
-//     return {
-//       props: { page, otherPages },
-//     };
-//   });
-
 const IndustryPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
