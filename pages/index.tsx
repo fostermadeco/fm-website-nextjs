@@ -37,7 +37,7 @@ const Home: NextPage = () => (
                     </Link>
                 </li>
                 <li>
-                    <Link href="/company/values">
+                    <Link href="/company/careers">
                         <a className="h4">
                             <h2>Careers &rarr;</h2>
                         </a>
