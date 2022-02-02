@@ -6,12 +6,13 @@ import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { getPage } from '@api';
+import { PageContentTypes } from '@constants';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { params = {} } = context;
     const slug = String(params.slug);
     const page = await getPage({
-        pageContentType: 'pageCompany',
+        pageContentType: PageContentTypes.Company,
         slug,
     });
 

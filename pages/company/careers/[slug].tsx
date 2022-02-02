@@ -8,12 +8,13 @@ import BlockRenderer from '@components/renderer/BlockRenderer';
 import TextMarkdownCentered from '@components/TextMarkdownCentered';
 import CtaFullSimple from '@components/renderer/CtaFullSimple';
 import { getPage } from '@api';
+import { PageContentTypes } from '@constants';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { params = {} } = context;
     const slug = String(params.slug);
     const page = await getPage({
-        pageContentType: 'pageCareer',
+        pageContentType: PageContentTypes.Career,
         slug,
     });
 

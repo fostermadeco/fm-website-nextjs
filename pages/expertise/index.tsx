@@ -1,14 +1,14 @@
 import React from 'react';
-import { getPage } from '../../api/api';
-import MainNav from '../../components/MainNav';
-import { PageHead } from '../../components/PageHead';
-import BlockRenderer from '../../components/renderer/BlockRenderer';
-import { TypePage } from '../../lib/types';
-import { TypePageLanding } from '../../lib/types/TypePageLanding';
+import { getPage } from '@api';
+import MainNav from '@components/MainNav';
+import { PageHead } from '@components/PageHead';
+import BlockRenderer from '@components/renderer/BlockRenderer';
+import { TypePage, TypePageLanding } from '@types';
+import { PageContentTypes } from '@constants';
 
 export async function getStaticProps() {
     const page = await getPage({
-        pageContentType: 'pageLanding',
+        pageContentType: PageContentTypes.Landing,
         slug: 'expertise',
     });
 

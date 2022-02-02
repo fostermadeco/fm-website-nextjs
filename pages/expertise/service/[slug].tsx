@@ -1,19 +1,19 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import { getPage } from '../../../api/api';
-import MainNav from '../../../components/MainNav';
-import { PageHead } from '../../../components/PageHead';
-import PageIntroDetail from '../../../components/renderer/PageIntroDetail';
-import BlockRenderer from '../../../components/renderer/BlockRenderer';
-import { TypePage, TypePageService } from '../../../lib/types';
+import { getPage } from '@api';
+import MainNav from '@components/MainNav';
+import { PageHead } from '@components/PageHead';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockRenderer from '@components/renderer/BlockRenderer';
+import { TypePage, TypePageService } from '@types';
+import { PageContentTypes } from '@constants';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { params = {} } = context;
     const slug = String(params.slug);
-    console.log({ slug });
 
     const page = await getPage({
-        pageContentType: 'pageService',
+        pageContentType: PageContentTypes.Service,
         slug,
     });
 

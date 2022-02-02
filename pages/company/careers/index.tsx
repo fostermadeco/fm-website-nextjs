@@ -9,7 +9,7 @@ import CareersProvider from 'context/CareersContext';
 import { PageContentTypes } from '@constants';
 import { getPage, getPagesOfType } from '@api';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const [page, careers] = await Promise.all([
         await getPage({
             pageContentType: PageContentTypes.Company,

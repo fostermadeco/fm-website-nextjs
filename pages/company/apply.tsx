@@ -5,10 +5,11 @@ import { getPage } from '@api';
 import MainNav from '@components/MainNav';
 import { PageHead } from '@components/PageHead';
 import BlockRenderer from '@components/renderer/BlockRenderer';
+import { PageContentTypes } from '@constants';
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
     const page = await getPage({
-        pageContentType: 'pageCompany',
+        pageContentType: PageContentTypes.Company,
         slug: 'apply',
     });
 
