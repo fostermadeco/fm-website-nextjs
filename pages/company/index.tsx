@@ -1,10 +1,9 @@
 import React from 'react';
-import { getPage } from '../../api/api';
-import MainNav from '../../components/MainNav';
-import { PageHead } from '../../components/PageHead';
-import BlockRenderer from '../../components/renderer/BlockRenderer';
-import { TypePage } from '../../lib/types';
-import { TypePageLanding } from '../../lib/types/TypePageLanding';
+import { TypePage, TypePageLanding } from '@types';
+import { getPage } from '@api';
+import MainNav from '@components/MainNav';
+import { PageHead } from '@components/PageHead';
+import BlockRenderer from '@components/renderer/BlockRenderer';
 
 export async function getStaticProps() {
     const page = await getPage({

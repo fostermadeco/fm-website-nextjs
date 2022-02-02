@@ -42,7 +42,6 @@ export type { TypeComponentVideo, TypeComponentVideoFields } from './TypeCompone
 export type { TypeComponentSections } from './TypeComponentSections';
 
 export type { TypePage, TypePageFields } from './TypePage';
-export type { TypePages } from './TypePages';
 export type { TypePageLanding } from './TypePageLanding';
 export type { TypePageIndustry } from './TypePageIndustry';
 export type { TypePageTechnology } from './TypePageTechnology';

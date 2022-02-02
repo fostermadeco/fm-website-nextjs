@@ -1,13 +1,13 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
-import { TypePage, TypePageCompany, TypePageCareer } from '@types';
+import { TypePage, TypePageCompany } from '@types';
 import { PageHead } from '@components/PageHead';
 import MainNav from '@components/MainNav';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import CareersProvider from 'context/CareersContext';
 import { PageContentTypes } from '@constants';
-import { getPage, getPagesOfType } from '../../../api/api';
+import { getPage, getPagesOfType } from '@api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const [page, careers] = await Promise.all([

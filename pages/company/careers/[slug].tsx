@@ -7,7 +7,7 @@ import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import TextMarkdownCentered from '@components/TextMarkdownCentered';
 import CtaFullSimple from '@components/renderer/CtaFullSimple';
-import { getPage } from '../../../api/api';
+import { getPage } from '@api';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { params = {} } = context;

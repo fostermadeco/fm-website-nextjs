@@ -1,6 +1,5 @@
 import { createClient } from 'contentful';
 import { PageContentType } from '@constants';
-import { TypePage } from '@types';
 import { parsePage } from 'lib/pageParsers';
 
 const client = createClient({

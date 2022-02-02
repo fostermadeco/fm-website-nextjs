@@ -32,6 +32,9 @@
             "@constants": [
                 "lib/constants.ts"
             ],
+            "@api": [
+                "api/api.ts"
+            ],
         },
     },
     "include": [
