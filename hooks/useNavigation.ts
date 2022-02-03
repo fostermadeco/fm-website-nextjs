@@ -6,8 +6,8 @@ import { UrlObject } from 'url';
 
 declare type Url = string | UrlObject;
 export interface LinkProps {
-    href: Url;
-    as: Url;
+    href: string;
+    as: string;
 }
 
 const linkToPage = ({ page, isPreview }: { page: TypePage; isPreview: boolean }): LinkProps => {

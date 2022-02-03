@@ -1,36 +1,35 @@
-import Link from 'next/link';
+/* eslint-disable no-nested-ternary */
+import Link, { LinkProps as NextLinkProps } from 'next/link';
 import React, { FC, HTMLProps } from 'react';
-import { UrlObject } from 'url';
 import { TypePage } from '@types';
+import useNavigation from 'hooks/useNavigation';
 import { getUrlByPageType } from '../lib/constants';
 
-// modified LinkProps from 'next/link' so href is optional
-declare type Url = string | UrlObject;
-type LinkProps = {
-    href?: Url;
-    as?: Url;
-    replace?: boolean;
-    scroll?: boolean;
-    shallow?: boolean;
-    passHref?: boolean;
-    prefetch?: boolean;
-    locale?: string | false;
-};
+export interface LinkToPropsTypes {
+    href: string;
+    as?: string;
+}
 
-type LinkWrapperPropTypes = {
+type LinkCustomPropTypes = {
     page?: TypePage;
+    path?: string;
+    hrefProp?: string;
     query?: { [key: string]: string };
     anchorLink?: string;
     slugQueryParam?: string;
-} & LinkProps &
-    HTMLProps<HTMLAnchorElement>;
+};
+
+type LinkWrapperPropTypes = LinkCustomPropTypes & Omit<NextLinkProps, 'href'> & HTMLProps<HTMLAnchorElement>;
+type LinkPassThruPropTypes = NextLinkProps & HTMLProps<HTMLAnchorElement>;
 
 const getHref = ({
     page,
+    path,
     anchorLink,
     slugQueryParam,
 }: {
     page?: TypePage;
+    path?: string;
     anchorLink?: string;
     slugQueryParam?: string;
 }) => {
@@ -47,28 +46,26 @@ const getHref = ({
     return '#';
 };
 
-const LinkWrapper: FC<LinkWrapperPropTypes> = ({
-    page,
-    anchorLink,
-    slugQueryParam,
-    query = {},
-    as,
-    children,
-    replace,
-    scroll,
-    shallow,
-    passHref,
-    ...rest
-}) => {
-    // console.log({ props });
-    // const { link, children } = props;
+const LinkPassThru: FC<LinkPassThruPropTypes> = (props) => {
+    const { children } = props;
 
-    const href = getHref({ page, anchorLink, slugQueryParam });
+    return <Link {...props}>{children}</Link>;
+};
+
+// https://www.benmvp.com/blog/wrapping-next-link-custom-ui-link-component/
+// wrap link in another component so href can be required in Link, but not required in the wrapper
+const LinkWrapper: FC<LinkWrapperPropTypes> = (props) => {
+    const { href: hrefProp = '#', page, path, anchorLink, slugQueryParam, query = {}, children, ...rest } = props;
+
+    const { linkTo, linkToPath } = useNavigation();
+    console.log({ linkTo, linkToPath });
+    const { href, as }: LinkToPropsTypes = path ? linkToPath(path) : page ? linkTo(page) : { href: hrefProp };
+    const test = { ...rest, ...(as && { as }) };
 
     return (
-        <Link as={as} passHref={passHref} replace={replace} scroll={scroll} shallow={shallow} href={href}>
+        <LinkPassThru {...test} href={href}>
             {children}
-        </Link>
+        </LinkPassThru>
     );
 };
 
