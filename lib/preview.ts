@@ -1,5 +1,3 @@
-const ENABLED = '1';
-
 export const disablePreview = (url: string) =>
     // const pattern = /preview=[^\\&]+&?/;
     // return url.replace(pattern, '');
