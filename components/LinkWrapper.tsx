@@ -14,7 +14,6 @@ type LinkCustomPropTypes = {
     page?: TypePage;
     path?: string;
     hrefProp?: string;
-    query?: { [key: string]: string };
     anchorLink?: string;
     slugQueryParam?: string;
 };
@@ -47,9 +46,12 @@ const getHref = ({
     return '#';
 };
 
-// https://www.benmvp.com/blog/wrapping-next-link-custom-ui-link-component/
+// when would you pass in a path and not an href?
+// page: pageType mapped to url
+// path: gets preview url
+// href: is just a pass through
 const LinkWrapper: FC<LinkWrapperPropTypes> = (props) => {
-    const { href: hrefProp = '#', page, path, anchorLink, slugQueryParam, query = {}, children, ...rest } = props;
+    const { href: hrefProp = '#', page, path, anchorLink, slugQueryParam, children, ...rest } = props;
 
     const { linkTo, linkToPath } = useNavigation();
     console.log({ linkTo, linkToPath });
