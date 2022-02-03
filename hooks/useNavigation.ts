@@ -66,7 +66,6 @@ const normalizePath = (path: string | Url) => {
 
 const useNavigation = () => {
     const { query, asPath: currentPath, route } = useRouter();
-    console.log({ route });
 
     const isPreview = isPreviewEnabled(query);
 

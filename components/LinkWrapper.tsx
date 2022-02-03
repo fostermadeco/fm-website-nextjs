@@ -54,7 +54,6 @@ const LinkWrapper: FC<LinkWrapperPropTypes> = (props) => {
     const { href: hrefProp = '#', page, path, anchorLink, slugQueryParam, children, ...rest } = props;
 
     const { linkTo, linkToPath } = useNavigation();
-    console.log({ linkTo, linkToPath });
     const linkToProps: LinkToPropsTypes = path ? linkToPath(path) : page ? linkTo(page) : { href: hrefProp };
 
     return (

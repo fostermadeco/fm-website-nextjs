@@ -59,7 +59,6 @@ const BlockRenderer = (props: BlockRendererProps) => {
     const contentTypeId = get(block, 'sys.contentType.sys.id') as string;
     // https://stackoverflow.com/questions/57086672/element-implicitly-has-an-any-type-because-expression-of-type-string-cant-b
     const Component = ContentTypeMap[contentTypeId as keyof typeof ContentTypeMap];
-    console.log(contentTypeId);
 
     if (!Component) {
         console.warn(`${contentTypeId} is not handled by the renderer`);
@@ -71,8 +70,6 @@ const BlockRenderer = (props: BlockRendererProps) => {
         ...block,
         parent: block.parent,
     };
-
-    console.log({ componentProps });
 
     return <Component key={`${contentTypeId}-${id}`} mode={mode} {...componentProps} />;
 };
