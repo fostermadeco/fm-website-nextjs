@@ -3,7 +3,6 @@ import { TypeComponentBlockDarkCircleBackgroundFields } from '../../lib/types/Ty
 import BlockRenderer from './BlockRenderer';
 
 const DarkCircleBackground = ({ fields }: { fields: TypeComponentBlockDarkCircleBackgroundFields }) => {
-    console.log('DarkCircleBackground', { fields });
     if (!fields) return null;
 
     return (

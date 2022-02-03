@@ -6,7 +6,6 @@ import React, { useContext } from 'react';
 const CareerItem = (props: { career: TypePage }) => {
     // const career = props.career as TypePage;
     const { career } = props;
-    console.log({ career });
 
     return (
         <div className="py-5 border-t-2">
@@ -22,7 +21,6 @@ const CareerItem = (props: { career: TypePage }) => {
 const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) => {
     const { careers } = useContext(CareersContext);
     const { overline, headerText } = fields.careerList.fields;
-    console.log({ careers, fields });
 
     if (!careers || careers.length === 0) return null;
 

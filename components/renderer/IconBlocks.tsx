@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import classNames from 'classnames';
 import { TypeComponentBlockIconBlocksFields } from '../../lib/types';
@@ -12,7 +11,6 @@ type IconBlocksPropTypes = {
 
 const IconBlocks = (props: IconBlocksPropTypes) => {
     const { fields, mode = 'light' } = props;
-    console.log('icons', mode);
     if (!fields) return null;
 
     const isDark = mode === 'dark';

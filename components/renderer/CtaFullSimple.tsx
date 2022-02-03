@@ -6,8 +6,6 @@ const CtaFullSimple = ({ fields }: { fields: TypeComponentCtaSimpleFields }) => 
     // if (!fields) return null;
 
     const { headerText } = fields;
-    console.log('cta');
-    console.log(fields);
 
     return (
         <div className="relative overflow-hidden">
