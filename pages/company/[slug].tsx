@@ -7,13 +7,17 @@ import BlockRenderer from '@components/renderer/BlockRenderer';
 import { getPage, getPagesOfType } from '@api';
 import { PageContentTypes } from '@constants';
 import Layout from '@components/Layout';
+import { getLinkToForPage } from 'lib/routes';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allCompanyPages = await getPagesOfType({ pageContentType: PageContentTypes.Company });
 
     // ['/company/careers', '/company/values', '/company/apply']
-    const paths = allCompanyPages.map(({ fields }) => `/company/${fields.slug}`) ?? [];
-    console.log({ paths });
+    const paths =
+        allCompanyPages.map((page) => {
+            const { as } = getLinkToForPage({ page });
+            return as;
+        }) ?? [];
 
     return {
         paths,
@@ -23,6 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params = {}, preview = false }) => {
     console.log({ params });
+
     const slug = String(params.slug);
     const page = await getPage({
         pageContentType: PageContentTypes.Company,

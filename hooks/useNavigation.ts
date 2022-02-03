@@ -1,5 +1,5 @@
-import { PageContentTypes } from '@constants';
 import { TypePage } from '@types';
+import { getLinkToForPage } from 'lib/routes';
 import { useRouter } from 'next/router';
 import { UrlObject } from 'url';
 
@@ -8,53 +8,6 @@ interface LinkProps {
     href: string;
     as: string;
 }
-
-const linkToPage = ({ page }: { page: TypePage }): LinkProps => {
-    const { slug } = page.fields;
-    const pageType = page.fields.content?.sys.contentType.sys.id;
-
-    switch (pageType) {
-        case PageContentTypes.Landing: {
-            return {
-                href: '/[slug]',
-                as: `/${slug}`,
-            };
-        }
-        case PageContentTypes.Company: {
-            return {
-                href: '/company/[slug]',
-                as: `/company/${slug}`,
-            };
-        }
-        case PageContentTypes.Career: {
-            return {
-                href: '/company/careers/[slug]',
-                as: `/company/careers/${slug}`,
-            };
-        }
-        case PageContentTypes.Service: {
-            return {
-                href: '/expertise/service/[slug]',
-                as: `/expertise/service/${slug}`,
-            };
-        }
-        case PageContentTypes.Technology: {
-            return {
-                href: '/expertise/technology/[slug]',
-                as: `/expertise/technology/${slug}`,
-            };
-        }
-        case PageContentTypes.Industry: {
-            return {
-                href: '/expertise/industry/[slug]',
-                as: `/expertise/industry/${slug}`,
-            };
-        }
-        default: {
-            throw new Error(`Page type is not supported yet: ${pageType}`);
-        }
-    }
-};
 
 const normalizePath = (path: string | Url) => {
     // eslint-disable-next-line no-nested-ternary
@@ -66,7 +19,7 @@ const normalizePath = (path: string | Url) => {
 const useNavigation = () => {
     const { asPath: currentPath, route } = useRouter();
 
-    const linkTo = (page: TypePage) => linkToPage({ page });
+    const linkTo = (page: TypePage) => getLinkToForPage({ page });
 
     const linkToPath = (url: string): LinkProps => ({
         href: `/${url}`,

@@ -3,7 +3,6 @@ import React from 'react';
 import * as Contentful from 'contentful';
 
 import { TypePageFields } from '@types';
-import { getUrlByPageType } from '../../lib/constants';
 import { TypeComponentPageIntroDetail } from '../../lib/types/TypeComponentBlockPageIntroDetail';
 import Arrow from '../Arrow';
 import ButtonCircle from '../ButtonCircle';
@@ -12,26 +11,26 @@ type BackLinkPropTypes = {
     page: Contentful.Entry<TypePageFields>;
 };
 
-const BackLink = (props: BackLinkPropTypes) => {
-    const { page } = props;
+// const BackLink = (props: BackLinkPropTypes) => {
+//     const { page } = props;
 
-    if (!page) return null;
+//     if (!page) return null;
 
-    const backPageType = page.fields.content.sys.contentType.sys.id;
-    const { slug: backPageSlug } = page.fields;
-    console.log({ backPageType });
+//     const backPageType = page.fields.content.sys.contentType.sys.id;
+//     const { slug: backPageSlug } = page.fields;
+//     console.log({ backPageType });
 
-    const prefix = getUrlByPageType({ pageType: backPageType, slug: backPageSlug });
-    const backPageName = page.fields.title;
-    return (
-        <Link href={prefix}>
-            <a className="flex items-start justify-start mt-10">
-                <Arrow direction="left" />
-                <span className="inline-block ml-4 text-xl lg:text-2xl">{backPageName}</span>
-            </a>
-        </Link>
-    );
-};
+//     const prefix = getUrlByPageType({ pageType: backPageType, slug: backPageSlug });
+//     const backPageName = page.fields.title;
+//     return (
+//         <Link href={prefix}>
+//             <a className="flex items-start justify-start mt-10">
+//                 <Arrow direction="left" />
+//                 <span className="inline-block ml-4 text-xl lg:text-2xl">{backPageName}</span>
+//             </a>
+//         </Link>
+//     );
+// };
 
 type PageIntroDetailProps = {
     block: TypeComponentPageIntroDetail;
