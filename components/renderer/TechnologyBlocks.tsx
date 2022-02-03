@@ -10,7 +10,6 @@ type TechnologyBlockProps = {
 
 const TechnologyBlock = (props: TechnologyBlockProps) => {
     const { block } = props;
-    console.log({ block });
 
     if (!block.fields.link) return null;
 
@@ -38,7 +37,6 @@ const TechnologyBlock = (props: TechnologyBlockProps) => {
 };
 
 const TechnologyBlocks = ({ fields }: { fields: TypeComponentBlockTechnologyBlocksFields }) => {
-    console.log('TechnologyBlocks', { fields });
     if (!fields) return null;
 
     return (

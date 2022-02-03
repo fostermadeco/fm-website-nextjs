@@ -40,7 +40,6 @@ type PageIntroDetailProps = {
 
 const PageIntroDetail = (props: PageIntroDetailProps) => {
     const { block, parent } = props;
-    console.log({ props, parent });
     const { overline, headerText, headerParagraph, button } = block.fields;
 
     return (

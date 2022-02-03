@@ -6,7 +6,6 @@ import TextMarkdown from '../TextMarkdown';
 const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWithPartialOverlayFields }) => {
     if (!fields) return null;
     const { paragraphText } = fields;
-    console.log({ fields });
 
     // console.log({ is: isRichText(paragraphText) });
 

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { TypeComponentBlockPageSectionFields } from '../../lib/types';
 import LinkWrapper from '../LinkWrapper';
@@ -55,8 +54,6 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
 };
 
 const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
-    console.log({ fields });
-
     if (!fields) return null;
 
     const { imagePlacement, image } = fields;

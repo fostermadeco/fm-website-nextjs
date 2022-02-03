@@ -3,8 +3,6 @@ import React from 'react';
 import { TypeComponentBlockSlideshowFields } from '../../lib/types/TypeComponentBlockSlideshow';
 
 const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) => {
-    console.log({ fields });
-
     if (!fields) return null;
 
     const { fields: slideshowFields } = fields.slideshow;

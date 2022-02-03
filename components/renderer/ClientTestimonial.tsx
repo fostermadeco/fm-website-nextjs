@@ -7,8 +7,6 @@ import { TypeComponentBlockClientTestimonialFields } from '../../lib/types';
 // https://dev.to/yago/understanding-next-image-13ff
 // automatic responsive
 const ClientTestimonial = ({ fields }: { fields: TypeComponentBlockClientTestimonialFields }) => {
-    console.log({ fields });
-
     if (!fields) return null;
 
     const { client, quote, authorName, authorTitle } = fields;
