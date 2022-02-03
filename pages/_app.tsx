@@ -3,6 +3,8 @@ import '../styles/app.css';
 import React from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import { PreviewBanner } from '@components/PreviewBanner';
+import Footer from '@components/Footer';
 import MainNav from '../components/MainNav';
 
 function FosterMadeWebsiteApp({ Component, pageProps }: AppProps) {
@@ -15,6 +17,7 @@ function FosterMadeWebsiteApp({ Component, pageProps }: AppProps) {
                 <link rel="apple-touch-icon" href="/favicon/apple-icon-114x114.png" type="image/png" />
             </Head>
             <div className="">
+                <PreviewBanner />
                 <Component {...pageProps} />
             </div>
         </>

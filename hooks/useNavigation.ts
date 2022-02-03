@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { UrlObject } from 'url';
 
 declare type Url = string | UrlObject;
-export interface LinkProps {
+interface LinkProps {
     href: string;
     as: string;
 }
@@ -66,6 +66,8 @@ const normalizePath = (path: string | Url) => {
 
 const useNavigation = () => {
     const { query, asPath: currentPath, route } = useRouter();
+    console.log({ route });
+
     const isPreview = isPreviewEnabled(query);
 
     const linkTo = (page: TypePage) => linkToPage({ page, isPreview });
@@ -82,7 +84,7 @@ const useNavigation = () => {
         return target === active;
     };
 
-    return { currentPath, route, linkTo, linkToPath, isActive };
+    return { currentPath, route, linkTo, linkToPath, isActive, isPreview };
 };
 
 export default useNavigation;
