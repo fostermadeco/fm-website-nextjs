@@ -1,6 +1,5 @@
 import { PageContentTypes } from '@constants';
 import { TypePage } from '@types';
-import { isPreviewEnabled, withPreviewParam } from 'lib/preview';
 import { useRouter } from 'next/router';
 import { UrlObject } from 'url';
 
@@ -10,45 +9,45 @@ interface LinkProps {
     as: string;
 }
 
-const linkToPage = ({ page, isPreview }: { page: TypePage; isPreview: boolean }): LinkProps => {
+const linkToPage = ({ page }: { page: TypePage }): LinkProps => {
     const { slug } = page.fields;
     const pageType = page.fields.content?.sys.contentType.sys.id;
 
     switch (pageType) {
         case PageContentTypes.Landing: {
             return {
-                href: withPreviewParam('/[slug]', isPreview),
-                as: withPreviewParam(`/${slug}`, isPreview),
+                href: '/[slug]',
+                as: `/${slug}`,
             };
         }
         case PageContentTypes.Company: {
             return {
-                href: withPreviewParam('/company/[slug]', isPreview),
-                as: withPreviewParam(`/company/${slug}`, isPreview),
+                href: '/company/[slug]',
+                as: `/company/${slug}`,
             };
         }
         case PageContentTypes.Career: {
             return {
-                href: withPreviewParam('/company/careers/[slug]', isPreview),
-                as: withPreviewParam(`/company/careers/${slug}`, isPreview),
+                href: '/company/careers/[slug]',
+                as: `/company/careers/${slug}`,
             };
         }
         case PageContentTypes.Service: {
             return {
-                href: withPreviewParam('/expertise/service/[slug]', isPreview),
-                as: withPreviewParam(`/expertise/service/${slug}`, isPreview),
+                href: '/expertise/service/[slug]',
+                as: `/expertise/service/${slug}`,
             };
         }
         case PageContentTypes.Technology: {
             return {
-                href: withPreviewParam('/expertise/technology/[slug]', isPreview),
-                as: withPreviewParam(`/expertise/technology/${slug}`, isPreview),
+                href: '/expertise/technology/[slug]',
+                as: `/expertise/technology/${slug}`,
             };
         }
         case PageContentTypes.Industry: {
             return {
-                href: withPreviewParam('/expertise/industry/[slug]', isPreview),
-                as: withPreviewParam(`/expertise/industry/${slug}`, isPreview),
+                href: '/expertise/industry/[slug]',
+                as: `/expertise/industry/${slug}`,
             };
         }
         default: {
@@ -65,15 +64,13 @@ const normalizePath = (path: string | Url) => {
 };
 
 const useNavigation = () => {
-    const { query, asPath: currentPath, route } = useRouter();
+    const { asPath: currentPath, route } = useRouter();
 
-    const isPreview = isPreviewEnabled(query);
-
-    const linkTo = (page: TypePage) => linkToPage({ page, isPreview });
+    const linkTo = (page: TypePage) => linkToPage({ page });
 
     const linkToPath = (url: string): LinkProps => ({
-        href: withPreviewParam(`/${url}`, isPreview),
-        as: withPreviewParam(`/${url}`, isPreview),
+        href: `/${url}`,
+        as: `/${url}`,
     });
 
     const isActive = (page: TypePage) => {
@@ -83,7 +80,7 @@ const useNavigation = () => {
         return target === active;
     };
 
-    return { currentPath, route, linkTo, linkToPath, isActive, isPreview };
+    return { currentPath, route, linkTo, linkToPath, isActive };
 };
 
 export default useNavigation;

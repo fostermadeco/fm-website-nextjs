@@ -30,7 +30,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const CareersPage = ({ page, careers = [] }: { page: TypePage; careers: TypePage[] }) => {
     const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail, parentPage } = content.fields;
-    console.log({ careers });
 
     return (
         <CareersProvider careers={careers}>

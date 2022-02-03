@@ -5,12 +5,14 @@ import MainNav from '@components/MainNav';
 import { PageHead } from '@components/PageHead';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { PageContentTypes } from '@constants';
-import { isPreviewEnabled } from 'lib/preview';
-import { GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-    const { query } = context;
-    const preview = isPreviewEnabled(query);
+export const getStaticPaths: GetStaticPaths = () => ({
+    paths: ['/company/careers', '/company/value', '/company/apply'],
+    fallback: false,
+});
+
+export const getStaticProps: GetStaticProps = async ({ params, preview = false }) => {
     const page = await getPage({
         pageContentType: PageContentTypes.Landing,
         slug: 'company',
@@ -25,8 +27,6 @@ export const getStaticProps: GetServerSideProps = async (context) => {
 };
 
 const CompanyPage = ({ page }: { page: TypePage }) => {
-    console.log({ page });
-
     const content = page.fields.content as TypePageLanding;
     const { sections = [], pageIntro = {} } = content.fields;
 

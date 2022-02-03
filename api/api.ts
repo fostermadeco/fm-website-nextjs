@@ -15,6 +15,29 @@ const previewClient = createClient({
 
 const getClient = (preview: boolean) => (preview ? previewClient : client);
 
+type GetPageBySlugProps = {
+    slug: string;
+    preview?: boolean;
+};
+
+export const getPageBySlug = async (props: GetPageBySlugProps) => {
+    const { slug, preview = false } = props;
+    const query = {
+        limit: 1,
+        include: 10,
+        locale: 'en-US',
+        'fields.slug': slug,
+        content_type: 'page',
+        // 'fields.content.sys.contentType.sys.id': 'pageCompany',
+    };
+    console.log({ preview });
+
+    const {
+        items: [page],
+    } = await getClient(preview).getEntries(query);
+    return page || null;
+};
+
 type GetPageProps = {
     pageContentType: string;
     slug: string;

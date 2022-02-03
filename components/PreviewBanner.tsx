@@ -4,17 +4,18 @@ import Link from 'next/link';
 import { disablePreview } from 'lib/preview';
 import useNavigation from 'hooks/useNavigation';
 
-export const PreviewBanner = () => {
-    const { currentPath, isPreview, route } = useNavigation();
+// http://localhost:3000/api/preview?secret=chime-entire-townsman-majestic&slug=values
+export const PreviewBanner = ({ preview }: { preview: boolean }) => {
+    const { currentPath } = useNavigation();
 
-    if (!isPreview) {
+    if (!preview) {
         return null;
     }
 
     const exitURL = disablePreview(currentPath);
 
     return (
-        <div className="py-4 text-center bg-blue-800 lg:px-4">
+        <div className="py-4 text-center bg-blue-800 lg:px-4 bg-lime">
             <div
                 className="flex flex-col w-full max-w-screen-xl p-2 px-8 mx-auto text-blue-100 sm:flex-row"
                 role="alert"
@@ -35,7 +36,7 @@ export const PreviewBanner = () => {
                     <span className="font-semibold">Preview mode</span> is turned on. This enables viewing unpublished
                     changes.
                 </span>
-                <Link href={route} as={exitURL}>
+                <Link href={exitURL}>
                     <a className="flex mr-3 font-semibold">Turn off</a>
                 </Link>
             </div>
