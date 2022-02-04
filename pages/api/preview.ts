@@ -3,7 +3,7 @@ import { TypePage } from '@types';
 import { getLinkToForPage } from 'lib/routes';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-// http://localhost:3000/api/preview?secret=chime-entire-townsman-majestic&slug=values
+// http://localhost:3000/api/preview?secret=chime-entire-townsman-majestic&slug=company
 export default async function preview(req: NextApiRequest, res: NextApiResponse) {
     const { secret, slug } = req.query;
     console.log(req.query);

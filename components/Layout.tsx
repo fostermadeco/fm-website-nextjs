@@ -3,8 +3,14 @@ import Head from 'next/head';
 import { PreviewBanner } from '@components/PreviewBanner';
 import MainNav from './MainNav';
 
-const Layout = (props: { preview: boolean; children: JSX.Element | JSX.Element[] }) => {
-    const { preview, children } = props;
+type LayoutProps = {
+    preview: boolean;
+    children: JSX.Element | JSX.Element[];
+    navMode?: 'dark' | 'light';
+};
+
+const Layout = (props: LayoutProps) => {
+    const { preview, children, navMode = 'dark' } = props;
     return (
         <>
             <Head>
@@ -15,7 +21,7 @@ const Layout = (props: { preview: boolean; children: JSX.Element | JSX.Element[]
             </Head>
             <div className="">
                 <PreviewBanner preview={preview} />
-                <MainNav />
+                <MainNav mode={navMode} />
                 <main>{children}</main>
             </div>
         </>
