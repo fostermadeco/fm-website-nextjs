@@ -2,7 +2,6 @@ import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import { getPage } from '@api';
-import MainNav from '@components/MainNav';
 import { PageHead } from '@components/PageHead';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { PageContentTypes } from '@constants';

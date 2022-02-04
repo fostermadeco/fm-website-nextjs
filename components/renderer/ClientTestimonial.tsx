@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import useDimensions from 'react-cool-dimensions';
 
 import { TypeComponentBlockClientTestimonialFields } from '../../lib/types';
 

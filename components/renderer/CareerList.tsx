@@ -21,6 +21,7 @@ const CareerItem = (props: { career: TypePage }) => {
 const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) => {
     const { careers } = useContext(CareersContext);
     const { overline, headerText } = fields.careerList.fields;
+    console.log({ careers });
 
     if (!careers || careers.length === 0) return null;
 

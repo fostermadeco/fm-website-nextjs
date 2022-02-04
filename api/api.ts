@@ -15,8 +15,9 @@ const previewClient = createClient({
 
 const getClient = (preview: boolean) => (preview ? previewClient : client);
 
+// will this work with array of strings?
 type GetPageBySlugProps = {
-    slug: string;
+    slug: string | string[];
     preview?: boolean;
 };
 

@@ -7,20 +7,16 @@ import BlockRenderer from '@components/renderer/BlockRenderer';
 import { getPage, getPagesOfType } from '@api';
 import { PageContentTypes } from '@constants';
 import Layout from '@components/Layout';
-import { getLinkToForPage } from 'lib/routes';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allCompanyPages = await getPagesOfType({ pageContentType: PageContentTypes.Company });
 
-    // ['/company/careers', '/company/values', '/company/apply']
-    const paths =
-        allCompanyPages.map((page) => {
-            const { as } = getLinkToForPage({ page });
-            return as;
-        }) ?? [];
+    // TODO: best way to eliminate careers and apply because they have their own page template
+    // [ {params: { slug:'careers'}}, {params: { slug:'values'}}, {params: { slug:'apply'}}]
+    const paths = allCompanyPages.map((page) => ({ params: { slug: page.fields.slug } })) ?? [];
 
     return {
-        paths,
+        paths: [{ params: { slug: 'values' } }],
         fallback: false,
     };
 };
