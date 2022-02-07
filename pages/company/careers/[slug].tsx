@@ -47,7 +47,7 @@ const CareerPage = ({ page, preview }: { page: TypePage; preview: boolean }) => 
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                <PageIntroDetail block={pageIntroDetail} />
+                <PageIntroDetail block={pageIntroDetail} page={page} />
                 <BlockRenderer block={heroImage} />
                 <TextMarkdownCentered textBlock={description} />
                 {ctaBottom && <CtaFullSimple fields={ctaBottom.fields} />}

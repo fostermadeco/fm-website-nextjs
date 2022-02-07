@@ -57,6 +57,23 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
     }
 };
 
+export const getLinkToParent = ({ page }: { page: TypePage }): { href: string; label: string } => {
+    const pageType = page.fields.content?.sys.contentType.sys.id;
+    switch (pageType) {
+        case PageContentTypes.Company: {
+            return { href: '/company', label: 'Company' };
+        }
+        case PageContentTypes.Career: {
+            return { href: '/company/careers', label: 'Careers' };
+        }
+
+        default: {
+            console.log(`Parent not set for page type: ${pageType}`);
+            return { href: '#', label: '' };
+        }
+    }
+};
+
 export const getLinkToForPage = ({ page }: { page: TypePage }): LinkProps => {
     const { slug } = page.fields;
     const pageType = page.fields.content?.sys.contentType.sys.id;

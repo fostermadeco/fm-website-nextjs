@@ -5,6 +5,7 @@
 import React from 'react';
 import get from 'lodash.get';
 import CareerList from '@components/renderer/CareerList';
+import { TypePage } from '@types';
 import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
 import ImageWithPartialOverlay from './ImageWithPartialOverlay';
