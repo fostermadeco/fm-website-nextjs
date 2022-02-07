@@ -18,7 +18,7 @@ const ButtonCircle = (props: ButtonCirclePropTypes) => {
     const buttonClasses = classesForBgColor[bgColor];
 
     return (
-        <LinkWrapper page={button.link} anchorLink={button.anchorLink} slugQueryParam={button.slugQueryParam}>
+        <LinkWrapper page={button.linkPage} href={button.linkPath}>
             <a className={`btn-circle ${buttonClasses}`}>
                 <span>{buttonText}</span>
             </a>

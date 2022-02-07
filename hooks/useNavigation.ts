@@ -4,10 +4,6 @@ import { useRouter } from 'next/router';
 import { UrlObject } from 'url';
 
 declare type Url = string | UrlObject;
-interface LinkProps {
-    href: string;
-    as: string;
-}
 
 const normalizePath = (path: string | Url) => {
     // eslint-disable-next-line no-nested-ternary
@@ -21,11 +17,6 @@ const useNavigation = () => {
 
     const linkTo = (page: TypePage) => getLinkToForPage({ page });
 
-    const linkToPath = (url: string): LinkProps => ({
-        href: `/${url}`,
-        as: `/${url}`,
-    });
-
     const isActive = (page: TypePage) => {
         const active = normalizePath(currentPath);
         const target = normalizePath(linkTo(page).as);
@@ -33,7 +24,7 @@ const useNavigation = () => {
         return target === active;
     };
 
-    return { currentPath, route, linkTo, linkToPath, isActive };
+    return { currentPath, route, linkTo, isActive };
 };
 
 export default useNavigation;

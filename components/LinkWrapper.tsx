@@ -11,10 +11,8 @@ export interface LinkToPropsTypes {
 
 type LinkCustomPropTypes = {
     page?: TypePage;
-    path?: string;
     hrefProp?: string;
-    anchorLink?: string;
-    slugQueryParam?: string;
+    linkPath?: string;
 };
 
 // remove href from types so we can use our own href prop because href is required
@@ -26,10 +24,14 @@ type LinkWrapperPropTypes = LinkCustomPropTypes & Omit<NextLinkProps, 'href'> & 
 // path: gets preview url
 // href: is just a pass through
 const LinkWrapper: FC<LinkWrapperPropTypes> = (props) => {
-    const { href: hrefProp = '#', page, path, anchorLink, slugQueryParam, children, ...rest } = props;
+    console.log({ props });
 
-    const { linkTo, linkToPath } = useNavigation();
-    const linkToProps: LinkToPropsTypes = path ? linkToPath(path) : page ? linkTo(page) : { href: hrefProp };
+    const { href: hrefProp = '#', page, children, ...rest } = props;
+
+    const { linkTo } = useNavigation();
+    const linkToProps: LinkToPropsTypes = page ? linkTo(page) : { href: hrefProp };
+
+    console.log({ linkToProps });
 
     return (
         <Link {...rest} {...linkToProps}>
