@@ -10,20 +10,19 @@ import Layout from '@components/Layout';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allCompanyPages = await getPagesOfType({ pageContentType: PageContentTypes.Company });
-
-    // TODO: best way to eliminate careers and apply because they have their own page template
-    // [ {params: { slug:'careers'}}, {params: { slug:'values'}}, {params: { slug:'apply'}}]
-    const paths = allCompanyPages.map((page) => ({ params: { slug: page.fields.slug } })) ?? [];
+    // if a page has its own template, remove it
+    const pagesInTemplate = ['careers', 'apply'];
+    const slugs = allCompanyPages.map((page) => page.fields.slug);
+    const filteredSlugs = slugs.filter((slug) => !pagesInTemplate.includes(slug));
+    const paths = filteredSlugs.map((slug) => ({ params: { slug } })) ?? [];
 
     return {
-        paths: [{ params: { slug: 'values' } }],
+        paths,
         fallback: false,
     };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params = {}, preview = false }) => {
-    console.log({ params });
-
     const slug = String(params.slug);
     const page = await getPage({
         pageContentType: PageContentTypes.Company,
