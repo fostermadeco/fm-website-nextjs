@@ -27,14 +27,14 @@ const TechnologyPage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageTechnology;
-    const { sections = [], pageIntroDetail, parentPage } = content.fields;
+    const { sections = [], pageIntroDetail } = content.fields;
 
     return (
         <>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
-                <PageIntroDetail block={pageIntroDetail} parent={parentPage} />
+                <PageIntroDetail block={pageIntroDetail} page={page} />
                 <BlockRenderer block={sections} />
             </div>
         </>

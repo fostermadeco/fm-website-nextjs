@@ -28,14 +28,14 @@ const ServicePage = ({ page }: { page: TypePage }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageService;
-    const { sections = [], pageIntroDetail, parentPage } = content.fields;
+    const { sections = [], pageIntroDetail } = content.fields;
 
     return (
         <>
             <MainNav />
             <div className="pt-40">
                 <PageHead page={page} />
-                <PageIntroDetail block={pageIntroDetail} parent={parentPage} />
+                <PageIntroDetail block={pageIntroDetail} page={page} />
                 <BlockRenderer block={sections} />
             </div>
         </>

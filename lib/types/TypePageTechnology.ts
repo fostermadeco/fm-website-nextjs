@@ -10,7 +10,6 @@ export interface TypePageTechnologyFields {
     technology: Contentful.Entry<TypeComponentTechnologyFields>;
     pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
     sections: TypeComponentSections;
-    parentPage: Contentful.Entry<TypePageFields>;
 }
 
 export type TypePageTechnology = Contentful.Entry<TypePageTechnologyFields>;
