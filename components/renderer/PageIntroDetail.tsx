@@ -3,7 +3,6 @@ import React from 'react';
 import * as Contentful from 'contentful';
 
 import { TypePage, TypePageFields } from '@types';
-import { useRouter } from 'next/router';
 import { getLinkToParent } from 'lib/routes';
 import { TypeComponentPageIntroDetail } from '../../lib/types/TypeComponentBlockPageIntroDetail';
 import Arrow from '../Arrow';
@@ -38,7 +37,6 @@ type PageIntroDetailProps = {
 const PageIntroDetail = (props: PageIntroDetailProps) => {
     const { block, parent, page } = props;
     console.log({ parent });
-    const router = useRouter();
 
     const { overline, headerText, headerParagraph, button } = block.fields;
 
