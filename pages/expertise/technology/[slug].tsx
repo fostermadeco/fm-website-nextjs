@@ -23,6 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params = {}, preview = fa
     const page = await getPage({
         pageContentType: PageContentTypes.Technology,
         slug,
+        preview,
     });
 
     return {

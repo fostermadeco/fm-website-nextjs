@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params = {}, preview = fa
     const page = await getPage({
         pageContentType: PageContentTypes.Service,
         slug,
+        preview,
     });
 
     return {
