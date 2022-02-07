@@ -1,15 +1,24 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import { getPage } from '@api';
-import MainNav from '@components/MainNav';
+import { getPage, getPagesOfType } from '@api';
 import { PageHead } from '@components/PageHead';
 import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { TypePage, TypePageTechnology } from '@types';
 import { PageContentTypes } from '@constants';
+import Layout from '@components/Layout';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { params = {} } = context;
+export const getStaticPaths: GetStaticPaths = async () => {
+    const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Technology });
+    const paths = allPageForType.map((page) => ({ params: { slug: page.fields.slug } })) ?? [];
+
+    return {
+        paths,
+        fallback: false,
+    };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params = {}, preview = false }) => {
     const slug = String(params.slug);
     const page = await getPage({
         pageContentType: PageContentTypes.Technology,
@@ -19,25 +28,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
         props: {
             page,
+            preview,
         },
     };
 };
 
-const TechnologyPage = ({ page }: { page: TypePage }) => {
+const TechnologyPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageTechnology;
     const { sections = [], pageIntroDetail } = content.fields;
 
     return (
-        <>
-            <MainNav />
+        <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
                 <PageIntroDetail block={pageIntroDetail} page={page} />
                 <BlockRenderer block={sections} />
             </div>
-        </>
+        </Layout>
     );
 };
 
