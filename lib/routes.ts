@@ -66,6 +66,15 @@ export const getLinkToParent = ({ page }: { page: TypePage }): { href: string; l
         case PageContentTypes.Career: {
             return { href: '/company/careers', label: 'Careers' };
         }
+        case PageContentTypes.Technology: {
+            return { href: '/expertise', label: 'Expertise' };
+        }
+        case PageContentTypes.Industry: {
+            return { href: '/expertise', label: 'Expertise' };
+        }
+        case PageContentTypes.Service: {
+            return { href: '/expertise', label: 'Expertise' };
+        }
 
         default: {
             console.log(`Parent not set for page type: ${pageType}`);

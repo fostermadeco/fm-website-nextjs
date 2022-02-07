@@ -10,6 +10,7 @@ type IndustryBlockProps = {
 
 const IndustryBlock = (props: IndustryBlockProps) => {
     const { block } = props;
+    console.log({ block });
 
     if (!block.fields.link) return null;
 
