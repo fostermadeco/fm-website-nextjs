@@ -16,6 +16,7 @@ const CareersProvider = (props: CareersProviderPropTypes) => {
 
     const careersObj = useMemo(() => ({ careers }), [careers]);
     if (!children) return null;
+    console.log({ careersObj });
 
     return <CareersContext.Provider value={careersObj}>{children}</CareersContext.Provider>;
 };

@@ -1,7 +1,8 @@
 import LinkWrapper from '@components/LinkWrapper';
 import { TypeComponentBlockCareerListFields, TypePage } from '@types';
-import { CareersContext } from 'context/CareersContext';
-import React, { useContext } from 'react';
+import { fetcher } from 'api/fetcher';
+import React from 'react';
+import useSWR from 'swr';
 
 const CareerItem = (props: { career: TypePage }) => {
     // const career = props.career as TypePage;
@@ -18,12 +19,17 @@ const CareerItem = (props: { career: TypePage }) => {
     );
 };
 
-const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) => {
-    const { careers } = useContext(CareersContext);
-    const { overline, headerText } = fields.careerList.fields;
-    console.log({ careers });
+// const fetcher: Fetcher<TypePage[]> = (url: string) => fetch(url).then((res) => res.json());
 
-    if (!careers || careers.length === 0) return null;
+const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) => {
+    // const test = useContext(CareersContext);
+    const { data, error } = useSWR<TypePage[], Error>('/api/careers', fetcher);
+    console.log({ data });
+    const { overline, headerText } = fields.careerList.fields;
+
+    console.log({ data });
+
+    if (!data || data.length === 0 || error) return null;
 
     return (
         <div className="relative" id="open-positions">
@@ -35,7 +41,7 @@ const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) 
                     </div>
                     <div className="col-span-8 col-start-6">
                         <ul>
-                            {careers.map((career: TypePage) => (
+                            {data.map((career: TypePage) => (
                                 <li key={`career-list-item-${career.sys.id}}`}>
                                     <CareerItem career={career} />
                                 </li>
