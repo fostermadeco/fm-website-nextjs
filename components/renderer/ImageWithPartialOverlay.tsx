@@ -20,6 +20,8 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                     objectPosition="center"
                     src={`https:${fields.image.fields.media.fields.file.url}`}
                     alt={fields.image.fields.altText}
+                    // TODO: make not all of these priority
+                    priority
                 />
             </div>
             <div className="container mx-auto">
