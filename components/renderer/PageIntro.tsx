@@ -9,6 +9,7 @@ import Arrow from '../Arrow';
 // Right now there is only one option: blockImageOverlayIntro
 const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
     const { observe, width } = useDimensions<HTMLDivElement | null>();
+    console.log({ width });
 
     if (!fields) return null;
 
@@ -20,7 +21,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
+                    src={`https:${fields.image.fields.media.fields.file.url}`}
                     alt={fields.image.fields.altText}
                     sizes={width !== undefined ? `${Math.round(width)}px` : '100vw'}
                     priority
