@@ -1,23 +1,28 @@
+import ResponsiveImage from '@components/ResponsiveImages';
 import Image from 'next/image';
 import React from 'react';
+import useDimensions from 'react-cool-dimensions';
 import { TypeComponentPageIntroFields } from '../../lib/types';
 import Arrow from '../Arrow';
 
 // technically this is a landing page intro I think
 // Right now there is only one option: blockImageOverlayIntro
 const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
+    const { observe, width } = useDimensions<HTMLDivElement | null>();
+
     if (!fields) return null;
 
     return (
         <div className="relative">
-            <div className="relative w-full" style={{ height: '620px' }}>
+            <div className="relative w-full" style={{ height: '620px' }} ref={observe}>
                 <Image
                     className="z-0"
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}`}
+                    src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
                     alt={fields.image.fields.altText}
+                    sizes={width !== undefined ? `${Math.round(width)}px` : '100vw'}
                     priority
                 />
                 <div className="container mx-auto">
@@ -28,7 +33,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                         >
                             <div className="col-span-1 row-start-2 md:col-span-9 md:col-start-6">
                                 <h1 className="z-10 text-white h5 overline">{fields.overline}</h1>
-                                <p className="text-white h1">{fields.headerText}</p>
+                                <p className="text-lime h1">{fields.headerText}</p>
                             </div>
                         </div>
                     </div>
