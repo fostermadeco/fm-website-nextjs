@@ -35,6 +35,9 @@
             "@api": [
                 "api/api.ts"
             ],
+            "@hooks": [
+                "hooks/*"
+            ],
         },
     },
     "include": [
