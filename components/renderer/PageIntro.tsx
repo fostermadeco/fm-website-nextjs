@@ -1,21 +1,20 @@
-// import ResponsiveImage from '@components/ResponsiveImage';
+import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 import Image from 'next/image';
 import React from 'react';
-import useDimensions from 'react-cool-dimensions';
 import { TypeComponentPageIntroFields } from '../../lib/types';
 import Arrow from '../Arrow';
 
 // technically this is a landing page intro I think
 // Right now there is only one option: blockImageOverlayIntro
 const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
-    const { observe, width } = useDimensions<HTMLDivElement | null>();
+    const { containerRef, width } = useImageWidthResponsive();
     console.log({ width });
 
     if (!fields) return null;
 
     return (
         <div className="relative">
-            <div className="relative w-full" style={{ height: '620px' }} ref={observe}>
+            <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
                 <Image
                     className="z-0"
                     layout="fill"
@@ -23,7 +22,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     objectPosition="center"
                     src={`https:${fields.image.fields.media.fields.file.url}`}
                     alt={fields.image.fields.altText}
-                    sizes={width !== undefined ? `${Math.round(width)}px` : '100vw'}
+                    sizes={width}
                     priority
                 />
                 <div className="container mx-auto">

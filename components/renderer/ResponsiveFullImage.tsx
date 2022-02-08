@@ -1,19 +1,18 @@
 import Image from 'next/image';
 import React from 'react';
-import useDimensions from 'react-cool-dimensions';
 
 import { TypeComponentBlockResponsiveFullImageFields } from '@types';
+import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 
 // https://dev.to/yago/understanding-next-image-13ff
 // automatic responsive
 const ResponsiveFullImage = ({ fields }: { fields: TypeComponentBlockResponsiveFullImageFields }) => {
-    const { observe, width } = useDimensions<HTMLDivElement | null>();
-
+    const { containerRef, width } = useImageWidthResponsive();
     if (!fields) return null;
 
     return (
         <div className="container relative">
-            <div className="image-container-responsive" ref={observe}>
+            <div className="image-container-responsive" ref={containerRef}>
                 <Image
                     className="image-responsive"
                     layout="fill"
@@ -21,8 +20,8 @@ const ResponsiveFullImage = ({ fields }: { fields: TypeComponentBlockResponsiveF
                     objectPosition="center"
                     quality={75}
                     // sizes="640 768 1024 1400"
-                    sizes={width !== undefined ? `${Math.round(width)}px` : '100vw'}
-                    src={`https:${fields.image.fields.media.fields.file.url}`}
+                    sizes={width}
+                    src={`https:${fields.image.fields.media.fields.file.url}&fm=webp`}
                     alt={fields.image.fields.altText}
                 />
             </div>
