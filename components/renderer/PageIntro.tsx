@@ -21,11 +21,10 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
+                    src={`https:${fields.image.fields.media.fields.file.url}`}
                     alt={fields.image.fields.altText}
                     sizes={width}
                     priority
-                    placeholder="blur"
                 />
                 <div className="container mx-auto">
                     <div className="mx-6 md:mx-0">
