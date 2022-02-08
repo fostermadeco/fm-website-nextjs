@@ -9,25 +9,24 @@ import Arrow from '../Arrow';
 const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
     const { containerRef, width } = useImageWidthResponsive();
     console.log({ width });
+    console.log(fields.image.fields.media.fields.file.url);
 
     if (!fields) return null;
 
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
-                {width && (
-                    <Image
-                        className="z-0"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                        src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
-                        alt={fields.image.fields.altText}
-                        sizes={width}
-                        priority
-                        placeholder="blur"
-                    />
-                )}
+                <Image
+                    className="z-0"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
+                    alt={fields.image.fields.altText}
+                    sizes={width}
+                    priority
+                    placeholder="blur"
+                />
                 <div className="container mx-auto">
                     <div className="mx-6 md:mx-0">
                         <div
