@@ -1,4 +1,4 @@
-import ResponsiveImage from '@components/ResponsiveImages';
+// import ResponsiveImage from '@components/ResponsiveImage';
 import Image from 'next/image';
 import React from 'react';
 import useDimensions from 'react-cool-dimensions';
