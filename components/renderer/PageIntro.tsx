@@ -15,17 +15,19 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
-                <Image
-                    className="z-0"
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
-                    alt={fields.image.fields.altText}
-                    sizes={width}
-                    priority
-                    placeholder="blur"
-                />
+                {width && (
+                    <Image
+                        className="z-0"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                        src={`https:${fields.image.fields.media.fields.file.url}?fm=webp`}
+                        alt={fields.image.fields.altText}
+                        sizes={width}
+                        priority
+                        placeholder="blur"
+                    />
+                )}
                 <div className="container mx-auto">
                     <div className="mx-6 md:mx-0">
                         <div
