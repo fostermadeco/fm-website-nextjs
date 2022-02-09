@@ -16,6 +16,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
+                {/* TODO: Why does webp make the image load slower */}
                 <Image
                     className="z-0"
                     layout="fill"
@@ -34,7 +35,7 @@ const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
                         >
                             <div className="col-span-1 row-start-2 md:col-span-9 md:col-start-6">
                                 <h1 className="z-10 text-white h5 overline">{fields.overline}</h1>
-                                <p className="text-lime h1">{fields.headerText}</p>
+                                <p className="text-white h1">{fields.headerText}</p>
                             </div>
                         </div>
                     </div>
