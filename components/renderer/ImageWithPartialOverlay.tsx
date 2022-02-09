@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeComponentBlockImageWithPartialOverlayFields } from '../../lib/types';
+import { TypeBlockImageWithPartialOverlayFields } from '@types';
 import TextMarkdown from '../TextMarkdown';
 
-const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWithPartialOverlayFields }) => {
+const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartialOverlayFields }) => {
     if (!fields) return null;
     const { paragraphText } = fields;
 
@@ -35,13 +35,15 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeComponentBlockImageWi
                                 </div>
                             </div>
                         </div>
-                        <div className="mx-6 mt-0 md:mx-0 md:mt-48">
-                            <div className="grid grid-cols-7">
-                                <div className="col-span-6">
-                                    <TextMarkdown text={paragraphText} />
+                        {paragraphText && (
+                            <div className="mx-6 mt-0 md:mx-0 md:mt-48">
+                                <div className="grid grid-cols-7">
+                                    <div className="col-span-6">
+                                        <TextMarkdown text={paragraphText} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
-import { TypeComponentBlockSlideshowFields } from '../../lib/types/TypeComponentBlockSlideshow';
+import { TypeBlockSlideshowFields } from '@types';
 
-const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) => {
+const Slideshow = ({ fields }: { fields: TypeBlockSlideshowFields }) => {
     if (!fields) return null;
 
     const { fields: slideshowFields } = fields.slideshow;
+    const { overline, headerText, button } = slideshowFields;
 
     return (
         <div className="relative">
@@ -15,20 +16,22 @@ const Slideshow = ({ fields }: { fields: TypeComponentBlockSlideshowFields }) =>
                         <div className="col-span-6 col-start-2">
                             <div className="flex items-center">
                                 <div>
-                                    <h3 className="overline h5">{slideshowFields.overline}</h3>
-                                    <p className="h3">{slideshowFields.headerText}</p>
+                                    {overline && <h3 className="overline h5">{overline}</h3>}
+                                    {headerText && <p className="h3">{headerText}</p>}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-5 ">
-                            <div className="flex items-center justify-end">
-                                <Link href="#">
-                                    <a className="btn-circle">
-                                        <span>{slideshowFields.button.fields.buttonText}</span>
-                                    </a>
-                                </Link>
+                        {button && (
+                            <div className="col-span-5 ">
+                                <div className="flex items-center justify-end">
+                                    <Link href="#">
+                                        <a className="btn-circle">
+                                            <span>{button.fields.buttonText}</span>
+                                        </a>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>

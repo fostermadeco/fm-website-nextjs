@@ -1,23 +1,29 @@
 import * as Contentful from 'contentful';
-import { TypeSeoFields } from './TypeSeo';
-import { TypePageLandingFields } from './TypePageLanding';
-import { TypePageIndustryFields } from './TypePageIndustry';
-import { TypePageTechnologyFields } from './TypePageTechnology';
-import { TypePageCompanyFields } from './TypePageCompany';
 import { TypePageCareerFields } from './TypePageCareer';
+import { TypePageCompanyFields } from './TypePageCompany';
+import { TypePageIndustryFields } from './TypePageIndustry';
+import { TypePageJournalPostFields } from './TypePageJournalPost';
+import { TypePageLandingFields } from './TypePageLanding';
+import { TypePagePersonFields } from './TypePagePerson';
+import { TypePageServiceFields } from './TypePageService';
+import { TypePageTechnologyFields } from './TypePageTechnology';
+import { TypeSeoFields } from './TypeSeo';
 
 export interface TypePageFields {
-    title: Contentful.EntryFields.Symbol;
     name: Contentful.EntryFields.Symbol;
+    title: Contentful.EntryFields.Symbol;
     slug: Contentful.EntryFields.Symbol;
+    seo?: Contentful.Entry<TypeSeoFields>;
     content: Contentful.Entry<
-        | TypePageLandingFields
-        | TypePageIndustryFields
-        | TypePageTechnologyFields
-        | TypePageCompanyFields
+        | TypePageJournalPostFields
         | TypePageCareerFields
+        | TypePageCompanyFields
+        | TypePageIndustryFields
+        | TypePageLandingFields
+        | TypePagePersonFields
+        | TypePageServiceFields
+        | TypePageTechnologyFields
     >;
-    seo: Contentful.Entry<TypeSeoFields>;
 }
 
 export type TypePage = Contentful.Entry<TypePageFields>;

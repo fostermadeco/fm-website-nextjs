@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 import classNames from 'classnames';
-import { TypeComponentBlockIconBlocksFields } from '../../lib/types';
+import { TypeBlockIconBlocksFields } from '@types';
 import LinkWrapper from '../LinkWrapper';
 
 type IconBlocksPropTypes = {
-    fields: TypeComponentBlockIconBlocksFields;
+    fields: TypeBlockIconBlocksFields;
     mode: 'dark' | 'light';
 };
 

@@ -27,8 +27,23 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push to master on the Github repo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Generating Content Types
+
+We use [cf-content-types-generator](https://github.com/contentful-userland/cf-content-types-generator) to keep the Content Types definitions in `src/lib/types` in sync with the space we use.
+
+Run this before you run the before generating the types or add them to your `$PATH`:
+```shell
+# Credentials to be used by cf-content-types-generator (see package.json)
+export FM_CONTENTFUL_SPACE_ID=<space-id>
+export FM_CONTENTFUL_PERSONAL_ACCESS_TOKEN=<your-personal-cma-token>
+
+# Generate
+npm run generate-types-pretty
+```
+
+Note: you might need to globally install prettier `npm install -g prettier`. The prettier command mirrors the prettier options because they are buried in .eslintrc files in node_modules.

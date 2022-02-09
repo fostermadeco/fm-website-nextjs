@@ -1,8 +1,8 @@
 import React from 'react';
-import { TypeComponentBlockDarkCircleBackgroundFields } from '../../lib/types/TypeComponentBlockDarkCircleBackground';
+import { TypeBlockDarkCircleBackgroundFields } from '@types';
 import BlockRenderer from './BlockRenderer';
 
-const DarkCircleBackground = ({ fields }: { fields: TypeComponentBlockDarkCircleBackgroundFields }) => {
+const DarkCircleBackground = ({ fields }: { fields: TypeBlockDarkCircleBackgroundFields }) => {
     if (!fields) return null;
 
     return (

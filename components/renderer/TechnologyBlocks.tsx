@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { TypeComponentBlockTechnologyBlocksFields } from '../../lib/types';
-import { TypeComponentBlockTechnologyBlock } from '../../lib/types/TypeComponentBlockTechnologyBlock';
+import { TypeBlockTechnologyBlocksFields, TypeTechnologyBlock } from '@types';
 
 type TechnologyBlockProps = {
-    block: TypeComponentBlockTechnologyBlock;
+    block: TypeTechnologyBlock;
 };
 
 const TechnologyBlock = (props: TechnologyBlockProps) => {
@@ -36,8 +35,8 @@ const TechnologyBlock = (props: TechnologyBlockProps) => {
     );
 };
 
-const TechnologyBlocks = ({ fields }: { fields: TypeComponentBlockTechnologyBlocksFields }) => {
-    if (!fields) return null;
+const TechnologyBlocks = ({ fields }: { fields: TypeBlockTechnologyBlocksFields }) => {
+    if (!fields || !fields.technologyBlocks) return null;
 
     return (
         <div className="">

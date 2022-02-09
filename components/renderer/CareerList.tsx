@@ -1,5 +1,5 @@
 import LinkWrapper from '@components/LinkWrapper';
-import { TypeComponentBlockCareerListFields, TypePage } from '@types';
+import { TypeBlockCareerListFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
 import React from 'react';
 import useSWR from 'swr';
@@ -21,10 +21,12 @@ const CareerItem = (props: { career: TypePage }) => {
 
 // const fetcher: Fetcher<TypePage[]> = (url: string) => fetch(url).then((res) => res.json());
 
-const CareerList = ({ fields }: { fields: TypeComponentBlockCareerListFields }) => {
+const CareerList = ({ fields }: { fields: TypeBlockCareerListFields }) => {
     // const test = useContext(CareersContext);
     const { data, error } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     console.log({ data });
+    if (!fields.careerList) return null;
+
     const { overline, headerText } = fields.careerList.fields;
 
     console.log({ data });

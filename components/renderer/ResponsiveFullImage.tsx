@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { TypeComponentBlockResponsiveFullImageFields } from '@types';
+import { TypeBlockResponsiveFullImageFields } from '@types';
 import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 
 // https://dev.to/yago/understanding-next-image-13ff
 // automatic responsive
-const ResponsiveFullImage = ({ fields }: { fields: TypeComponentBlockResponsiveFullImageFields }) => {
+const ResponsiveFullImage = ({ fields }: { fields: TypeBlockResponsiveFullImageFields }) => {
     const { containerRef, width } = useImageWidthResponsive();
     if (!fields) return null;
 

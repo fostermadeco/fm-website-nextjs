@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { TypeComponentBlockClientTestimonialFields } from '../../lib/types';
+import { TypeBlockClientTestimonialFields } from '@types';
 
 // https://dev.to/yago/understanding-next-image-13ff
 // automatic responsive
-const ClientTestimonial = ({ fields }: { fields: TypeComponentBlockClientTestimonialFields }) => {
-    if (!fields) return null;
+const ClientTestimonial = ({ fields }: { fields: TypeBlockClientTestimonialFields }) => {
+    if (!fields || !fields.client) return null;
 
     const { client, quote, authorName, authorTitle } = fields;
     const { logo } = client.fields;
@@ -16,17 +16,19 @@ const ClientTestimonial = ({ fields }: { fields: TypeComponentBlockClientTestimo
             <div className="block py-20 mx-6 md:py-40 md:grid md:grid-cols-14">
                 <div className="col-span-12 col-start-2 ">
                     <h5 className="text-white h5 overline">Client Testimonial</h5>
-                    <div className="mt-8 mb-8 md:mb-12">
-                        <div className="relative pb-12 w-52">
-                            <Image
-                                layout="fill"
-                                objectFit="contain"
-                                quality={75}
-                                src={`https:${logo.fields.media.fields.file.url}`}
-                                alt={logo.fields.altText}
-                            />
+                    {logo && (
+                        <div className="mt-8 mb-8 md:mb-12">
+                            <div className="relative pb-12 w-52">
+                                <Image
+                                    layout="fill"
+                                    objectFit="contain"
+                                    quality={75}
+                                    src={`https:${logo.fields.media.fields.file.url}`}
+                                    alt={logo.fields.altText}
+                                />
+                            </div>
                         </div>
-                    </div>
+                    )}
                     <figure className="text-white">
                         <blockquote>
                             <p className="text-2xl italic font-bold leading-tight text-white md:text-5xl font-headline">

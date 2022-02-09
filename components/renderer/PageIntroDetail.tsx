@@ -2,9 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import * as Contentful from 'contentful';
 
-import { TypePage, TypePageFields } from '@types';
+import { TypePage, TypePageFields, TypeBlockPageIntroDetail } from '@types';
 import { getLinkToParent } from 'lib/routes';
-import { TypeComponentPageIntroDetail } from '../../lib/types/TypeComponentBlockPageIntroDetail';
 import Arrow from '../Arrow';
 import ButtonCircle from '../ButtonCircle';
 
@@ -29,13 +28,14 @@ const BackLink = (props: BackLinkPropTypes) => {
 };
 
 type PageIntroDetailProps = {
-    block: TypeComponentPageIntroDetail;
+    block: TypeBlockPageIntroDetail;
     page: TypePage;
     parent?: Contentful.Entry<TypePageFields>;
 };
 
 const PageIntroDetail = (props: PageIntroDetailProps) => {
     const { block, parent, page } = props;
+    if (!block) return null;
     console.log({ parent });
 
     const { overline, headerText, headerParagraph, button } = block.fields;

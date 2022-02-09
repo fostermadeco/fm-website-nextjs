@@ -1,7 +1,6 @@
 import has from 'lodash.has';
 import { Document, BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { EmbeddedAsset } from './embedded-asset';
 import { Hyperlink } from './hyperlink';
 
 export const isRichText = (x: Document | unknown): x is Document =>
@@ -18,6 +17,5 @@ export const renderRichText = (rtd: any) =>
             [INLINES.HYPERLINK]: PlainHyperlink,
             [INLINES.ASSET_HYPERLINK]: AssetHyperlink,
             [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
-            // [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
         },
     });

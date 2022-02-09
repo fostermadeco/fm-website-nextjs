@@ -2,11 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 import useDimensions from 'react-cool-dimensions';
 
-import { TypeComponentBlockWideImageFields } from '../../lib/types';
+import { TypeBlockWideImageFields } from '@types';
 
 // https://dev.to/yago/understanding-next-image-13ff
 // automatic responsive
-const WideImage = ({ fields }: { fields: TypeComponentBlockWideImageFields }) => {
+const WideImage = ({ fields }: { fields: TypeBlockWideImageFields }) => {
     const { observe, width } = useDimensions<HTMLDivElement | null>();
 
     if (!fields) return null;

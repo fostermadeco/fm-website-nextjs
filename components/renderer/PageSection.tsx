@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeComponentBlockPageSectionFields } from '../../lib/types';
+import { TypeBlockPageSectionFields } from '@types';
 import LinkWrapper from '../LinkWrapper';
 import TextMarkdown from '../TextMarkdown';
 
@@ -27,15 +27,17 @@ const PageSectionImage = (props: PageSectionImageProps) => {
 
 const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
-const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
+const PageSectionContent = ({ fields }: { fields: TypeBlockPageSectionFields }) => {
     const { overline, headerText, paragraph, links } = fields;
     return (
         <div>
             <h2 className="h5 overline">{overline}</h2>
             <p className="h3">{headerText}</p>
-            <div className="mt-6">
-                <TextMarkdown text={paragraph} />
-            </div>
+            {paragraph && (
+                <div className="mt-6">
+                    <TextMarkdown text={paragraph} />
+                </div>
+            )}
             {links && (
                 <ul className="mt-4">
                     {links.map((link) => (
@@ -53,7 +55,7 @@ const PageSectionContent = ({ fields }: { fields: TypeComponentBlockPageSectionF
     );
 };
 
-const PageSection = ({ fields }: { fields: TypeComponentBlockPageSectionFields }) => {
+const PageSection = ({ fields }: { fields: TypeBlockPageSectionFields }) => {
     if (!fields) return null;
 
     const { imagePlacement, image } = fields;

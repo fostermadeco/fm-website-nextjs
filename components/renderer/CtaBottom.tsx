@@ -1,9 +1,9 @@
 import React from 'react';
-import { TypeComponentBlockCtaBottomFields } from '../../lib/types';
+import { TypeBlockCtaBottomFields } from '@types';
 import BlockRenderer from './BlockRenderer';
 
 // Wrapper for other ctas
-const CtaBottom = ({ fields }: { fields: TypeComponentBlockCtaBottomFields }) => {
+const CtaBottom = ({ fields }: { fields: TypeBlockCtaBottomFields }) => {
     const { cta } = fields;
     return <BlockRenderer block={cta} />;
 };

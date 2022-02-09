@@ -1,8 +1,8 @@
 import React from 'react';
-import { TypeComponentCtaSimpleFields } from '../../lib/types';
+import { TypeCtaSimpleFields } from '@types';
 import ButtonCircle from '../ButtonCircle';
 
-const CtaFullSimple = ({ fields }: { fields: TypeComponentCtaSimpleFields }) => {
+const CtaFullSimple = ({ fields }: { fields: TypeCtaSimpleFields }) => {
     // if (!fields) return null;
 
     const { headerText } = fields;
@@ -22,9 +22,11 @@ const CtaFullSimple = ({ fields }: { fields: TypeComponentCtaSimpleFields }) => 
                                     <div className="py-8">
                                         <p className="text-center h2">{headerText}</p>
                                     </div>
-                                    <div className="flex items-center justify-center py-8">
-                                        <ButtonCircle button={fields.button.fields} bgColor="ivory" />
-                                    </div>
+                                    {fields.button && (
+                                        <div className="flex items-center justify-center py-8">
+                                            <ButtonCircle button={fields.button.fields} bgColor="ivory" />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

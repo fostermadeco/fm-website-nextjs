@@ -1,18 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { TypeComponentBlockIndustryBlocksFields } from '../../lib/types';
-import { TypeComponentBlockIndustryBlock } from '../../lib/types/TypeComponentBlockIndustryBlock';
+import { TypeBlockIndustryBlocksFields, TypeIndustryBlock } from '@types';
 
 type IndustryBlockProps = {
-    block: TypeComponentBlockIndustryBlock;
+    block: TypeIndustryBlock;
 };
 
 const IndustryBlock = (props: IndustryBlockProps) => {
     const { block } = props;
     console.log({ block });
 
-    if (!block.fields.link) return null;
+    if (!block || !block.fields.link) return null;
 
     return (
         <Link href={`/expertise/industry/${block.fields.link.fields.slug}`}>
@@ -35,9 +34,9 @@ const IndustryBlock = (props: IndustryBlockProps) => {
     );
 };
 
-const IndustryBlocks = ({ fields }: { fields: TypeComponentBlockIndustryBlocksFields }) => {
+const IndustryBlocks = ({ fields }: { fields: TypeBlockIndustryBlocksFields }) => {
     console.log('IndustryBlocks', { fields });
-    if (!fields) return null;
+    if (!fields || !fields.industryBlocks) return null;
 
     return (
         <div className="">

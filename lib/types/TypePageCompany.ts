@@ -1,13 +1,27 @@
-// import * as CFRichTextTypes from '@contentful/rich-text-types';
 import * as Contentful from 'contentful';
-// eslint-disable-next-line import/no-cycle
-import { TypeComponentSections } from './TypeComponentSections';
-import { TypeComponentPageIntroDetailFields } from './TypeComponentBlockPageIntroDetail';
+import { TypeBlockCareerListFields } from './TypeBlockCareerList';
+import { TypeBlockCtaBottomFields } from './TypeBlockCtaBottom';
+import { TypeBlockDarkCircleBackgroundFields } from './TypeBlockDarkCircleBackground';
+import { TypeBlockImageWithPartialOverlayFields } from './TypeBlockImageWithPartialOverlay';
+import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
+import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
+import { TypeBlockPeopleListFields } from './TypeBlockPeopleList';
+import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
+import { TypePageFields } from './TypePage';
 
 export interface TypePageCompanyFields {
-    name: Contentful.EntryFields.Symbol;
-    pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
-    sections: TypeComponentSections;
+    name?: Contentful.EntryFields.Symbol;
+    parentPage?: Contentful.Entry<TypePageFields>;
+    pageIntroDetail?: Contentful.Entry<TypeBlockPageIntroDetailFields>;
+    sections?: Contentful.Entry<
+        | TypeBlockCtaBottomFields
+        | TypeBlockCareerListFields
+        | TypeBlockDarkCircleBackgroundFields
+        | TypeBlockImageWithPartialOverlayFields
+        | TypeBlockPageSectionFields
+        | TypeBlockPeopleListFields
+        | TypeBlockSlideshowFields
+    >[];
 }
 
 export type TypePageCompany = Contentful.Entry<TypePageCompanyFields>;

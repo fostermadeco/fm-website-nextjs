@@ -1,12 +1,12 @@
 import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 import Image from 'next/image';
 import React from 'react';
-import { TypeComponentPageIntroFields } from '../../lib/types';
+import { TypeBlockImageOverlayIntroFields } from '@types';
 import Arrow from '../Arrow';
 
 // technically this is a landing page intro I think
 // Right now there is only one option: blockImageOverlayIntro
-const PageIntro = ({ fields }: { fields: TypeComponentPageIntroFields }) => {
+const PageIntro = ({ fields }: { fields: TypeBlockImageOverlayIntroFields }) => {
     const { containerRef, width } = useImageWidthResponsive();
     console.log({ width });
     console.log(fields.image.fields.media.fields.file.url);

@@ -1,9 +1,9 @@
 import React from 'react';
-import { TypeComponentCtaButtonFields } from '@types';
+import { TypeButtonFields } from '@types';
 import LinkWrapper from './LinkWrapper';
 
 type ButtonCirclePropTypes = {
-    button: TypeComponentCtaButtonFields;
+    button: TypeButtonFields;
     bgColor?: 'white' | 'ivory';
 };
 

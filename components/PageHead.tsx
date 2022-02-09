@@ -9,6 +9,8 @@ type PageHeadProps = {
 
 // TODO: keywords are not coming through from contentful
 export const PageHead = ({ page }: PageHeadProps) => {
+    if (!page || !page.fields.seo) return null;
+
     const seo = page.fields.seo.fields;
 
     const { description = '', keywords = [], title = page.fields.title } = seo;

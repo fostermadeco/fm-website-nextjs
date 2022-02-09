@@ -1,15 +1,29 @@
 import * as Contentful from 'contentful';
-// eslint-disable-next-line import/no-cycle
-import { TypeComponentSections } from './TypeComponentSections';
-import { TypeComponentTechnologyFields } from './TypeComponentTechnology';
-import { TypeComponentPageIntroDetailFields } from './TypeComponentBlockPageIntroDetail';
+import { TypeBlockClientTestimonialFields } from './TypeBlockClientTestimonial';
+import { TypeBlockCtaBottomFields } from './TypeBlockCtaBottom';
+import { TypeBlockDarkCircleBackgroundFields } from './TypeBlockDarkCircleBackground';
+import { TypeBlockIconBlocksFields } from './TypeBlockIconBlocks';
+import { TypeBlockImageWithPartialOverlayFields } from './TypeBlockImageWithPartialOverlay';
+import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
+import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
+import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 import { TypePageFields } from './TypePage';
+import { TypeTechnologyFields } from './TypeTechnology';
 
 export interface TypePageTechnologyFields {
-    name: Contentful.EntryFields.Symbol;
-    technology: Contentful.Entry<TypeComponentTechnologyFields>;
-    pageIntroDetail: Contentful.Entry<TypeComponentPageIntroDetailFields>;
-    sections: TypeComponentSections;
+    name?: Contentful.EntryFields.Symbol;
+    technology?: Contentful.Entry<TypeTechnologyFields>;
+    parentPage?: Contentful.Entry<TypePageFields>;
+    pageIntroDetail?: Contentful.Entry<TypeBlockPageIntroDetailFields>;
+    sections?: Contentful.Entry<
+        | TypeBlockCtaBottomFields
+        | TypeBlockClientTestimonialFields
+        | TypeBlockDarkCircleBackgroundFields
+        | TypeBlockIconBlocksFields
+        | TypeBlockImageWithPartialOverlayFields
+        | TypeBlockPageSectionFields
+        | TypeBlockSlideshowFields
+    >[];
 }
 
 export type TypePageTechnology = Contentful.Entry<TypePageTechnologyFields>;
