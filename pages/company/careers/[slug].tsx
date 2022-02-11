@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePageCareer } from '@types';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import TextMarkdownCentered from '@components/TextMarkdownCentered';
 import CtaFullSimple from '@components/renderer/CtaFullSimple';

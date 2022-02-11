@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { PageContentTypes } from '@constants';
 import { getPage } from '@api';

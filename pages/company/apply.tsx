@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
-import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
 import { getPage } from '@api';
 import { PageHead } from '@components/PageHead';
 import BlockRenderer from '@components/renderer/BlockRenderer';

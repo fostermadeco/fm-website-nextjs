@@ -7,7 +7,7 @@ import get from 'lodash.get';
 import CareerList from '@components/renderer/CareerList';
 import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
-import BlockImageWithPartialOverlay from './ImageWithPartialOverlay';
+import BlockImageWithPartialOverlay from './BlockImageWithPartialOverlay';
 import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
@@ -16,7 +16,7 @@ import TechnologyBlocks from './TechnologyBlocks';
 import CtaFullSimple from './CtaFullSimple';
 import WideImage from './WideImage';
 import ClientTestimonial from './ClientTestimonial';
-import DarkCircleBackground from './DarkCircleBackground';
+import BlockDarkCircleBackground from './BlockDarkCircleBackground';
 import CtaBottom from './CtaBottom';
 import ResponsiveFullImage from './ResponsiveFullImage';
 import PeopleList from './PeopleList';
@@ -41,7 +41,7 @@ const ContentTypeMap = {
     blockWideImage: WideImage,
     blockResponsiveFullImage: ResponsiveFullImage,
     blockClientTestimonial: ClientTestimonial,
-    blockDarkCircleBackground: DarkCircleBackground,
+    blockDarkCircleBackground: BlockDarkCircleBackground,
     blockCareerList: CareerList,
     blockPeopleList: PeopleList,
 };
