@@ -42,7 +42,7 @@ module.exports = {
             xl: ['1.25rem', { lineHeight: '1.75rem' }],
             '2xl': ['1.5rem', { lineHeight: '2rem' }],
             // h4 - 32px
-            '3xl': ['2rem', { lineHeight: '2rem' }],
+            '3xl': ['2rem', { lineHeight: '2.5rem' }],
             '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
             '5xl': ['3rem', { lineHeight: '1' }],
             // h3 - 54px

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
-import PageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
 import { getPage } from '@api';
 import { PageHead } from '@components/PageHead';
 import BlockRenderer from '@components/renderer/BlockRenderer';
@@ -32,7 +32,7 @@ const ApplyPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <PageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>

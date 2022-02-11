@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import * as Contentful from 'contentful';
 
-import { TypePage, TypePageFields, TypeBlockPageIntroDetail } from '@types';
+import { TypePage, TypeBlockPageIntroDetail, TypeBlockPageIntroDetailFields } from '@types';
 import { getLinkToParent } from 'lib/routes';
 import Arrow from '../Arrow';
 import ButtonCircle from '../ButtonCircle';
@@ -27,16 +26,12 @@ const BackLink = (props: BackLinkPropTypes) => {
     );
 };
 
-type PageIntroDetailProps = {
-    block: TypeBlockPageIntroDetail;
+type PageIntroDetailProps = TypeBlockPageIntroDetailFields & {
     page: TypePage;
 };
 
-const PageIntroDetail = (props: PageIntroDetailProps) => {
-    const { block, page } = props;
-    if (!block) return null;
-
-    const { overline, headerText, headerParagraph, button } = block.fields;
+export const PageIntroDetail = (props: PageIntroDetailProps) => {
+    const { overline, headerText, headerParagraph, button, page } = props;
 
     return (
         <div className="container relative mx-auto">
@@ -48,7 +43,7 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
                     <div className="col-span-7">
                         <h1 className="h5 overline">{overline}</h1>
                         <h2 className="h1">{headerText}</h2>
-                        <p className="h4">{headerParagraph}</p>
+                        <p className="mt-2 h4">{headerParagraph}</p>
                         {button && (
                             <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">
                                 <ButtonCircle button={button.fields} />
@@ -61,4 +56,18 @@ const PageIntroDetail = (props: PageIntroDetailProps) => {
     );
 };
 
-export default PageIntroDetail;
+type BlockPageIntroDetailProps = {
+    block: TypeBlockPageIntroDetail;
+    page: TypePage;
+};
+
+const BlockPageIntroDetail = (props: BlockPageIntroDetailProps) => {
+    const { block, page } = props;
+    console.log({ block });
+
+    if (!block) return null;
+
+    return <PageIntroDetail {...block.fields} page={page} />;
+};
+
+export default BlockPageIntroDetail;

@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
 import { PageHead } from '@components/PageHead';
-import PageIntroDetail from '@components/renderer/PageIntroDetail';
+import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { PageContentTypes } from '@constants';
 import { getPage } from '@api';
@@ -33,7 +33,7 @@ const CareersPage = ({ page, preview }: { page: TypePage; preview: boolean }) =>
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <PageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>

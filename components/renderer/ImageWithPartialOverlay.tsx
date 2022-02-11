@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeBlockImageWithPartialOverlayFields } from '@types';
+import { TypeBlockImageWithPartialOverlay } from '@types';
 import TextMarkdown from '../TextMarkdown';
 
-const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartialOverlayFields }) => {
+const ImageWithPartialOverlay = ({ fields }: TypeBlockImageWithPartialOverlay) => {
     if (!fields) return null;
-    const { paragraphText } = fields;
+    const { paragraphText, image } = fields;
 
     // console.log({ is: isRichText(paragraphText) });
 
@@ -18,8 +18,8 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartial
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}`}
-                    alt={fields.image.fields.altText}
+                    src={`https:${image.fields.media.fields.file.url}`}
+                    alt={image.fields.altText}
                     // TODO: make not all of these priority
                     priority
                 />

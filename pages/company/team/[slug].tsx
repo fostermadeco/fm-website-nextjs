@@ -1,15 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import { getPage, getPagesOfType } from '@api';
+import { TypePage, TypePagePerson } from '@types';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/PageIntroDetail';
-import BlockRenderer from '@components/renderer/BlockRenderer';
-import { TypePage, TypePageService } from '@types';
+import { PageIntroDetail } from '@components/renderer/PageIntroDetail';
+import { getPage, getPagesOfType } from '@api';
 import { PageContentTypes } from '@constants';
 import Layout from '@components/Layout';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Service });
+    const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Person });
     const paths = allPageForType.map((page) => ({ params: { slug: page.fields.slug } })) ?? [];
 
     return {
@@ -20,9 +19,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params = {}, preview = false }) => {
     const slug = String(params.slug);
-
     const page = await getPage({
-        pageContentType: PageContentTypes.Service,
+        pageContentType: PageContentTypes.Person,
         slug,
         preview,
     });
@@ -35,21 +33,24 @@ export const getStaticProps: GetStaticProps = async ({ params = {}, preview = fa
     };
 };
 
-const ServicePage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
-    console.log({ page });
+const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
+    const content = page.fields.content as TypePagePerson;
 
-    const content = page.fields.content as TypePageService;
-    const { sections = [], pageIntroDetail } = content.fields;
+    const { person } = content.fields;
 
     return (
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
-                <BlockRenderer block={sections} />
+                <PageIntroDetail
+                    overline="Our Team"
+                    headerText={`${person.fields.firstName} ${person.fields.lastName}`}
+                    headerParagraph={person.fields.jobTitle}
+                    page={page}
+                />
             </div>
         </Layout>
     );
 };
 
-export default ServicePage;
+export default TeamPage;
