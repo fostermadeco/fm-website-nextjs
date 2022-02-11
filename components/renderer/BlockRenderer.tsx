@@ -5,10 +5,9 @@
 import React from 'react';
 import get from 'lodash.get';
 import CareerList from '@components/renderer/CareerList';
-import { TypePage } from '@types';
 import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
-import ImageWithPartialOverlay from './ImageWithPartialOverlay';
+import BlockImageWithPartialOverlay from './ImageWithPartialOverlay';
 import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
@@ -31,7 +30,7 @@ type BlockRendererProps = {
 const ContentTypeMap = {
     blockNumberedBlocks: NumberedBlocks,
     blockImageOverlayIntro: PageIntro,
-    blockImageWithPartialOverlay: ImageWithPartialOverlay,
+    blockImageWithPartialOverlay: BlockImageWithPartialOverlay,
     blockPageSection: PageSection,
     blockIconBlocks: IconBlocks,
     blockIndustryBlocks: IndustryBlocks,
