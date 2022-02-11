@@ -31,7 +31,6 @@ export const getPageBySlug = async (props: GetPageBySlugProps) => {
         content_type: 'page',
         // 'fields.content.sys.contentType.sys.id': 'pageCompany',
     };
-    console.log({ preview });
 
     const {
         items: [page],
@@ -71,6 +70,7 @@ export const getPagesOfType = async (props: GetPagesOfTypeProps) => {
 
     const { items: pages } = await getClient(preview).getEntries({
         limit: 100,
+        include: 10,
         content_type: PageContentType as string,
         'fields.content.sys.contentType.sys.id': pageContentType,
     });

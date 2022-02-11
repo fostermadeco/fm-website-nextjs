@@ -27,6 +27,12 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
                 as: `/company/${slug}`,
             };
         }
+        case PageContentTypes.Person: {
+            return {
+                href: '/company/team/[slug]',
+                as: `/company/team/${slug}`,
+            };
+        }
         case PageContentTypes.Career: {
             return {
                 href: '/company/careers/[slug]',
@@ -51,6 +57,7 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
                 as: `/expertise/industry/${slug}`,
             };
         }
+
         default: {
             throw new Error(`Page type is not supported yet: ${pageType}`);
         }
@@ -62,6 +69,9 @@ export const getLinkToParent = ({ page }: { page: TypePage }): { href: string; l
     switch (pageType) {
         case PageContentTypes.Company: {
             return { href: '/company', label: 'Company' };
+        }
+        case PageContentTypes.Person: {
+            return { href: '/company/team', label: 'Our Team' };
         }
         case PageContentTypes.Career: {
             return { href: '/company/careers', label: 'Careers' };

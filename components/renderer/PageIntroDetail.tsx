@@ -30,13 +30,11 @@ const BackLink = (props: BackLinkPropTypes) => {
 type PageIntroDetailProps = {
     block: TypeBlockPageIntroDetail;
     page: TypePage;
-    parent?: Contentful.Entry<TypePageFields>;
 };
 
 const PageIntroDetail = (props: PageIntroDetailProps) => {
-    const { block, parent, page } = props;
+    const { block, page } = props;
     if (!block) return null;
-    console.log({ parent });
 
     const { overline, headerText, headerParagraph, button } = block.fields;
 

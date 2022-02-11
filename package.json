@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "styles": "npx tailwindcss -i ./styles/app.css -o ./public/app.css --watch",
-    "generate-types": "cf-content-types-generator -s $FM_CONTENTFUL_SPACE_ID -t $FM_CONTENTFUL__PERSONAL_ACCESS_TOKEN -o lib/types",
+    "generate-types": "cf-content-types-generator -s $FM_CONTENTFUL_SPACE_ID -t $FM_CONTENTFUL_PERSONAL_ACCESS_TOKEN -o lib/types",
     "prettier-types": "prettier --single-quote --tab-width 4 --print-width 120 --write 'lib/types/*.ts'",
     "generate-types-pretty": "npm run generate-types && npm run prettier-types"
   },

@@ -20,6 +20,7 @@ import ClientTestimonial from './ClientTestimonial';
 import DarkCircleBackground from './DarkCircleBackground';
 import CtaBottom from './CtaBottom';
 import ResponsiveFullImage from './ResponsiveFullImage';
+import PeopleList from './PeopleList';
 
 type BlockRendererProps = {
     block: any;
@@ -43,6 +44,7 @@ const ContentTypeMap = {
     blockClientTestimonial: ClientTestimonial,
     blockDarkCircleBackground: DarkCircleBackground,
     blockCareerList: CareerList,
+    blockPeopleList: PeopleList,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {

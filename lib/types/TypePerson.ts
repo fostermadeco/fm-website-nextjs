@@ -3,11 +3,11 @@ import { TypeFactFields } from './TypeFact';
 import { TypeImageWrapperFields } from './TypeImageWrapper';
 
 export interface TypePersonFields {
-    profileImage?: Contentful.Entry<TypeImageWrapperFields>;
-    firstName?: Contentful.EntryFields.Symbol;
-    lastName?: Contentful.EntryFields.Symbol;
+    profileImage: Contentful.Entry<TypeImageWrapperFields>;
+    firstName: Contentful.EntryFields.Symbol;
+    lastName: Contentful.EntryFields.Symbol;
     email?: Contentful.EntryFields.Symbol;
-    jobTitle?: Contentful.EntryFields.Symbol;
+    jobTitle: Contentful.EntryFields.Symbol;
     atAGlance?: Contentful.EntryFields.Text;
     bio?: Contentful.EntryFields.Text;
     expertise?: Contentful.EntryFields.Symbol[];

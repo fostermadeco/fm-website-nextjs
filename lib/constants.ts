@@ -7,4 +7,5 @@ export const PageContentTypes = {
     Industry: 'pageIndustry',
     Technology: 'pageTechnology',
     Service: 'pageService',
+    Person: 'pagePerson',
 };
