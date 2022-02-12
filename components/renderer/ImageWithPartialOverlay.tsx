@@ -1,11 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
-import { TypeBlockImageWithPartialOverlay, TypeBlockImageWithPartialOverlayFields } from '@types';
+import { TypeBlockImageWithPartialOverlayFields } from '@types';
 import TextMarkdown from '../TextMarkdown';
 
-export const ImageWithPartialOverlay = (props: TypeBlockImageWithPartialOverlayFields) => {
-    const { paragraphText, image, overline, headerText } = props;
+const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartialOverlayFields }) => {
+    if (!fields) return null;
+    const { paragraphText, image } = fields;
 
+    // console.log({ is: isRichText(paragraphText) });
+
+    // const textComp = isRichText(paragraphText) ? renderRichText(paragraphText) : paragraphText;
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }}>
@@ -26,8 +30,8 @@ export const ImageWithPartialOverlay = (props: TypeBlockImageWithPartialOverlayF
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
                                 <div className="col-span-7 col-start-1 mx-6 md:mx-0 md:col-start-2 md:col-span-5">
-                                    <h2 className="h5 overline">{overline}</h2>
-                                    <p className="h3">{headerText}</p>
+                                    <h2 className="h5 overline">{fields.overline}</h2>
+                                    <p className="h3">{fields.headerText}</p>
                                 </div>
                             </div>
                         </div>
@@ -47,13 +51,4 @@ export const ImageWithPartialOverlay = (props: TypeBlockImageWithPartialOverlayF
     );
 };
 
-const BlockImageWithPartialOverlay = ({ fields }: TypeBlockImageWithPartialOverlay) => {
-    if (!fields) return null;
-
-    // console.log({ is: isRichText(paragraphText) });
-
-    // const textComp = isRichText(paragraphText) ? renderRichText(paragraphText) : paragraphText;
-    return <ImageWithPartialOverlay {...fields} />;
-};
-
-export default BlockImageWithPartialOverlay;
+export default ImageWithPartialOverlay;

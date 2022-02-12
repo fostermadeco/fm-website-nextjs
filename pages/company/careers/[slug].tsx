@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePageCareer } from '@types';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import TextMarkdownCentered from '@components/TextMarkdownCentered';
 import CtaFullSimple from '@components/renderer/CtaFullSimple';
@@ -47,7 +47,7 @@ const CareerPage = ({ page, preview }: { page: TypePage; preview: boolean }) => 
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <PageIntroDetail fields={pageIntroDetail.fields} page={page} />}
                 <BlockRenderer block={heroImage} />
                 {description && <TextMarkdownCentered textBlock={description} />}
                 {ctaBottom && <CtaFullSimple fields={ctaBottom.fields} />}

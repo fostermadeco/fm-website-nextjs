@@ -5,9 +5,9 @@
 import React from 'react';
 import get from 'lodash.get';
 import CareerList from '@components/renderer/CareerList';
-import NumberedBlocks from './NumberedBlocks';
+import BlockNumberedBlocks from './BlockNumberedBlocks';
 import PageIntro from './PageIntro';
-import BlockImageWithPartialOverlay from './BlockImageWithPartialOverlay';
+import BlockImageWithPartialOverlay from './ImageWithPartialOverlay';
 import PageSection from './PageSection';
 import Slideshow from './Slideshow';
 import IconBlocks from './IconBlocks';
@@ -28,7 +28,7 @@ type BlockRendererProps = {
 
 // Map Contentful content type ids from content models to components
 const ContentTypeMap = {
-    blockNumberedBlocks: NumberedBlocks,
+    blockNumberedBlocks: BlockNumberedBlocks,
     blockImageOverlayIntro: PageIntro,
     blockImageWithPartialOverlay: BlockImageWithPartialOverlay,
     blockPageSection: PageSection,
@@ -72,6 +72,7 @@ const BlockRenderer = (props: BlockRendererProps) => {
         ...block,
         parent: block.parent,
     };
+    console.log({ componentProps });
 
     return <Component key={`${contentTypeId}-${id}`} mode={mode} {...componentProps} />;
 };

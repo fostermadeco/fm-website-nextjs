@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePageCompany } from '@types';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { getPage, getPagesOfType } from '@api';
 import { PageContentTypes } from '@constants';
@@ -40,14 +40,16 @@ export const getStaticProps: GetStaticProps = async ({ params = {}, preview = fa
 
 const CompanyPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     const content = page.fields.content as TypePageCompany;
+    console.log({ content });
 
     const { sections = [], pageIntroDetail } = content.fields;
+    console.log({ pageIntroDetail });
 
     return (
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <PageIntroDetail fields={pageIntroDetail.fields} page={page} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>

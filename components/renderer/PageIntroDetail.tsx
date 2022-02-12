@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-
-import { TypePage, TypeBlockPageIntroDetail, TypeBlockPageIntroDetailFields } from '@types';
+import { TypePage, TypeBlockPageIntroDetailFields } from '@types';
 import { getLinkToParent } from 'lib/routes';
 import Arrow from '../Arrow';
 import ButtonCircle from '../ButtonCircle';
@@ -26,12 +25,16 @@ const BackLink = (props: BackLinkPropTypes) => {
     );
 };
 
-type PageIntroDetailProps = TypeBlockPageIntroDetailFields & {
+type PageIntroDetailProps = {
+    fields: TypeBlockPageIntroDetailFields;
     page: TypePage;
 };
 
-export const PageIntroDetail = (props: PageIntroDetailProps) => {
-    const { overline, headerText, headerParagraph, button, page } = props;
+const PageIntroDetail = (props: PageIntroDetailProps) => {
+    const { fields, page } = props;
+    if (!fields) return null;
+
+    const { overline, headerText, headerParagraph, button } = fields;
 
     return (
         <div className="container relative mx-auto">
@@ -43,7 +46,7 @@ export const PageIntroDetail = (props: PageIntroDetailProps) => {
                     <div className="col-span-7">
                         <h1 className="h5 overline">{overline}</h1>
                         <h2 className="h1">{headerText}</h2>
-                        <p className="mt-2 h4">{headerParagraph}</p>
+                        <p className="h4">{headerParagraph}</p>
                         {button && (
                             <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">
                                 <ButtonCircle button={button.fields} />
@@ -56,18 +59,4 @@ export const PageIntroDetail = (props: PageIntroDetailProps) => {
     );
 };
 
-type BlockPageIntroDetailProps = {
-    block: TypeBlockPageIntroDetail;
-    page: TypePage;
-};
-
-const BlockPageIntroDetail = (props: BlockPageIntroDetailProps) => {
-    const { block, page } = props;
-    console.log({ block });
-
-    if (!block) return null;
-
-    return <PageIntroDetail {...block.fields} page={page} />;
-};
-
-export default BlockPageIntroDetail;
+export default PageIntroDetail;

@@ -3,7 +3,7 @@ import React from 'react';
 import { PageContentTypes } from '@constants';
 import { getPage, getPagesOfType } from '@api';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { TypePage, TypePageIndustry } from '@types';
 import Layout from '@components/Layout';
@@ -44,7 +44,7 @@ const IndustryPage = ({ page, preview }: { page: TypePage; preview: boolean }) =
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <PageIntroDetail fields={pageIntroDetail.fields} page={page} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>

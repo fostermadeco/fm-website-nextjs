@@ -44,9 +44,9 @@ const PeopleList = (props: PeopleListProps) => {
     const { data, error } = useSWR<TypePage[], Error>('/api/people', fetcher);
     // peoplePages does not have TypePage fields: seo, slug, etc.
     const { people, peoplePages, peoplePagesCompose } = fields;
-    console.log({ peoplePagesCompose });
-    console.log({ peoplePages });
-    console.log({ data });
+    // console.log({ peoplePagesCompose });
+    // console.log({ peoplePages });
+    // console.log({ data });
 
     // TODO: add loader
     if (!data || !peoplePages) return null;

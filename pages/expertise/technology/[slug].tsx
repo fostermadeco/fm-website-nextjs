@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { getPage, getPagesOfType } from '@api';
 import { PageHead } from '@components/PageHead';
-import BlockPageIntroDetail from '@components/renderer/BlockPageIntroDetail';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import BlockRenderer from '@components/renderer/BlockRenderer';
 import { TypePage, TypePageTechnology } from '@types';
 import { PageContentTypes } from '@constants';
@@ -44,7 +44,7 @@ const TechnologyPage = ({ page, preview }: { page: TypePage; preview: boolean })
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
-                {pageIntroDetail && <BlockPageIntroDetail block={pageIntroDetail} page={page} />}
+                {pageIntroDetail && <PageIntroDetail fields={pageIntroDetail.fields} page={page} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>

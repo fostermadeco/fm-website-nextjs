@@ -1,7 +1,7 @@
 import React from 'react';
-import { TypeBlockNumberedBlocksFields, TypeFact } from '@types';
+import { TypeBlockNumberedBlocks, TypeBlockNumberedBlocksFields, TypeFact } from '@types';
 
-const NumberedBlocks = ({ fields }: { fields: TypeBlockNumberedBlocksFields }) => {
+const BlockNumberedBlocks = ({ fields }: TypeBlockNumberedBlocks) => {
     if (!fields) return null;
 
     return (
@@ -33,4 +33,4 @@ const NumberedBlocks = ({ fields }: { fields: TypeBlockNumberedBlocksFields }) =
     );
 };
 
-export default NumberedBlocks;
+export default BlockNumberedBlocks;

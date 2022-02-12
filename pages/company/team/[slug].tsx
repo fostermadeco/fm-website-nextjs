@@ -2,11 +2,12 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { TypePage, TypePagePerson, TypePerson, TypePersonFields } from '@types';
 import { PageHead } from '@components/PageHead';
-import { PageIntroDetail } from '@components/renderer/BlockPageIntroDetail';
+import PageIntroDetail from '@components/renderer/PageIntroDetail';
 import { getPage, getPagesOfType } from '@api';
 import { PageContentTypes } from '@constants';
 import Layout from '@components/Layout';
-import { ImageWithPartialOverlay } from '@components/renderer/BlockImageWithPartialOverlay';
+import ImageWithPartialOverlay from '@components/renderer/ImageWithPartialOverlay';
+import DarkCircleBackground from '@components/DarkCircleBackground';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Person });
@@ -60,20 +61,28 @@ const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
         <Layout preview={preview}>
             <div className="pt-40">
                 <PageHead page={page} />
+
                 <PageIntroDetail
-                    overline="Our Team"
-                    headerText={`${person.fields.firstName} ${person.fields.lastName}`}
-                    headerParagraph={person.fields.jobTitle}
+                    fields={{
+                        overline: 'Our Team',
+                        headerText: `${person.fields.firstName} ${person.fields.lastName}`,
+                        headerParagraph: person.fields.jobTitle,
+                    }}
                     page={page}
                 />
                 {wideImage && (
                     <ImageWithPartialOverlay
-                        overline="At a Glance"
-                        image={wideImage}
-                        headerText={person.fields.atAGlance}
-                        paragraphText={getOverlayParagraph(person.fields)}
+                        fields={{
+                            overline: 'At a Glance',
+                            image: wideImage,
+                            headerText: person.fields.atAGlance,
+                            paragraphText: getOverlayParagraph(person.fields),
+                        }}
                     />
                 )}
+                <DarkCircleBackground>
+                    <div>test</div>
+                </DarkCircleBackground>
             </div>
         </Layout>
     );
