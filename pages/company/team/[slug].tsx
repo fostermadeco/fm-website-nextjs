@@ -8,6 +8,7 @@ import { PageContentTypes } from '@constants';
 import Layout from '@components/Layout';
 import ImageWithPartialOverlay from '@components/renderer/ImageWithPartialOverlay';
 import DarkCircleBackground from '@components/DarkCircleBackground';
+import NumberedBlocks from '@components/renderer/NumberedBlocks';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Person });
@@ -42,8 +43,8 @@ const getOverlayParagraph = (personFields: TypePersonFields) => {
         markdown.push(`##### / Professional Bio \n ${personFields.bio}`);
     }
 
-    if (personFields.atAGlance) {
-        markdown.push(`##### / At Foster Made\n ${personFields.atAGlance}`);
+    if (personFields.atFosterMade) {
+        markdown.push(`##### / At Foster Made\n ${personFields.atFosterMade}`);
     }
     if (personFields.expertise) {
         markdown.push(`##### / At Core Expertise\n ${personFields.expertise.map((e) => `- ${e}`).join('\n')}`);
@@ -54,8 +55,10 @@ const getOverlayParagraph = (personFields: TypePersonFields) => {
 
 const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     const content = page.fields.content as TypePagePerson;
+    console.log({ content });
 
     const { person, wideImage } = content.fields;
+    const { firstName, lastName, jobTitle, atAGlance, funFacts, beyondIntroductions } = person.fields;
 
     return (
         <Layout preview={preview}>
@@ -65,8 +68,8 @@ const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
                 <PageIntroDetail
                     fields={{
                         overline: 'Our Team',
-                        headerText: `${person.fields.firstName} ${person.fields.lastName}`,
-                        headerParagraph: person.fields.jobTitle,
+                        headerText: `${firstName} ${lastName}`,
+                        headerParagraph: jobTitle,
                     }}
                     page={page}
                 />
@@ -75,14 +78,20 @@ const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
                         fields={{
                             overline: 'At a Glance',
                             image: wideImage,
-                            headerText: person.fields.atAGlance,
+                            headerText: atAGlance,
                             paragraphText: getOverlayParagraph(person.fields),
                         }}
                     />
                 )}
-                <DarkCircleBackground>
-                    <div>test</div>
-                </DarkCircleBackground>
+                {funFacts && (
+                    <DarkCircleBackground>
+                        <div>
+                            <h5 className="text-center text-white overline h5">Beyond Introductions</h5>
+                            <h2 className="text-center text-white h2">{beyondIntroductions}</h2>
+                        </div>
+                        <NumberedBlocks mode="dark" fields={{ fact: funFacts }} />
+                    </DarkCircleBackground>
+                )}
             </div>
         </Layout>
     );

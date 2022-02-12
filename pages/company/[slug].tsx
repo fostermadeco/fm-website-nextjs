@@ -40,10 +40,8 @@ export const getStaticProps: GetStaticProps = async ({ params = {}, preview = fa
 
 const CompanyPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     const content = page.fields.content as TypePageCompany;
-    console.log({ content });
 
     const { sections = [], pageIntroDetail } = content.fields;
-    console.log({ pageIntroDetail });
 
     return (
         <Layout preview={preview}>

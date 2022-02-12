@@ -10,6 +10,7 @@ export interface TypePersonFields {
     jobTitle: Contentful.EntryFields.Symbol;
     atAGlance?: Contentful.EntryFields.Text;
     bio?: Contentful.EntryFields.Text;
+    atFosterMade?: Contentful.EntryFields.Text;
     expertise?: Contentful.EntryFields.Symbol[];
     beyondIntroductions?: Contentful.EntryFields.Text;
     funFacts?: Contentful.Entry<TypeFactFields>[];

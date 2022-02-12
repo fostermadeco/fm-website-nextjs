@@ -1,8 +1,16 @@
 import React from 'react';
-import { TypeBlockNumberedBlocks, TypeFact } from '@types';
+import { TypeBlockNumberedBlocks, TypeBlockNumberedBlocksFields, TypeFact } from '@types';
 
-const NumberedBlocks = ({ fields }: TypeBlockNumberedBlocks) => {
-    if (!fields) return null;
+type NumberedBlocksProps = {
+    fields: TypeBlockNumberedBlocksFields;
+    mode?: 'dark' | 'light';
+};
+
+const NumberedBlocks = (props: NumberedBlocksProps) => {
+    const { fields, mode = 'light' } = props;
+    if (!fields || !fields.fact) return null;
+
+    const textColor = mode === 'dark' ? 'text-white' : 'text-black';
 
     return (
         <div className="container mx-auto my-4 md:my-14">
@@ -19,9 +27,9 @@ const NumberedBlocks = ({ fields }: TypeBlockNumberedBlocks) => {
                                         index === 0 ? 'xl:col-start-2' : ''
                                     }`}
                                 >
-                                    <h5 className="h5 overline">0{index + 1}</h5>
-                                    <h4 className="h4">{f.fields.header}</h4>
-                                    <p className="font-light p-xl">{f.fields.fact}</p>
+                                    <h5 className={`h5 overline ${textColor}`}>0{index + 1}</h5>
+                                    <h4 className={`h4 ${textColor}`}>{f.fields.header}</h4>
+                                    <p className={`font-light p-xl ${textColor}`}>{f.fields.fact}</p>
                                 </div>
                             );
                         })}
