@@ -5,7 +5,7 @@
 import React from 'react';
 import get from 'lodash.get';
 import CareerList from '@components/renderer/CareerList';
-import BlockNumberedBlocks from './BlockNumberedBlocks';
+import NumberedBlocks from './NumberedBlocks';
 import PageIntro from './PageIntro';
 import BlockImageWithPartialOverlay from './ImageWithPartialOverlay';
 import PageSection from './PageSection';
@@ -28,7 +28,7 @@ type BlockRendererProps = {
 
 // Map Contentful content type ids from content models to components
 const ContentTypeMap = {
-    blockNumberedBlocks: BlockNumberedBlocks,
+    blockNumberedBlocks: NumberedBlocks,
     blockImageOverlayIntro: PageIntro,
     blockImageWithPartialOverlay: BlockImageWithPartialOverlay,
     blockPageSection: PageSection,
