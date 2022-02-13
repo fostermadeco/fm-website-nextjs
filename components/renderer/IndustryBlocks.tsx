@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { TypeBlockIndustryBlocksFields, TypeIndustryBlock } from '@types';
+import HeaderGroup from '@components/HeaderGroup';
 
 type IndustryBlockProps = {
     block: TypeIndustryBlock;
@@ -38,14 +39,12 @@ const IndustryBlocks = ({ fields }: { fields: TypeBlockIndustryBlocksFields }) =
     console.log('IndustryBlocks', { fields });
     if (!fields || !fields.industryBlocks) return null;
 
+    const { overline, headerText, paragraph } = fields;
+
     return (
         <div className="">
             <div className="mx-6 py-14 md:mx-0">
-                <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="text-white h5 overline">{fields.overline}</h2>
-                    <h3 className="text-white h2">{fields.headerText}</h3>
-                    <p className="px-8 text-white p-xl">{fields.paragraph}</p>
-                </div>
+                <HeaderGroup mode="dark" overline={overline} headerText={headerText} paragraph={paragraph} />
 
                 <div className="grid grid-cols-1 gap-6 my-10 mt-20 md:grid-cols-3 md:gap-6">
                     {fields.industryBlocks.map((b) => (

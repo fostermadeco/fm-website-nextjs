@@ -9,6 +9,7 @@ import Layout from '@components/Layout';
 import ImageWithPartialOverlay from '@components/renderer/ImageWithPartialOverlay';
 import DarkCircleBackground from '@components/DarkCircleBackground';
 import NumberedBlocks from '@components/renderer/NumberedBlocks';
+import HeaderGroup from '@components/HeaderGroup';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const allPageForType = await getPagesOfType({ pageContentType: PageContentTypes.Person });
@@ -58,7 +59,7 @@ const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     console.log({ content });
 
     const { person, wideImage } = content.fields;
-    const { firstName, lastName, jobTitle, atAGlance, funFacts, beyondIntroductions } = person.fields;
+    const { firstName, lastName, jobTitle, atAGlance, funFacts, beyondIntroductions, testimonial } = person.fields;
 
     return (
         <Layout preview={preview}>
@@ -85,11 +86,21 @@ const TeamPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
                 )}
                 {funFacts && (
                     <DarkCircleBackground>
-                        <div>
-                            <h5 className="text-center text-white overline h5">Beyond Introductions</h5>
-                            <h2 className="text-center text-white h2">{beyondIntroductions}</h2>
-                        </div>
+                        <HeaderGroup mode="dark" overline="Beyond Introductions" headerText={beyondIntroductions} />
                         <NumberedBlocks mode="dark" fields={{ fact: funFacts }} />
+
+                        <div className="max-w-3xl mx-auto">
+                            <figure className="">
+                                <h5 className="text-center text-white h5 overline">
+                                    What do you love about your role?
+                                </h5>
+                                <blockquote className="text-left">
+                                    <p className="text-2xl italic font-bold leading-tight text-white md:text-5xl font-headline">
+                                        "{testimonial}"
+                                    </p>
+                                </blockquote>
+                            </figure>
+                        </div>
                     </DarkCircleBackground>
                 )}
             </div>
