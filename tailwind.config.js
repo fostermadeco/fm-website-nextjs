@@ -22,7 +22,11 @@ module.exports = {
             white: '#ffffff',
             lime: '#DADA50',
             ivory: '#F1F1E8',
-            steel: '#9EA8AD',
+            steel: {
+                200: '#eeeeee',
+                DEFAULT: '#9EA8AD',
+                500: '#82898c',
+            },
             poppy: '#CC5A33',
         },
         container: {

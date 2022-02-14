@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
@@ -6,6 +6,7 @@ import useSWR from 'swr';
 import * as Yup from 'yup';
 
 import { useRouter } from 'next/router';
+import { getErrorMessage } from 'lib/errors';
 import FieldInput from './FieldInput';
 import FieldSelect from './FieldSelect';
 import FieldTextarea from './FieldTextarea';
@@ -37,6 +38,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const { fields: formFields, resources } = form;
     console.log({ formFields, resources });
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
+    const [hasSuccess, setHasSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const careerOptions = data?.map((d: TypePage) => ({ label: d.fields.name, value: d.fields.slug }));
     // could be array
@@ -52,7 +55,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     console.log({ routes });
     console.log(routes.query.title || '');
 
-    const handleSubmit = (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
+    const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ formikHelpers });
 
@@ -70,14 +73,19 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         //     formData.append(key, value as Blob);
         // });
 
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            // body: new URLSearchParams(formData).toString(),
-            body: encode({ 'form-name': 'apply', ...values }),
-        })
-            .then(() => console.log('Form successfully submitted'))
-            .catch((error) => alert(error));
+        try {
+            await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                // body: new URLSearchParams(formData).toString(),
+                body: encode({ 'form-name': 'apply', ...values }),
+            });
+            setSubmitting(false);
+            setHasSuccess(true);
+        } catch (e) {
+            console.log(e);
+            setSubmitError(getErrorMessage(e));
+        }
     };
 
     return (
@@ -90,7 +98,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             {({ isSubmitting }) => (
                 <Form noValidate id="apply" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="apply" />
-
+                    {submitError && <div className="text-poppy">Uh oh</div>}
+                    {hasSuccess && <div className="text-lime">Success!</div>}
                     <FieldInput label="/ Name" name="name" type="text" placeholder="Name" required />
                     <FieldInput label="/ Email Address" name="email" type="text" placeholder="Email" required />
                     <FieldInput label="/ Phone Number" name="phone" type="text" placeholder="Phone" required />
@@ -116,8 +125,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                         placeholder="https://www.you.com or linkedin.com/in/you"
                     />
                     <div className="flex justify-center my-6">
-                        <button type="submit" className="btn-circle btn-circle-ivory">
-                            Submit application
+                        <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
+                            <span>{isSubmitting ? 'Hang on' : 'Submit application'}</span>
                         </button>
                     </div>
                 </Form>
