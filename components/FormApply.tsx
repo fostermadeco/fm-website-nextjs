@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
 import useSWR from 'swr';
@@ -27,6 +27,11 @@ const validationSchema = Yup.object({
     aboutYourself: Yup.string().required('We want to know more!'),
 });
 
+const encode = (data: { [x: string]: string | number | boolean }) =>
+    Object.keys(data)
+        .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('&');
+
 const FormApply = ({ form }: { form: TypeFormFields }) => {
     const routes = useRouter();
     const { fields: formFields, resources } = form;
@@ -47,20 +52,45 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     console.log({ routes });
     console.log(routes.query.title || '');
 
+    const handleSubmit = (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
+        const { setSubmitting } = formikHelpers;
+        console.log({ formikHelpers });
+
+        // setTimeout(() => {
+        //     alert(JSON.stringify(values, null, 2));
+        //     setSubmitting(false);
+        // }, 400);
+        // const myForm = document.getElementById('apply') as HTMLFormElement;
+        // const formData = new FormData(myForm);
+        // console.log(myForm, formData);
+
+        // const formData = new FormData();
+        // const formArray: [string, string | File][] = Object.entries({ ...fields, file });
+        // formArray.forEach(([key, value]) => {
+        //     formData.append(key, value as Blob);
+        // });
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            // body: new URLSearchParams(formData).toString(),
+            body: encode({ 'form-name': 'apply', ...values }),
+        })
+            .then(() => console.log('Form successfully submitted'))
+            .catch((error) => alert(error));
+    };
+
     return (
         <Formik
             enableReinitialize
             initialValues={initialValues}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 400);
-            }}
+            onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate>
+                <Form noValidate id="apply" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="apply" />
+
                     <FieldInput label="/ Name" name="name" type="text" placeholder="Name" required />
                     <FieldInput label="/ Email Address" name="email" type="text" placeholder="Email" required />
                     <FieldInput label="/ Phone Number" name="phone" type="text" placeholder="Phone" required />
