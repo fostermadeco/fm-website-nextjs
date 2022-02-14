@@ -15,6 +15,7 @@ export interface TypePersonFields {
     beyondIntroductions?: Contentful.EntryFields.Text;
     funFacts?: Contentful.Entry<TypeFactFields>[];
     testimonial?: Contentful.EntryFields.Text;
+    socialLinks?: Contentful.EntryFields.Symbol[];
 }
 
 export type TypePerson = Contentful.Entry<TypePersonFields>;
