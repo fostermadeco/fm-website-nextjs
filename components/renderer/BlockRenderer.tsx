@@ -20,6 +20,7 @@ import BlockDarkCircleBackground from './BlockDarkCircleBackground';
 import CtaBottom from './CtaBottom';
 import ResponsiveFullImage from './ResponsiveFullImage';
 import PeopleList from './PeopleList';
+import Form from './Form';
 
 type BlockRendererProps = {
     block: any;
@@ -44,6 +45,7 @@ const ContentTypeMap = {
     blockDarkCircleBackground: BlockDarkCircleBackground,
     blockCareerList: CareerList,
     blockPeopleList: PeopleList,
+    form: Form,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {

@@ -7,6 +7,7 @@ import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 import { TypeBlockPeopleListFields } from './TypeBlockPeopleList';
 import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
+import { TypeFormFields } from './TypeForm';
 import { TypePageFields } from './TypePage';
 
 export interface TypePageCompanyFields {
@@ -21,6 +22,7 @@ export interface TypePageCompanyFields {
         | TypeBlockPageSectionFields
         | TypeBlockPeopleListFields
         | TypeBlockSlideshowFields
+        | TypeFormFields
     >[];
 }
 
