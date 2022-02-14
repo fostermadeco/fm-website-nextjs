@@ -4,6 +4,7 @@
 @import '_partials/typography.css';
 @import "_partials/links.css";
 @import "_partials/images.css";
+@import "_partials/forms.scss";
 
 @import "tailwindcss/components";
 

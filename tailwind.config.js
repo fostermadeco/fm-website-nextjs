@@ -23,6 +23,7 @@ module.exports = {
             lime: '#DADA50',
             ivory: '#F1F1E8',
             steel: '#9EA8AD',
+            poppy: '#CC5A33',
         },
         container: {
             center: true,
