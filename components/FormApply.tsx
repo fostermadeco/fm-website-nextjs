@@ -14,6 +14,7 @@ import FieldInput from './FieldInput';
 import FieldSelect from './FieldSelect';
 import FieldTextarea from './FieldTextarea';
 import FocusError from './FocusError';
+import TextMarkdown from './TextMarkdown';
 
 interface ApplyFormValues {
     name: string;
@@ -53,7 +54,7 @@ const groupByValue = (formFields: Contentful.Entry<TypeFormFieldFields>[]): Grou
 
 const FormApply = ({ form }: { form: TypeFormFields }) => {
     const routes = useRouter();
-    const { fields: formFields, formErrorMessage, successMessage, submitButtonText, id } = form;
+    const { fields: formFields, formErrorMessage, successMessage, submitButtonText, id, intro } = form;
 
     console.log({ form });
 
@@ -102,11 +103,24 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             {({ isSubmitting }) => (
                 <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value={id} />
-                    <FocusError />
-                    {submitError && <div className="text-poppy">{formErrorMessage}</div>}
-                    {hasSuccess && <div className="text-lime">{successMessage}</div>}
+                    {intro && !hasSuccess && (
+                        <div className="mb-6">
+                            <TextMarkdown text={intro} />
+                        </div>
+                    )}
+                    {submitError && (
+                        <div className=" bg-poppy">
+                            <p className="px-4 py-4 text-white p-xl">{formErrorMessage}</p>
+                        </div>
+                    )}
+                    {hasSuccess && (
+                        <div className="mb-20 bg-black">
+                            <p className="px-4 py-6 p-xl text-lime">{successMessage}</p>
+                        </div>
+                    )}
                     {!hasSuccess && (
                         <div>
+                            <FocusError />
                             <FieldInput
                                 label={fieldsByValue.name.fields.label}
                                 name="name"
