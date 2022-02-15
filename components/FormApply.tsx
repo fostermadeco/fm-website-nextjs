@@ -13,6 +13,7 @@ import { getErrorMessage } from 'lib/errors';
 import FieldInput from './FieldInput';
 import FieldSelect from './FieldSelect';
 import FieldTextarea from './FieldTextarea';
+import FocusError from './FocusError';
 
 interface ApplyFormValues {
     name: string;
@@ -82,10 +83,12 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                 body: encode({ 'form-name': 'apply', ...values }),
             });
             setSubmitting(false);
+            setSubmitError(null);
             setHasSuccess(true);
         } catch (e) {
             console.log(e);
             setSubmitError(getErrorMessage(e));
+            window.scrollTo(0, 0);
         }
     };
 
@@ -98,7 +101,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         >
             {({ isSubmitting }) => (
                 <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="apply" />
+                    <input type="hidden" name="form-name" value={id} />
+                    <FocusError />
                     {submitError && <div className="text-poppy">{formErrorMessage}</div>}
                     {hasSuccess && <div className="text-lime">{successMessage}</div>}
                     {!hasSuccess && (
