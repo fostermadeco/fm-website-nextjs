@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
     aboutYourself: Yup.string().required('We want to know more!'),
 });
 
-const encode = (data: { [x: string]: any }) =>
+const encode = (data: { [x: string]: string | number | boolean }) =>
     Object.keys(data)
         .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&');
@@ -62,7 +62,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
-    const [resumeFile, setResumeFile] = useState<File | null>(null);
 
     const careerOptions = data?.map((d: TypePage) => ({ label: d.fields.name, value: d.fields.slug }));
     // could be array
@@ -76,23 +75,13 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         websiteLink: '',
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (!e.target.files) {
-            return;
-        }
-        const file = e.target.files[0];
-        setResumeFile(file);
-    };
-
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
-        const body = encode({ 'form-name': 'apply', ...values, resumeFile });
-        console.log({ body });
         try {
             await fetch('/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'multipart/form-data' },
-                body,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode({ 'form-name': 'apply', ...values }),
             });
             setSubmitting(false);
             setSubmitError(null);
@@ -174,7 +163,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 type="text"
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
-                            <input name="resume" type="file" onChange={handleFileChange} />
                             <div className="flex justify-center my-6">
                                 <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
                                     <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
