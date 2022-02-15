@@ -15,7 +15,7 @@ const FieldTextarea: FC<FieldHookConfig<string> & HTMLProps<HTMLTextAreaElement>
                 {label} {props.required && <RequiredIndicator />}
             </label>
             <textarea className="form-control" {...field} {...props} />
-            {hasError ? <div className="form-error-msg">{meta.error}</div> : null}
+            {hasError ? <div className="mt-0 form-error-msg">{meta.error}</div> : null}
         </div>
     );
 };

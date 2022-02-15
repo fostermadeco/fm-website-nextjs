@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
-import { TypeFormFields, TypePage } from '@types';
+import { TypeFormFieldFields, TypeFormFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
 import useSWR from 'swr';
 import * as Yup from 'yup';
+import * as Contentful from 'contentful';
 
 import { useRouter } from 'next/router';
 import { getErrorMessage } from 'lib/errors';
@@ -33,10 +36,27 @@ const encode = (data: { [x: string]: string | number | boolean }) =>
         .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&');
 
+type GroupsType =
+    | Record<string, never>
+    | {
+          [key: string]: Contentful.Entry<TypeFormFieldFields>;
+      };
+const groupByValue = (formFields: Contentful.Entry<TypeFormFieldFields>[]): GroupsType => {
+    const groups: GroupsType = {};
+    for (const [key, value] of Object.entries(formFields)) {
+        const newKey = value.fields.value;
+        groups[newKey] = value;
+    }
+    return groups;
+};
+
 const FormApply = ({ form }: { form: TypeFormFields }) => {
     const routes = useRouter();
-    const { fields: formFields, resources } = form;
-    console.log({ formFields, resources });
+    const { fields: formFields, formErrorMessage, successMessage, submitButtonText, id } = form;
+
+    console.log({ form });
+
+    const fieldsByValue = groupByValue(formFields);
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
@@ -52,32 +72,13 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         aboutYourself: '',
         websiteLink: '',
     };
-    console.log({ routes });
-    console.log(routes.query.title || '');
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
-        console.log({ formikHelpers });
-
-        // setTimeout(() => {
-        //     alert(JSON.stringify(values, null, 2));
-        //     setSubmitting(false);
-        // }, 400);
-        // const myForm = document.getElementById('apply') as HTMLFormElement;
-        // const formData = new FormData(myForm);
-        // console.log(myForm, formData);
-
-        // const formData = new FormData();
-        // const formArray: [string, string | File][] = Object.entries({ ...fields, file });
-        // formArray.forEach(([key, value]) => {
-        //     formData.append(key, value as Blob);
-        // });
-
         try {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                // body: new URLSearchParams(formData).toString(),
                 body: encode({ 'form-name': 'apply', ...values }),
             });
             setSubmitting(false);
@@ -96,39 +97,61 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate id="apply" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="apply" />
-                    {submitError && <div className="text-poppy">Uh oh</div>}
-                    {hasSuccess && <div className="text-lime">Success!</div>}
-                    <FieldInput label="/ Name" name="name" type="text" placeholder="Name" required />
-                    <FieldInput label="/ Email Address" name="email" type="text" placeholder="Email" required />
-                    <FieldInput label="/ Phone Number" name="phone" type="text" placeholder="Phone" required />
-                    <FieldSelect label=" / Position" name="position" required>
-                        <option value="" disabled>
-                            - Choose a position -
-                        </option>
-                        {careerOptions &&
-                            careerOptions.map((o: { label: string; value: string }) => (
-                                <option value={o.value}>{o.label}</option>
-                            ))}
-                    </FieldSelect>
-                    <FieldTextarea
-                        label="/ Tell us more about yourself."
-                        name="aboutYourself"
-                        placeholder="Requirements, intentions, target audiences, goals, etc."
-                        required
-                    />
-                    <FieldInput
-                        label="Share a link to your online portfolio or any professional profiles."
-                        name="websiteLink"
-                        type="text"
-                        placeholder="https://www.you.com or linkedin.com/in/you"
-                    />
-                    <div className="flex justify-center my-6">
-                        <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
-                            <span>{isSubmitting ? 'Hang on' : 'Submit application'}</span>
-                        </button>
-                    </div>
+                    {submitError && <div className="text-poppy">{formErrorMessage}</div>}
+                    {hasSuccess && <div className="text-lime">{successMessage}</div>}
+                    {!hasSuccess && (
+                        <div>
+                            <FieldInput
+                                label={fieldsByValue.name.fields.label}
+                                name="name"
+                                type="text"
+                                placeholder={fieldsByValue.name.fields.placeholder}
+                                required
+                            />
+                            <FieldInput
+                                label={fieldsByValue.email.fields.label}
+                                name="email"
+                                type="text"
+                                placeholder={fieldsByValue.email.fields.placeholder}
+                                required
+                            />
+                            <FieldInput
+                                label={fieldsByValue.phone.fields.label}
+                                name="phone"
+                                type="text"
+                                placeholder={fieldsByValue.phone.fields.placeholder}
+                                required
+                            />
+                            <FieldSelect label={fieldsByValue.position.fields.label} name="position" required>
+                                <option value="" disabled>
+                                    - Choose a position -
+                                </option>
+                                {careerOptions &&
+                                    careerOptions.map((o: { label: string; value: string }) => (
+                                        <option value={o.value}>{o.label}</option>
+                                    ))}
+                            </FieldSelect>
+                            <FieldTextarea
+                                label={fieldsByValue.aboutYourself.fields.label}
+                                name="aboutYourself"
+                                placeholder={fieldsByValue.aboutYourself.fields.placeholder}
+                                required
+                            />
+                            <FieldInput
+                                label={fieldsByValue.websiteLink.fields.label}
+                                name="websiteLink"
+                                type="text"
+                                placeholder={fieldsByValue.websiteLink.fields.placeholder}
+                            />
+                            <div className="flex justify-center my-6">
+                                <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
+                                    <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </Form>
             )}
         </Formik>
