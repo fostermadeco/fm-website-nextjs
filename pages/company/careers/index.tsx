@@ -27,8 +27,6 @@ const CareersPage = ({ page, preview }: { page: TypePage; preview: boolean }) =>
     const content = page.fields.content as TypePageCompany;
     const { sections = [], pageIntroDetail } = content.fields;
 
-    console.log({ page, sections });
-
     return (
         <Layout preview={preview}>
             <div className="pt-40">

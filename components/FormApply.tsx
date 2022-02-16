@@ -15,6 +15,7 @@ import FieldSelect from './FieldSelect';
 import FieldTextarea from './FieldTextarea';
 import FocusError from './FocusError';
 import TextMarkdown from './TextMarkdown';
+import FieldCheckbox from './FieldCheckbox';
 
 interface ApplyFormValues {
     name: string;
@@ -23,6 +24,7 @@ interface ApplyFormValues {
     position: string;
     aboutYourself: string;
     websiteLink: string;
+    confirmTruth: boolean;
 }
 
 const validationSchema = Yup.object({
@@ -31,6 +33,7 @@ const validationSchema = Yup.object({
     phone: Yup.string().required('Let us know your phone number.'),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
+    confirmTruth: Yup.bool().oneOf([true], 'Please confirm.'),
 });
 
 const encode = (data: { [x: string]: string | number | boolean }) =>
@@ -73,6 +76,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         position: positionFromQuery,
         aboutYourself: '',
         websiteLink: '',
+        confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
@@ -162,6 +166,11 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 name="websiteLink"
                                 type="text"
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
+                            />
+                            <FieldCheckbox
+                                label={fieldsByValue.confirmTruth.fields.label}
+                                name="confirmTruth"
+                                required
                             />
                             <div className="flex justify-center my-6">
                                 <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
