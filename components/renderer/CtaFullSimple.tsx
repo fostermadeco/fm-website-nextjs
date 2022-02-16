@@ -1,11 +1,12 @@
 import React from 'react';
 import { TypeCtaSimpleFields } from '@types';
+import TextMarkdown from '@components/TextMarkdown';
 import ButtonCircle from '../ButtonCircle';
 
 const CtaFullSimple = ({ fields }: { fields: TypeCtaSimpleFields }) => {
     // if (!fields) return null;
 
-    const { headerText } = fields;
+    const { headerText, paragraphText } = fields;
 
     return (
         <div className="relative overflow-hidden">
@@ -19,9 +20,14 @@ const CtaFullSimple = ({ fields }: { fields: TypeCtaSimpleFields }) => {
                         <div className="col-span-12 col-start-2 md:col-span-8 md:col-start-4">
                             <div className="flex items-center">
                                 <div>
-                                    <div className="py-8">
+                                    <div className="pt-8 pb-20">
                                         <p className="text-center h2">{headerText}</p>
                                     </div>
+                                    {paragraphText && (
+                                        <div className="pb-6 text-center">
+                                            <TextMarkdown text={paragraphText} />
+                                        </div>
+                                    )}
                                     {fields.button && (
                                         <div className="flex items-center justify-center py-8">
                                             <ButtonCircle button={fields.button.fields} bgColor="ivory" />

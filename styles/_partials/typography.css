@@ -30,4 +30,7 @@
         text-decoration-line: none !important;
         @apply before:pr-[6px] before:content-['/'];
     }
+    .prose strong a {
+        @apply font-headline;
+    }
 }
