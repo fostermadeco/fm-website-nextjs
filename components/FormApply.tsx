@@ -28,12 +28,12 @@ interface ApplyFormValues {
 }
 
 const validationSchema = Yup.object({
-    name: Yup.string().required('Let us know your name.'),
+    name: Yup.string().required('What is your name.'),
     email: Yup.string().email('Give us a valid email.').required('Let us know your email.'),
-    phone: Yup.string().required('Let us know your phone number.'),
+    phone: Yup.string().required(`We'd might want to give you a call.`),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
-    confirmTruth: Yup.bool().oneOf([true], 'Please confirm.'),
+    confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
 const encode = (data: { [x: string]: string | number | boolean }) =>
@@ -172,7 +172,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 name="confirmTruth"
                                 required
                             />
-                            <div className="flex justify-center my-6">
+                            <div className="flex justify-center my-10">
                                 <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
                                     <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
                                 </button>
