@@ -16,6 +16,7 @@ import FieldTextarea from './FieldTextarea';
 import FocusError from './FocusError';
 import TextMarkdown from './TextMarkdown';
 import FieldCheckbox from './FieldCheckbox';
+import FieldDropzone from './FieldDropzone';
 
 interface ApplyFormValues {
     name: string;
@@ -167,6 +168,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 type="text"
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
+                            <FieldDropzone />
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
                                 name="confirmTruth"
