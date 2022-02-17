@@ -22,7 +22,7 @@ const FieldDropzone = () => {
         );
 
         // fetch(`${process.env.SERVERLESS_URL}/requestUploadURL`, {
-        fetch(`https://gqyokeq6d3.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
+        fetch(`https://kkauwcmww4.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
