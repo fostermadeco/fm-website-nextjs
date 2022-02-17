@@ -14,6 +14,13 @@ const FieldDropzone = () => {
         const file = acceptedFiles[0];
         const reader = new FileReader();
         console.log('drop');
+        console.log(
+            JSON.stringify({
+                name: file.name,
+                type: file.type,
+            })
+        );
+
         // fetch(`${process.env.SERVERLESS_URL}/requestUploadURL`, {
         fetch(`https://gqyokeq6d3.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
             method: 'POST',
