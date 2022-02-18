@@ -83,6 +83,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
+        console.log({ values, file });
+
         try {
             await fetch('/', {
                 method: 'POST',

@@ -52,6 +52,7 @@ const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
             });
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    console.log(getInputProps());
 
     return (
         <div {...getRootProps()} className="h-40 mt-8 border border-lime">
