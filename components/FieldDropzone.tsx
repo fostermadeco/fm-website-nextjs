@@ -1,7 +1,11 @@
 import React, { useCallback } from 'react';
 import { useDropzone, FileWithPath } from 'react-dropzone';
 
-const FieldDropzone = () => {
+type FieldDropzoneProps = {
+    onSuccess: (file: string) => void;
+};
+
+const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
     const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
         if (!acceptedFiles) return;
         console.log('drop', acceptedFiles, process.env.SERVERLESS_URL);
@@ -12,7 +16,7 @@ const FieldDropzone = () => {
 
         // Do something with the files
         const file = acceptedFiles[0];
-        const reader = new FileReader();
+
         console.log('drop');
         console.log(
             JSON.stringify({
@@ -22,7 +26,7 @@ const FieldDropzone = () => {
         );
 
         // fetch(`${process.env.SERVERLESS_URL}/requestUploadURL`, {
-        fetch(`https://kkauwcmww4.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
+        fetch(`https://mu6ink2rya.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -33,14 +37,15 @@ const FieldDropzone = () => {
             }),
         })
             .then((response) => response.json())
-            .then((json: { uploadURL: string }) =>
+            .then((json: { uploadURL: string }) => {
                 fetch(json.uploadURL, {
                     method: 'PUT',
-                    body: new Blob([reader.result || ''], { type: file.type }),
-                })
-            )
+                    body: new Blob([file], { type: file.type }),
+                });
+            })
             .then(() => {
-                console.log(`//s3.amazonaws.com/slsupload/${file.name}`);
+                console.log(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
+                onSuccess(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
             })
             .catch((e) => {
                 console.log(e);

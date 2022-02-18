@@ -66,6 +66,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
+    const [file, setFile] = useState<string | null>(null);
 
     const careerOptions = data?.map((d: TypePage) => ({ label: d.fields.name, value: d.fields.slug }));
     // could be array
@@ -86,7 +87,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encode({ 'form-name': 'apply', ...values }),
+                body: encode({ 'form-name': 'apply', docs: file || '', ...values }),
             });
             setSubmitting(false);
             setSubmitError(null);
@@ -168,7 +169,12 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 type="text"
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
-                            <FieldDropzone />
+
+                            <FieldDropzone
+                                onSuccess={(newFile) => {
+                                    setFile(newFile);
+                                }}
+                            />
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
                                 name="confirmTruth"
