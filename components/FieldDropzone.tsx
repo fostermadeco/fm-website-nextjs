@@ -1,11 +1,20 @@
 import React, { useCallback } from 'react';
 import { useDropzone, FileWithPath } from 'react-dropzone';
+import { useField } from 'formik';
+import RequiredIndicator from './RequiredIndicator';
 
 type FieldDropzoneProps = {
-    onSuccess: (file: string) => void;
+    onSuccess?: (file: string) => void;
+    label?: string;
+    name: string;
+    required?: boolean;
 };
 
-const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
+const FieldDropzone = (props: FieldDropzoneProps) => {
+    const { onSuccess, label, name, required } = props;
+    const [field, meta, helpers] = useField(props);
+    const hasError = meta.touched && meta.error;
+
     const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
         if (!acceptedFiles) return;
         console.log('drop', acceptedFiles, process.env.SERVERLESS_URL);
@@ -14,6 +23,7 @@ const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
         // }
         console.log({ acceptedFiles });
 
+        // TODO deal with array of files
         // Do something with the files
         const file = acceptedFiles[0];
 
@@ -25,7 +35,6 @@ const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
             })
         );
 
-        // fetch(`${process.env.SERVERLESS_URL}/requestUploadURL`, {
         fetch(`https://mu6ink2rya.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
             method: 'POST',
             headers: {
@@ -45,7 +54,7 @@ const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
             })
             .then(() => {
                 console.log(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
-                onSuccess(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
+                helpers.setValue(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
             })
             .catch((e) => {
                 console.log(e);
@@ -54,13 +63,19 @@ const FieldDropzone = ({ onSuccess }: FieldDropzoneProps) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
-        <div {...getRootProps()} className="h-40 mt-8 border border-lime">
-            <input {...getInputProps()} />
-            {isDragActive ? (
-                <p>Drop the files here ...</p>
-            ) : (
-                <p>Drag 'n' drop some files here, or click to select files</p>
-            )}
+        <div className={`form-group ${hasError ? 'form-group--error' : ''}`}>
+            <label htmlFor={name}>
+                {label} {required && <RequiredIndicator />}
+            </label>
+            <input type="hidden" value="" name={name} />
+            <div {...getRootProps()} className="h-40 p-4 border-2 border-black">
+                <input {...getInputProps()} />
+                {isDragActive ? (
+                    <p>Drop the files here ...</p>
+                ) : (
+                    <p>Drag 'n' drop some files here, or click to select files</p>
+                )}
+            </div>
         </div>
     );
 };

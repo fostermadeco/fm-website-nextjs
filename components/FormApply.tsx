@@ -110,7 +110,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
-            {({ isSubmitting, setFieldValue }) => (
+            {({ isSubmitting }) => (
                 <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value={id} />
                     {intro && !hasSuccess && (
@@ -174,12 +174,8 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
 
-                            <FieldDropzone
-                                onSuccess={(newFile) => {
-                                    setFieldValue('docs', newFile);
-                                }}
-                            />
-                            <input type="hidden" value="" name="docs" />
+                            <FieldDropzone label={fieldsByValue.docs.fields.label} name="docs" />
+
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
                                 name="confirmTruth"

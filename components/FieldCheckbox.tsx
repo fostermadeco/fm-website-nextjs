@@ -4,7 +4,7 @@ import RequiredIndicator from './RequiredIndicator';
 
 const FieldCheckbox: FC<FieldHookConfig<string> & HTMLProps<HTMLInputElement>> = ({ label, ...props }) => {
     const [field, meta] = useField(props);
-    const hasError = meta.error;
+    const hasError = meta.touched && meta.error;
 
     return (
         <div className={`form-group relative ${hasError ? 'form-group--error' : ''}`}>
