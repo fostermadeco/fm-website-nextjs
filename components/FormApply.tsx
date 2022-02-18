@@ -25,6 +25,7 @@ interface ApplyFormValues {
     position: string;
     aboutYourself: string;
     websiteLink: string;
+    docs: string;
     confirmTruth: boolean;
 }
 
@@ -66,7 +67,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
-    const [file, setFile] = useState<string | null>(null);
 
     const careerOptions = data?.map((d: TypePage) => ({ label: d.fields.name, value: d.fields.slug }));
     // could be array
@@ -78,26 +78,28 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         position: positionFromQuery,
         aboutYourself: '',
         websiteLink: '',
+        docs: '',
         confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
-        console.log({ values, file });
+        console.log({ values });
 
         try {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encode({ 'form-name': 'apply', docs: file || '', ...values }),
+                body: encode({ 'form-name': 'apply', ...values }),
             });
             setSubmitting(false);
             setSubmitError(null);
             setHasSuccess(true);
+            window.scrollTo(0, 0);
         } catch (e) {
             console.log(e);
             setSubmitError(getErrorMessage(e));
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         }
     };
 
@@ -108,7 +110,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, setFieldValue }) => (
                 <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value={id} />
                     {intro && !hasSuccess && (
@@ -174,9 +176,10 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
 
                             <FieldDropzone
                                 onSuccess={(newFile) => {
-                                    setFile(newFile);
+                                    setFieldValue('docs', newFile);
                                 }}
                             />
+                            <input type="hidden" value="" name="docs" />
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
                                 name="confirmTruth"
