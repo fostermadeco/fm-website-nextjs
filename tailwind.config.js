@@ -28,6 +28,7 @@ module.exports = {
                 500: '#82898c',
             },
             poppy: '#CC5A33',
+            green: '#22c55e',
         },
         container: {
             center: true,

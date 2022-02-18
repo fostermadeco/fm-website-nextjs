@@ -175,7 +175,13 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
 
-                            <FieldDropzone label={fieldsByValue.docs.fields.label} name="docs" required />
+                            <FieldDropzone
+                                label={fieldsByValue.docs.fields.label}
+                                name="docs"
+                                required
+                                placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
+                                acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
+                            />
 
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
