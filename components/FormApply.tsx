@@ -35,6 +35,7 @@ const validationSchema = Yup.object({
     phone: Yup.string().required(`We'd might want to give you a call.`),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
+    docs: Yup.string().required('Please upload a document.'),
     confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
@@ -174,7 +175,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
 
-                            <FieldDropzone label={fieldsByValue.docs.fields.label} name="docs" />
+                            <FieldDropzone label={fieldsByValue.docs.fields.label} name="docs" required />
 
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
