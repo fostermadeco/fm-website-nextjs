@@ -119,7 +119,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate name={id} id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <Form noValidate name={id} id={id} method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value={id} />
                     {intro && !hasSuccess && (
                         <div className="mb-6">
