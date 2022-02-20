@@ -90,7 +90,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
             : '';
 
-        const body = { 'form-name': 'apply', ...values, docs: [] };
+        const body = { 'form-name': 'apply', ...values, docs: '' };
         console.log({ body });
 
         try {
