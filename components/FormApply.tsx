@@ -97,7 +97,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'multipart/form-data' },
-                body: encode({ 'form-name': 'apply', ...values, docs: [] }),
+                body: encode({ 'form-name': 'apply', ...values, docs: '' }),
             });
             setSubmitting(false);
             setSubmitError(null);
