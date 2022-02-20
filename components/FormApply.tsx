@@ -120,7 +120,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         >
             {({ isSubmitting }) => (
                 <Form noValidate name={id} id={id} method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value={id} />
                     {intro && !hasSuccess && (
                         <div className="mb-6">
                             <TextMarkdown text={intro} />
