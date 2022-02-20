@@ -94,7 +94,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encode({ 'form-name': 'apply', ...values }),
+                body: encode({ 'form-name': 'apply', ...values, docs: [] }),
             });
             setSubmitting(false);
             setSubmitError(null);
