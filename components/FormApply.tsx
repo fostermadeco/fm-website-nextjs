@@ -25,7 +25,7 @@ interface ApplyFormValues {
     websiteLink: string;
     // docs?: File[];
     // docNames: string;
-    confirmTruth: boolean;
+    // confirmTruth: boolean;
 }
 
 const validationSchema = Yup.object({
@@ -80,7 +80,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         websiteLink: '',
         // docs: [],
         // docNames: '',
-        confirmTruth: false,
+        // confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
@@ -90,7 +90,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         //     ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
         //     : '';
 
-        const body = encode({ 'form-name': 'apply', ...values });
+        const body = encode({ ...values });
         console.log({ body });
 
         try {
@@ -119,7 +119,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <Form noValidate name={id} id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value={id} />
                     {intro && !hasSuccess && (
                         <div className="mb-6">
@@ -191,11 +191,11 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
                             /> */}
 
-                            <FieldCheckbox
+                            {/* <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
                                 name="confirmTruth"
                                 required
-                            />
+                            /> */}
                             <div className="flex justify-center my-10">
                                 <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
                                     <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
