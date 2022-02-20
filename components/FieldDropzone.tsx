@@ -7,6 +7,7 @@ type FieldDropzoneProps = {
     onSuccess?: (file: string) => void;
     label?: string;
     name: string;
+    nameHidden: string;
     required?: boolean;
     acceptedFileTypes: string;
     placeholder: string;
@@ -14,12 +15,12 @@ type FieldDropzoneProps = {
 
 // TODO: handle multiple files
 const FieldDropzone = (props: FieldDropzoneProps) => {
-    const { onSuccess, label, name, required, acceptedFileTypes, placeholder } = props;
+    const { onSuccess, label, name, required, acceptedFileTypes, placeholder, nameHidden } = props;
+    const [fieldHidden, metaHidden, helpersHidden] = useField(nameHidden);
     const [field, meta, helpers] = useField(props);
     const hasError = meta.touched && meta.error;
     const values = field.value as File[];
     const arrayHelpersRef = useRef<FieldArrayRenderProps | null>(null);
-    console.log({ field, helpers, values });
 
     const onDrop = useCallback((filesToUpload: FileWithPath[]) => {
         if (!filesToUpload || filesToUpload.length === 0) return;
@@ -68,6 +69,9 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     size: file.size,
                     type: file.type,
                 });
+                console.log({ test: values.map((doc: File) => doc.name).join(',') });
+
+                helpersHidden.setValue(values.map((doc: File) => doc.name).join(','));
             })
             .catch((e) => {
                 console.log(e);
@@ -96,6 +100,7 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     )}
                 </div>
             </div>
+            <Field name={nameHidden} type="hidden" />
             <FieldArray
                 name={name}
                 render={(arrayHelpers) => {

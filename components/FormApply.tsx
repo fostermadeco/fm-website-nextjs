@@ -24,7 +24,7 @@ interface ApplyFormValues {
     aboutYourself: string;
     websiteLink: string;
     docs?: File[];
-    // docNames: string;
+    docNames: string;
     confirmTruth: boolean;
 }
 
@@ -34,7 +34,7 @@ const validationSchema = Yup.object({
     phone: Yup.string().required(`We'd might want to give you a call.`),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
-    docNames: Yup.string().required('Please upload a document.'),
+    // docNames: Yup.string().required('Please upload a document.'),
     confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
@@ -79,15 +79,16 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         aboutYourself: '',
         websiteLink: '',
         docs: [],
-        // docNames: '',
+        docNames: '',
         confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
-
-        const fileNames = values.docs?.map((file) => `https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
+        values.docNames = values.docs
+            ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
+            : '';
 
         try {
             await fetch('/', {
@@ -180,7 +181,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                             <FieldDropzone
                                 label={fieldsByValue.docs.fields.label}
                                 name="docs"
-                                // nameHidden="docNames"
+                                nameHidden="docNames"
                                 required
                                 placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
                                 acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
