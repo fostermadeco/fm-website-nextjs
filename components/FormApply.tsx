@@ -23,8 +23,8 @@ interface ApplyFormValues {
     position: string;
     aboutYourself: string;
     websiteLink: string;
-    docs?: File[];
-    docNames: string;
+    // docs?: File[];
+    // docNames: string;
     confirmTruth: boolean;
 }
 
@@ -78,26 +78,27 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         position: positionFromQuery,
         aboutYourself: '',
         websiteLink: '',
-        docs: [],
-        docNames: '',
+        // docs: [],
+        // docNames: '',
         confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
-        values.docNames = values.docs
-            ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
-            : '';
+        // values.docNames = values.docs
+        //     ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
+        //     : '';
 
-        const body = { 'form-name': 'apply', ...values, docs: '' };
+        const body = encode({ 'form-name': 'apply', ...values });
         console.log({ body });
 
         try {
             await fetch('/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'multipart/form-data' },
-                body: encode({ 'form-name': 'apply', ...values, docs: '' }),
+                // headers: { 'Content-Type': 'multipart/form-data' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body,
             });
             setSubmitting(false);
             setSubmitError(null);
@@ -181,14 +182,14 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
 
-                            <FieldDropzone
+                            {/* <FieldDropzone
                                 label={fieldsByValue.docs.fields.label}
                                 name="docs"
                                 nameHidden="docNames"
                                 required
                                 placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
                                 acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
-                            />
+                            /> */}
 
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
