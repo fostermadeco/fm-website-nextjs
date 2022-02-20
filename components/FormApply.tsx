@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFieldFields, TypeFormFields, TypePage } from '@types';
@@ -25,7 +23,8 @@ interface ApplyFormValues {
     position: string;
     aboutYourself: string;
     websiteLink: string;
-    docs: string;
+    docs?: File[];
+    // docNames: string;
     confirmTruth: boolean;
 }
 
@@ -35,13 +34,13 @@ const validationSchema = Yup.object({
     phone: Yup.string().required(`We'd might want to give you a call.`),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
-    docs: Yup.string().required('Please upload a document.'),
+    docNames: Yup.string().required('Please upload a document.'),
     confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
-const encode = (data: { [x: string]: string | number | boolean }) =>
+const encode = (data: { [x: string]: string | number | boolean | File[] }) =>
     Object.keys(data)
-        .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(data[key]))}`)
         .join('&');
 
 type GroupsType =
@@ -79,13 +78,16 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         position: positionFromQuery,
         aboutYourself: '',
         websiteLink: '',
-        docs: '',
+        docs: [],
+        // docNames: '',
         confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
+
+        const fileNames = values.docs?.map((file) => `https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
 
         try {
             await fetch('/', {
@@ -178,6 +180,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                             <FieldDropzone
                                 label={fieldsByValue.docs.fields.label}
                                 name="docs"
+                                // nameHidden="docNames"
                                 required
                                 placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
                                 acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"

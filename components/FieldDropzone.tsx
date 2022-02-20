@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useDropzone, FileWithPath, FileRejection, FileError } from 'react-dropzone';
-import { useField } from 'formik';
+import { useField, FieldArray, Field, FieldArrayRenderProps } from 'formik';
 import RequiredIndicator from './RequiredIndicator';
 
 type FieldDropzoneProps = {
@@ -17,18 +17,18 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
     const { onSuccess, label, name, required, acceptedFileTypes, placeholder } = props;
     const [field, meta, helpers] = useField(props);
     const hasError = meta.touched && meta.error;
+    const values = field.value as File[];
+    const arrayHelpersRef = useRef<FieldArrayRenderProps | null>(null);
+    console.log({ field, helpers, values });
 
     const onDrop = useCallback((filesToUpload: FileWithPath[]) => {
         if (!filesToUpload || filesToUpload.length === 0) return;
-        console.log('drop', filesToUpload);
-
         console.log({ filesToUpload });
 
         // TODO deal with array of files
         // Do something with the files
         const file = filesToUpload[0];
 
-        console.log('drop');
         console.log(
             JSON.stringify({
                 name: file.name,
@@ -55,7 +55,19 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
             })
             .then(() => {
                 console.log(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
-                helpers.setValue(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
+                console.log({ arrayHelpersRef });
+
+                // helpers.setValue([...values, `https://d28oa4z68sivtx.cloudfront.net/${file.name}`]);
+                console.log({ file });
+
+                // when just pushing in the whole file, it was empty for some reason
+                arrayHelpersRef.current?.push({
+                    name: file.name,
+                    path: file.path,
+                    lastModified: file.lastModified,
+                    size: file.size,
+                    type: file.type,
+                });
             })
             .catch((e) => {
                 console.log(e);
@@ -66,14 +78,13 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
         accept: acceptedFileTypes,
         maxSize: 10485760,
     });
-    console.log(acceptedFiles);
 
     return (
         <div className={`form-group ${hasError ? 'form-group--error' : ''}`}>
             <label htmlFor={name}>
                 {label} {required && <RequiredIndicator />}
             </label>
-            <input type="hidden" value="" name={name} />
+
             <div {...getRootProps()} className="p-4 mb-2 border-2 border-black">
                 <input {...getInputProps()} />
                 <p className="mb-2 text-xs">{placeholder}</p>
@@ -85,18 +96,40 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     )}
                 </div>
             </div>
-            {acceptedFiles && acceptedFiles.length > 0 && (
-                <>
-                    <p className="text-green text-bold font-headline">Successfully uploaded these files: </p>
-                    <ul className="ml-6 list-disc">
-                        {acceptedFiles.map((file: FileWithPath) => (
-                            <li key={file.path}>
-                                <p className="text-bold font-headline">{file.path}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </>
-            )}
+            <FieldArray
+                name={name}
+                render={(arrayHelpers) => {
+                    arrayHelpersRef.current = arrayHelpers;
+                    return (
+                        <div>
+                            {values && values.length > 0 && (
+                                <>
+                                    <p className="text-green text-bold font-headline">
+                                        Successfully uploaded these files:{' '}
+                                    </p>
+                                    <ul className="ml-6 list-disc">
+                                        {values.map((doc: File, index: number) => (
+                                            <li key={`doc-${index}`}>
+                                                <p className="text-bold font-headline">
+                                                    {doc.name}
+                                                    <button
+                                                        className="ml-4 text-poppy"
+                                                        type="button"
+                                                        onClick={() => arrayHelpers.remove(index)}
+                                                    >
+                                                        Remove
+                                                    </button>
+                                                </p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )}
+                        </div>
+                    );
+                }}
+            />
+
             {fileRejections && fileRejections.length > 0 && (
                 <>
                     <p className="mt-2 text-bold font-headline text-poppy">There were problems with these files: </p>

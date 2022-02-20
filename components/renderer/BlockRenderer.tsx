@@ -74,7 +74,6 @@ const BlockRenderer = (props: BlockRendererProps) => {
         ...block,
         parent: block.parent,
     };
-    console.log({ componentProps });
 
     return <Component key={`${contentTypeId}-${id}`} mode={mode} {...componentProps} />;
 };
