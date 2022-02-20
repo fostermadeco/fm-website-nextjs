@@ -86,9 +86,9 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
-        // values.docNames = values.docs
-        //     ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
-        //     : '';
+        values.docNames = values.docs
+            ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
+            : '';
 
         const body = { 'form-name': 'apply', ...values, docs: [] };
         console.log({ body });
@@ -96,7 +96,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         try {
             await fetch('/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                headers: { 'Content-Type': 'multipart/form-data' },
                 body: encode({ 'form-name': 'apply', ...values, docs: [] }),
             });
             setSubmitting(false);
