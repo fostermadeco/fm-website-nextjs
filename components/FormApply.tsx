@@ -87,7 +87,9 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
         values.docNames = values.docs
-            ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
+            ? values.docs
+                  ?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${encodeURIComponent(doc.name)}`)
+                  .join(',')
             : '';
 
         const body = encode({ 'form-name': 'apply', ...values, docs: '' });

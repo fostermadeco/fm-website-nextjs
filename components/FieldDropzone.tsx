@@ -54,7 +54,9 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     body: new Blob([file], { type: file.type }),
                 });
             })
-            .then(() => {
+            .then((response) => {
+                console.log({ response });
+
                 console.log(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
                 console.log({ arrayHelpersRef });
 
