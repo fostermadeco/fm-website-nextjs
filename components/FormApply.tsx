@@ -61,8 +61,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const routes = useRouter();
     const { fields: formFields, formErrorMessage, successMessage, submitButtonText, id, intro } = form;
 
-    console.log({ form });
-
     const fieldsByValue = groupByValue(formFields);
     const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
@@ -93,7 +91,6 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             : '';
 
         const body = encode({ 'form-name': 'apply', ...values, docs: '' });
-        console.log({ body });
 
         try {
             await fetch('/', {
@@ -107,6 +104,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             setHasSuccess(true);
             window.scrollTo(0, 0);
         } catch (e) {
+            // TODO: handle form error
             console.log(e);
             setSubmitError(getErrorMessage(e));
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });

@@ -13,11 +13,11 @@ type FieldDropzoneProps = {
     placeholder: string;
 };
 
-// TODO: handle multiple files
+// TODO: add loader
 const FieldDropzone = (props: FieldDropzoneProps) => {
-    const { onSuccess, label, name, required, acceptedFileTypes, placeholder, nameHidden } = props;
+    const { label, name, required, acceptedFileTypes, placeholder, nameHidden } = props;
     const [fieldHidden, metaHidden, helpersHidden] = useField(nameHidden);
-    const [field, meta, helpers] = useField(props);
+    const [field, meta] = useField(props);
     const hasError = meta.touched && meta.error;
     const values = field.value as File[];
     const arrayHelpersRef = useRef<FieldArrayRenderProps | null>(null);
@@ -55,14 +55,6 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                 });
             })
             .then((response) => {
-                console.log({ response });
-
-                console.log(`https://d28oa4z68sivtx.cloudfront.net/${file.name}`);
-                console.log({ arrayHelpersRef });
-
-                // helpers.setValue([...values, `https://d28oa4z68sivtx.cloudfront.net/${file.name}`]);
-                console.log({ file });
-
                 // when just pushing in the whole file, it was empty for some reason
                 arrayHelpersRef.current?.push({
                     name: file.name,
@@ -71,15 +63,13 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     size: file.size,
                     type: file.type,
                 });
-                console.log({ test: values.map((doc: File) => doc.name).join(',') });
-
                 helpersHidden.setValue(values.map((doc: File) => doc.name).join(','));
             })
             .catch((e) => {
                 console.log(e);
             });
     }, []);
-    const { getRootProps, getInputProps, isDragActive, acceptedFiles, fileRejections } = useDropzone({
+    const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({
         onDrop,
         accept: acceptedFileTypes,
         maxSize: 10485760,
