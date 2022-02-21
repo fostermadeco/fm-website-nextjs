@@ -89,7 +89,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         values.docNames = values.docs
             ? values.docs
                   ?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${encodeURIComponent(doc.name)}`)
-                  .join(',')
+                  .join('\n')
             : '';
 
         const body = encode({ 'form-name': 'apply', ...values, docs: '' });
