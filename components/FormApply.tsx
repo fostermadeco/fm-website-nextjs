@@ -23,8 +23,8 @@ interface ApplyFormValues {
     position: string;
     aboutYourself: string;
     websiteLink: string;
-    // docs?: File[];
-    // docNames: string;
+    docs?: File[];
+    docNames: string;
     confirmTruth: boolean;
 }
 
@@ -38,9 +38,9 @@ const validationSchema = Yup.object({
     confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
-const encode = (data: { [x: string]: string | number | boolean | File[] }) =>
+const encode = (data: { [x: string]: string | number | boolean }) =>
     Object.keys(data)
-        .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(data[key]))}`)
+        .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&');
 
 type GroupsType =
@@ -78,19 +78,19 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
         position: positionFromQuery,
         aboutYourself: '',
         websiteLink: '',
-        // docs: [],
-        // docNames: '',
+        docs: [],
+        docNames: '',
         confirmTruth: false,
     };
 
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
-        // values.docNames = values.docs
-        //     ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
-        //     : '';
+        values.docNames = values.docs
+            ? values.docs?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${doc.name}`).join(',')
+            : '';
 
-        const body = encode({ 'form-name': 'apply', ...values });
+        const body = encode({ 'form-name': 'apply', ...values, docs: '' });
         console.log({ body });
 
         try {
@@ -182,14 +182,14 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                 placeholder={fieldsByValue.websiteLink.fields.placeholder}
                             />
 
-                            {/* <FieldDropzone
+                            <FieldDropzone
                                 label={fieldsByValue.docs.fields.label}
                                 name="docs"
                                 nameHidden="docNames"
                                 required
                                 placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
                                 acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
-                            /> */}
+                            />
 
                             <FieldCheckbox
                                 label={fieldsByValue.confirmTruth.fields.label}
