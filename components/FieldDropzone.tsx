@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useDropzone, FileWithPath, FileRejection, FileError } from 'react-dropzone';
 import { useField, FieldArray, Field, FieldArrayRenderProps } from 'formik';
 import RequiredIndicator from './RequiredIndicator';
@@ -15,6 +15,7 @@ type FieldDropzoneProps = {
 
 // TODO: add loader
 const FieldDropzone = (props: FieldDropzoneProps) => {
+    const [isLoading, setIsLoading] = useState(false);
     const { label, name, required, acceptedFileTypes, placeholder, nameHidden } = props;
     const [fieldHidden, metaHidden, helpersHidden] = useField(nameHidden);
     const [field, meta] = useField(props);
@@ -25,6 +26,7 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
     const onDrop = useCallback((filesToUpload: FileWithPath[]) => {
         if (!filesToUpload || filesToUpload.length === 0) return;
         console.log({ filesToUpload });
+        setIsLoading(true);
 
         // TODO deal with array of files
         // Do something with the files
@@ -54,7 +56,7 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     body: new Blob([file], { type: file.type }),
                 });
             })
-            .then((response) => {
+            .then(() => {
                 // when just pushing in the whole file, it was empty for some reason
                 arrayHelpersRef.current?.push({
                     name: file.name,
@@ -64,16 +66,29 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                     type: file.type,
                 });
                 helpersHidden.setValue(values.map((doc: File) => doc.name).join(','));
+                setIsLoading(false);
             })
             .catch((e) => {
+                setIsLoading(false);
                 console.log(e);
             });
     }, []);
+
     const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({
         onDrop,
         accept: acceptedFileTypes,
         maxSize: 10485760,
     });
+
+    const renderDropzoneMessage = () => {
+        if (isLoading) {
+            return <p className="text-steel animate-pulse">Loading ...</p>;
+        }
+        if (isDragActive) {
+            return <p className="text-steel-200">Drop files here.</p>;
+        }
+        return <p className="text-steel">Drop files here or click to upload.</p>;
+    };
 
     return (
         <div className={`form-group ${hasError ? 'form-group--error' : ''}`}>
@@ -85,14 +100,12 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                 <input {...getInputProps()} />
                 <p className="mb-2 text-xs">{placeholder}</p>
                 <div className="flex items-center justify-center h-40 p-4 border-2 border-dashed border-steel">
-                    {isDragActive ? (
-                        <p className="text-steel-200">Drop files here.</p>
-                    ) : (
-                        <p className="text-steel">Drop files here or click to upload.</p>
-                    )}
+                    {renderDropzoneMessage()}
                 </div>
             </div>
+
             <Field name={nameHidden} type="hidden" />
+
             <FieldArray
                 name={name}
                 render={(arrayHelpers) => {
