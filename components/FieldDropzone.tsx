@@ -18,7 +18,6 @@ type FieldDropzoneProps = {
 const FieldDropzone = (props: FieldDropzoneProps) => {
     const [isLoading, setIsLoading] = useState(false);
     const { label, name, required, acceptedFileTypes, placeholder, nameHidden } = props;
-    const [fieldHidden, metaHidden, helpersHidden] = useField(nameHidden);
     const [field, meta] = useField(props);
     const hasError = meta.touched && meta.error;
     const values = field.value as File[];
@@ -44,7 +43,6 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
                         type: oneFile.type,
                     });
                 });
-                helpersHidden.setValue(values.map((doc: File) => doc.name).join(','));
                 setIsLoading(false);
             })
             .catch((e) => {
