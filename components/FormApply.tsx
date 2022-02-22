@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFieldFields, TypeFormFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr';
 import * as Yup from 'yup';
 import * as Contentful from 'contentful';
 
@@ -34,7 +34,6 @@ const validationSchema = Yup.object({
     phone: Yup.string().required(`We'd might want to give you a call.`),
     position: Yup.string().required('Which position you are interested in?'),
     aboutYourself: Yup.string().required('We want to know more!'),
-    // docNames: Yup.string().required('Please upload a document.'),
     confirmTruth: Yup.bool().oneOf([true], 'Please confirm this is all true.'),
 });
 
@@ -48,6 +47,7 @@ type GroupsType =
     | {
           [key: string]: Contentful.Entry<TypeFormFieldFields>;
       };
+
 const groupByValue = (formFields: Contentful.Entry<TypeFormFieldFields>[]): GroupsType => {
     const groups: GroupsType = {};
     for (const [key, value] of Object.entries(formFields)) {
@@ -62,7 +62,7 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const { fields: formFields, formErrorMessage, successMessage, submitButtonText, id, intro } = form;
 
     const fieldsByValue = groupByValue(formFields);
-    const { data } = useSWR<TypePage[], Error>('/api/careers', fetcher);
+    const { data } = useSWRImmutable<TypePage[], Error>('/api/careers', fetcher);
     const [hasSuccess, setHasSuccess] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -84,12 +84,14 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     const handleSubmit = async (values: ApplyFormValues, formikHelpers: FormikHelpers<ApplyFormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
+        // create file links with cloudfront url
         values.docNames = values.docs
             ? values.docs
                   ?.map((doc: File) => `https://d28oa4z68sivtx.cloudfront.net/${encodeURIComponent(doc.name)}`)
                   .join('\n')
             : '';
 
+        // form notification doesn't need docs
         const body = encode({ 'form-name': 'apply', ...values, docs: '' });
 
         try {
