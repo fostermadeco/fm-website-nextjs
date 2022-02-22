@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useDropzone, FileWithPath, FileRejection, FileError } from 'react-dropzone';
 import { useField, FieldArray, Field, FieldArrayRenderProps } from 'formik';
+import useFileUpload from '../hooks/useFileUpload';
 import RequiredIndicator from './RequiredIndicator';
 
 type FieldDropzoneProps = {
@@ -22,48 +23,26 @@ const FieldDropzone = (props: FieldDropzoneProps) => {
     const hasError = meta.touched && meta.error;
     const values = field.value as File[];
     const arrayHelpersRef = useRef<FieldArrayRenderProps | null>(null);
+    const { uploadFileCollection } = useFileUpload();
 
     const onDrop = useCallback((filesToUpload: FileWithPath[]) => {
         if (!filesToUpload || filesToUpload.length === 0) return;
         console.log({ filesToUpload });
         setIsLoading(true);
 
-        // TODO deal with array of files
-        // Do something with the files
-        const file = filesToUpload[0];
+        uploadFileCollection({ files: filesToUpload })
+            .then((responses) => {
+                console.log({ responses });
 
-        console.log(
-            JSON.stringify({
-                name: file.name,
-                type: file.type,
-            })
-        );
-
-        fetch(`https://mu6ink2rya.execute-api.us-east-1.amazonaws.com/dev/requestUploadURL`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: file.name,
-                type: file.type,
-            }),
-        })
-            .then((response) => response.json())
-            .then((json: { uploadURL: string }) => {
-                fetch(json.uploadURL, {
-                    method: 'PUT',
-                    body: new Blob([file], { type: file.type }),
-                });
-            })
-            .then(() => {
-                // when just pushing in the whole file, it was empty for some reason
-                arrayHelpersRef.current?.push({
-                    name: file.name,
-                    path: file.path,
-                    lastModified: file.lastModified,
-                    size: file.size,
-                    type: file.type,
+                responses.forEach(({ file: oneFile }: { file: FileWithPath }) => {
+                    // when just pushing in the whole file, it was empty for some reason
+                    arrayHelpersRef.current?.push({
+                        name: oneFile.name,
+                        path: oneFile.path,
+                        lastModified: oneFile.lastModified,
+                        size: oneFile.size,
+                        type: oneFile.type,
+                    });
                 });
                 helpersHidden.setValue(values.map((doc: File) => doc.name).join(','));
                 setIsLoading(false);
