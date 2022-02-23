@@ -15,7 +15,7 @@
         @apply mb-4 text-4xl text-black lg:text-5xl xl:text-6xl font-headline;
     }
     .h4 {
-        @apply mb-3 text-2xl text-black md:text-3xl font-headline;
+        @apply mb-3 text-black text-2-5xl font-headline;
     }
     .h5 {
         @apply mb-4 text-xs tracking-widest text-black no-underline uppercase font-headline;

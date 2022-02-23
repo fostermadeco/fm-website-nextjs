@@ -31,6 +31,16 @@
     .group:hover .border-b-in::after, .border-b-in:hover::after {
         @apply  w-full;
     }
+    
+    .border-b-on {
+        @apply relative;
+    }
+    .border-b-on:after {
+        content: '';
+        height: 2px;
+        transition: all ease-in-out .2s;
+        @apply border-b-2 md:bottom-[-3px] absolute left-0 w-full bg-black;
+    }
 
     .emdash {
         @apply relative pl-8;

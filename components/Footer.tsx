@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from './Logo';
 
 const year = new Date().getFullYear();
+
 const Footer = () => (
     <div className="bg-black ">
         <div className="pt-20 pb-10">
@@ -117,7 +118,7 @@ const Footer = () => (
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/contact">
                                 <a>Contact</a>
                             </Link>
                         </li>

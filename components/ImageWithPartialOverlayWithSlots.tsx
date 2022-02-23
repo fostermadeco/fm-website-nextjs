@@ -5,10 +5,15 @@ import TextMarkdown from './TextMarkdown';
 
 type ImageWithPartialOverlayWithSlotsProps = {
     fields: TypeBlockImageWithPartialOverlayFields;
+    componentLeft: JSX.Element;
     componentRight: JSX.Element;
 };
 
-const ImageWithPartialOverlayWithSlots = ({ fields, componentRight }: ImageWithPartialOverlayWithSlotsProps) => {
+const ImageWithPartialOverlayWithSlots = ({
+    fields,
+    componentRight,
+    componentLeft,
+}: ImageWithPartialOverlayWithSlotsProps) => {
     if (!fields) return null;
     const { image, paragraphText } = fields;
 
@@ -32,9 +37,7 @@ const ImageWithPartialOverlayWithSlots = ({ fields, componentRight }: ImageWithP
                         <div className="bg-white pt-14">
                             <div className="grid grid-cols-7">
                                 <div className="col-span-7 col-start-1 mx-6 md:mx-0 md:col-start-2 md:col-span-5">
-                                    <h2 className="h5 overline">{fields.overline}</h2>
-                                    <h3 className="h3">{fields.headerText}</h3>
-                                    {paragraphText && <TextMarkdown text={paragraphText} />}
+                                    {componentLeft}
                                 </div>
                             </div>
                         </div>
