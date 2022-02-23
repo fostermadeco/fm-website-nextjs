@@ -9,7 +9,7 @@ const FieldCheckbox: FC<FieldHookConfig<string> & HTMLProps<HTMLInputElement>> =
     return (
         <div className={`form-group relative ${hasError ? 'form-group--error' : ''}`}>
             <label htmlFor={props.name}>
-                <input className="absolute top-1" type="checkbox" id={props.name} {...field} {...props} />
+                <input className="absolute" type="checkbox" id={props.name} {...field} {...props} />
                 <span className="block ml-7">
                     {label} {props.required && <RequiredIndicator />}
                 </span>
