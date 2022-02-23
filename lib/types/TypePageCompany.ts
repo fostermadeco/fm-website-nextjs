@@ -8,11 +8,9 @@ import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 import { TypeBlockPeopleListFields } from './TypeBlockPeopleList';
 import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 import { TypeFormFields } from './TypeForm';
-import { TypePageFields } from './TypePage';
 
 export interface TypePageCompanyFields {
     name?: Contentful.EntryFields.Symbol;
-    parentPage?: Contentful.Entry<TypePageFields>;
     pageIntroDetail?: Contentful.Entry<TypeBlockPageIntroDetailFields>;
     sections?: Contentful.Entry<
         | TypeBlockCtaBottomFields

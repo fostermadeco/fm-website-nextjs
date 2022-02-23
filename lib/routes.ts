@@ -27,6 +27,12 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
                 as: `/company/${slug}`,
             };
         }
+        case PageContentTypes.Contact: {
+            return {
+                href: '/contact',
+                as: `/contact`,
+            };
+        }
         case PageContentTypes.Person: {
             return {
                 href: '/company/team/[slug]',

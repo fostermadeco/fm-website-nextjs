@@ -1,6 +1,7 @@
 import * as Contentful from 'contentful';
 import { TypePageCareerFields } from './TypePageCareer';
 import { TypePageCompanyFields } from './TypePageCompany';
+import { TypePageContactFields } from './TypePageContact';
 import { TypePageIndustryFields } from './TypePageIndustry';
 import { TypePageJournalPostFields } from './TypePageJournalPost';
 import { TypePageLandingFields } from './TypePageLanding';
@@ -23,6 +24,7 @@ export interface TypePageFields {
         | TypePagePersonFields
         | TypePageServiceFields
         | TypePageTechnologyFields
+        | TypePageContactFields
     >;
 }
 

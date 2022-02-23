@@ -15,6 +15,7 @@ export type {
 export type { TypeBlockIndustryBlocks, TypeBlockIndustryBlocksFields } from './TypeBlockIndustryBlocks';
 export type { TypeBlockNumberedBlocks, TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 export type { TypeBlockPageIntroDetail, TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
+export type { TypeBlockPageIntroSimple, TypeBlockPageIntroSimpleFields } from './TypeBlockPageIntroSimple';
 export type { TypeBlockPageSection, TypeBlockPageSectionFields } from './TypeBlockPageSection';
 export type { TypeBlockPeopleList, TypeBlockPeopleListFields } from './TypeBlockPeopleList';
 export type { TypeBlockResponsiveFullImage, TypeBlockResponsiveFullImageFields } from './TypeBlockResponsiveFullImage';
@@ -38,6 +39,7 @@ export type { TypePage, TypePageFields } from './TypePage';
 export type { TypePageCareer, TypePageCareerFields } from './TypePageCareer';
 export type { TypePageCaseStudy, TypePageCaseStudyFields } from './TypePageCaseStudy';
 export type { TypePageCompany, TypePageCompanyFields } from './TypePageCompany';
+export type { TypePageContact, TypePageContactFields } from './TypePageContact';
 export type { TypePageIndustry, TypePageIndustryFields } from './TypePageIndustry';
 export type { TypePageJournalPost, TypePageJournalPostFields } from './TypePageJournalPost';
 export type { TypePageLanding, TypePageLandingFields } from './TypePageLanding';

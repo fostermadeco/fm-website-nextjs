@@ -8,4 +8,5 @@ export const PageContentTypes = {
     Technology: 'pageTechnology',
     Service: 'pageService',
     Person: 'pagePerson',
+    Contact: 'pageContact',
 };
