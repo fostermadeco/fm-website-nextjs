@@ -9,6 +9,7 @@ export interface TypePageContactFields {
     heroImage: Contentful.Entry<TypeImageWrapperFields>;
     overline: Contentful.EntryFields.Symbol;
     headerText: Contentful.EntryFields.Symbol;
+    paragraphText: Contentful.EntryFields.Text;
     form: Contentful.Entry<TypeFormFields>;
     socialLinks?: Contentful.EntryFields.Symbol[];
 }

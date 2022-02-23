@@ -4,6 +4,9 @@
 .form-group label {
     @apply block mb-2 text-xs tracking-widest text-black no-underline uppercase font-headline;
 }
+.form-group .label-overline {
+    @apply before:pr-[6px] before:content-['/'];
+}
 .form-control {
     @apply w-full px-4 pt-4 pb-3 leading-tight placeholder-steel border-black border-2;
 }

@@ -11,7 +11,7 @@ const FieldInput: FC<FieldHookConfig<string> & HTMLProps<HTMLInputElement>> = ({
 
     return (
         <div className={`form-group ${hasError ? 'form-group--error' : ''}`}>
-            <label htmlFor={props.name}>
+            <label className="label-overline" htmlFor={props.name}>
                 {label} {props.required && <RequiredIndicator />}
             </label>
             <input className="form-control" {...field} {...props} />

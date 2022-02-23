@@ -8,7 +8,7 @@ const FieldSelect: FC<FieldHookConfig<string> & HTMLProps<HTMLSelectElement>> = 
     const hasError = meta.touched && meta.error;
     return (
         <div className={`form-group ${hasError ? 'form-group--error' : ''}`}>
-            <label htmlFor={props.name}>
+            <label className="label-overline" htmlFor={props.name}>
                 {label} {props.required && <RequiredIndicator />}
             </label>
             <select className="form-control" {...field} {...props} />

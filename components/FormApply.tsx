@@ -114,100 +114,120 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
     };
 
     return (
-        <Formik
-            enableReinitialize
-            initialValues={initialValues}
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-        >
-            {({ isSubmitting }) => (
-                <Form noValidate id={id} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value={id} />
-                    {intro && !hasSuccess && (
-                        <div className="mb-6">
-                            <TextMarkdown text={intro} />
-                        </div>
-                    )}
-                    {submitError && (
-                        <div className=" bg-poppy">
-                            <p className="px-4 py-4 text-white p-xl">{formErrorMessage}</p>
-                        </div>
-                    )}
-                    {hasSuccess && (
-                        <div className="mb-20 bg-black">
-                            <p className="px-4 py-6 p-xl text-lime">{successMessage}</p>
-                        </div>
-                    )}
-                    {!hasSuccess && (
-                        <div>
-                            <FocusError />
-                            <FieldInput
-                                label={fieldsByValue.name.fields.label}
-                                name="name"
-                                type="text"
-                                placeholder={fieldsByValue.name.fields.placeholder}
-                                required
-                            />
-                            <FieldInput
-                                label={fieldsByValue.email.fields.label}
-                                name="email"
-                                type="text"
-                                placeholder={fieldsByValue.email.fields.placeholder}
-                                required
-                            />
-                            <FieldInput
-                                label={fieldsByValue.phone.fields.label}
-                                name="phone"
-                                type="text"
-                                placeholder={fieldsByValue.phone.fields.placeholder}
-                                required
-                            />
-                            <FieldSelect label={fieldsByValue.position.fields.label} name="position" required>
-                                <option value="" disabled>
-                                    - Choose a position -
-                                </option>
-                                {careerOptions &&
-                                    careerOptions.map((o: { label: string; value: string }) => (
-                                        <option value={o.value}>{o.label}</option>
-                                    ))}
-                            </FieldSelect>
-                            <FieldTextarea
-                                label={fieldsByValue.aboutYourself.fields.label}
-                                name="aboutYourself"
-                                placeholder={fieldsByValue.aboutYourself.fields.placeholder}
-                                required
-                            />
-                            <FieldInput
-                                label={fieldsByValue.websiteLink.fields.label}
-                                name="websiteLink"
-                                type="text"
-                                placeholder={fieldsByValue.websiteLink.fields.placeholder}
-                            />
+        <div className="mx-6 mb-20 md:mx-0">
+            <div className="block md:grid md:grid-cols-14">
+                <div className="col-span-6 col-start-5">
+                    <Formik
+                        enableReinitialize
+                        initialValues={initialValues}
+                        onSubmit={handleSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {({ isSubmitting }) => (
+                            <Form
+                                noValidate
+                                id={id}
+                                method="POST"
+                                data-netlify="true"
+                                data-netlify-honeypot="bot-field"
+                            >
+                                <input type="hidden" name="form-name" value={id} />
+                                {intro && !hasSuccess && (
+                                    <div className="mb-6">
+                                        <TextMarkdown text={intro} />
+                                    </div>
+                                )}
+                                {submitError && (
+                                    <div className=" bg-poppy">
+                                        <p className="px-4 py-4 text-white p-xl">{formErrorMessage}</p>
+                                    </div>
+                                )}
+                                {hasSuccess && (
+                                    <div className="mb-20 bg-black">
+                                        <p className="px-4 py-6 p-xl text-lime">{successMessage}</p>
+                                    </div>
+                                )}
+                                {!hasSuccess && (
+                                    <div>
+                                        <FocusError />
+                                        <FieldInput
+                                            label={fieldsByValue.name.fields.label}
+                                            name="name"
+                                            type="text"
+                                            placeholder={fieldsByValue.name.fields.placeholder}
+                                            required
+                                        />
+                                        <FieldInput
+                                            label={fieldsByValue.email.fields.label}
+                                            name="email"
+                                            type="text"
+                                            placeholder={fieldsByValue.email.fields.placeholder}
+                                            required
+                                        />
+                                        <FieldInput
+                                            label={fieldsByValue.phone.fields.label}
+                                            name="phone"
+                                            type="text"
+                                            placeholder={fieldsByValue.phone.fields.placeholder}
+                                            required
+                                        />
+                                        <FieldSelect
+                                            label={fieldsByValue.position.fields.label}
+                                            name="position"
+                                            required
+                                        >
+                                            <option value="" disabled>
+                                                - Choose a position -
+                                            </option>
+                                            {careerOptions &&
+                                                careerOptions.map((o: { label: string; value: string }) => (
+                                                    <option value={o.value}>{o.label}</option>
+                                                ))}
+                                        </FieldSelect>
+                                        <FieldTextarea
+                                            label={fieldsByValue.aboutYourself.fields.label}
+                                            name="aboutYourself"
+                                            placeholder={fieldsByValue.aboutYourself.fields.placeholder}
+                                            required
+                                        />
+                                        <FieldInput
+                                            label={fieldsByValue.websiteLink.fields.label}
+                                            name="websiteLink"
+                                            type="text"
+                                            placeholder={fieldsByValue.websiteLink.fields.placeholder}
+                                        />
 
-                            <FieldDropzone
-                                label={fieldsByValue.docs.fields.label}
-                                name="docs"
-                                nameHidden="docNames"
-                                required
-                                placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
-                                acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
-                            />
+                                        <FieldDropzone
+                                            label={fieldsByValue.docs.fields.label}
+                                            name="docs"
+                                            nameHidden="docNames"
+                                            required
+                                            placeholder="Documents must be smaller than 10MB. Accepted file types: images, .pdf, .docx, .pages"
+                                            acceptedFileTypes="image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/vnd.apple.pages"
+                                        />
 
-                            <FieldCheckbox
-                                label={fieldsByValue.confirmTruth.fields.label}
-                                name="confirmTruth"
-                                required
-                            />
-                            <div className="flex justify-center my-10">
-                                <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
-                                    <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
-                                </button>
-                            </div>
-                        </div>
-                    )}
-                </Form>
-            )}
-        </Formik>
+                                        <FieldCheckbox
+                                            label={fieldsByValue.confirmTruth.fields.label}
+                                            name="confirmTruth"
+                                            required
+                                        />
+                                        <div className="flex justify-center my-10">
+                                            <button
+                                                type="submit"
+                                                className="btn-circle btn-circle-ivory"
+                                                disabled={isSubmitting}
+                                            >
+                                                <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
+            </div>
+        </div>
     );
 };
 

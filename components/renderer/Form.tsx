@@ -1,18 +1,15 @@
 import FormApply from '@components/FormApply';
-import TextMarkdown from '@components/TextMarkdown';
+import FormContact from '@components/FormContact';
 import { TypeFormFields } from '@types';
 
 const Form = ({ fields }: { fields: TypeFormFields }) => {
     const { intro } = fields;
 
     return (
-        <div className="mx-6 mb-20 md:mx-0">
-            <div className="block md:grid md:grid-cols-14">
-                <div className="col-span-6 col-start-5">
-                    <FormApply form={fields} />
-                </div>
-            </div>
-        </div>
+        <>
+            {fields.id === 'apply' && <FormApply form={fields} />}
+            {fields.id === 'contact' && <FormContact form={fields} />}
+        </>
     );
 };
 
