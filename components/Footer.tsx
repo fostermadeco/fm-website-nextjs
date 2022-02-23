@@ -13,11 +13,23 @@ const Footer = () => (
                     </div>
                     <ul className="mt-8 mb-8 leading-relaxed text-white md:mb-0">
                         <li>
-                            <li>404 E Grace St</li>
-                            <li>Richmond, VA 22319</li>
+                            <li>
+                                <a href="https://www.google.com/maps/place/Foster+Made/@37.5426455,-77.4409035,17z/data=!4m12!1m6!3m5!1s0x89b1110f90a1ab8f:0xd4cc3bb48e585cd0!2sFoster+Made!8m2!3d37.5426455!4d-77.4387148!3m4!1s0x89b1110f90a1ab8f:0xd4cc3bb48e585cd0!8m2!3d37.5426455!4d-77.4387148?hl=en-US">
+                                    404 E Grace St
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.google.com/maps/place/Foster+Made/@37.5426455,-77.4409035,17z/data=!4m12!1m6!3m5!1s0x89b1110f90a1ab8f:0xd4cc3bb48e585cd0!2sFoster+Made!8m2!3d37.5426455!4d-77.4387148!3m4!1s0x89b1110f90a1ab8f:0xd4cc3bb48e585cd0!8m2!3d37.5426455!4d-77.4387148?hl=en-US">
+                                    Richmond, VA 22319
+                                </a>
+                            </li>
                             <li>&nbsp;</li>
-                            <li>hello@fostermade.co</li>
-                            <li>804.291.3999</li>
+                            <li>
+                                <a href="mailto:hello@fostermade.co">hello@fostermade.co</a>
+                            </li>
+                            <li>
+                                <a href="tel:18042913999">804.291.3999</a>
+                            </li>
                         </li>
                     </ul>
                 </div>
