@@ -34,7 +34,7 @@ const ImageWithPartialOverlayWithSlots = ({ fields, componentRight }: ImageWithP
                                 <div className="col-span-7 col-start-1 mx-6 md:mx-0 md:col-start-2 md:col-span-5">
                                     <h2 className="h5 overline">{fields.overline}</h2>
                                     <h3 className="h3">{fields.headerText}</h3>
-                                    <TextMarkdown text={paragraphText} />
+                                    {paragraphText && <TextMarkdown text={paragraphText} />}
                                 </div>
                             </div>
                         </div>
