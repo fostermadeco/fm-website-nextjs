@@ -27,7 +27,7 @@ const ContactPage = ({ page, preview }: { page: TypePage; preview: boolean }) =>
     console.log({ page });
 
     const content = page.fields.content as TypePageContact;
-    const { pageIntro = {}, heroImage, overline, headerText, form, paragraphText } = content.fields;
+    const { pageIntro, heroImage, overline, headerText, form, paragraphText } = content.fields;
 
     return (
         <Layout preview={preview}>
