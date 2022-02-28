@@ -9,6 +9,7 @@ import { TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 import { TypeBlockTechnologyBlocksFields } from './TypeBlockTechnologyBlocks';
+import { TypePersonFields } from './TypePerson';
 
 export interface TypePageLandingFields {
     name?: Contentful.EntryFields.Symbol;
@@ -24,6 +25,7 @@ export interface TypePageLandingFields {
         | TypeBlockSlideshowFields
         | TypeBlockTechnologyBlocksFields
     >[];
+    test?: Contentful.Entry<TypePersonFields>;
 }
 
 export type TypePageLanding = Contentful.Entry<TypePageLandingFields>;

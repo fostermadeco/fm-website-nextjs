@@ -7,11 +7,11 @@ import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 import { TypeBlockWideImageFields } from './TypeBlockWideImage';
-import { TypePageFields } from './TypePage';
+import { TypeIndustryFields } from './TypeIndustry';
 
 export interface TypePageIndustryFields {
     name?: Contentful.EntryFields.Symbol;
-    parentPage?: Contentful.Entry<TypePageFields>;
+    industry?: Contentful.Entry<TypeIndustryFields>;
     pageIntroDetail?: Contentful.Entry<TypeBlockPageIntroDetailFields>;
     sections?: Contentful.Entry<
         | TypeBlockCtaBottomFields

@@ -7,6 +7,7 @@ import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 import { TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 import { TypeBlockWideImageFields } from './TypeBlockWideImage';
+import { TypeServiceFields } from './TypeService';
 
 export interface TypePageServiceFields {
     name?: Contentful.EntryFields.Symbol;
@@ -20,6 +21,7 @@ export interface TypePageServiceFields {
         | TypeBlockSlideshowFields
         | TypeBlockWideImageFields
     >[];
+    service?: Contentful.Entry<TypeServiceFields>;
 }
 
 export type TypePageService = Contentful.Entry<TypePageServiceFields>;
