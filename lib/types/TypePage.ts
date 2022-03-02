@@ -4,7 +4,6 @@ import { TypePageCompanyFields } from './TypePageCompany';
 import { TypePageContactFields } from './TypePageContact';
 import { TypePageIndustryFields } from './TypePageIndustry';
 import { TypePageJournalFields } from './TypePageJournal';
-import { TypePageJournalPostFields } from './TypePageJournalPost';
 import { TypePageLandingFields } from './TypePageLanding';
 import { TypePageLandingNoImageFields } from './TypePageLandingNoImage';
 import { TypePagePersonFields } from './TypePagePerson';
@@ -18,7 +17,6 @@ export interface TypePageFields {
     slug: Contentful.EntryFields.Symbol;
     seo?: Contentful.Entry<TypeSeoFields>;
     content: Contentful.Entry<
-        | TypePageJournalPostFields
         | TypePageCareerFields
         | TypePageCompanyFields
         | TypePageIndustryFields
