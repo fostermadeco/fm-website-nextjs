@@ -14,8 +14,20 @@ interface LinkProps {
 
 const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
     const { pageType, slug } = props;
+    if (slug === 'home') {
+        return {
+            href: '/',
+            as: `/`,
+        };
+    }
     switch (pageType) {
         case PageContentTypes.Landing: {
+            return {
+                href: '/[slug]',
+                as: `/${slug}`,
+            };
+        }
+        case PageContentTypes.LandingNoImage: {
             return {
                 href: '/[slug]',
                 as: `/${slug}`,

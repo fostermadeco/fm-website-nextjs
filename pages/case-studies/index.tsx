@@ -34,7 +34,7 @@ const CaseStudiesPage = ({ page, preview }: { page: TypePage; preview: boolean }
         <Layout preview={preview}>
             <div>
                 <PageHead page={page} />
-                <PageIntroCircle fields={pageIntro.fields} />
+                {pageIntro && <PageIntroCircle fields={pageIntro.fields} />}
                 <BlockRenderer block={sections} />
             </div>
         </Layout>
