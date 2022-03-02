@@ -8,7 +8,7 @@ import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
 
 export interface TypePageLandingNoImageFields {
     name?: Contentful.EntryFields.Symbol;
-    pageIntro: Contentful.Entry<TypeBlockPageIntroDetailFields>;
+    pageIntro?: Contentful.Entry<TypeBlockPageIntroDetailFields>;
     sections?: Contentful.Entry<
         | TypeBlockCtaBottomFields
         | TypeBlockIconBlocksFields

@@ -3,7 +3,6 @@ import { TypePageCareerFields } from './TypePageCareer';
 import { TypePageCompanyFields } from './TypePageCompany';
 import { TypePageContactFields } from './TypePageContact';
 import { TypePageIndustryFields } from './TypePageIndustry';
-import { TypePageJournalFields } from './TypePageJournal';
 import { TypePageLandingFields } from './TypePageLanding';
 import { TypePageLandingNoImageFields } from './TypePageLandingNoImage';
 import { TypePagePersonFields } from './TypePagePerson';
@@ -19,14 +18,13 @@ export interface TypePageFields {
     content: Contentful.Entry<
         | TypePageCareerFields
         | TypePageCompanyFields
+        | TypePageContactFields
         | TypePageIndustryFields
+        | TypePageLandingNoImageFields
         | TypePageLandingFields
         | TypePagePersonFields
         | TypePageServiceFields
         | TypePageTechnologyFields
-        | TypePageContactFields
-        | TypePageJournalFields
-        | TypePageLandingNoImageFields
     >;
 }
 
