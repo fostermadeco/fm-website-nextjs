@@ -30,7 +30,7 @@ const MainNav = (props: MainNavPropTypes) => {
                             <nav className="">
                                 <ul className="flex">
                                     <li className="px-3">
-                                        <Link href="/case-studies">
+                                        <Link href="/why-foster-made">
                                             <a
                                                 className={`${
                                                     router.pathname.startsWith('/why-foster-made') ? 'after:w-full' : ''

@@ -19,10 +19,10 @@ const PageIntroCircle = (props: PageIntroDetailProps) => {
                     <div className="max-w-6xl mx-auto text-center">
                         <h1 className="h5 overline">{overline}</h1>
                         <h2 className="h1">{headerText}</h2>
-                        <p className="h4">{headerParagraph}</p>
+                        {headerParagraph && <p className="h4">{headerParagraph}</p>}
                         {button && (
-                            <div className="absolute z-10 right-8 md:right-16 -bottom-44 md:-bottom-44">
-                                <ButtonCircle button={button.fields} />
+                            <div className="flex justify-center mt-20">
+                                <ButtonCircle bgColor="ivory" button={button.fields} />
                             </div>
                         )}
                     </div>
