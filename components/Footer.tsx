@@ -93,7 +93,7 @@ const Footer = () => (
                     <h5 className="text-white overline h5">Foster Made</h5>
                     <ul className="space-y-2 text-sm leading-tight lg:text-base">
                         <li>
-                            <Link href="#">
+                            <Link href="/why-foster-made">
                                 <a>Why Foster Made?</a>
                             </Link>
                         </li>
@@ -103,17 +103,17 @@ const Footer = () => (
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/company/team">
                                 <a>Team</a>
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/company/journal">
                                 <a>Journal</a>
                             </Link>
                         </li>
                         <li>
-                            <Link href="#">
+                            <Link href="/case-studies">
                                 <a>Case Studies</a>
                             </Link>
                         </li>
