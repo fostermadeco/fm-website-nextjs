@@ -45,6 +45,7 @@ export type { TypePageContact, TypePageContactFields } from './TypePageContact';
 export type { TypePageIndustry, TypePageIndustryFields } from './TypePageIndustry';
 export type { TypePageJournal, TypePageJournalFields } from './TypePageJournal';
 export type { TypePageLanding, TypePageLandingFields } from './TypePageLanding';
+export type { TypePageLandingNoImage, TypePageLandingNoImageFields } from './TypePageLandingNoImage';
 export type { TypePagePerson, TypePagePersonFields } from './TypePagePerson';
 export type { TypePageService, TypePageServiceFields } from './TypePageService';
 export type { TypePageTechnology, TypePageTechnologyFields } from './TypePageTechnology';
