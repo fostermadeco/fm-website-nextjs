@@ -52,18 +52,22 @@ const PeopleList = (props: PeopleListProps) => {
     if (!data || !peoplePages) return null;
 
     return (
-        <div className="mx-6 md:mx-20">
-            <div className="block md:grid-cols-12 md:gap-6 md:grid">
-                {peoplePages.map((personPage: TypePagePerson) => {
-                    const page = data.find((p) => p.fields.content.sys.id === personPage.sys.id);
-                    console.log({ page });
-                    if (!page) return null;
-                    return (
-                        <div className="mb-8 md:mb-0 md:col-span-6 lg:col-span-4" key={personPage.sys.id}>
-                            <ListItemPerson personPage={personPage} page={page} />
-                        </div>
-                    );
-                })}
+        <div className="container mb-20">
+            <div className="grid grid-cols-14">
+                <div className="col-span-12 col-start-2">
+                    <div className="block md:grid-cols-12 md:gap-6 md:grid">
+                        {peoplePages.map((personPage: TypePagePerson) => {
+                            const page = data.find((p) => p.fields.content.sys.id === personPage.sys.id);
+                            console.log({ page });
+                            if (!page) return null;
+                            return (
+                                <div className="mb-8 md:mb-0 md:col-span-6 lg:col-span-4" key={personPage.sys.id}>
+                                    <ListItemPerson personPage={personPage} page={page} />
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     );
