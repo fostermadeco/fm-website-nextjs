@@ -12,8 +12,8 @@ const WideImage = ({ fields }: { fields: TypeBlockWideImageFields }) => {
     if (!fields) return null;
 
     return (
-        <div className="container relative mx-auto">
-            <div className="block mx-6 md:grid md:grid-cols-14">
+        <div className="container relative">
+            <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
                 <div className="col-span-12 col-start-2 bg-lime">
                     <div className="image-container-responsive" ref={observe}>
                         <Image
