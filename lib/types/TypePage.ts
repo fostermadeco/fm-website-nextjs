@@ -3,6 +3,7 @@ import { TypePageCareerFields } from './TypePageCareer';
 import { TypePageCompanyFields } from './TypePageCompany';
 import { TypePageContactFields } from './TypePageContact';
 import { TypePageIndustryFields } from './TypePageIndustry';
+import { TypePageJournalFields } from './TypePageJournal';
 import { TypePageLandingFields } from './TypePageLanding';
 import { TypePageLandingNoImageFields } from './TypePageLandingNoImage';
 import { TypePagePersonFields } from './TypePagePerson';
@@ -20,6 +21,7 @@ export interface TypePageFields {
         | TypePageCompanyFields
         | TypePageContactFields
         | TypePageIndustryFields
+        | TypePageJournalFields
         | TypePageLandingNoImageFields
         | TypePageLandingFields
         | TypePagePersonFields

@@ -37,6 +37,7 @@ export type { TypeIndustry, TypeIndustryFields } from './TypeIndustry';
 export type { TypeIndustryBlock, TypeIndustryBlockFields } from './TypeIndustryBlock';
 export type { TypeInternalPageLink, TypeInternalPageLinkFields } from './TypeInternalPageLink';
 export type { TypeJournalPost, TypeJournalPostFields } from './TypeJournalPost';
+export type { TypeLogo, TypeLogoFields } from './TypeLogo';
 export type { TypePage, TypePageFields } from './TypePage';
 export type { TypePageCareer, TypePageCareerFields } from './TypePageCareer';
 export type { TypePageCaseStudy, TypePageCaseStudyFields } from './TypePageCaseStudy';

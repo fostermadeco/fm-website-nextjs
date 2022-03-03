@@ -1,9 +1,9 @@
 import * as Contentful from 'contentful';
-import { TypeImageWrapperFields } from './TypeImageWrapper';
+import { TypeLogoFields } from './TypeLogo';
 
 export interface TypeClientFields {
     name?: Contentful.EntryFields.Symbol;
-    logo?: Contentful.Entry<TypeImageWrapperFields>;
+    logo?: Contentful.Entry<TypeLogoFields>;
 }
 
 export type TypeClient = Contentful.Entry<TypeClientFields>;

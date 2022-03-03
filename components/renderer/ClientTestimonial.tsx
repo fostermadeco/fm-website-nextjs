@@ -12,7 +12,7 @@ const ClientTestimonial = ({ fields }: { fields: TypeBlockClientTestimonialField
     const { logo } = client.fields;
 
     return (
-        <div className="relative mx-auto bg-black ">
+        <div className="container relative bg-black ">
             <div className="block py-20 mx-6 md:py-40 md:grid md:grid-cols-14">
                 <div className="col-span-12 col-start-2 ">
                     <h5 className="text-white h5 overline">Client Testimonial</h5>
@@ -23,8 +23,8 @@ const ClientTestimonial = ({ fields }: { fields: TypeBlockClientTestimonialField
                                     layout="fill"
                                     objectFit="contain"
                                     quality={75}
-                                    src={`https:${logo.fields.media.fields.file.url}`}
-                                    alt={logo.fields.altText}
+                                    src={`https:${logo.fields.logo.fields.file.url}`}
+                                    alt={logo.fields.name}
                                 />
                             </div>
                         </div>
