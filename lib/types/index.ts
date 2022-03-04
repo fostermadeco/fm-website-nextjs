@@ -5,6 +5,7 @@ export type {
     TypeBlockDarkCircleBackground,
     TypeBlockDarkCircleBackgroundFields,
 } from './TypeBlockDarkCircleBackground';
+export type { TypeBlockFeaturedCaseStudies, TypeBlockFeaturedCaseStudiesFields } from './TypeBlockFeaturedCaseStudies';
 export type { TypeBlockHeader, TypeBlockHeaderFields } from './TypeBlockHeader';
 export type { TypeBlockIconBlocks, TypeBlockIconBlocksFields } from './TypeBlockIconBlocks';
 export type { TypeBlockImageOverlayIntro, TypeBlockImageOverlayIntroFields } from './TypeBlockImageOverlayIntro';
@@ -24,6 +25,7 @@ export type { TypeBlockTechnologyBlocks, TypeBlockTechnologyBlocksFields } from 
 export type { TypeBlockWideImage, TypeBlockWideImageFields } from './TypeBlockWideImage';
 export type { TypeButton, TypeButtonFields } from './TypeButton';
 export type { TypeCareerList, TypeCareerListFields } from './TypeCareerList';
+export type { TypeCaseStudy, TypeCaseStudyFields } from './TypeCaseStudy';
 export type { TypeClient, TypeClientFields } from './TypeClient';
 export type { TypeCompanyTopic, TypeCompanyTopicFields } from './TypeCompanyTopic';
 export type { TypeCtaSimple, TypeCtaSimpleFields } from './TypeCtaSimple';

@@ -1,5 +1,6 @@
 import * as Contentful from 'contentful';
 import { TypePageCareerFields } from './TypePageCareer';
+import { TypePageCaseStudyFields } from './TypePageCaseStudy';
 import { TypePageCompanyFields } from './TypePageCompany';
 import { TypePageContactFields } from './TypePageContact';
 import { TypePageIndustryFields } from './TypePageIndustry';
@@ -17,6 +18,7 @@ export interface TypePageFields {
     slug: Contentful.EntryFields.Symbol;
     seo?: Contentful.Entry<TypeSeoFields>;
     content: Contentful.Entry<
+        | TypePageCaseStudyFields
         | TypePageCareerFields
         | TypePageCompanyFields
         | TypePageContactFields
