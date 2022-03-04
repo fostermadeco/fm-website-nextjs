@@ -24,6 +24,7 @@
     "contentful": "^9.1.5",
     "fast-safe-stringify": "^2.1.1",
     "formik": "^2.2.9",
+    "framer-motion": "^6.2.8",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
     "lodash.noop": "^3.0.1",
