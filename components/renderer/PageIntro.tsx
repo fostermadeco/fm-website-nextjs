@@ -1,6 +1,7 @@
 import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 import Image from 'next/image';
-import React from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { TypeBlockImageOverlayIntroFields } from '@types';
 import AnimationFadeIn from '@components/AnimationFadeIn';
 import Arrow from '../Arrow';
@@ -8,9 +9,14 @@ import Arrow from '../Arrow';
 // technically this is a landing page intro I think
 // Right now there is only one option: blockImageOverlayIntro
 const PageIntro = ({ fields }: { fields: TypeBlockImageOverlayIntroFields }) => {
+    const [imageIsLoaded, setImageIsLoaded] = useState(false);
+    const animationControls = useAnimation();
     const { containerRef, width } = useImageWidthResponsive();
-    console.log({ width });
-    console.log(fields.image.fields.media.fields.file.url);
+
+    useEffect(() => {
+        if (!imageIsLoaded) return;
+        animationControls.start('visible');
+    }, [imageIsLoaded]);
 
     if (!fields) return null;
 
@@ -18,7 +24,7 @@ const PageIntro = ({ fields }: { fields: TypeBlockImageOverlayIntroFields }) => 
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
                 {/* TODO: Why does webp make the image load slower */}
-                <AnimationFadeIn>
+                <AnimationFadeIn animate={animationControls}>
                     <Image
                         className="z-0"
                         layout="fill"
@@ -28,6 +34,7 @@ const PageIntro = ({ fields }: { fields: TypeBlockImageOverlayIntroFields }) => 
                         alt={fields.image.fields.altText}
                         sizes={width}
                         priority
+                        onLoadingComplete={() => setImageIsLoaded(true)}
                     />
                 </AnimationFadeIn>
                 <div className="container mx-auto">
