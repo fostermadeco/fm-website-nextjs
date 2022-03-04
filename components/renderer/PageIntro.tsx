@@ -2,6 +2,7 @@ import useImageWidthResponsive from 'hooks/useImageWidthResponsive';
 import Image from 'next/image';
 import React from 'react';
 import { TypeBlockImageOverlayIntroFields } from '@types';
+import AnimationFadeIn from '@components/AnimationFadeIn';
 import Arrow from '../Arrow';
 
 // technically this is a landing page intro I think
@@ -17,16 +18,18 @@ const PageIntro = ({ fields }: { fields: TypeBlockImageOverlayIntroFields }) => 
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }} ref={containerRef}>
                 {/* TODO: Why does webp make the image load slower */}
-                <Image
-                    className="z-0"
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    src={`https:${fields.image.fields.media.fields.file.url}`}
-                    alt={fields.image.fields.altText}
-                    sizes={width}
-                    priority
-                />
+                <AnimationFadeIn>
+                    <Image
+                        className="z-0"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                        src={`https:${fields.image.fields.media.fields.file.url}`}
+                        alt={fields.image.fields.altText}
+                        sizes={width}
+                        priority
+                    />
+                </AnimationFadeIn>
                 <div className="container mx-auto">
                     <div className="mx-6 md:mx-0">
                         <div
