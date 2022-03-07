@@ -25,7 +25,7 @@ const Layout = (props: LayoutProps) => {
                 <SmoothScroll>
                     <PreviewBanner preview={preview} />
                     <MainNav mode={navMode} />
-                    <main className="content-container">{children}</main>
+                    <main>{children}</main>
                 </SmoothScroll>
             </AnimationFadeIn>
         </>
