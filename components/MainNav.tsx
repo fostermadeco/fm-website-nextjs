@@ -71,7 +71,11 @@ const MainNav = (props: MainNavPropTypes) => {
                                     </li>
                                     <li className="px-3">
                                         <Link href="/contact">
-                                            <a className={`${textColor} ${borderColor} pb-1 h5 border-b-in`}>
+                                            <a
+                                                className={`${
+                                                    router.pathname.startsWith('/contact') ? 'after:w-full' : ''
+                                                } ${textColor} ${borderColor} pb-1 h5 border-b-in`}
+                                            >
                                                 Contact Us
                                             </a>
                                         </Link>
