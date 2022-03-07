@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFormikContext } from 'formik';
+import { scrollTo } from 'lib/scroll';
 
 const FocusError = () => {
     const { errors, isSubmitting, isValidating } = useFormikContext();
@@ -11,7 +12,15 @@ const FocusError = () => {
                 const selector = `[name=${keys[0]}]`;
                 const errorElement = document.querySelector(selector) as HTMLElement;
                 if (errorElement) {
-                    errorElement.focus();
+                    const bodyRect = document.body.getBoundingClientRect();
+                    const elemRect = errorElement.getBoundingClientRect();
+                    const offset = elemRect.top - bodyRect.top;
+                    scrollTo({
+                        offset: offset - 30,
+                        callback: () => {
+                            errorElement.focus();
+                        },
+                    });
                 }
             }
         }

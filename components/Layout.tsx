@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { PreviewBanner } from '@components/PreviewBanner';
 import MainNav from './MainNav';
 import AnimationFadeIn from './AnimationFadeIn';
+import { SmoothScroll } from './SmoothScroll';
 
 type LayoutProps = {
     preview: boolean;
@@ -21,9 +22,11 @@ const Layout = (props: LayoutProps) => {
                 <link rel="apple-touch-icon" href="/favicon/apple-icon-114x114.png" type="image/png" />
             </Head>
             <AnimationFadeIn>
-                <PreviewBanner preview={preview} />
-                <MainNav mode={navMode} />
-                <main>{children}</main>
+                <SmoothScroll>
+                    <PreviewBanner preview={preview} />
+                    <MainNav mode={navMode} />
+                    <main className="content-container">{children}</main>
+                </SmoothScroll>
             </AnimationFadeIn>
         </>
     );

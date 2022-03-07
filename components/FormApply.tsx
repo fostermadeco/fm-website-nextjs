@@ -104,9 +104,11 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
             setSubmitting(false);
             setSubmitError(null);
             setHasSuccess(true);
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         } catch (e) {
             // TODO: handle form error
+            console.log('HERE');
+
             console.log(e);
             setSubmitError(getErrorMessage(e));
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
