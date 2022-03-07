@@ -3,6 +3,7 @@ import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFieldFields, TypeFormFields, TypePage } from '@types';
 import { fetcher } from 'api/fetcher';
 import useSWRImmutable from 'swr';
+import { motion } from 'framer-motion';
 import * as Yup from 'yup';
 import * as Contentful from 'contentful';
 
@@ -215,13 +216,14 @@ const FormApply = ({ form }: { form: TypeFormFields }) => {
                                                 required
                                             />
                                             <div className="flex justify-center my-10">
-                                                <button
+                                                <motion.button
+                                                    whileHover={{ scale: 1.03 }}
                                                     type="submit"
                                                     className="btn-circle btn-circle-ivory"
                                                     disabled={isSubmitting}
                                                 >
                                                     <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
-                                                </button>
+                                                </motion.button>
                                             </div>
                                         </div>
                                     )}

@@ -3,6 +3,7 @@ import { Formik, Form, FormikHelpers } from 'formik';
 import { TypeFormFieldFields, TypeFormFields } from '@types';
 import * as Yup from 'yup';
 import * as Contentful from 'contentful';
+import { motion } from 'framer-motion';
 
 import { getErrorMessage } from 'lib/errors';
 import FieldInput from './FieldInput';
@@ -167,9 +168,14 @@ const FormContact = ({ form }: { form: TypeFormFields }) => {
                                 name="newsletterSignup"
                             />
                             <div className="flex justify-center my-10">
-                                <button type="submit" className="btn-circle btn-circle-ivory" disabled={isSubmitting}>
+                                <motion.button
+                                    whileHover={{ scale: 1.03 }}
+                                    type="submit"
+                                    className="btn-circle btn-circle-ivory"
+                                    disabled={isSubmitting}
+                                >
                                     <span>{isSubmitting ? 'Hang on' : submitButtonText}</span>
-                                </button>
+                                </motion.button>
                             </div>
                         </div>
                     )}

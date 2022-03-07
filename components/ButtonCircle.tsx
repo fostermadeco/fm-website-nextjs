@@ -1,5 +1,6 @@
 import React from 'react';
 import { TypeButtonFields } from '@types';
+import { motion } from 'framer-motion';
 import LinkWrapper from './LinkWrapper';
 
 type ButtonCirclePropTypes = {
@@ -19,9 +20,9 @@ const ButtonCircle = (props: ButtonCirclePropTypes) => {
 
     return (
         <LinkWrapper page={button.linkPage} href={button.linkPath}>
-            <a className={`btn-circle ${buttonClasses}`}>
+            <motion.a whileHover={{ scale: 1.03 }} className={`btn-circle ${buttonClasses}`}>
                 <span>{buttonText}</span>
-            </a>
+            </motion.a>
         </LinkWrapper>
     );
 };

@@ -1,6 +1,6 @@
 @layer components {
     .btn-circle {
-        @apply flex items-center justify-center w-40 h-40 px-4 text-xs tracking-widest text-center text-black uppercase bg-white border border-black rounded-full font-headline;
+        @apply flex items-center justify-center w-40 h-40 px-4 text-xs tracking-widest text-center text-black uppercase bg-white border border-black rounded-full cursor-pointer font-headline ;
        
     }
     .btn-circle:hover {
