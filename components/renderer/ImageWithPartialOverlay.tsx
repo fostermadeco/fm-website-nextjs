@@ -1,10 +1,21 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TypeBlockImageWithPartialOverlayFields } from '@types';
+import { useAnimation } from 'framer-motion';
+import AnimationFadeIn from '@components/AnimationFadeIn';
 import TextMarkdown from '../TextMarkdown';
 
 const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartialOverlayFields }) => {
+    const [imageIsLoaded, setImageIsLoaded] = useState(false);
+    const animationControls = useAnimation();
+
+    useEffect(() => {
+        if (!imageIsLoaded) return;
+        animationControls.start('visible');
+    }, [imageIsLoaded]);
+
     if (!fields) return null;
+
     const { paragraphText, image } = fields;
 
     // console.log({ is: isRichText(paragraphText) });
@@ -13,16 +24,19 @@ const ImageWithPartialOverlay = ({ fields }: { fields: TypeBlockImageWithPartial
     return (
         <div className="relative">
             <div className="relative w-full" style={{ height: '620px' }}>
-                <Image
-                    className="z-0"
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    src={`https:${image.fields.media.fields.file.url}`}
-                    alt={image.fields.altText}
-                    // TODO: make not all of these priority
-                    priority
-                />
+                <AnimationFadeIn animate={animationControls}>
+                    <Image
+                        className="z-0"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                        src={`https:${image.fields.media.fields.file.url}`}
+                        alt={image.fields.altText}
+                        // TODO: make not all of these priority
+                        priority
+                        onLoadingComplete={() => setImageIsLoaded(true)}
+                    />
+                </AnimationFadeIn>
             </div>
             <div className="container mx-auto">
                 <div className="mb-14 md:mb-20">
