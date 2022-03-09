@@ -3,6 +3,7 @@ import React from 'react';
 import { TypeBlockPageSectionFields } from '@types';
 import LinkWrapper from '../LinkWrapper';
 import TextMarkdown from '../TextMarkdown';
+import AnimationFadeLazy from '../AnimationFadeLazy';
 
 type PageSectionImageProps = {
     url: string;
@@ -62,36 +63,38 @@ const PageSection = ({ fields }: { fields: TypeBlockPageSectionFields }) => {
 
     return (
         <div className="relative">
-            <div className="container mx-auto">
-                <div className="my-14">
-                    <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
-                        {imagePlacement === 'Left' && (
-                            <div className="col-span-5 col-start-2">
-                                <PageSectionImage url={image.fields.media.fields.file.url} />
-                            </div>
-                        )}
-                        {imagePlacement === 'Right' && (
-                            <div className="col-span-6 col-start-2">
-                                <PageSectionContent fields={fields} />
-                            </div>
-                        )}
-                        {imagePlacement === 'Left' && (
-                            <div className="col-span-6 col-start-8">
-                                <div className="mt-6 md:mt-0">
-                                    <PageSectionContent fields={fields} />
-                                </div>
-                            </div>
-                        )}
-                        {imagePlacement === 'Right' && (
-                            <div className="col-span-7 col-start-9">
-                                <div className="mt-6 md:mt-0">
+            <AnimationFadeLazy>
+                <div className="container mx-auto">
+                    <div className="my-14">
+                        <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
+                            {imagePlacement === 'Left' && (
+                                <div className="col-span-5 col-start-2">
                                     <PageSectionImage url={image.fields.media.fields.file.url} />
                                 </div>
-                            </div>
-                        )}
+                            )}
+                            {imagePlacement === 'Right' && (
+                                <div className="col-span-6 col-start-2">
+                                    <PageSectionContent fields={fields} />
+                                </div>
+                            )}
+                            {imagePlacement === 'Left' && (
+                                <div className="col-span-6 col-start-8">
+                                    <div className="mt-6 md:mt-0">
+                                        <PageSectionContent fields={fields} />
+                                    </div>
+                                </div>
+                            )}
+                            {imagePlacement === 'Right' && (
+                                <div className="col-span-7 col-start-9">
+                                    <div className="mt-6 md:mt-0">
+                                        <PageSectionImage url={image.fields.media.fields.file.url} />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </AnimationFadeLazy>
         </div>
     );
 };
