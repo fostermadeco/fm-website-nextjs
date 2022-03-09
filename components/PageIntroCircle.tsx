@@ -3,7 +3,7 @@ import { TypeBlockPageIntroDetailFields } from '@types';
 // import { useInView } from 'react-intersection-observer';
 
 import ButtonCircle from './ButtonCircle';
-import CircleBottom from './CircleBottom';
+import AnimatedCircleBg from './AnimatedCircleBg';
 import AnimationCircleContent from './AnimationCircleContent';
 
 type PageIntroDetailProps = {
@@ -35,7 +35,7 @@ const PageIntroCircle = (props: PageIntroDetailProps) => {
                     </div>
                 </AnimationCircleContent>
             </div>
-            <CircleBottom />
+            <AnimatedCircleBg />
         </div>
     );
 };

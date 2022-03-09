@@ -2,7 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import useDimensions from 'react-cool-dimensions';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
-const CircleBottom = () => {
+type AnimatedCirlceBgProps = {
+    align?: 'top' | 'bottom';
+};
+
+const AnimatedCircleBg = (props: AnimatedCirlceBgProps) => {
+    const { align = 'bottom' } = props;
     const { observe: observeWrapper, width } = useDimensions<HTMLDivElement | null>();
 
     const { scrollYProgress } = useViewportScroll();
@@ -14,7 +19,7 @@ const CircleBottom = () => {
         <div>
             <motion.div className="overflow-hidden" ref={observeWrapper} style={{ width: '100%', height: '100%' }}>
                 <motion.div
-                    className="absolute bottom-0 mx-auto rounded-full -z-10 bg-ivory"
+                    className={`absolute mx-auto rounded-full -z-10 bg-ivory ${align === 'top' ? 'top-0' : 'bottom-0'}`}
                     style={{
                         scale,
                         width: `${circleSize}px`,
@@ -27,4 +32,4 @@ const CircleBottom = () => {
     );
 };
 
-export default CircleBottom;
+export default AnimatedCircleBg;
