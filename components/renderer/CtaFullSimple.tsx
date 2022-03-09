@@ -11,7 +11,7 @@ const CtaFullSimple = ({ fields }: { fields: TypeCtaSimpleFields }) => {
     const { headerText, paragraphText } = fields;
 
     return (
-        <div className="relative">
+        <div className="relative overflow-hidden">
             <div className="pb-20 pt-80">
                 <div className="my-14">
                     <AnimationCircleContent>

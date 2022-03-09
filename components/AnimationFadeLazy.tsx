@@ -7,7 +7,7 @@ const variants = {
         y: 0,
         transition: {
             // when: 'beforeChildren',
-            duration: 1.3,
+            duration: 0.5,
             staggerChildren: 0.5,
         },
     },
