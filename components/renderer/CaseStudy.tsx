@@ -43,8 +43,8 @@ const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
             <div className="col-span-9">
                 <Image
                     src={`https:${heroImage.fields.media.fields.file.url}`}
-                    width={heroImage.fields.media.fields.file.details.image.width}
-                    height={heroImage.fields.media.fields.file.details.image.height}
+                    width={heroImage.fields.media.fields.file.details.image?.width}
+                    height={heroImage.fields.media.fields.file.details.image?.height}
                 />
             </div>
         </div>
