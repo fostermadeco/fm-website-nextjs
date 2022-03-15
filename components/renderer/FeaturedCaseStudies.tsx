@@ -6,21 +6,19 @@ import classNames from 'classnames';
 
 type FeaturedCaseStudiesPropTypes = {
     fields: TypeBlockFeaturedCaseStudiesFields;
-    mode: 'dark' | 'light';
 };
 const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
-    const { fields, mode } = props;
+    const { fields } = props;
     if (!fields) return null;
 
     const { overline, headerText, caseStudies } = fields;
-    const isDark = mode === 'dark';
 
     return (
-        <div className="container">
-            <div className="container mx-auto">
+        <div className="container'">
+            <div className="container mx-auto bg-black">
                 <div className={` pb-20 pt-40 max-w-6xl mx-auto text-center`}>
-                    <div className={classNames(`h5 overline`, { 'text-white': isDark })}>{overline}</div>
-                    <div className={classNames(`h3`, { 'text-white': isDark })}>{headerText}</div>
+                    <div className={classNames(`h5 overline`, { 'text-white': true })}>{overline}</div>
+                    <div className={classNames(`h3`, { 'text-white': true })}>{headerText}</div>
                 </div>
                 {caseStudies?.map((pageCaseStudy) => {
                     const { title } = pageCaseStudy.fields;
@@ -34,18 +32,18 @@ const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
                             <div className="col-span-6 col-start-2">
                                 <h5
                                     className={classNames(`h5 overline`, {
-                                        'text-white': isDark,
+                                        'text-white': true,
                                     })}
                                 >
                                     Case Study
                                 </h5>
-                                <h3 className={classNames(`h4`, { 'text-white': isDark })}>{title}</h3>
-                                <p>{summary}</p>
+                                <h3 className={classNames(`h4`, { 'text-white': true })}>{title}</h3>
+                                <p className={classNames({ 'text-white': true })}>{summary}</p>
                                 <div>
                                     <LinkWrapper page={pageCaseStudy}>
                                         <a
                                             className={classNames(`inline-block mt-4 h5 emdash-in`, {
-                                                'text-white': isDark,
+                                                'text-white': true,
                                             })}
                                         >
                                             Read More
