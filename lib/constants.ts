@@ -10,5 +10,5 @@ export const PageContentTypes = {
     Service: 'pageService',
     Person: 'pagePerson',
     Contact: 'pageContact',
-    CaseStudy: 'pageCaseStudy'
+    CaseStudy: 'pageCaseStudy',
 };
