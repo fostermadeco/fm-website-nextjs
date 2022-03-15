@@ -26,7 +26,7 @@ const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
                 >
                     Case Study
                 </h5>
-                <h3 className={classNames(`h4`, { 'text-white': true })}>{title}</h3>
+                <h3 className={classNames(`h4`, `hover:text-lime`, { 'text-white': true })}>{title}</h3>
                 <p className={classNames({ 'text-white': true })}>{summary}</p>
                 <div>
                     <LinkWrapper page={pageCaseStudy}>
