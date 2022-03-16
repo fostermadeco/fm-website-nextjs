@@ -21,6 +21,7 @@ module.exports = {
             black: '#232628',
             white: '#ffffff',
             lime: '#DADA50',
+            darkLime: '#CCCC33',
             ivory: '#F1F1E8',
             steel: {
                 200: '#eeeeee',
