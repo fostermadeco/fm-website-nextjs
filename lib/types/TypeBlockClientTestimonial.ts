@@ -1,11 +1,9 @@
 import * as Contentful from 'contentful';
-import { TypeClientFields } from './TypeClient';
+import { TypeTestimonialFields } from './TypeTestimonial';
 
 export interface TypeBlockClientTestimonialFields {
-    authorName?: Contentful.EntryFields.Symbol;
-    authorTitle?: Contentful.EntryFields.Symbol;
-    quote?: Contentful.EntryFields.Text;
-    client?: Contentful.Entry<TypeClientFields>;
+    internalName?: Contentful.EntryFields.Symbol;
+    testimonial: Contentful.Entry<TypeTestimonialFields>;
 }
 
 export type TypeBlockClientTestimonial = Contentful.Entry<TypeBlockClientTestimonialFields>;
