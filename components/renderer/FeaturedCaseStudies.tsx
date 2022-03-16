@@ -15,10 +15,10 @@ const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
     const { overline, headerText, caseStudies, button } = fields;
     return (
         <div className="container">
-            <div className="container bg-black pb-40">
-                <div className={` pb-20 pt-40 max-w-6xl mx-auto text-center`}>
-                    <div className={classNames(`h5 overline`, { 'text-white': true })}>{overline}</div>
-                    <div className={classNames(`h3`, { 'text-white': true })}>{headerText}</div>
+            <div className="bg-black pb-40">
+                <div className={` pb-20 pt-40 text-center`}>
+                    <div className="h5 overline text-white">{overline}</div>
+                    <div className="h3 text-white">{headerText}</div>
                 </div>
                 {caseStudies?.map((pageCaseStudy) => (
                     <CaseStudy key={pageCaseStudy.fields.content.sys.id} pageCaseStudy={pageCaseStudy} />
