@@ -1,12 +1,10 @@
 import React from 'react';
 import LinkWrapper from '@components/LinkWrapper';
 import Image from 'next/image';
-import classNames from 'classnames';
-import { TypePageCaseStudy, TypePageFields } from '@types';
-import * as Contentful from 'contentful';
+import { TypePage, TypePageCaseStudy } from '@types';
 
 type CaseStudyPropTypes = {
-    pageCaseStudy: Contentful.Entry<TypePageFields>;
+    pageCaseStudy: TypePage;
 };
 
 const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
@@ -14,44 +12,30 @@ const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
     const { fields: caseStudyPageFields } = pageCaseStudy.fields.content as TypePageCaseStudy;
     const { summary, heroImage } = caseStudyPageFields.caseStudy.fields;
     return (
-        <div
-            key={pageCaseStudy.fields.content.sys.id}
-            className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14 pb-24"
-        >
-            <div className="col-span-4 col-start-2">
-                <h5
-                    className={classNames(`h5 overline`, {
-                        'text-white': true,
-                    })}
-                >
-                    Case Study
-                </h5>
-                <h3 className={classNames(`h4`, `hover:text-lime`, { 'text-white': true })}>{title}</h3>
-                <p className={classNames({ 'text-white': true })}>{summary}</p>
-                <div>
-                    <LinkWrapper page={pageCaseStudy}>
-                        <a
-                            className={classNames(`inline-block mt-4 h5 emdash-in`, {
-                                'text-white': true,
-                            })}
+        <LinkWrapper page={pageCaseStudy}>
+            <a>
+                <div className="group items-center grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14 mb-24 md:gap-8">
+                    <div className="col-span-4 col-start-2">
+                        <div className="h5 overline text-white">Case Study</div>
+                        <div className="h4 group-hover:text-lime text-white">{title}</div>
+                        <p className="text-white">{summary}</p>
+                        <div
+                            className="inline-block mt-4 h5 emdash-in
+                                        text-white"
                         >
                             Read More
-                        </a>
-                    </LinkWrapper>
-                </div>
-            </div>
-            <div className="col-span-9">
-                <LinkWrapper page={pageCaseStudy}>
-                    <a>
+                        </div>
+                    </div>
+                    <div className="col-span-9">
                         <Image
                             src={`https:${heroImage.fields.media.fields.file.url}`}
                             width={heroImage.fields.media.fields.file.details.image?.width}
                             height={heroImage.fields.media.fields.file.details.image?.height}
                         />
-                    </a>
-                </LinkWrapper>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </a>
+        </LinkWrapper>
     );
 };
 
