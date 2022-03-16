@@ -62,3 +62,4 @@ export type { TypeSocialLinks, TypeSocialLinksFields } from './TypeSocialLinks';
 export type { TypeSolution, TypeSolutionFields } from './TypeSolution';
 export type { TypeTechnology, TypeTechnologyFields } from './TypeTechnology';
 export type { TypeTechnologyBlock, TypeTechnologyBlockFields } from './TypeTechnologyBlock';
+export type { TypeTestimonial, TypeTestimonialFields } from './TypeTestimonial';
