@@ -21,7 +21,7 @@ import CtaBottom from './CtaBottom';
 import ResponsiveFullImage from './ResponsiveFullImage';
 import PeopleList from './PeopleList';
 import Form from './Form';
-import FeaturedCaseStudies from './FeaturedCaseStudies';
+import FeaturedCaseStudyList from './FeaturedCaseStudyList';
 
 type BlockRendererProps = {
     block: any;
@@ -47,7 +47,7 @@ const ContentTypeMap = {
     blockCareerList: CareerList,
     blockPeopleList: PeopleList,
     form: Form,
-    blockFeaturedCaseStudies: FeaturedCaseStudies,
+    blockFeaturedCaseStudies: FeaturedCaseStudyList,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {

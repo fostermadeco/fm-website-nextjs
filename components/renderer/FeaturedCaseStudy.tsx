@@ -3,11 +3,11 @@ import LinkWrapper from '@components/LinkWrapper';
 import Image from 'next/image';
 import { TypePage, TypePageCaseStudy } from '@types';
 
-type CaseStudyPropTypes = {
+type FeaturedCaseStudyPropTypes = {
     pageCaseStudy: TypePage;
 };
 
-const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
+const FeaturedCaseStudy = ({ pageCaseStudy }: FeaturedCaseStudyPropTypes) => {
     const { title } = pageCaseStudy.fields;
     const { fields: caseStudyPageFields } = pageCaseStudy.fields.content as TypePageCaseStudy;
     const { summary, heroImage } = caseStudyPageFields.caseStudy.fields;
@@ -39,4 +39,4 @@ const CaseStudy = ({ pageCaseStudy }: CaseStudyPropTypes) => {
     );
 };
 
-export default CaseStudy;
+export default FeaturedCaseStudy;

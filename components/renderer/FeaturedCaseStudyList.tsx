@@ -1,14 +1,12 @@
 import React from 'react';
 import { TypeBlockFeaturedCaseStudiesFields } from '@types';
-
-import classNames from 'classnames';
 import ButtonCircle from '@components/ButtonCircle';
-import CaseStudy from './CaseStudy';
+import FeaturedCaseStudy from './FeaturedCaseStudy';
 
-type FeaturedCaseStudiesPropTypes = {
+type FeaturedCaseStudyListPropTypes = {
     fields: TypeBlockFeaturedCaseStudiesFields;
 };
-const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
+const FeaturedCaseStudyList = (props: FeaturedCaseStudyListPropTypes) => {
     const { fields } = props;
     if (!fields) return null;
 
@@ -21,7 +19,7 @@ const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
                     <div className="h3 text-white">{headerText}</div>
                 </div>
                 {caseStudies?.map((pageCaseStudy) => (
-                    <CaseStudy key={pageCaseStudy.fields.content.sys.id} pageCaseStudy={pageCaseStudy} />
+                    <FeaturedCaseStudy key={pageCaseStudy.fields.content.sys.id} pageCaseStudy={pageCaseStudy} />
                 ))}
                 {button && (
                     <div className="flex justify-center mt-20">
@@ -33,4 +31,4 @@ const FeaturedCaseStudies = (props: FeaturedCaseStudiesPropTypes) => {
     );
 };
 
-export default FeaturedCaseStudies;
+export default FeaturedCaseStudyList;
