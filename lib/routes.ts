@@ -75,6 +75,12 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
                 as: `/expertise/industry/${slug}`,
             };
         }
+        case PageContentTypes.CaseStudy: {
+            return {
+                href: '/case-studies/[slug]',
+                as: `/case-studies/${slug}`,
+            };
+        }
 
         default: {
             throw new Error(`Page type is not supported yet: ${pageType}`);
@@ -102,6 +108,9 @@ export const getLinkToParent = ({ page }: { page: TypePage }): { href: string; l
         }
         case PageContentTypes.Service: {
             return { href: '/expertise', label: 'Expertise' };
+        }
+        case PageContentTypes.CaseStudy: {
+            return { href: '/case-studies', label: 'Case Studies' };
         }
 
         default: {
