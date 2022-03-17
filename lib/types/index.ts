@@ -14,6 +14,7 @@ export type {
     TypeBlockImageWithPartialOverlayFields,
 } from './TypeBlockImageWithPartialOverlay';
 export type { TypeBlockIndustryBlocks, TypeBlockIndustryBlocksFields } from './TypeBlockIndustryBlocks';
+export type { TypeBlockLogoGrid, TypeBlockLogoGridFields } from './TypeBlockLogoGrid';
 export type { TypeBlockNumberedBlocks, TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 export type { TypeBlockPageIntroDetail, TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 export type { TypeBlockPageIntroSimple, TypeBlockPageIntroSimpleFields } from './TypeBlockPageIntroSimple';
@@ -22,6 +23,10 @@ export type { TypeBlockPeopleList, TypeBlockPeopleListFields } from './TypeBlock
 export type { TypeBlockResponsiveFullImage, TypeBlockResponsiveFullImageFields } from './TypeBlockResponsiveFullImage';
 export type { TypeBlockSlideshow, TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 export type { TypeBlockTechnologyBlocks, TypeBlockTechnologyBlocksFields } from './TypeBlockTechnologyBlocks';
+export type {
+    TypeBlockTestimonialSlideShow,
+    TypeBlockTestimonialSlideShowFields,
+} from './TypeBlockTestimonialSlideShow';
 export type { TypeBlockWideImage, TypeBlockWideImageFields } from './TypeBlockWideImage';
 export type { TypeButton, TypeButtonFields } from './TypeButton';
 export type { TypeCareerList, TypeCareerListFields } from './TypeCareerList';
