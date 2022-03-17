@@ -14,6 +14,7 @@ export type {
     TypeBlockImageWithPartialOverlayFields,
 } from './TypeBlockImageWithPartialOverlay';
 export type { TypeBlockIndustryBlocks, TypeBlockIndustryBlocksFields } from './TypeBlockIndustryBlocks';
+export type { TypeBlockLogoGrid, TypeBlockLogoGridFields } from './TypeBlockLogoGrid';
 export type { TypeBlockNumberedBlocks, TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 export type { TypeBlockPageIntroDetail, TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 export type { TypeBlockPageIntroSimple, TypeBlockPageIntroSimpleFields } from './TypeBlockPageIntroSimple';

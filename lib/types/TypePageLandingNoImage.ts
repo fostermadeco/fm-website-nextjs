@@ -3,6 +3,7 @@ import { TypeBlockCtaBottomFields } from './TypeBlockCtaBottom';
 import { TypeBlockFeaturedCaseStudiesFields } from './TypeBlockFeaturedCaseStudies';
 import { TypeBlockIconBlocksFields } from './TypeBlockIconBlocks';
 import { TypeBlockImageWithPartialOverlayFields } from './TypeBlockImageWithPartialOverlay';
+import { TypeBlockLogoGridFields } from './TypeBlockLogoGrid';
 import { TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
@@ -16,6 +17,7 @@ export interface TypePageLandingNoImageFields {
         | TypeBlockFeaturedCaseStudiesFields
         | TypeBlockIconBlocksFields
         | TypeBlockImageWithPartialOverlayFields
+        | TypeBlockLogoGridFields
         | TypeBlockNumberedBlocksFields
         | TypeBlockPageSectionFields
         | TypeBlockTestimonialSlideShowFields
