@@ -2,6 +2,7 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import React, { useState } from 'react';
 import { getErrorMessage } from 'lib/errors';
+import { theme } from 'tailwind.config';
 import FieldInput from './FieldInput';
 import FocusError from './FocusError';
 
@@ -41,11 +42,9 @@ const FormCtaNewsletter = () => {
             setSubmitting(false);
             setSubmitError(null);
             setHasSuccess(true);
-            window.scrollTo(0, 0);
         } catch (e) {
             console.log(e);
             setSubmitError(getErrorMessage(e));
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         }
     };
     return (
@@ -56,7 +55,7 @@ const FormCtaNewsletter = () => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <Form noValidate method="POST">
                     {/* <input type="hidden" name="form-name" value={id} /> */}
                     {submitError && (
                         <div className=" bg-poppy">
@@ -69,23 +68,35 @@ const FormCtaNewsletter = () => {
                         </div>
                     )}
                     {!hasSuccess && (
-                        <div>
-                            <FocusError />
-                            <FieldInput
-                                label="EMAIL ADDRESS"
-                                name="email"
-                                type="text"
-                                placeholder="Email Address"
-                                required
-                            />
-
-                            <div className="flex justify-center my-10">
+                        <div className="flex flex-row">
+                            <div className="flex-auto">
+                                <FieldInput
+                                    label="EMAIL ADDRESS"
+                                    name="email"
+                                    type="email"
+                                    placeholder="Email Address"
+                                    required
+                                    style={{ backgroundColor: theme.colors.lime }}
+                                />
+                            </div>
+                            {/* <FocusError /> */}
+                            <div className="-ml-7 mt-14">
                                 <button
+                                    className="hover:clickable"
                                     type="submit"
-                                    className="btn-circle btn-circle-ivory"
                                     disabled={isSubmitting}
                                     aria-label="submit newsletter signup"
-                                />
+                                >
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                    >
+                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     )}
