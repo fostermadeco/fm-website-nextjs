@@ -38,11 +38,11 @@ const CarouselSlideShow = ({ testimonials }) => {
       <div className="relative" key={index}>
         <div className="container mx-auto">
           <div className="my-14">
-            <div className="absolute bottom-0 z-10 items-center block grid-cols-1 gap-0 mx-6 h-96 absoluteb md:mx-0 md:grid md:grid-cols-14">
-              <div className="col-span-8 p-10 text-white bg-black col-start-0 h-96">
+            <div className="absolute bottom-0 z-10 items-center block h-full grid-cols-1 gap-0 mx-6 absoluteb md:mx-0 md:grid md:grid-cols-14">
+              <div className="h-full col-span-8 p-10 text-white bg-black col-start-0">
                 <div>
-                  <h2 className="pb-5 text-left overline">{clientName}</h2>
-                  <p className="pb-5 text-xl text-left text-white ">
+                  <h2 className="pb-5 text-left overline pt-18">{clientName}</h2>
+                  <p className="pb-5 text-2xl text-left text-white ">
                     "{quote}"
                   </p>
                   <p className="text-left text-white">
