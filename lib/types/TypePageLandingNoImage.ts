@@ -6,6 +6,7 @@ import { TypeBlockImageWithPartialOverlayFields } from './TypeBlockImageWithPart
 import { TypeBlockNumberedBlocksFields } from './TypeBlockNumberedBlocks';
 import { TypeBlockPageIntroDetailFields } from './TypeBlockPageIntroDetail';
 import { TypeBlockPageSectionFields } from './TypeBlockPageSection';
+import { TypeBlockTestimonialSlideShowFields } from './TypeBlockTestimonialSlideShow';
 
 export interface TypePageLandingNoImageFields {
     name?: Contentful.EntryFields.Symbol;
@@ -17,6 +18,7 @@ export interface TypePageLandingNoImageFields {
         | TypeBlockImageWithPartialOverlayFields
         | TypeBlockNumberedBlocksFields
         | TypeBlockPageSectionFields
+        | TypeBlockTestimonialSlideShowFields
     >[];
 }
 

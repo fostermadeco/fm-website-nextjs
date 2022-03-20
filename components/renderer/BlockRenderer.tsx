@@ -17,6 +17,7 @@ import CtaFullSimple from './CtaFullSimple';
 import WideImage from './WideImage';
 import ClientTestimonial from './ClientTestimonial';
 import BlockDarkCircleBackground from './BlockDarkCircleBackground';
+import BlockTestimonialSlideShow from './BlockTestimonialSlideShow';
 import CtaBottom from './CtaBottom';
 import ResponsiveFullImage from './ResponsiveFullImage';
 import PeopleList from './PeopleList';
@@ -48,6 +49,7 @@ const ContentTypeMap = {
     blockPeopleList: PeopleList,
     form: Form,
     blockFeaturedCaseStudies: FeaturedCaseStudyList,
+    blockTestimonialSlideShow: BlockTestimonialSlideShow,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {

@@ -22,6 +22,10 @@ export type { TypeBlockPeopleList, TypeBlockPeopleListFields } from './TypeBlock
 export type { TypeBlockResponsiveFullImage, TypeBlockResponsiveFullImageFields } from './TypeBlockResponsiveFullImage';
 export type { TypeBlockSlideshow, TypeBlockSlideshowFields } from './TypeBlockSlideshow';
 export type { TypeBlockTechnologyBlocks, TypeBlockTechnologyBlocksFields } from './TypeBlockTechnologyBlocks';
+export type {
+    TypeBlockTestimonialSlideShow,
+    TypeBlockTestimonialSlideShowFields,
+} from './TypeBlockTestimonialSlideShow';
 export type { TypeBlockWideImage, TypeBlockWideImageFields } from './TypeBlockWideImage';
 export type { TypeButton, TypeButtonFields } from './TypeButton';
 export type { TypeCareerList, TypeCareerListFields } from './TypeCareerList';
