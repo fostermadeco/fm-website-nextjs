@@ -1,6 +1,6 @@
 import { Form, Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getErrorMessage } from 'lib/errors';
 import { theme } from 'tailwind.config';
 import FieldInput from './FieldInput';
@@ -22,22 +22,23 @@ const FormCtaNewsletter = () => {
         email: Yup.string().email('Give us a valid email.').required('Let us know your email.'),
     });
 
-    const encode = (data: { [x: string]: string | number | boolean }) =>
-        Object.keys(data)
-            .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-            .join('&');
+    const formRef = useRef<HTMLFormElement>(null);
+
+    useEffect(() => {
+        console.log(formRef);
+    });
 
     const handleSubmit = async (values: NewletterormValues, formikHelpers: FormikHelpers<NewletterormValues>) => {
         const { setSubmitting } = formikHelpers;
         console.log({ values });
 
-        const body = encode({ 'form-name': 'newsletter', ...values, docs: '' });
+        // const body = { email_address: values.email, status: 'subscribed' };
 
         try {
             await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body,
+                // body,
             });
             setSubmitting(false);
             setSubmitError(null);
@@ -55,8 +56,16 @@ const FormCtaNewsletter = () => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting }) => (
-                <Form noValidate method="POST">
-                    {/* <input type="hidden" name="form-name" value={id} /> */}
+                <Form
+                    action="https://fostermade.us8.list-manage.com/subscribe/post?u=8503905fda180a49ac40e4e3b&amp;id=f417ed3dd8"
+                    method="post"
+                    id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form"
+                    className="validate"
+                    target="_blank"
+                    noValidate
+                    ref={formRef}
+                >
                     {submitError && (
                         <div className=" bg-poppy">
                             <p className="px-4 py-4 text-white p-xl">{formErrorMessage}</p>
@@ -79,8 +88,8 @@ const FormCtaNewsletter = () => {
                                     style={{ backgroundColor: theme.colors.lime }}
                                 />
                             </div>
-                            {/* <FocusError /> */}
-                            <div className="-ml-7 mt-14">
+                            <FocusError />
+                            <div className="-ml-10 mt-16">
                                 <button
                                     className="hover:clickable"
                                     type="submit"
@@ -111,8 +120,8 @@ const CtaNewsletter = () => {
         'Want to stay in the loop? Sign-up for our quarterly newsletter and we’ll send you updates with a mix of our latest content.';
     return (
         <div className="grid-cols-1 gap-0 mx-0 md:grid md:grid-cols-2">
-            <div className="md:col-span-1 bg-darkLime text-center p-20">{leftSectionMessage}</div>
-            <div className="md:col-span-1 bg-lime py-14 px-20">
+            <div className="md:col-span-1 bg-darkLime font-semibold p-20 text-2xl">{leftSectionMessage}</div>
+            <div className="md:col-span-1 bg-lime py-14 px-20 xl:px-40">
                 <FormCtaNewsletter />
             </div>
         </div>
