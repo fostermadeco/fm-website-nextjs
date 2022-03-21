@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
 const HomePage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     const content = page.fields.content as TypePageLandingNoImage;
     const { sections = [], pageIntro } = content.fields;
-
+    console.log(sections);
     return (
         <Layout preview={preview}>
             <div>
