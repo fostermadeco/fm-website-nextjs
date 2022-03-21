@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { TypeBlockLogoGridFields } from '@types';
+import ClientLogo from './ClientLogo';
 
 type ClientLogoGridsPropTypes = {
     fields: TypeBlockLogoGridFields;
 };
 const ClientLogoGrid = (props: ClientLogoGridsPropTypes) => {
-    console.log(props);
     const { fields } = props;
 
-    const { internalName, logos } = fields;
+    const { logos } = fields;
 
-    // useEffect(() => {
-    //     console.log(logos);
-    // });
     if (!fields) return null;
     return (
-        <div className="container">
-            <div className="grid grid-rows-4">
+        <div className="container py-10 px-10">
+            <div className="relative flex flex-auto flex-wrap justify-center gap-4">
                 {logos?.map((logo) => (
-                    <ClientLogoGrid fields={logo} />
+                    <ClientLogo fields={logo.fields} key={logo.sys.id} />
                 ))}
             </div>
         </div>
     );
 };
 export default ClientLogoGrid;
-// key={logo.fields.content.sys.id}
