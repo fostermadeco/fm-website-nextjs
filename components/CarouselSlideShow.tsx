@@ -55,7 +55,7 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
                                 </button>
                             </div>
                             <div>
-                                <hr className="w-12" />
+                                <hr className="w-12" style={{ border: '1px solid gray' }} />
                             </div>
                             <div>
                                 <button type="button" onClick={next}>
