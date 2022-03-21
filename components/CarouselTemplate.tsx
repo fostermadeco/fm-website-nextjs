@@ -36,7 +36,7 @@ const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeT
                                         layout="fill"
                                         objectFit="cover"
                                         objectPosition="center"
-                                        src={`https:${imageSrc}`}
+                                        src={`https:${imageSrc || ''}`}
                                         alt=""
                                     />
                                 </div>
