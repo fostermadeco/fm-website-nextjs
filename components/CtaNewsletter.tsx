@@ -112,7 +112,7 @@ const CtaNewsletter = () => {
     return (
         <div className="grid-cols-1 gap-0 mx-0 md:grid md:grid-cols-2">
             <div className="md:col-span-1 bg-darkLime text-center p-20">{leftSectionMessage}</div>
-            <div className="md:col-span-1 bg-lime p-10">
+            <div className="md:col-span-1 bg-lime py-14 px-20">
                 <FormCtaNewsletter />
             </div>
         </div>
