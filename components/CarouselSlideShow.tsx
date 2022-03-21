@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import Image from 'next/image';
+import * as Contentful from 'contentful';
+import { TypeTestimonialFields } from '@types';
+import CarouselTemplate from './CarouselTemplate';
 
-const CarouselSlideShow = ({ testimonials }) => {
+const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<TypeTestimonialFields>[] }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const getConfigurableProps = () => ({
         showArrows: true,
@@ -26,50 +28,7 @@ const CarouselSlideShow = ({ testimonials }) => {
         ariaLabel: 'ariaLabel',
     });
 
-    const imageTemplates = testimonials.map((item, index) => {
-        const imageSrc = item.fields.image.fields.media.fields.file.url;
-        const clientName = item.fields.client.fields.name;
-        const { quote } = item.fields;
-        const { authorName } = item.fields;
-        const { authorTitle } = item.fields;
-
-        return (
-            <div className="relative" key={index}>
-                <div className="container mx-auto">
-                    <div className="my-14">
-                        <div className="absolute bottom-0 z-10 items-center block h-full grid-cols-1 gap-0 mx-6 absoluteb md:mx-0 md:grid md:grid-cols-14">
-                            <div className="h-full col-span-8 p-10 text-white bg-black col-start-0">
-                                <div>
-                                    <h2 className="pb-5 text-left overline pt-18">{clientName}</h2>
-                                    <p className="pb-5 text-2xl text-left text-white ">"{quote}"</p>
-                                    <p className="text-left text-white">
-                                        {authorName}, {authorTitle}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
-                            <div className="col-span-10 col-start-5">
-                                <div className="mt-6 md:mt-0">
-                                    <div className="relative w-full h-72 md:h-page-section-image-height-desktop">
-                                        <Image
-                                            className="z-0"
-                                            height={620}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
-                                            src={`https:${imageSrc}`}
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    });
+    const CarouselTemplates = testimonials.map((item) => <CarouselTemplate key={Math.random()} testimonial={item} />);
 
     const previous = () => {
         setCurrentSlide(currentSlide - 1);
@@ -79,7 +38,7 @@ const CarouselSlideShow = ({ testimonials }) => {
         setCurrentSlide(currentSlide + 1);
     };
 
-    const updateCurrentSlide = (index) => {
+    const updateCurrentSlide = (index: number) => {
         if (currentSlide !== index) {
             setCurrentSlide(index);
         }
@@ -108,7 +67,7 @@ const CarouselSlideShow = ({ testimonials }) => {
                 </div>
             </div>
             <Carousel {...getConfigurableProps()} onChange={updateCurrentSlide} selectedItem={currentSlide}>
-                {imageTemplates}
+                {CarouselTemplates}
             </Carousel>
         </>
     );
