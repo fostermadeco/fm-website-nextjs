@@ -1,21 +1,28 @@
-import React from 'react';
-import { TypeBlockFeaturedCaseStudiesFields } from '@types';
+import React, { useEffect } from 'react';
+import { TypeBlockLogoGridFields } from '@types';
 
-// type FeaturedCaseStudyListPropTypes = {
-//     fields: ;
-// };
-const ClientLogoGrid = () =>
-    // const { fields } = props;
-    // if (!fields) return null;
+type ClientLogoGridsPropTypes = {
+    fields: TypeBlockLogoGridFields;
+};
+const ClientLogoGrid = (props: ClientLogoGridsPropTypes) => {
+    console.log(props);
+    const { fields } = props;
 
-    // const { overline, headerText, caseStudies, button } = fields;
-    // return (
-    //     <div className="container">
-    //         <div className="grid grid-rows-4">
+    const { internalName, logos } = fields;
 
-    //         </div>
-    //     </div>
-    // );
-
-    null;
+    // useEffect(() => {
+    //     console.log(logos);
+    // });
+    if (!fields) return null;
+    return (
+        <div className="container">
+            <div className="grid grid-rows-4">
+                {logos?.map((logo) => (
+                    <ClientLogoGrid fields={logo} />
+                ))}
+            </div>
+        </div>
+    );
+};
 export default ClientLogoGrid;
+// key={logo.fields.content.sys.id}
