@@ -1,16 +1,29 @@
 import React from 'react';
 import { TypeLogoFields } from '@types';
+import Image from 'next/image';
 
 type ClientLogoPropTypes = {
     fields: TypeLogoFields;
 };
 const ClientLogo = (props: ClientLogoPropTypes) => {
     const { fields } = props;
-    // console.log(fields);
     if (!fields) return null;
+    const { logo } = fields;
 
-    // const { internalName, logos } = fields;
+    const { fields: logoFields } = logo;
 
-    return null;
+    const { file } = logoFields;
+
+    return (
+        <div className="relative w-1/2 h-16 md:w-1/4">
+            <Image
+                src={`https:${file.url}`}
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className="grayscale"
+            />
+        </div>
+    );
 };
 export default ClientLogo;
