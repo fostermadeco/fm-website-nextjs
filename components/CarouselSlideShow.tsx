@@ -8,7 +8,7 @@ import CarouselTemplate from './CarouselTemplate';
 const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<TypeTestimonialFields>[] }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const getConfigurableProps = () => ({
-        showArrows: true,
+        showArrows: false,
         showStatus: false,
         showIndicators: false,
         infiniteLoop: true,
@@ -45,7 +45,7 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
     };
     return (
         <>
-            <div className="absolute z-10 block w-5/12 h-16 mx-6 bg-white mt-14 md:mx-0 md:grid md:grid-cols-14">
+            <div className="absolute z-10 block w-3/12 h-16 mx-6 bg-white mt-14 md:mx-0 md:grid md:grid-cols-14">
                 <div className="col-span-6 col-start-2">
                     <div>
                         <div className="flex items-center justify-between">
