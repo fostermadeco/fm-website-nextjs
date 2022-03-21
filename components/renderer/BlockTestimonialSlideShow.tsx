@@ -22,7 +22,7 @@ const BlockTestimonialSlideShow = ({ fields }: { fields: TypeBlockTestimonialSli
                 </div>
                 <div className="container mx-auto">
                     <div className="mb-14 md:mb-20">
-                        <CarouselSlideShow testimonials={testimonials} />
+                        <CarouselSlideShow testimonials={testimonials || []} />
                     </div>
                 </div>
             </div>
