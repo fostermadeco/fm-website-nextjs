@@ -44,10 +44,10 @@ const CtaNewsletter = () => {
     const leftSectionMessage =
         'Want to stay in the loop? Sign-up for our quarterly newsletter and we’ll send you updates with a mix of our latest content.';
     return (
-        <div className="bg-gradient-to-r from-darkLime to-lime">
+        <div className="bg-gradient-to-r from-lime-dark to-lime">
             <div className="container">
                 <div className="grid-cols-1 gap-0 mx-0 md:grid md:grid-cols-14">
-                    <div className="py-20 md:col-span-6 md:col-start-2 bg-darkLime">
+                    <div className="py-20 md:col-span-6 md:col-start-2 bg-lime-dark">
                         <div className="pr-20">
                             <h4 className="h4">{leftSectionMessage}</h4>
                         </div>
