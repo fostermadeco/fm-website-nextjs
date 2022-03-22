@@ -23,6 +23,7 @@ import ResponsiveFullImage from './ResponsiveFullImage';
 import PeopleList from './PeopleList';
 import Form from './Form';
 import FeaturedCaseStudyList from './FeaturedCaseStudyList';
+import ClientLogoGrid from './ClientLogoGrid';
 
 type BlockRendererProps = {
     block: any;
@@ -50,6 +51,7 @@ const ContentTypeMap = {
     form: Form,
     blockFeaturedCaseStudies: FeaturedCaseStudyList,
     blockTestimonialSlideShow: BlockTestimonialSlideShow,
+    blockLogoGrid: ClientLogoGrid,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {
