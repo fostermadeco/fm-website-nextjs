@@ -1,6 +1,7 @@
 import React from 'react';
 import { theme } from 'tailwind.config';
 
+// TODO: add &email=joe@example.com to populate email
 const FormCtaNewsletter = () => {
     const actionUrl = `https://fostermade.us8.list-manage.com/subscribe?u=8503905fda180a49ac40e4e3b&amp;id=f417ed3dd8&MEDIA0=`;
     return (
@@ -12,7 +13,7 @@ const FormCtaNewsletter = () => {
                             EMAIL ADDRESS
                         </label>
                         <input
-                            className="form-control"
+                            className="placeholder-black form-control"
                             name="email"
                             type="email"
                             placeholder="Email Address"
@@ -21,7 +22,7 @@ const FormCtaNewsletter = () => {
                         />
                     </div>
                 </div>
-                <div className="-ml-10 mt-16">
+                <div className="mt-16 -ml-10">
                     <button className="hover:clickable" type="submit" aria-label="submit newsletter signup">
                         <svg
                             width="24"
@@ -43,10 +44,18 @@ const CtaNewsletter = () => {
     const leftSectionMessage =
         'Want to stay in the loop? Sign-up for our quarterly newsletter and we’ll send you updates with a mix of our latest content.';
     return (
-        <div className="grid-cols-1 gap-0 mx-0 md:grid md:grid-cols-2">
-            <div className="md:col-span-1 bg-darkLime font-semibold p-20 text-2xl">{leftSectionMessage}</div>
-            <div className="md:col-span-1 bg-lime py-14 px-20 xl:px-40">
-                <FormCtaNewsletter />
+        <div className="bg-gradient-to-r from-darkLime to-lime">
+            <div className="container">
+                <div className="grid-cols-1 gap-0 mx-0 md:grid md:grid-cols-14">
+                    <div className="py-20 md:col-span-6 md:col-start-2 bg-darkLime">
+                        <div className="pr-20">
+                            <h4 className="h4">{leftSectionMessage}</h4>
+                        </div>
+                    </div>
+                    <div className="py-20 pl-20 md:col-span-6 bg-lime">
+                        <FormCtaNewsletter />
+                    </div>
+                </div>
             </div>
         </div>
     );
