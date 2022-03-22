@@ -30,6 +30,8 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
 
     const CarouselTemplates = testimonials.map((item) => <CarouselTemplate key={Math.random()} testimonial={item} />);
 
+    console.log({ CarouselTemplates });
+
     const previous = () => {
         setCurrentSlide(currentSlide - 1);
     };
@@ -44,23 +46,26 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
         }
     };
     return (
-        <>
-            <div className="z-10 block w-[310px] gap-1 mx-6 mb-4 bg-white md:mb-0 md:h-[90px] md:absolute md:mt-14 md:mx-0 md:grid md:grid-cols-14">
-                <div className="col-span-8 col-start-5">
-                    <div className="grid items-center h-full">
-                        <div className="flex items-center gap-5">
-                            <div className="flex-none">
-                                <button type="button" onClick={previous} className="mb-0 h5">
-                                    Prev
-                                </button>
-                            </div>
-                            <div className="grow">
-                                <hr className="w-13" style={{ border: '1px solid' }} />
-                            </div>
-                            <div className="flex-none">
-                                <button type="button" onClick={next} className="mb-0 h5">
-                                    Next
-                                </button>
+        <div className="relative md:my-10">
+            <div className="z-10 mx-6 mb-4 md:mb-0 md:mx-0 md:grid md:grid-cols-14 md:h-[96px] md:absolute top-0 w-full">
+                <div className="bg-white " />
+                <div className="">
+                    <div className="w-[310px] h-full bg-white">
+                        <div className="grid h-full pr-14">
+                            <div className="flex items-center gap-5">
+                                <div className="flex-none">
+                                    <button type="button" onClick={previous} className="mb-0 mr-4 h5">
+                                        Prev
+                                    </button>
+                                </div>
+                                <div className="grow">
+                                    <hr className="w-13" style={{ border: '1px solid' }} />
+                                </div>
+                                <div className="flex-none">
+                                    <button type="button" onClick={next} className="mb-0 ml-4 h5">
+                                        Next
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,7 +74,7 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
             <Carousel {...getConfigurableProps()} onChange={updateCurrentSlide} selectedItem={currentSlide}>
                 {CarouselTemplates}
             </Carousel>
-        </>
+        </div>
     );
 };
 

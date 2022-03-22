@@ -12,14 +12,14 @@ const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeT
     return (
         <div className="relative">
             <div className="container mx-auto">
-                <div className="md:my-14">
+                <div className="">
                     <div
-                        className="bottom-0 z-10 items-center block grid-cols-1 gap-0 mx-6 md:absolute md:mx-0 md:grid md:grid-cols-14"
+                        className="bottom-0 z-10 items-end block grid-cols-1 gap-0 mx-6 md:absolute md:mx-0 md:grid md:grid-cols-14"
                         style={{ height: '90%' }}
                     >
                         <div
                             className="col-span-8 py-10 text-white bg-black md:py-10 col-start-0"
-                            style={{ height: '90%' }}
+                            style={{ height: '94%' }}
                         >
                             <div className="block h-full mx-6 md:mx-0 md:grid md:grid-cols-7">
                                 <div className="col-span-5 col-start-2">
