@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as Contentful from 'contentful';
 import { TypeTestimonialFields } from '@types';
 
-const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeTestimonialFields> }) => {
+const TestimonialSlide = ({ testimonial }: { testimonial: Contentful.Entry<TypeTestimonialFields> }) => {
     const imageSrc = testimonial?.fields?.image?.fields.media.fields.file.url;
     const clientName = testimonial?.fields?.client?.fields.name;
     const { quote, authorName, authorTitle, quoteShort } = testimonial.fields;
@@ -61,4 +61,4 @@ const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeT
     );
 };
 
-export default CarouselTemplate;
+export default TestimonialSlide;

@@ -3,9 +3,9 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import * as Contentful from 'contentful';
 import { TypeTestimonialFields } from '@types';
-import CarouselTemplate from './CarouselTemplate';
+import TestimonialSlide from './TestimonialSlide';
 
-const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<TypeTestimonialFields>[] }) => {
+const TestimonialSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<TypeTestimonialFields>[] }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const getConfigurableProps = () => ({
         showArrows: false,
@@ -28,7 +28,9 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
         ariaLabel: 'ariaLabel',
     });
 
-    const CarouselTemplates = testimonials.map((item) => <CarouselTemplate key={Math.random()} testimonial={item} />);
+    const TestimonialTemplates = testimonials.map((item) => (
+        <TestimonialSlide key={Math.random()} testimonial={item} />
+    ));
 
     const previous = () => {
         setCurrentSlide(currentSlide - 1);
@@ -70,10 +72,10 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
                 </div>
             </div>
             <Carousel {...getConfigurableProps()} onChange={updateCurrentSlide} selectedItem={currentSlide}>
-                {CarouselTemplates}
+                {TestimonialTemplates}
             </Carousel>
         </div>
     );
 };
 
-export default CarouselSlideShow;
+export default TestimonialSlideShow;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypeBlockTestimonialSlideShowFields } from '@types';
-import CarouselSlideShow from '../CarouselSlideShow';
+import TestimonialSlideShow from '../TestimonialSlideShow';
 
 const BlockTestimonialSlideShow = ({ fields }: { fields: TypeBlockTestimonialSlideShowFields }) => {
     if (!fields) return null;
@@ -22,7 +22,7 @@ const BlockTestimonialSlideShow = ({ fields }: { fields: TypeBlockTestimonialSli
                 </div>
                 <div className="container">
                     <div className="mb-14 md:mb-20">
-                        <CarouselSlideShow testimonials={testimonials || []} />
+                        <TestimonialSlideShow testimonials={testimonials || []} />
                     </div>
                 </div>
             </div>
