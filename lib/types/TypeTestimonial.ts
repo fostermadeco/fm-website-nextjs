@@ -7,6 +7,7 @@ export interface TypeTestimonialFields {
     authorTitle: Contentful.EntryFields.Symbol;
     client?: Contentful.Entry<TypeClientFields>;
     quote: Contentful.EntryFields.Text;
+    quoteShort?: Contentful.EntryFields.Text;
     image?: Contentful.Entry<TypeImageWrapperFields>;
 }
 
