@@ -45,21 +45,21 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
     };
     return (
         <>
-            <div className="absolute z-10 block w-3/12 h-16 gap-1 mx-6 bg-white mt-14 md:mx-0 md:grid md:grid-cols-14">
+            <div className="z-10 block w-[310px] gap-1 mx-6 mb-4 bg-white md:mb-0 md:h-[90px] md:absolute md:mt-14 md:mx-0 md:grid md:grid-cols-14">
                 <div className="col-span-8 col-start-5">
-                    <div>
+                    <div className="grid items-center h-full">
                         <div className="flex items-center gap-5">
                             <div className="flex-none">
-                                <button type="button" onClick={previous}>
-                                    PREV
+                                <button type="button" onClick={previous} className="mb-0 h5">
+                                    Prev
                                 </button>
                             </div>
                             <div className="grow">
                                 <hr className="w-13" style={{ border: '1px solid' }} />
                             </div>
                             <div className="flex-none">
-                                <button type="button" onClick={next}>
-                                    NEXT
+                                <button type="button" onClick={next} className="mb-0 h5">
+                                    Next
                                 </button>
                             </div>
                         </div>

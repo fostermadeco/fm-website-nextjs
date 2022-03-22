@@ -7,28 +7,28 @@ import { TypeTestimonialFields } from '@types';
 const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeTestimonialFields> }) => {
     const imageSrc = testimonial?.fields?.image?.fields.media.fields.file.url;
     const clientName = testimonial?.fields?.client?.fields.name;
-    const { quote } = testimonial.fields;
-    const { authorName } = testimonial.fields;
-    const { authorTitle } = testimonial.fields;
+    const { quote, authorName, authorTitle, quoteShort } = testimonial.fields;
 
     return (
         <div className="relative">
             <div className="container mx-auto">
-                <div className="my-14">
+                <div className="md:my-14">
                     <div
-                        className="absolute bottom-0 z-10 items-center block grid-cols-1 gap-0 mx-6 absoluteb md:mx-0 md:grid md:grid-cols-14"
+                        className="bottom-0 z-10 items-center block grid-cols-1 gap-0 mx-6 md:absolute md:mx-0 md:grid md:grid-cols-14"
                         style={{ height: '90%' }}
                     >
                         <div
-                            className="col-span-8 pt-10 pl-1 text-white bg-black col-start-0 "
+                            className="col-span-8 py-10 text-white bg-black md:py-10 col-start-0"
                             style={{ height: '90%' }}
                         >
-                            <div className="block mx-6 md:mx-0 md:grid md:grid-cols-14">
-                                <div className="col-span-8 col-start-3">
-                                    <div className="flex items-center">
+                            <div className="block h-full mx-6 md:mx-0 md:grid md:grid-cols-7">
+                                <div className="col-span-5 col-start-2">
+                                    <div className="grid items-center" style={{ height: '95%' }}>
                                         <div>
-                                            <h2 className="pb-5 text-left overline">{clientName}</h2>
-                                            <p className="pb-5 text-xl text-left text-white ">"{quote}"</p>
+                                            <h2 className="pb-5 text-left text-white overline h5">{clientName}</h2>
+                                            <p className="pb-5 text-3xl text-left text-white md:text-2xl ">
+                                                "{quoteShort || quote}"
+                                            </p>
                                             <p className="text-left text-white">
                                                 {authorName}, {authorTitle}
                                             </p>
@@ -38,7 +38,7 @@ const CarouselTemplate = ({ testimonial }: { testimonial: Contentful.Entry<TypeT
                             </div>
                         </div>
                     </div>
-                    <div className="items-center block grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
+                    <div className="items-center hidden grid-cols-1 gap-0 mx-6 md:mx-0 md:grid md:grid-cols-14">
                         <div className="col-span-10 col-start-5">
                             <div className="mt-6 md:mt-0">
                                 <div className="relative w-full h-72 md:h-page-section-image-height-desktop">
