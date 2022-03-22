@@ -7,20 +7,17 @@ type ClientLogoPropTypes = {
 };
 const ClientLogo = (props: ClientLogoPropTypes) => {
     const { logo } = props;
-    const { fields } = logo;
-    if (!fields) return null;
-    const { logo: logoMedia } = fields;
-    const { fields: logoMediaFields } = logoMedia;
-    const { file } = logoMediaFields;
+    if (!logo) return null;
+    const { file } = logo.fields.logo.fields;
 
     return (
-        <div className="relative w-1/2 h-16 md:w-1/5">
+        <div className="relative w-3/4 h-16">
             <Image
                 src={`https:${file.url}`}
                 layout="fill"
                 objectFit="contain"
                 objectPosition="center"
-                className="grayscale opacity-50"
+                className="opacity-50 grayscale"
             />
         </div>
     );

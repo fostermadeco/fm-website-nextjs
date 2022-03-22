@@ -7,16 +7,24 @@ type ClientLogoGridsPropTypes = {
 };
 const ClientLogoGrid = (props: ClientLogoGridsPropTypes) => {
     const { fields } = props;
+    if (!fields) return null;
 
     const { logos } = fields;
 
-    if (!fields) return null;
     return (
-        <div className="container py-10 px-10">
-            <div className="relative flex flex-auto flex-wrap justify-center gap-8">
-                {logos?.map((logo) => (
-                    <ClientLogo logo={logo} key={logo.sys.id} />
-                ))}
+        <div className="container">
+            <div className="py-20">
+                <div className="grid grid-cols-14">
+                    <div className="col-span-12 col-start-2">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-20">
+                            {logos.map((logo) => (
+                                <div className="flex items-center justify-center">
+                                    <ClientLogo logo={logo} key={logo.sys.id} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
