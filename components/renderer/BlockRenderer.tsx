@@ -52,6 +52,7 @@ const ContentTypeMap = {
     blockFeaturedCaseStudies: FeaturedCaseStudyList,
     blockTestimonialSlideShow: BlockTestimonialSlideShow,
     blockLogoGrid: ClientLogoGrid,
+    blockTestimonialSlideShow: BlockTestimonialSlideShow,
 };
 
 const BlockRenderer = (props: BlockRendererProps) => {
