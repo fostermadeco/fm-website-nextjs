@@ -30,8 +30,6 @@ const CarouselSlideShow = ({ testimonials }: { testimonials: Contentful.Entry<Ty
 
     const CarouselTemplates = testimonials.map((item) => <CarouselTemplate key={Math.random()} testimonial={item} />);
 
-    console.log({ CarouselTemplates });
-
     const previous = () => {
         setCurrentSlide(currentSlide - 1);
     };
