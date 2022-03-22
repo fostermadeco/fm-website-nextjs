@@ -1,5 +1,4 @@
 import React from 'react';
-import { theme } from 'tailwind.config';
 
 // TODO: add &email=joe@example.com to populate email
 const FormCtaNewsletter = () => {
@@ -13,12 +12,11 @@ const FormCtaNewsletter = () => {
                             EMAIL ADDRESS
                         </label>
                         <input
-                            className="placeholder-black form-control"
+                            className="placeholder-black form-control bg-lime"
                             name="email"
                             type="email"
                             placeholder="Email Address"
                             required
-                            style={{ backgroundColor: theme.colors.lime }}
                         />
                     </div>
                 </div>
