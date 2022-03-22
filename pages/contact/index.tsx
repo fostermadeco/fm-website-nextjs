@@ -7,7 +7,6 @@ import Layout from '@components/Layout';
 import PageIntroSimple from '@components/renderer/PageIntroSimple';
 import ImageWithPartialOverlayWithSlots from '@components/ImageWithPartialOverlayWithSlots';
 import Form from '@components/renderer/Form';
-import TextMarkdown from '@components/TextMarkdown';
 import * as Contentful from 'contentful';
 import SocialLinkIcon from '@components/SocialLinkIcon';
 
@@ -78,7 +77,6 @@ const ContactPage = ({ page, preview }: { page: TypePage; preview: boolean }) =>
 
     const content = page.fields.content as TypePageContact;
     const { pageIntro, heroImage, overline, headerText, form, socialLinks } = content.fields;
-
     return (
         <Layout preview={preview}>
             <div className="pt-40">

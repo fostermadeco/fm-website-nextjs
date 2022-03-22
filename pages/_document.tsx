@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import CtaNewsletter from '@components/CtaNewsletter';
 import Footer from '../components/Footer';
 
 class AppDocument extends Document {
@@ -16,6 +17,7 @@ class AppDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+                    <CtaNewsletter />
                     <Footer />
                 </body>
             </Html>
