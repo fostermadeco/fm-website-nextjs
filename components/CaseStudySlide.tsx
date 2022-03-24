@@ -2,17 +2,14 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Image from 'next/image';
 import * as Contentful from 'contentful';
-import { TypeCaseStudyFields } from '@types';
+import { TypeCaseStudy } from '@types';
 
-const CaseStudySlide = ({ caseStudy }: { caseStudy: Contentful.Entry<TypeCaseStudyFields> }) => {
-    console.log(caseStudy, '   ^^^^^');
-    // const {  caseStudy } = caseStudy.fields.content.fields.caseStudy.fields;
+const CaseStudySlide = ({ caseStudy }: { caseStudy: Contentful.Entry<TypeCaseStudy> }) => {
+    const clientName = caseStudy?.fields?.content?.fields?.caseStudy?.fields?.client?.fields?.name;
+    const summary = caseStudy?.fields?.content?.fields?.caseStudy?.fields?.summary;
+    const imageSrc = caseStudy?.fields?.content?.fields?.caseStudy?.fields?.heroImage?.fields.media.fields.file.url;
 
     return (
-        // const imageSrc = testimonial?.fields?.image?.fields.media.fields.file.url;
-        // const clientName = testimonial?.fields?.client?.fields.name;
-        // const { quote, authorName, authorTitle, quoteShort } = testimonial.fields;
-
         <div className="relative">
             <div className="container mx-auto">
                 <div className="">
@@ -28,9 +25,9 @@ const CaseStudySlide = ({ caseStudy }: { caseStudy: Contentful.Entry<TypeCaseStu
                                 <div className="col-span-5 col-start-2">
                                     <div className="grid items-center" style={{ height: '95%' }}>
                                         <div>
-                                            {/* <h2 className="pb-5 text-left text-white overline h5">{clientName}</h2> */}
+                                            <h2 className="pb-5 text-left text-white overline h5">{clientName}</h2>
                                             <p className="pb-5 text-3xl text-left text-white md:text-2xl ">
-                                                {/* "{quoteShort || quote}" */}
+                                                "{summary}"
                                             </p>
                                             <p className="text-left text-white">{/* {authorName}, {authorTitle} */}</p>
                                         </div>
@@ -43,15 +40,15 @@ const CaseStudySlide = ({ caseStudy }: { caseStudy: Contentful.Entry<TypeCaseStu
                         <div className="col-span-10 col-start-5">
                             <div className="mt-6 md:mt-0">
                                 <div className="relative w-full h-72 md:h-page-section-image-height-desktop">
-                                    {/* <Image
-                                    className="z-0"
-                                    height={620}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    // src={`https:${imageSrc || ''}`}
-                                    alt=""
-                                /> */}
+                                    <Image
+                                        className="z-0"
+                                        height={620}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        src={`https:${imageSrc || ''}`}
+                                        alt=""
+                                    />
                                 </div>
                             </div>
                         </div>

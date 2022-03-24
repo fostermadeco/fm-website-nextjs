@@ -44,8 +44,8 @@ const CaseStudySlideShow = ({ caseStudies }: { caseStudies: Contentful.Entry<Typ
         }
     };
     return (
-        <div className="relative md:my-10">
-            <div className="z-10 mx-6 mb-4 md:mb-0 md:mx-0 md:grid md:grid-cols-14 md:h-[96px] md:absolute top-0 w-full">
+        <div className="relative">
+            <div className=" mx-6 mb-4 md:mb-0 md:mx-0 md:grid md:grid-cols-14 md:h-[96px] top-0 w-full">
                 <div className="bg-white " />
                 <div className="">
                     <div className="w-[310px] h-full bg-white">
