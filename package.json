@@ -28,7 +28,7 @@
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
     "lodash.noop": "^3.0.1",
-    "next": "12.0.7",
+    "next": "12.1.0",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
     "postcss-nesting": "^10.1.2",
