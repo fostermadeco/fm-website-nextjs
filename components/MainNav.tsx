@@ -41,13 +41,13 @@ const MainNav = (props: MainNavPropTypes) => {
                                         </Link>
                                     </li>
                                     <li className="px-3">
-                                        <Link href="/expertise">
+                                        <Link href="/services">
                                             <a
                                                 className={`${
-                                                    router.pathname.startsWith('/expertise') ? 'after:w-full' : ''
+                                                    router.pathname.startsWith('/services') ? 'after:w-full' : ''
                                                 } ${textColor} ${borderColor} pb-1 h5 border-b-in`}
                                             >
-                                                Expertise
+                                                Services
                                             </a>
                                         </Link>
                                     </li>

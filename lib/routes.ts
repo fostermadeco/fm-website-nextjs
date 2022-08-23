@@ -59,20 +59,20 @@ const getUrlByPageType = (props: GetUrlByPageTypeProps): LinkProps => {
         }
         case PageContentTypes.Service: {
             return {
-                href: '/expertise/service/[slug]',
-                as: `/expertise/service/${slug}`,
+                href: '/services/service/[slug]',
+                as: `/services/service/${slug}`,
             };
         }
         case PageContentTypes.Technology: {
             return {
-                href: '/expertise/technology/[slug]',
-                as: `/expertise/technology/${slug}`,
+                href: '/services/technology/[slug]',
+                as: `/services/technology/${slug}`,
             };
         }
         case PageContentTypes.Industry: {
             return {
-                href: '/expertise/industry/[slug]',
-                as: `/expertise/industry/${slug}`,
+                href: '/services/industry/[slug]',
+                as: `/services/industry/${slug}`,
             };
         }
         case PageContentTypes.CaseStudy: {
@@ -101,13 +101,13 @@ export const getLinkToParent = ({ page }: { page: TypePage }): { href: string; l
             return { href: '/company/careers', label: 'Careers' };
         }
         case PageContentTypes.Technology: {
-            return { href: '/expertise', label: 'Expertise' };
+            return { href: '/services', label: 'Services' };
         }
         case PageContentTypes.Industry: {
-            return { href: '/expertise', label: 'Expertise' };
+            return { href: '/services', label: 'Services' };
         }
         case PageContentTypes.Service: {
-            return { href: '/expertise', label: 'Expertise' };
+            return { href: '/services', label: 'Services' };
         }
         case PageContentTypes.CaseStudy: {
             return { href: '/case-studies', label: 'Case Studies' };

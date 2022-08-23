@@ -9,7 +9,7 @@ import Layout from '@components/Layout';
 export async function getStaticProps({ preview = false }) {
     const page = await getPage({
         pageContentType: PageContentTypes.Landing,
-        slug: 'expertise',
+        slug: 'services',
         preview,
     });
 
@@ -21,7 +21,7 @@ export async function getStaticProps({ preview = false }) {
     };
 }
 
-const ExpertisePage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
+const ServicesPage = ({ page, preview }: { page: TypePage; preview: boolean }) => {
     console.log({ page });
 
     const content = page.fields.content as TypePageLanding;
@@ -38,4 +38,4 @@ const ExpertisePage = ({ page, preview }: { page: TypePage; preview: boolean }) 
     );
 };
 
-export default ExpertisePage;
+export default ServicesPage;

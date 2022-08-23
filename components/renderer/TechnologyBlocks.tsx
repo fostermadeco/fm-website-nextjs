@@ -13,7 +13,7 @@ const TechnologyBlock = (props: TechnologyBlockProps) => {
     if (!block.fields.link) return null;
 
     return (
-        <Link href={`/expertise/technology/${block.fields.link.fields.slug}`}>
+        <Link href={`/services/technology/${block.fields.link.fields.slug}`}>
             <a className="block duration-200 ease-in rounded-full md:px-8 md:py-20 md:text-center group md:hover:bg-black md:w-60 md:h-60">
                 <div
                     key={`technology-block-${block.sys.id}`}

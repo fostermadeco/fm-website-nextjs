@@ -15,7 +15,7 @@ const IndustryBlock = (props: IndustryBlockProps) => {
     if (!block || !block.fields.link) return null;
 
     return (
-        <Link href={`/expertise/industry/${block.fields.link.fields.slug}`}>
+        <Link href={`/services/industry/${block.fields.link.fields.slug}`}>
             <a className="text-center text-white h4 group">
                 <div
                     key={`industry-block-${block.sys.id}`}
