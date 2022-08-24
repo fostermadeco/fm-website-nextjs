@@ -42,11 +42,7 @@ type PeopleListProps = {
 const PeopleList = (props: PeopleListProps) => {
     const { fields } = props;
     const { data, error } = useSWR<TypePage[], Error>('/api/people', fetcher);
-    // peoplePages does not have TypePage fields: seo, slug, etc.
     const { people, peoplePages, peoplePagesCompose } = fields;
-    // console.log({ peoplePagesCompose });
-    // console.log({ peoplePages });
-    // console.log({ data });
 
     // TODO: add loader
     if (!data || !peoplePages) return null;
@@ -58,7 +54,7 @@ const PeopleList = (props: PeopleListProps) => {
                     <div className="block md:grid-cols-12 md:gap-6 md:grid">
                         {peoplePages.map((personPage: TypePagePerson) => {
                             const page = data.find((p) => p.fields.content.sys.id === personPage.sys.id);
-                            console.log({ page });
+
                             if (!page) return null;
                             return (
                                 <div className="mb-8 md:mb-0 md:col-span-6 lg:col-span-4" key={personPage.sys.id}>
